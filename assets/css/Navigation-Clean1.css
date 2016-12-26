@@ -46,7 +46,7 @@
 }
 
 .navigation-clean.navbar .navbar-nav> li > a:hover{
-    background:#eee;
+    background-color:#ddd;
 } 
 
 .navigation-clean.navbar-default .navbar-nav > li > a {
@@ -79,7 +79,7 @@
 
 @media (max-width:767px) {
   .navigation-clean .navbar-nav .open .dropdown-menu > li > a:hover{
-    background:#eee;
+    background:#ddd;
   }
 }
 
@@ -90,7 +90,7 @@
 }
 
 .navigation-clean .dropdown-menu > li > a:focus, .navigation-clean .dropdown-menu > li > a:hover {
-  background:#eee;
+  background:#ddd;
   color:inherit;
 }
 
