@@ -6,7 +6,11 @@
   border-radius:0;
   box-shadow:none;
   border:none;
-  margin-bottom:0;
+  margin-bottom:5em;
+  position: fixed;
+    
+  z-index: 2;
+  width: 100%;
 }
 
 @media (max-width:767px) {
@@ -26,19 +30,9 @@
 .navigation-clean .navbar-brand {
   font-weight:bold;
   color:inherit;
+    padding-top: 5px;
+    vertical-align: middle;
 }
-
-
-
-
-.navigation-clean .navbar-brand img {
-  display:block;
-  margin:auto;
-}
-
-
-
-
 
 .navigation-clean.navbar .navbar-nav > li > a {
   padding-left:18px;

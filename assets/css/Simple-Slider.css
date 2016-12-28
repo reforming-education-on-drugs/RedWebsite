@@ -3,6 +3,7 @@
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
+
 }
 
 .simple-slider .swiper-button-next, .simple-slider .swiper-button-prev {
@@ -29,6 +30,10 @@ border-color: #f00;}
     display:none;
     
   }
+}
+
+.swiper-slide{
+    background-size: 10%;
 }
 
 @media (max-width:767px) {
