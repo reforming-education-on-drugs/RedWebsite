@@ -21,14 +21,3 @@ p {
 #spacer{
     height: 5em;
 }
-
-#getInvolvedH1 {
-    text-align: center;
-    font-weight: bold;
-}
-
-@media (max-width:767px) {
-    #getInvolvedH1 {
-        font-size: 2em;
-    }
-}
