@@ -4,6 +4,7 @@
     margin-left:auto;
     margin-right:auto;
     display:block;
+    padding-bottom: 
 }
 .executive h2{
     margin: 0.5em;
@@ -25,6 +26,7 @@
 
 }
 hr {
+    padding: 1em 0;
     height: 2px;
     background: red;
 }
