@@ -1,0 +1,30 @@
+.executive img{
+    max-height: 500px;
+    max-width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+.executive h2{
+    margin: 0.5em;
+    font-weight: bold;
+}
+.executive h3{
+    margin: 0.5em;
+    color: black;
+    font-weight: bold;
+}
+
+.executive p{
+    vertical-align: middle;
+    max-width: 600px;
+    font-size: 1.5em;
+    text-align: justify;
+    margin: auto;
+    display:block;
+
+}
+hr {
+    height: 2px;
+    background: red;
+}
