@@ -3,7 +3,6 @@ h1 {
 }
 h2 {
   font-weight:bold;
-  margin-bottom:40px;
   color:inherit;
 }
 p {
@@ -15,7 +14,7 @@ p {
     color:white;
     width: 100%;
     padding: 4em 0em;
-}   
+}
 main > .container{
     padding: 4em 0em;
 }
@@ -26,5 +25,8 @@ main > .container{
 
 #spacer{
     height: 5em;
+}
+ul{
+  font-size: 1.2em;
 }
 
