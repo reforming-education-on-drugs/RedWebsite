@@ -1,15 +1,15 @@
-h3 {
+.getInvolvedH3 {
     text-align: center;
     font-size: 2em;
 }
 
 @media (max-width: 767px) {
-    h3 {
+    .getInvolvedH3 {
         font-size: 1em;
     }
 }
 
-#getInvolvedH1 {
+.getInvolvedH1 {
     text-align: center;
     font-weight: bold;
 }
@@ -19,11 +19,8 @@ h3 {
         font-size: 2em;
     }
 }
-<!-- width="760" height="500" frameborder="0" marginheight="0" marginwidth="00 -->
+<!-- width="760" height="500" frameborder="0" marginheight="0" marginwidth="0" -->
 .forms {
     width: 760;
     height: 500;
-    frameborder: 0:
-    marginheight: 0;
-    marginwidth: 0; 
 }
