@@ -1,5 +1,6 @@
 .simple-slider .swiper-slide {
   height:500px;
+  width: 500px;
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
@@ -30,10 +31,6 @@ border-color: #f00;}
     display:none;
     
   }
-}
-
-.swiper-slide{
-    background-size: 10%;
 }
 
 @media (max-width:767px) {
