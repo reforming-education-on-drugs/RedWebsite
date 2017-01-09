@@ -1,11 +1,20 @@
 .getInvolvedH3 {
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 2em auto;
 }
 
 @media (max-width: 767px) {
     .getInvolvedH3 {
-        font-size: 1em;
+        font-size: 2em;
+        margin: 1em auto;
+    }
+    .getInvolvedH1 {
+        font-size: 2em;
+    }
+    .form {
+        height: 900px;
     }
 }
 
@@ -14,13 +23,6 @@
     font-weight: bold;
 }
 
-@media (max-width:767px) {
-    #getInvolvedH1 {
-        font-size: 2em;
-    }
-}
-<!-- width="760" height="500" frameborder="0" marginheight="0" marginwidth="0" -->
-.forms {
-    width: 760;
-    height: 500;
+.form {
+    height: 1500px;
 }
