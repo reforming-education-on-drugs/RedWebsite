@@ -28,15 +28,16 @@
 }
 
 .navigation-clean .navbar-brand {
-  font-weight:bold;
-  color:inherit;
+    font-weight:bold;
+    color:inherit;
     padding-top: 5px;
-    vertical-align: middle;
+    align-content: center;
+    vertical-align: 
 }
 
 .navigation-clean.navbar .navbar-nav > li > a {
-  padding-left:18px;
-  padding-right:18px;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 .navigation-clean.navbar .navbar-nav> li > a:hover{
