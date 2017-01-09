@@ -1,8 +1,11 @@
-h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  color:inherit;
+h1 {
+    font-size: 4em
 }
+
+h2 {
+  font-weight:bold
+}
+
 p {
   font-size: 1.2em;
 }
@@ -11,8 +14,12 @@ p {
     background-color: #FF1919;
     color:white;
     width: 100%;
-    padding: 5em 0em;  
-}   
+    padding: 4em 0em;
+}
+
+main > .container{
+    padding: 4em 0em;
+}
 
 #logo {
     height:2em;
@@ -20,6 +27,9 @@ p {
 
 #spacer{
     height: 5em;
+}
+ul{
+  font-size: 1.2em;
 }
 
 .getInvolvedH1 {
@@ -49,4 +59,14 @@ p {
 
 .form {
     height: 1000px;
+}
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    color: white;
 }
