@@ -1,9 +1,9 @@
 h1 {
-    font-size: 4em
+    font-size: 4em;
 }
 
 h2 {
-  font-weight:bold
+  font-weight: bold;
 }
 
 p {
@@ -22,14 +22,14 @@ main > .container{
 }
 
 #logo {
-    height:2em;
+    height: 2em;
 }
 
-#spacer{
+#spacer {
     height: 5em;
 }
 
-ul{
+ul {
   font-size: 1.2em;
 }
 
