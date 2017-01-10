@@ -107,12 +107,14 @@ hr {
     margin: 1em 1em;
 }
 
-.blog-item {
+.blog-content {
     text-align: center;
 }
 
-.blog-item p {
-    text-align: center;
+.blog-content p {
+    display: inline-block;
+    vertical-align: middle;  
     font-size: 1.2em;
     width: 60%;
+    padding:2em;
 }
