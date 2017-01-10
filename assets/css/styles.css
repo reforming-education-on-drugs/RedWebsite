@@ -106,3 +106,13 @@ hr {
     font-size: 1.2em;
     margin: 1em 1em;
 }
+
+.blog-item {
+    text-align: center;
+}
+
+.blog-item p {
+    text-align: center;
+    font-size: 1.2em;
+    width: 60%;
+}
