@@ -28,19 +28,13 @@ main > .container{
 #spacer{
     height: 5em;
 }
+
 ul{
   font-size: 1.2em;
 }
 
 
 @media (max-width: 767px) {
-    .getInvolvedH3 {
-        font-size: 2em;
-        margin: 1em auto;
-    }
-    .getInvolvedH1 {
-        font-size: 2em;
-    }
     .form {
         height: 700px;
     }
@@ -79,10 +73,12 @@ a:hover, a:active {
     margin-right:auto;
     display:block;
 }
+
 .executive h2{
     margin: 0.5em;
     font-weight: bold;
 }
+
 .executive h3{
     margin: 0.5em;
     color: black;
@@ -98,6 +94,7 @@ a:hover, a:active {
     display:block;
 
 }
+
 hr {
     margin: 4em auto;
     height: 2px;
