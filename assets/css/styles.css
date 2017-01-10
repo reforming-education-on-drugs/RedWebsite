@@ -100,3 +100,9 @@ hr {
     height: 2px;
     background: red;
 }
+
+.date-location {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 1em 1em;
+}
