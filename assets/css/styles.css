@@ -107,7 +107,14 @@ hr {
     margin: 1em 1em;
 }
 
+.blog-item {
+    margin-top: 3em;
+    padding: 2em 0;
+    background-color: #F7F7F7;
+}
+
 .blog-content {
+    margin-top: 2em;
     text-align: center;
 }
 
@@ -115,6 +122,6 @@ hr {
     display: inline-block;
     vertical-align: middle;  
     font-size: 1.2em;
-    width: 60%;
-    padding:2em;
+    padding: 2em;
+    width: 80%;
 }
