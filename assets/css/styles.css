@@ -107,10 +107,25 @@ hr {
     margin: 1em 1em;
 }
 
+.blog-icons {
+    width: 3.5%;
+    vertical-align: middle;
+    text-align: center;
+}
+
 .blog-item {
     margin-top: 3em;
     padding: 2em 0;
+}
+
+.blog-background-grey {
     background-color: #F7F7F7;
+    color: black;
+}
+
+.blog-background-red {
+    background-color: red;
+    color: white;
 }
 
 .blog-content {
