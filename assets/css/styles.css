@@ -6,7 +6,7 @@ h2 {
   font-weight:bold
 }
 
-p {
+p,ul{
   font-size: 1.2em;
 }
 
@@ -28,30 +28,11 @@ main > .container{
 #spacer{
     height: 5em;
 }
-ul{
-  font-size: 1.2em;
-}
 
-.getInvolvedH1 {
-    text-align: center;
-    font-weight: bold;
-}
 
-.getInvolvedH3 {
-    text-align: center;
-    font-size: 3em;
-    font-weight: bold;
-    margin: 2em auto;
-}
+
 
 @media (max-width: 767px) {
-    .getInvolvedH3 {
-        font-size: 2em;
-        margin: 1em auto;
-    }
-    .getInvolvedH1 {
-        font-size: 2em;
-    }
     .form {
         height: 700px;
     }
@@ -61,12 +42,69 @@ ul{
     height: 1000px;
 }
 
-a:link, a:visited {
+ul.nav a:link,ul.nav a:visited{
     color: black;
     text-decoration: none;
-    display: inline-block;
 }
 
-a:hover, a:active {
+
+a:hover.whitebackground, a:active.whitebackground {
+    color:red;
+}
+
+
+
+a:link.redbackground,a:visited.redbackground{
+    color: black;
+    display: inline-block;
+}
+ a:hover.redbackground, a:active.redbackground {
     color: white;
+}
+
+
+/* To make the pannner smaller */ 
+.swiper-container{
+        width:60%;   
+    }
+
+@media (max-width:767px) {
+    .swiper-container{
+        width:100%;   
+    }
+}
+
+.executive img{
+    max-height: 500px;
+    max-width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+.executive h2{
+    margin: 0.5em;
+    font-weight: bold;
+}
+
+.executive h3{
+    margin: 0.5em;
+    color: black;
+    font-weight: bold;
+}
+
+.executive p{
+    vertical-align: middle;
+    max-width: 600px;
+    font-size: 1.5em;
+    text-align: justify;
+    margin: auto;
+    display:block;
+
+}
+
+hr {
+    margin: 4em auto;
+    height: 2px;
+    background: red;
 }
