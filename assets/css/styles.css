@@ -107,10 +107,13 @@ hr {
     margin: 1em 1em;
 }
 
+.date-location span {
+    padding: 0 1em;
+}
+
 .blog-icons {
     width: 3.5%;
     vertical-align: middle;
-    text-align: center;
 }
 
 .blog-item {
@@ -131,6 +134,9 @@ hr {
 .blog-content {
     margin-top: 2em;
     text-align: center;
+}
+
+.blog-content img {
 }
 
 .blog-content p {
