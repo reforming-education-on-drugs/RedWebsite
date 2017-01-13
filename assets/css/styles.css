@@ -1,5 +1,5 @@
 h1 {
-    font-size: 4em;
+    font-size: 4rem
 }
 
 h2 {
@@ -7,19 +7,26 @@ h2 {
 }
 
 p,ul{
-  font-size: 1.2em;
+  font-size: 2rem;
+}
+
+p{
+  text-align: justify;
 }
 
 .coloredcontainer{
-    background-color: #FF1919;
     color:white;
-    width: 100%;
-    padding: 4em 0em;
 }
 
 main > .container{
-    padding: 4em 0em;
+    padding: 4em;
 }
+
+.coloredcontainer > .container {
+    padding: 4em;
+    background-color: #E00000;
+}
+
 
 #logo {
     height: 2em;
@@ -36,7 +43,7 @@ main > .container{
 }
 
 .form {
-    height: 1000px;
+    height: 1100px;
 }
 
 ul.nav a:link,ul.nav a:visited{
@@ -62,13 +69,16 @@ a:link.redbackground,a:visited.redbackground{
 
 /* To make the pannner smaller */ 
 .swiper-container{
-        width:60%;   
+        width: 60%;  
     }
 
 @media (max-width:767px) {
     .swiper-container{
         width:100%;   
     }
+}
+img.parents {
+    max-width:100%;
 }
 
 .executive img{
@@ -103,7 +113,7 @@ a:link.redbackground,a:visited.redbackground{
 hr {
     margin: 4em auto;
     height: 2px;
-    background: red;
+    background: #E00000;
 }
 
 .date-location {
