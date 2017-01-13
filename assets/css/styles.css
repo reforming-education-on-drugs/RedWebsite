@@ -80,6 +80,9 @@ a:link.redbackground,a:visited.redbackground{
         width:100%;   
     }
 }
+img.parents {
+    max-width:100%;
+}
 
 .executive img{
     max-height: 500px;
