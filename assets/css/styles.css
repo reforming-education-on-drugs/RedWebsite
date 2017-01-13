@@ -1,17 +1,32 @@
+@font-face {
+    font-family: "Caviar Dreams";
+    font-style: normal;
+    font-weight: normal;
+    src: 
+        url("/assets/fonts/caviardreams/CaviarDreams.ttf") format("truetype"),
+        url("/assets/fonts/caviardreams/CaviarDreams_Bold.ttf") format("truetype"),
+        url("/assets/fonts/caviardreams/CaviarDreams_Italic.ttf") format("truetype"),
+        url("/assets/fonts/caviardreams/CaviarDreams_BoldItalic.ttf") format("truetype");
+}
+
 h1 {
-    font-size: 4rem
+    font-size: 4rem;
+    font-family: "Caviar Dreams";
 }
 
 h2 {
-  font-weight: bold;
+    font-weight: bold;
+    font-family: "Caviar Dreams";
 }
 
 p,ul{
-  font-size: 2rem;
+    font-size: 2rem;
+    font-family: "Caviar Dreams";
 }
 
 p{
-  text-align: justify;
+    text-align: justify;
+    font-family: "Caviar Dreams";
 }
 
 .coloredcontainer{
@@ -98,6 +113,7 @@ img.parents {
     margin: 0.5em;
     color: black;
     font-weight: bold;
+    font-family: "Caviar Dreams";
 }
 
 .executive p{
@@ -107,7 +123,6 @@ img.parents {
     text-align: justify;
     margin: auto;
     display:block;
-
 }
 
 hr {
@@ -116,7 +131,7 @@ hr {
     background: #E00000;
 }
 
-.blog-header p, h2 {
+.blog-header p, .blog-header h2 {
     text-align: center;
 }
 
@@ -124,6 +139,7 @@ hr {
     text-align: center;
     font-size: 1.2em;
     margin: 1em 1em;
+    font-family: "Caviar Dreams";
 }
 
 .date-location span {
