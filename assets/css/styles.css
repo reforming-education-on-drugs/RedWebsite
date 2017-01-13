@@ -1,9 +1,9 @@
 h1 {
-    font-size: 4em
+    font-size: 4em;
 }
 
 h2 {
-  font-weight:bold
+  font-weight: bold;
 }
 
 p,ul{
@@ -22,15 +22,12 @@ main > .container{
 }
 
 #logo {
-    height:2em;
+    height: 2em;
 }
 
-#spacer{
+#spacer {
     height: 5em;
 }
-
-
-
 
 @media (max-width: 767px) {
     .form {
@@ -107,4 +104,48 @@ hr {
     margin: 4em auto;
     height: 2px;
     background: red;
+}
+
+.date-location {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 1em 1em;
+}
+
+.date-location span {
+    padding: 0 1em;
+}
+
+.blog-icons {
+    width: 3.5%;
+    vertical-align: middle;
+}
+
+.blog-item {
+    margin-top: 3em;
+    padding: 2em 0;
+}
+
+.blog-background-grey {
+    background-color: #F7F7F7;
+    color: black;
+}
+
+.blog-background-red {
+    background-color: red;
+    color: white;
+}
+
+.blog-content {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.blog-content p {
+    text-align: justify;
+    display: inline-block;
+    vertical-align: middle;  
+    font-size: 1.2em;
+    padding: 2em;
+    width: 80%;
 }
