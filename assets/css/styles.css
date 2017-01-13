@@ -36,9 +36,6 @@ main > .container{
     height: 5em;
 }
 
-
-
-
 @media (max-width: 767px) {
     .form {
         height: 700px;
@@ -46,7 +43,7 @@ main > .container{
 }
 
 .form {
-    height: 1000px;
+    height: 1100px;
 }
 
 ul.nav a:link,ul.nav a:visited{
