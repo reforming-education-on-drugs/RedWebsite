@@ -6,7 +6,7 @@ h2 {
   font-weight: bold;
 }
 
-p {
+p,ul{
   font-size: 1.2em;
 }
 
@@ -29,11 +29,6 @@ main > .container{
     height: 5em;
 }
 
-ul {
-  font-size: 1.2em;
-}
-
-
 @media (max-width: 767px) {
     .form {
         height: 700px;
@@ -44,13 +39,23 @@ ul {
     height: 1000px;
 }
 
-a:link, a:visited {
+ul.nav a:link,ul.nav a:visited{
     color: black;
     text-decoration: none;
-    display: inline-block;
 }
 
-a:hover, a:active {
+
+a:hover.whitebackground, a:active.whitebackground {
+    color:red;
+}
+
+
+
+a:link.redbackground,a:visited.redbackground{
+    color: black;
+    display: inline-block;
+}
+ a:hover.redbackground, a:active.redbackground {
     color: white;
 }
 
