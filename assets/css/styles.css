@@ -116,6 +116,10 @@ hr {
     background: #E00000;
 }
 
+.container p, h2 {
+    text-align: center;
+}
+
 .date-location {
     text-align: center;
     font-size: 1.2em;
