@@ -1,17 +1,21 @@
 h1 {
-    font-size: 4rem
+    font-size: 4rem;
+    font-family: "Roboto";
 }
 
 h2 {
-  font-weight: bold;
+    font-weight: bold;
+    font-family: "Roboto";
 }
 
 p,ul{
-  font-size: 2rem;
+    font-size: 2rem;
+    font-family: "Roboto";
 }
 
 p{
-  text-align: justify;
+    text-align: justify;
+    font-family: "Roboto";
 }
 
 .coloredcontainer{
@@ -91,6 +95,7 @@ img.parents {
     margin: 0.5em;
     color: black;
     font-weight: bold;
+    font-family: "Caviar Dreams";
 }
 
 .executive p{
@@ -100,7 +105,6 @@ img.parents {
     text-align: justify;
     margin: auto;
     display:block;
-
 }
 
 hr {
@@ -109,7 +113,7 @@ hr {
     background: #D00000;
 }
 
-.blog-header p, h2 {
+.blog-header p, .blog-header h2 {
     text-align: center;
 }
 
@@ -117,6 +121,7 @@ hr {
     text-align: center;
     font-size: 1.2em;
     margin: 1em 1em;
+    font-family: "Caviar Dreams";
 }
 
 .date-location span {
