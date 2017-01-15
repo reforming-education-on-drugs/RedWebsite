@@ -1,32 +1,21 @@
-@font-face {
-    font-family: "Caviar Dreams";
-    font-style: normal;
-    font-weight: normal;
-    src: 
-        url("/assets/fonts/caviardreams/CaviarDreams.ttf") format("truetype"),
-        url("/assets/fonts/caviardreams/CaviarDreams_Bold.ttf") format("truetype"),
-        url("/assets/fonts/caviardreams/CaviarDreams_Italic.ttf") format("truetype"),
-        url("/assets/fonts/caviardreams/CaviarDreams_BoldItalic.ttf") format("truetype");
-}
-
 h1 {
     font-size: 4rem;
-    font-family: "Caviar Dreams";
+    font-family: "Roboto";
 }
 
 h2 {
     font-weight: bold;
-    font-family: "Caviar Dreams";
+    font-family: "Roboto";
 }
 
 p,ul{
     font-size: 2rem;
-    font-family: "Caviar Dreams";
+    font-family: "Roboto";
 }
 
 p{
     text-align: justify;
-    font-family: "Caviar Dreams";
+    font-family: "Roboto";
 }
 
 .coloredcontainer{
