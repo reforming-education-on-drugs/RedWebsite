@@ -27,6 +27,10 @@ main > .container{
     background-color: #E00000;
 }
 
+#swiper{
+    padding: 0px;
+}
+
 
 #logo {
     height: 2em;
@@ -66,17 +70,6 @@ a:link.redbackground,a:visited.redbackground{
     color: white;
 }
 
-
-/* To make the pannner smaller */ 
-.swiper-container{
-        width: 60%;  
-    }
-
-@media (max-width:767px) {
-    .swiper-container{
-        width:100%;   
-    }
-}
 img.parents {
     max-width:100%;
 }
