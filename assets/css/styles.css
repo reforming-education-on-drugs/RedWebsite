@@ -24,7 +24,7 @@ main > .container{
 
 .coloredcontainer > .container {
     padding: 4em;
-    background-color: #E00000;
+    background-color: #D00000;
 }
 
 #swiper{
@@ -106,7 +106,7 @@ img.parents {
 hr {
     margin: 4em auto;
     height: 2px;
-    background: #E00000;
+    background: #D00000;
 }
 
 .blog-header p, h2 {
@@ -139,7 +139,7 @@ hr {
 }
 
 .blog-background-red {
-    background-color: #E00000;
+    background-color: #D00000;
     color: white;
 }
 
