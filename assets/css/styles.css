@@ -1,34 +1,56 @@
 h1 {
     font-size: 4rem;
     font-family: "Roboto";
+    text-align: center;
 }
 
 h2 {
     font-weight: bold;
     font-family: "Roboto";
+    text-align: center;
+}
+h3 {
+    font-family: "Roboto";
+    text-align: left;
 }
 
-p,ul{
+p,ul,ol{
     font-size: 2rem;
     font-family: "Roboto";
 }
 
 p{
-    text-align: justify;
-    font-family: "Roboto";
+    text-align: center;
+}
+
+@media (max-width: 767px){
+    h1,h2{
+        font-size:3rem;
+    }
+    h3{
+        font-size:2rem;
+    }
+    p,ul,ol{
+        font-size: 1.5rem;
+    }
 }
 
 .coloredcontainer{
     color:white;
 }
 
-main > .container{
+main .container{
     padding: 4em;
 }
 
 .coloredcontainer > .container {
-    padding: 4em;
     background-color: #D00000;
+}
+
+@media (max-width: 767px){
+    main .container{
+        padding: 2em 10px;
+    }
 }
 
 #swiper{
@@ -101,7 +123,6 @@ img.parents {
 .executive p{
     vertical-align: middle;
     max-width: 600px;
-    font-size: 1.5em;
     text-align: justify;
     margin: auto;
     display:block;
@@ -111,10 +132,6 @@ hr {
     margin: 4em auto;
     height: 2px;
     background: #D00000;
-}
-
-.blog-header p, .blog-header h2 {
-    text-align: center;
 }
 
 .date-location {
@@ -135,7 +152,8 @@ hr {
 
 .blog-item {
     margin-top: 3em;
-    padding: 2em 0;
+    padding: 2em 0px;
+    
 }
 
 .blog-background-grey {
@@ -153,11 +171,28 @@ hr {
     text-align: center;
 }
 
+#blogcontainer{
+    padding: 0px;
+}
+
 .blog-content p {
-    text-align: justify;
+    text-align: center;
     display: inline-block;
     vertical-align: middle;  
     font-size: 1.2em;
     padding: 2em;
     width: 80%;
+}
+
+@media (max-width: 767px){
+    .blog-content p{
+        width: 100%;
+    }
+    .blog-content{
+        margin: 2em 0px;
+    }
+}
+
+span{
+    white-space: nowrap;
 }
