@@ -73,7 +73,7 @@ main .container{
 }
 
 .form {
-    height: 1280px;
+    height: 1400px;
 }
 
 ul.nav a:link,ul.nav a:visited{
@@ -199,4 +199,7 @@ hr {
 
 span{
     white-space: nowrap;
+}
+#warning{
+    color: red;
 }
