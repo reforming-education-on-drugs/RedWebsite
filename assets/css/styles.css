@@ -62,6 +62,13 @@ main .container{
     height: 2em;
 }
 
+input#donatebutton{
+    border:none;
+    background:none;
+    padding:0px;
+    margin: none;
+}
+
 #spacer {
     height: 5em;
 }
