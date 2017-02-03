@@ -61,13 +61,14 @@ main .container{
 #logo {
     height: 2em;
 }
-
+/*
 input#donatebutton{
     border:none;
     background:none;
     padding:0px;
-    margin: none;
+    margin: auto;
 }
+ */
 
 #spacer {
     height: 5em;
