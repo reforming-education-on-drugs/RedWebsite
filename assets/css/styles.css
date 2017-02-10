@@ -61,14 +61,20 @@ main .container{
 #logo {
     height: 2em;
 }
-/*
-input#donatebutton{
-    border:none;
-    background:none;
-    padding:0px;
-    margin: auto;
+
+#donate{
+    
+    background: red;
+    margin-left: 1em;
 }
- */
+
+#donate a:hover{
+    background-color:#D00000;
+}
+#donate a{
+    color: white;
+}
+
 
 #spacer {
     height: 5em;
