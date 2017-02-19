@@ -217,3 +217,8 @@ span{
 #warning{
     color: red;
 }
+
+
+a:hover>.icon{
+    color:red;
+}
