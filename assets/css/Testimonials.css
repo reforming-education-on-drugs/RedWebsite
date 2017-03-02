@@ -44,6 +44,10 @@
     text-align: center;
     border: none;
 }
+
+#fade-quote-carousel blockquote >p{
+        font-size: 1.5em;
+}
 #fade-quote-carousel .profile-circle {
     width: 100px;
     height: 100px;
