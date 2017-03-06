@@ -1,34 +1,56 @@
 h1 {
     font-size: 4rem;
     font-family: "Roboto";
+    text-align: center;
 }
 
 h2 {
     font-weight: bold;
     font-family: "Roboto";
+    text-align: center;
+}
+h3 {
+    font-family: "Roboto";
+    text-align: center;
 }
 
-p,ul{
-    font-size: 2rem;
+p,ul,ol{
+    font-size: 1.75rem;
     font-family: "Roboto";
 }
 
 p{
-    text-align: justify;
-    font-family: "Roboto";
+    text-align: center;
+}
+
+@media (max-width: 767px){
+    h1,h2{
+        font-size:3rem;
+    }
+    h3{
+        font-size:2rem;
+    }
+    p,ul,ol{
+        font-size: 1.5rem;
+    }
 }
 
 .coloredcontainer{
     color:white;
 }
 
-main > .container{
+main .container{
     padding: 4em;
 }
 
 .coloredcontainer > .container {
-    padding: 4em;
     background-color: #D00000;
+}
+
+@media (max-width: 767px){
+    main .container{
+        padding: 2em 10px;
+    }
 }
 
 #swiper{
@@ -39,6 +61,20 @@ main > .container{
 #logo {
     height: 2em;
 }
+
+#donate{
+    
+    background: red;
+    margin-left: 1em;
+}
+
+#donate a:hover{
+    background-color:#D00000;
+}
+#donate a{
+    color: white;
+}
+
 
 #spacer {
     height: 5em;
@@ -51,7 +87,7 @@ main > .container{
 }
 
 .form {
-    height: 1100px;
+    height: 1400px;
 }
 
 ul.nav a:link,ul.nav a:visited{
@@ -80,41 +116,40 @@ img.parents {
 
 .executive img{
     max-height: 500px;
-    max-width: 100%;
-    margin-left:auto;
-    margin-right:auto;
-    display:block;
+    width: 65%;
+    margin: auto;
+    display: block;
+    background: #DDDDDD;
+    padding: 5px;
 }
-
-.executive h2{
-    margin: 0.5em;
-    font-weight: bold;
+@media (max-width: 767px){
+    .executive img{
+        width: 50%;
+    }
 }
 
 .executive h3{
     margin: 0.5em;
     color: black;
-    font-weight: bold;
-    font-family: "Caviar Dreams";
+    font-family: "Roboto";
 }
 
 .executive p{
     vertical-align: middle;
-    max-width: 600px;
-    font-size: 1.5em;
-    text-align: justify;
+    text-align: center;
     margin: auto;
-    display:block;
+    padding: 0 1em;
+    margin-bottom: 4em;
+}
+
+#lastExecutive{
+    margin-bottom: 0;
 }
 
 hr {
     margin: 4em auto;
     height: 2px;
     background: #D00000;
-}
-
-.blog-header p, .blog-header h2 {
-    text-align: center;
 }
 
 .date-location {
@@ -135,7 +170,8 @@ hr {
 
 .blog-item {
     margin-top: 3em;
-    padding: 2em 0;
+    padding: 2em 0px;
+    
 }
 
 .blog-background-grey {
@@ -153,11 +189,36 @@ hr {
     text-align: center;
 }
 
+#blogcontainer{
+    padding: 0px;
+}
+
 .blog-content p {
-    text-align: justify;
+    text-align: center;
     display: inline-block;
     vertical-align: middle;  
     font-size: 1.2em;
     padding: 2em;
     width: 80%;
+}
+
+@media (max-width: 767px){
+    .blog-content p{
+        width: 100%;
+    }
+    .blog-content{
+        margin: 2em 0px;
+    }
+}
+
+span{
+    white-space: nowrap;
+}
+#warning{
+    color: red;
+}
+
+
+a:hover>.icon{
+    color:red;
 }
