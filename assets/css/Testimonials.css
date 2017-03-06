@@ -1,94 +1,63 @@
-.testimonials-clean {
-  color:#313437;
-  background-color:#fff;
+/*-------------------------------*/
+/*      Code snippet by          */
+/*      @maridlcrmn              */
+/*-------------------------------*/
+
+
+.quote {
+    color: rgba(0,0,0,.4);
+    text-align: center;
 }
 
+/*-------------------------------*/
+/*    Carousel Fade Transition   */
+/*-------------------------------*/
 
-.testimonials-clean h2 {
-  font-weight:bold;
-  margin-bottom:40px;
-  padding-top:40px;
-  color:inherit;
+#fade-quote-carousel.carousel {
+  padding: 10px;
 }
 
-@media (max-width:767px) {
-  .testimonials-clean h2 {
-    margin-bottom:25px;
-    padding-top:25px;
-    font-size:24px;
-  }
+#fade-quote-carousel.carousel .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
+    
+}
+#fade-quote-carousel.carousel .carousel-inner .active {
+  opacity: 1;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
 }
 
-.testimonials-clean .intro {
-  font-size:16px;
-  max-width:500px;
-  margin:0 auto;
+#fade-quote-carousel.carousel .carousel-indicators > li {
+  background-color: #FF0000;
+  border: none;
 }
 
-.testimonials-clean .intro p {
-  margin-bottom:0;
+#fade-quote-carousel.carousel .carousel-indicators {
+  bottom: 0px;
 }
 
-.testimonials-clean .people {
-  padding:20px 0 20px;
+#fade-quote-carousel blockquote {
+    text-align: center;
+    border: none;
 }
 
-.testimonials-clean .item {
-  margin-bottom:20px;
+#fade-quote-carousel blockquote >p{
+        font-size: 1.5em;
+}
+#fade-quote-carousel .profile-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100px;
 }
 
-@media (min-width:768px) {
-  .testimonials-clean .item {
-    height:220px;
-  }
+#testimonialfrom {
+    color: red;
 }
-
-.testimonials-clean .item .box {
-  padding:30px;
-  border: 1px solid #ccc;
-  background-color: #f5f5f5;
-  position:relative;
+.brands a{
+    padding: 0px;    
 }
-
-.testimonials-clean .item .box:after {
-  content:'';
-  position:absolute;
-  left:30px;
-  bottom:-24px;
-  width:0;
-  height:0;
-  border:15px solid transparent;
-  border-width:12px 15px; 
-  border-top-color:#ccc;
-
-}
-
-.testimonials-clean .item .author {
-  margin-top:28px;
-  padding-left:25px;
-}
-
-.testimonials-clean .item .name {
-  font-weight:bold;
-  margin-bottom:2px;
-  color:inherit;
-}
-
-.testimonials-clean .item .title {
-  font-size:13px;
-  color:#9da9ae;
-}
-
-.testimonials-clean .item .description {
-  font-size:15px;
-  color: black
-  margin-bottom:0;
-}
-
-.testimonials-clean .item img {
-  max-width:40px;
-  float:left;
-  margin-right:12px;
-  margin-top:-5px;
-}
-
