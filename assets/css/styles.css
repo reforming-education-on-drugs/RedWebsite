@@ -66,15 +66,28 @@ main .container{
     
     background: red;
     margin-left: 1em;
-}
+    border-radius: 30px;
+    border-style: none;
+    padding: 0 0.5em;
+}   
 
-#donate a:hover{
-    background-color:#D00000;
-}
-#donate a{
+#donate a {
     color: white;
+    background-color: transparent;
 }
 
+#donate:hover {
+    background-color:#D00000;   
+}
+
+@media (max-width: 991px) {
+    #donate {
+        border-radius: 0px;
+        border-style: none;
+        padding: 0;
+        margin: 0;
+    }  
+}
 
 #spacer {
     height: 5em;

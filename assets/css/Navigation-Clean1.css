@@ -122,7 +122,8 @@
   .navbar-nav>li>a {
       padding-top: 10px;
       padding-bottom: 10px;
-  }
+  }  
+    
   .collapse.in{
       display:block !important;
   }
