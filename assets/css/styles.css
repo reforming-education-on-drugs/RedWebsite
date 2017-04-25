@@ -165,6 +165,10 @@ hr {
     background: #D00000;
 }
 
+#blog-banner {
+    margin-top: 5em;
+}
+
 .date-location {
     text-align: center;
     font-size: 1.2em;
@@ -185,7 +189,7 @@ hr {
 .blog-item {
     margin-top: 3em;
     padding: 2em 0px;
-    
+    border-radius: 80px;
 }
 
 .blog-background-grey {
@@ -208,7 +212,7 @@ hr {
 }
 
 .blog-content p {
-    text-align: center;
+    text-align: justify;
     display: inline-block;
     vertical-align: middle;  
     font-size: 1.2em;
