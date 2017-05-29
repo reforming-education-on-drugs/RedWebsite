@@ -109,19 +109,20 @@ ul.nav a:link,ul.nav a:visited{
 }
 
 
-a:hover.whitebackground, a:active.whitebackground {
+a:hover.whitebackground, a:active.whitebackground,#blogcontainer .blog-item:nth-child(odd) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
     color:red;
 }
-
-
-
-a:link.redbackground,a:visited.redbackground{
+a:link.redbackground,a:visited.redbackground,#blogcontainer .blog-item:nth-child(even) a:link, #blogcontainer .blog-item:nth-child(even) a:visited{
     color: black;
     display: inline-block;
 }
- a:hover.redbackground, a:active.redbackground {
+ a:hover.redbackground, a:active.redbackground,#blogcontainer .blog-item:nth-child(even) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
     color: white;
 }
+
+
+
+
 
 img.parents {
     max-width:100%;
@@ -166,11 +167,15 @@ hr {
 }
 
 
+
+
+
+/* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Blog Content
+*/
 #blog-banner {
     margin-top: 5em;
 }
-
-
 .date-location {
     text-align: center;
     font-size: 1.2em;
@@ -194,15 +199,34 @@ hr {
     
 }
 
-.blog-background-grey {
-    background-color: #F7F7F7;
-    color: black;
+
+
+#blogcontainer .blog-item:nth-child(odd){
+    background-color: #F0F0F0;
+    color: black;  
+}
+#blogcontainer .blog-item:nth-child(odd) #date{
+    content:url("/assets/img/blog-imgs/blog-icons/calendar-black.png");
+}
+#blogcontainer .blog-item:nth-child(odd) #location{
+    content:url("/assets/img/blog-imgs/blog-icons/location-black.png");
 }
 
-.blog-background-red {
+
+
+#blogcontainer .blog-item:nth-child(even){
     background-color: #D00000;
     color: white;
 }
+
+#blogcontainer .blog-item:nth-child(even) #date{
+    content:url("/assets/img/blog-imgs/blog-icons/calendar-white.png");
+}
+#blogcontainer .blog-item:nth-child(even) #location{
+    content:url("/assets/img/blog-imgs/blog-icons/location-white.png");
+}
+
+
 
 .blog-content {
     margin-top: 2em;
@@ -231,13 +255,14 @@ hr {
     }
 }
 
+
 span{
     white-space: nowrap;
 }
+
 #warning{
     color: red;
 }
-
 
 a:hover>.icon{
     color:red;
