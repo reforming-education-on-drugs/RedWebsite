@@ -206,10 +206,10 @@ Blog Content
     color: black;  
 }
 #blogcontainer .blog-item:nth-child(odd) #date{
-    content:url("/assets/img/blog-imgs/blog-icons/calendar-black.png");
+    content:url("../img/blog-imgs/blog-icons/calendar-black.png");
 }
 #blogcontainer .blog-item:nth-child(odd) #location{
-    content:url("/assets/img/blog-imgs/blog-icons/location-black.png");
+    content:url("../img/blog-imgs/blog-icons/location-black.png");
 }
 
 
@@ -220,10 +220,10 @@ Blog Content
 }
 
 #blogcontainer .blog-item:nth-child(even) #date{
-    content:url("/assets/img/blog-imgs/blog-icons/calendar-white.png");
+    content:url("../img/blog-imgs/blog-icons/calendar-white.png");
 }
 #blogcontainer .blog-item:nth-child(even) #location{
-    content:url("/assets/img/blog-imgs/blog-icons/location-white.png");
+    content:url("../img/blog-imgs/blog-icons/location-white.png");
 }
 
 
