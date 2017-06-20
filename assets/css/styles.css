@@ -63,7 +63,6 @@ main .container{
 }
 
 #donate{
-    
     background: red;
     margin-left: 1em;
     border-radius: 30px;
@@ -76,9 +75,19 @@ main .container{
     background-color: transparent;
 }
 
-#donate:hover {
+#donate:hover,#donateButton:hover{
     background-color:#D00000;   
 }
+
+#donateButton{
+    background: red;
+    margin: 1em;
+    border-radius: 30px;
+    border-style: none;
+    padding: 1em 1em;
+}
+
+
 
 @media (max-width: 991px) {
     #donate {
