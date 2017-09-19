@@ -129,6 +129,12 @@ a:link.redbackground,a:visited.redbackground,#blogcontainer .blog-item:nth-child
     color: white;
 }
 
+@media(min-width: 991px) {
+    .navigation-clean.navbar .navbar-nav > li > a:hover {
+        border-radius: 8px;
+    }
+}
+
 
 
 
