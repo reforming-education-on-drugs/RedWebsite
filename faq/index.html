@@ -51,7 +51,7 @@
         <div class="container">
             <h1 class="text-center">FAQ</h1>
             
-            <div class="panel-group" id="faqAccordion">
+            <div class="panel-group" id="faqAccordion" aria-multiselectable="true">
                 <div class="panel panel-default ">
                     <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0">
                          <h4 class="panel-title">
@@ -60,9 +60,7 @@
         
                     </div>
                     <div id="question0" class="panel-collapse collapse" style="height: 0px;">
-                        <div class="panel-body">
-                             <h5><span class="label label-primary">Answer</span></h5>
-        
+                        <div class="panel-body">        
                             <p>RED is an acronym for Reforming Education on Drugs.</p>
                         </div>
                     </div>
@@ -75,9 +73,7 @@
         
                     </div>
                     <div id="question1" class="panel-collapse collapse" style="height: 0px;">
-                        <div class="panel-body">
-                             <h5><span class="label label-primary">Answer</span></h5>
-        
+                        <div class="panel-body">        
                             <p>Yes, this is a student-ran club. We are part of the University of Calgary under the Student's Union.</p>
                         </div>
                     </div>
@@ -91,25 +87,19 @@
                     </div>
                     <div id="question2" class="panel-collapse collapse" style="height: 0px;">
                         <div class="panel-body">
-                             <h5><span class="label label-primary">Answer</span></h5>
-        
                             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-default ">
-                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question3">
-                         <h4 class="panel-title">
-                            <a href="javascript:void(0);" class="ing">Q: Where can I get some?</a>
-                      </h4>
-        
-                    </div>
-                    <div id="question3" class="panel-collapse collapse" style="height: 0px;">
-                        <div class="panel-body">
-                             <h5><span class="label label-primary">Answer</span></h5>
-        
+                    <div class="panel-heading accordion-toggle collapsed question-toggle" data-toggle="collapse" aria-expanded="false" data-parent="#faqAccordion" >
+                        <h4 class="panel-title"><a href="javascript:void(0);" class="ing">Q: Where can I get some?</a></h4>
+                      
+                        <div class="panel-collapse collapse" style="height: 0px;" aria-labelledby="headingTwo">
+                            <div class="panel-body">        
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
                         </div>
+                    </div>
                     </div>
                 </div>
                 
@@ -122,7 +112,9 @@
         <footer>
             <div class="social"><a href="https://www.facebook.com/REDxClub/"  target="_blank"><i class="icon ion-social-facebook"></i></a> <a class="icons" href="https://www.instagram.com/red_ucalgary/"  target="_blank"><i class="icon ion-social-instagram"></i></a></div>
             <ul class="list-inline">
-                <li><a href="../contact-us/">Contact Us</a></li>
+                <li><a href="../faq/">FAQ</a></li>
+                <li>|</li> 
+                <li><a href="">Contact Us</a></li>
             </ul>
             <p class="copyright"> © 2017 Reforming Education on Drugs </p>
         </footer>
