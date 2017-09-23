@@ -25,7 +25,7 @@ if(isset($_POST['email'])){
     $email_subject = $_POST['subject']; // required
     $message = $_POST['message']; // required
     $email_to = "reducalgary@gmail.com";
-
+    $email_fromUcal = "red@ucalgary.com";
 
 
     $error_message = "";
@@ -80,8 +80,8 @@ if(isset($_POST['email'])){
   
 
 // create email headers
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
+$headers = 'From: '.$email_fromUcal."\r\n".
+'Reply-To: '.$email_fromUcal."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);
 header('Location: thankyou.html');
