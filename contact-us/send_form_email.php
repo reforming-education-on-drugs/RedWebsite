@@ -25,7 +25,11 @@ if(isset($_POST['email'])){
     $email_subject = $_POST['subject']; // required
     $message = $_POST['message']; // required
     $email_to = "reducalgary@gmail.com";
-
+<<<<<<< HEAD
+    $email_fromUcal = "red@ucalgary.ca";
+=======
+    $email_fromUcal = "red@ucalgary.com";
+>>>>>>> origin/master
 
 
     $error_message = "";
@@ -45,13 +49,6 @@ if(isset($_POST['email'])){
         $error_message .= 'The First Name you entered does not appear to be valid.<br />';
     }
 
-
-
-    if(!preg_match($string_exp,$email_subject)) {
-        $error_message .= 'The First Name you entered does not appear to be valid.<br />';
-    }
-
-  
 
     if(strlen($message) < 2) {
         $error_message .= 'The Comments you entered do not appear to be valid.<br />';
@@ -80,8 +77,8 @@ if(isset($_POST['email'])){
   
 
 // create email headers
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
+$headers = 'From: '.$email_fromUcal."\r\n".
+'Reply-To: '.$email_fromUcal."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);
 header('Location: thankyou.html');
