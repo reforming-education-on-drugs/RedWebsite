@@ -210,7 +210,9 @@ Blog Content
     
 }
 
-
+#faqAccordion a {
+    color: black;
+}
 
 #blogcontainer .blog-item:nth-child(odd){
     background-color: #F0F0F0;
