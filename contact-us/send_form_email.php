@@ -25,11 +25,7 @@ if(isset($_POST['email'])){
     $email_subject = $_POST['subject']; // required
     $message = $_POST['message']; // required
     $email_to = "reducalgary@gmail.com";
-<<<<<<< HEAD
     $email_fromUcal = "red@ucalgary.ca";
-=======
-    $email_fromUcal = "red@ucalgary.com";
->>>>>>> origin/master
 
 
     $error_message = "";
