@@ -1,8 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
+const Webpack = require('webpack');
+const Path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/public');
-var APP_DIR = path.resolve(__dirname, 'src/app');
+const BUILD_DIR = Path.resolve(__dirname, 'src/public');
+const APP_DIR = Path.resolve(__dirname, 'src/app');
 
 var config = {
   entry: APP_DIR + '/index.js',
@@ -10,15 +10,25 @@ var config = {
     path: BUILD_DIR,
     filename: 'assets/js/bundle.js'
   },
+  devServer: {
+    contentBase: BUILD_DIR,
+    compress: true,
+    port: 8000,
+    stats: 'errors-only',
+    open: true,
+  },
   module : {
     loaders : [
       {
         test : /\.jsx?/,
         include : APP_DIR,
-        loader : 'babel-loader'
+        loader : 'babel-loader',
+        exclude: /node_modules/,
+        query: { presets: ['es2015', 'react'] }
       }
     ]
-  }
+  },
+  plugins: []
 };
 
 module.exports = config;
