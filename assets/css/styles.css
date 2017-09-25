@@ -102,14 +102,17 @@ main .container{
     height: 5em;
 }
 
-@media (max-width: 767px) {
-    .form {
-        height: 700px;
-    }
+#get-involved-form {
+    height: 125em;
 }
 
-.form {
-    height: 1400px;
+#booking-form {
+    height: 120em;
+}
+#booking-schedule{
+    height: 92em;
+    position: relative;
+    top: -95px
 }
 
 ul.nav a:link,ul.nav a:visited{
@@ -214,8 +217,8 @@ Blog Content
     color: black;
 }
 
-#blogcontainer .blog-item:nth-child(odd){
-    background-color: #F0F0F0;
+#blogcontainer .blog-item:nth-child(odd),.greycontainer{
+    background-color: #E5E5E5;
     color: black;  
 }
 #blogcontainer .blog-item:nth-child(odd) #date{
