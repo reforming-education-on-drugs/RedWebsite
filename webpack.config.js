@@ -1,10 +1,11 @@
 const Webpack = require('webpack');
 const Path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const BUILD_DIR = Path.resolve(__dirname, 'src/public');
 const APP_DIR = Path.resolve(__dirname, 'src/app');
 
-var config = {
+const config = {
   entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
@@ -28,7 +29,13 @@ var config = {
       }
     ]
   },
-  plugins: []
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: APP_DIR + '/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    }),
+  ]
 };
 
 module.exports = config;
