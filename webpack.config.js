@@ -16,6 +16,7 @@ const config = {
     compress: true,
     port: 8000,
     stats: 'errors-only',
+    historyApiFallback: true,
     open: true,
   },
   module : {
