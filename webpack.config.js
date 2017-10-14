@@ -9,12 +9,12 @@ const config = {
   entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
-    filename: 'assets/js/bundle.js'
+    filename: 'assets/js/bundle.js',
   },
   devServer: {
     contentBase: BUILD_DIR,
     compress: true,
-    port: 8000,
+    port: 8080,
     stats: 'errors-only',
     historyApiFallback: true,
     open: true,
@@ -27,6 +27,14 @@ const config = {
         loader : 'babel-loader',
         exclude: /node_modules/,
         query: { presets: ['es2015', 'react'] }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: 'url-loader'
       }
     ]
   },
