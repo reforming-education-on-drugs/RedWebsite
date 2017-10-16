@@ -10,6 +10,7 @@ const config = {
   output: {
     path: BUILD_DIR,
     filename: 'assets/js/bundle.js',
+    publicPath: '/',
   },
   devServer: {
     contentBase: BUILD_DIR,
@@ -33,16 +34,18 @@ const config = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'url-loader'
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: { limit: 10000 }
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'RED | Reforming Education on Drugs',
       template: APP_DIR + '/index.html',
       filename: 'index.html',
-      inject: 'body'
+      inject: 'body',
     }),
   ]
 };

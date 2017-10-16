@@ -4,7 +4,9 @@ import Navigation from '../components/Navigation.js'
 class Index extends Component {
   render() {
     return(
-      <Navigation />
+      <div>
+        <Navigation />
+      </div>
     )
   }
 }
