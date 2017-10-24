@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'
+import IndexPage from './IndexPage.js'
 
-class Navigation extends Component {
+class Index extends Component {
   render() {
     return (
       <Router>
@@ -21,17 +22,16 @@ class Navigation extends Component {
                       <ul className='nav navbar-nav navbar-right'>
                           <li className='dropdown'><a className='dropdown-toggle' data-toggle='dropdown' aria-expanded='false' href='#'>About us<span className='caret'></span></a>
                               <ul className='dropdown-menu' role='menu'>
-                                  <li role='presentation'><a href='/about-us/vision/'>Our Vision</a></li>
-                                  <li role='presentation'><a href='/about-us/team/'>Our Team</a></li>
-                                  <li role='presentation'><a href='/about-us/constitution/'>Our Constitution</a></li>
+                                  <li role='presentation'><NavLink to='/about-us/vision'>Vision</NavLink></li>
+                                  <li role='presentation'><NavLink to='/about-us/team'>Team</NavLink></li>
+                                  <li role='presentation'><NavLink to='/about-us/constitution'>Constitution</NavLink></li>
                               </ul>
                           </li>
-                          <li role='presentation'><a href='schools/'>For Schools</a></li>
-                          <li role='presentation'><a href='parents/'>For Parents</a></li>
-                          <li role='presentation'><a href='blog/'>Blog</a></li>
-                          <li role='presentation'><a href='get-involved/'>Get Involved</a></li>
-                          <li role='presentation' id='donate'><a href='donate/'>Donate</a></li>
-                          <li role='presentation' ><NavLink to='/test'>Test</NavLink></li>
+                          <li role='presentation'><NavLink to='/schools'>For Schools</NavLink></li>
+                          <li role='presentation'><NavLink to='/parents'>For Parents</NavLink></li>
+                          <li role='presentation'><NavLink to='/blog'>Blog</NavLink></li>
+                          <li role='presentation'><NavLink to='/get-involved'>Get Involved</NavLink></li>
+                          <li role='presentation' id='donate'><NavLink to='/donate'>Donate</NavLink></li>
                       </ul>
                   </div>
               </div>
@@ -39,7 +39,7 @@ class Navigation extends Component {
           <div id='spacer'></div>
           <main>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={ IndexPage } />
             <Route exact path='/test' component={Test} />
             <Route path='*' component={NotFound} />
           </Switch>
@@ -69,4 +69,4 @@ const NotFound = () => {
   )
 }
 
-export default Navigation
+export default Index

@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import Navigation from '../components/Navigation.js'
 
-class Index extends Component {
+class IndexPage extends Component {
   render() {
     return(
       <div>
-        <Navigation />
+        <h2>Hello from home!</h2>
       </div>
     )
   }
 }
 
-export default Index
+export default IndexPage
