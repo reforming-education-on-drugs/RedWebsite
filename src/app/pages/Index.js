@@ -9,7 +9,7 @@ class Index extends Component {
   render() {
     return (
       <Router>
-        <div className='header'> 
+        <div> 
           <nav className='navbar navbar-default navigation-clean'>
               <div className='container'>
                   <div className='navbar-header'>
