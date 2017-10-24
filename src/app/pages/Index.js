@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom'
+import { Dropdown, MenuItem } from 'react-bootstrap'
+require("react-bootstrap/lib/DropdownToggle")
 import IndexPage from './IndexPage'
-import NotFoundPage from './NotFound'
+import NotFoundPage from './NotFoundPage'
 
 class Index extends Component {
   render() {
@@ -11,28 +13,27 @@ class Index extends Component {
           <nav className='navbar navbar-default navigation-clean'>
               <div className='container'>
                   <div className='navbar-header'>
-                    <a className='navbar-brand navbar-link'>
-                      <NavLink to='/'><img src='/assets/img/Logo.png' id='logo' title='logo' /></NavLink>
-                    </a>
-                    <button className='navbar-toggle collapsed' data-toggle='collapse' data-target='#navcol1'>
-                      <span className='sr-only'>Toggle navigation</span>
-                      <span className='icon-bar'></span><span className='icon-bar'></span><span className='icon-bar'></span>
-                    </button>
+                      <NavLink to='/' className='navbar-brand navbar-link'>
+                        <img src='/assets/img/Logo.png' id='logo' title='logo' />
+                      </NavLink>
                   </div>
                   <div className='collapse navbar-collapse' id='navcol1'>
                       <ul className='nav navbar-nav navbar-right'>
-                          <li className='dropdown'><a className='dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>About Us<span className='caret'></span></a>
-                              <ul className='dropdown-menu' role='menu'>
-                                  <li role='presentation'><NavLink to='/about-us/vision'>Vision</NavLink></li>
-                                  <li role='presentation'><NavLink to='/about-us/team'>Team</NavLink></li>
-                                  <li role='presentation'><NavLink to='/about-us/constitution'>Constitution</NavLink></li>
-                              </ul>
-                          </li>
-                          <li role='presentation'><NavLink to='/schools'>For Schools</NavLink></li>
-                          <li role='presentation'><NavLink to='/parents'>For Parents</NavLink></li>
-                          <li role='presentation'><NavLink to='/blog'>Blog</NavLink></li>
-                          <li role='presentation'><NavLink to='/get-involved'>Get Involved</NavLink></li>
-                          <li role='presentation' id='donate'><NavLink to='/donate'>Donate</NavLink></li>
+                        <li>
+                          <Dropdown id='dropdown-about-us'>
+                            <Dropdown.Toggle href='#' bsStyle='link'>About Us</Dropdown.Toggle>
+                            <Dropdown.Menu>
+                              <MenuItem href='about-us/vision'>Vision</MenuItem>
+                              <MenuItem href='about-us/team'>Team</MenuItem>
+                              <MenuItem href='/about-us/constitution'>Constitution</MenuItem>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </li>
+                          <MenuItem href='/schools'>For Schools</MenuItem>
+                          <MenuItem href='/parents'>For Parents</MenuItem>
+                          <MenuItem href='/blog'>Blog</MenuItem>
+                          <MenuItem href='/get-involved'>Get Involved</MenuItem>
+                          <MenuItem id='donate' href='/donate'>Donate</MenuItem>
                       </ul>
                   </div>
               </div>

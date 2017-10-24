@@ -62,18 +62,24 @@ main .container{
     height: 2em;
 }
 
+a.dropdown-toggle.btn {
+    padding: 11px 10px;
+    font: inherit;
+    background-color: white;
+}
+
+a.dropdown-toggle.btn:hover {
+    background-color: #ddd;
+}
+
 #donate{
     background: red;
     margin-left: 1em;
     border-radius: 30px;
     border-style: none;
-    padding: 0 0.5em;
-}   
-
-#donate a {
+    padding: 15px 20px;
     color: white;
-    background-color: transparent;
-}
+}   
 
 #donate:hover,#donateButton:hover{
     background-color:#D00000;   
@@ -86,8 +92,6 @@ main .container{
     border-style: none;
     padding: 1em 1em;
 }
-
-
 
 @media (max-width: 991px) {
     #donate {
@@ -120,7 +124,6 @@ ul.nav a:link,ul.nav a:visited{
     text-decoration: none;
 }
 
-
 a:hover.whitebackground, a:active.whitebackground,#blogcontainer .blog-item:nth-child(odd) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
     color:red;
 }
@@ -137,10 +140,6 @@ a:link.redbackground,a:visited.redbackground,#blogcontainer .blog-item:nth-child
         border-radius: 8px;
     }
 }
-
-
-
-
 
 img.parents {
     max-width:100%;
