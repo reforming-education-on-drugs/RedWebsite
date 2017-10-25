@@ -2,7 +2,7 @@
   "name": "red-website",
   "version": "0.1.0",
   "description": "RED - Reforming Education on Drugs Website",
-  "main": "index.js",
+  "main": "./src/app/Main.js",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack -p",
@@ -12,7 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/Kouroshb26/RedWebsite.git"
   },
-  "author": "Jackie Luc and Kourosh Banaeianzadeh",
+  "author": "RED - IT Team",
+  "contributors": [
+    {
+      "name": "Jackie Luc",
+      "email": "jackieluc17@gmail.com",
+      "url": "https://github.com/jackieluc"
+    }
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Kouroshb26/RedWebsite/issues"
