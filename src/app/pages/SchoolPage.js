@@ -1,9 +1,11 @@
+'use-strict'
+
 import React, { Component } from 'react'
 
 class SchoolPage extends Component {
   render() {
 
-    document.title = "RED | For Schools";
+    document.title = 'RED | For Schools';
 
     return(
       <main>
