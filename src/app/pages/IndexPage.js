@@ -29,7 +29,7 @@ class Description extends Component {
       <div className="coloredcontainer">
         <div className="container">
           <h1 className="text-center">Reforming Education on Drugs</h1>
-          <p>RED’s mission is to establish within students a foundational understanding of the biological mechanisms involved in illicit drug use and substance abuse. Through the use of interactive in-class presentations and demonstrations, we provide individuals with the ability to engage and think critically with these topics, all the while developing a love for science learning.</p>
+          <p>RED’s mission is to establish a foundational understanding of the biological mechanisms involved in illicit drug use and substance abuse. With interactive in-class presentations and demonstrations, we provide students with the ability to engage and think critically with these topics, all while developing a love for learning science.</p>
         </div>  
       </div>
     )
