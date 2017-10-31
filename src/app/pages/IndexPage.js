@@ -6,12 +6,16 @@ import Carousel from '../components/Carousel'
 class IndexPage extends Component {
   render() {
 
-    document.title = 'RED | Reforming Education on Drugs';
-    const imageList = ['main10.jpg', 'main3.jpg', 'main5.jpg', 'main8.jpg', 'main9.jpg']
+    document.title = 'RED | Reforming Education on Drugs'
+    
+    const carousel = {
+      'path': '/assets/img/',
+      'images': ['main10.jpg', 'main3.jpg', 'main5.jpg', 'main8.jpg', 'main9.jpg'],
+    }
 
     return(
       <main>
-        <Carousel images={imageList}/>
+        <Carousel path={carousel.path} images={carousel.images}/>
         <Description />
         {/* TODO: Testimonials */}
         {/* TODO: MailChimp Sign Up form */}

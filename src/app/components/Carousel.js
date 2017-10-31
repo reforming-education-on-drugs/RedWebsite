@@ -27,8 +27,8 @@ class Carousel extends Component {
         <div className="simple-slider">
           <Swiper {...swiperParams}>
             {
-              this.props.images.map(function(image){
-                return (<div style={{ backgroundImage: `url(/assets/img/${image})` }} />)
+              this.props.images.map((image) => {
+                return <div style={{backgroundImage: `url(${this.props.path}${image})`}} /> 
               })
             }
           </Swiper>
