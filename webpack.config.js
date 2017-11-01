@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Webpack = require('webpack');
 const Path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -6,7 +7,7 @@ const BUILD_DIR = Path.resolve(__dirname, 'src/public');
 const APP_DIR = Path.resolve(__dirname, 'src/app');
 
 const config = {
-  entry: APP_DIR + '/Main.js',
+  entry: APP_DIR + '/Main.jsx',
   output: {
     path: BUILD_DIR,
     filename: 'assets/js/bundle.js',
@@ -39,6 +40,9 @@ const config = {
         options: { limit: 10000 }
       }
     ]
+  },
+  resolve: {
+    extensions: [".jsx", ".js"]
   },
   plugins: [
     new HtmlWebpackPlugin({

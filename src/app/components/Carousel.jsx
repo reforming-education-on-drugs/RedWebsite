@@ -1,7 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 
-function Carousel() {
+function Carousel(props) {
+  Carousel.propTypes = {
+    path: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  };
+
   const swiperParams = {
     slidesPerView: 1,
     autoplay: {
@@ -23,8 +29,8 @@ function Carousel() {
       <div className="simple-slider">
         <Swiper {...swiperParams}>
           {
-            this.props.images.map(image =>
-              <div style={{ backgroundImage: `url(${this.props.path}${image})` }} />)
+            props.images.map(image =>
+              <div style={{ backgroundImage: `url(${props.path}${image})` }} />)
           }
         </Swiper>
       </div>
