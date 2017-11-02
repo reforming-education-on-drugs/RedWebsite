@@ -66,6 +66,7 @@ a.dropdown-toggle.btn {
     padding: 11px 10px;
     font: inherit;
     background-color: white;
+    border-radius: 8px;
 }
 
 a.dropdown-toggle.btn:hover {

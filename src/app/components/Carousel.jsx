@@ -30,7 +30,7 @@ function Carousel(props) {
         <Swiper {...swiperParams}>
           {
             props.images.map(image =>
-              <div style={{ backgroundImage: `url(${props.path}${image})` }} />)
+              <div key={image} style={{ backgroundImage: `url(${props.path}${image})` }} />)
           }
         </Swiper>
       </div>
