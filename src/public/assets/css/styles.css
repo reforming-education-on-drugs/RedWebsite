@@ -98,8 +98,8 @@ a.dropdown-toggle.btn:hover {
     #donate {
         border-radius: 0px;
         border-style: none;
-        padding: 0;
-        margin: 0;
+        padding: 10px 0 10px 10px;
+        margin-left: 0;
     }  
 }
 

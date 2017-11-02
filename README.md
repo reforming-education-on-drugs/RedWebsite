@@ -84,3 +84,7 @@ TODO
 
 * **Jackie Luc** - [GitHub](https://github.com/jackieluc)
 * **Kourosh Banaeianzadeh** - [GitHub](https://github.com/Kouroshb26)
+
+## Additional Resources
+
+* [React-Bootstrap API](https://react-bootstrap.github.io/introduction.html)

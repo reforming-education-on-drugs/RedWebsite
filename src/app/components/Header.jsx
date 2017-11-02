@@ -11,19 +11,22 @@ function Header() {
             <img src="/assets/img/Logo.png" id="logo" title="logo" alt="RED Logo" />
           </NavLink>
         </Navbar.Brand>
+        <Navbar.Toggle />
       </Navbar.Header>
-      <Nav className="navbar-right">
-        <NavDropdown title="About Us" id="about-us-dropdown">
-          <MenuItem href="/about-us/vision">Vision</MenuItem>
-          <MenuItem href="/about-us/team">Team</MenuItem>
-          <MenuItem href="/about-us/constitution">Constitution</MenuItem>
-        </NavDropdown>
-        <NavItem href="/schools">For Schools</NavItem>
-        <NavItem href="/parents">For Parents</NavItem>
-        <NavItem href="/blog">Blog</NavItem>
-        <NavItem href="/get-involved">Get Involved</NavItem>
-        <NavItem id="donate" href="/donate">Donate</NavItem>
-      </Nav>
+      <Navbar.Collapse>
+        <Nav pullRight>
+          <NavDropdown title="About Us" id="about-us-dropdown">
+            <MenuItem href="/about-us/vision">Vision</MenuItem>
+            <MenuItem href="/about-us/team">Team</MenuItem>
+            <MenuItem href="/about-us/constitution">Constitution</MenuItem>
+          </NavDropdown>
+          <NavItem href="/schools">For Schools</NavItem>
+          <NavItem href="/parents">For Parents</NavItem>
+          <NavItem href="/blog">Blog</NavItem>
+          <NavItem href="/get-involved">Get Involved</NavItem>
+          <NavItem id="donate" href="/donate">Donate</NavItem>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
