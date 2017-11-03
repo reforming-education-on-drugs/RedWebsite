@@ -7,8 +7,8 @@ function Carousel(props) {
     path: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
-
-  const swiperParams = {
+  
+  const swiperProps = {
     slidesPerView: 1,
     autoplay: {
       delay: 5000,
@@ -27,7 +27,7 @@ function Carousel(props) {
   return (
     <div className="container" id="swiper">
       <div className="simple-slider">
-        <Swiper {...swiperParams}>
+        <Swiper {...swiperProps}>
           {
             props.images.map(image =>
               <div key={image} style={{ backgroundImage: `url(${props.path}${image})` }} />)

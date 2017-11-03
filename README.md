@@ -88,3 +88,4 @@ TODO
 ## Additional Resources
 
 * [React-Bootstrap API](https://react-bootstrap.github.io/introduction.html)
+* [Airbnb React Lint](https://github.com/airbnb/javascript/tree/master/react)
