@@ -35,26 +35,28 @@ function ParentPage() {
         </div>
       </div>
     
-      {/* <div class="coloredcontainer">
-        <div class="container">
-          <h2 class="text-center">Contact Us</h2>
-          <p class="text-center">If you have any questions please click <a class="redbackground" href="../contact-us/">here</a></p>
+      <div className="coloredcontainer">
+        <div className="container">
+          <h2 className="text-center">Contact Us</h2>
+          <p className="text-center">If you have any questions please click <a className="redbackground" href="../contact-us/">here</a></p>
 
           <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"/>
-          <div style={mcEmbedSignup}>
-            <form action="//rededucate.us14.list-manage.com/subscribe/post?u=a34f6f98c67b9ff0980cca0e9&amp;id=d8c093bfa0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-              <div style={mcEmbedSignup}>
+          <div id ="mc_embed_signup" style={mcEmbedSignup}>
+            <form action="//rededucate.us14.list-manage.com/subscribe/post?u=a34f6f98c67b9ff0980cca0e9&amp;id=d8c093bfa0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup" style={mcEmbedSignup}>
                 <label for="mce-EMAIL">Subscribe to our Newsletter</label>
-                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required/>
-                
-
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_a34f6f98c67b9ff0980cca0e9_d8c093bfa0" tabindex="-1" value=""/></div>
-                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/></div>
+                <input type="email" value="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required/>
+                <div style={{position: "absolute", left: "-5000px"}} aria-hidden="true">
+                  <input type="text" name="b_a34f6f98c67b9ff0980cca0e9_d8c093bfa0" tabindex="-1" value=""/>
+                </div>
+                <div className="clear">
+                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button"/>
+                </div>
               </div>
             </form>
           </div>
         </div>
-      </div>*/}
+      </div>
     </main>
   );
 }
