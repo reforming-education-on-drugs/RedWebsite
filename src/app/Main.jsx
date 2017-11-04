@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import IndexPage from "./pages/IndexPage";
 import SchoolPage from "./pages/SchoolPage";
+import ParentPage from "./pages/ParentPage"
 import NotFoundPage from "./pages/NotFoundPage";
 
 function Main() {
@@ -15,6 +16,7 @@ function Main() {
         <Switch>
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/schools" component={SchoolPage} />
+          <Route exact path="/parents" component={ParentPage}/>
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </div>
