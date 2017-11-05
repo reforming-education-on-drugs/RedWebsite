@@ -5,6 +5,11 @@ function SchoolPage() {
 
   return (
     <main>
+      <div className="container">
+      	<h1 className="text-center">Schools</h1>
+      </div>
+
+
       <div className="coloredcontainer">
         <div className="container">
           <h2 className="text-center">Objective</h2>
