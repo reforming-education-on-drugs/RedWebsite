@@ -20,12 +20,17 @@ function Main() {
         <Spacer />
         <Switch>
           <Route exact path="/" component={IndexPage} />
-          <Route exact path="/schools" component={SchoolPage} />
-          <Route exact path="/parents" component={ParentPage} />
-          <Route exact path="/about-us/constitution" component={ConstitutionPage} />
           <Route exact path="/about-us/vision" component={VisionPage} />
           <Route exact path="/about-us/team" component={TeamPage} />
+          <Route exact path="/about-us/constitution" component={ConstitutionPage} />
+          <Route exact path="/schools" component={SchoolPage} />
+          <Route exact path="/parents" component={ParentPage} />
+          <Route exact path="/blog" component={NotFoundPage} />
+          <Route exact path="/get-involved" component={NotFoundPage} />
           <Route exact path="/donate" component={DonatePage} />
+          <Route exact path="/booking" component={NotFoundPage} />
+          <Route exact path="/contact-us" component={NotFoundPage} />
+          <Route exact path="/faq" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
         <Footer />
