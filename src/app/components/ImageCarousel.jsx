@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 
-function Carousel(props) {
-  Carousel.propTypes = {
+export default function ImageCarousel(props) {
+  ImageCarousel.propTypes = {
     path: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
-  
+
   const swiperProps = {
     slidesPerView: 1,
     autoplay: {
@@ -37,5 +37,3 @@ function Carousel(props) {
     </div>
   );
 }
-
-export default Carousel;
