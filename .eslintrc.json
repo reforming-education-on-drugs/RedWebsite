@@ -2,17 +2,34 @@
     "env": {
         "browser": true,
         "node": true,
-        "es6": true,
-        "node": true
+        "es6": true
     },
     "parserOptions": {
+        "ecmaVersion": 6,        
+        "sourceType": "module",
         "ecmaFeatures": {
-            "jsx": true
-        },
-        "sourceType": "module"
+            "jsx": true,
+            "experimentalObjectRestSpread": true
+        }
     },
     "rules": {
-        "quotes": ["error", "double"]
+        "quotes": ["error", "double"],
+        "max-len": ["error", 
+            { 
+                "code": 120, 
+                "ignoreUrls": true, 
+                "ignoreStrings": true,
+                "ignoreComments": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
+        "jsx-a11y/label-has-for": [ 2, {
+            "components": [ "Label" ],
+            "required": {
+                "every": [ "nesting", "id" ]
+            },
+            "allowChildren": false
+        }]
     },
     "plugins": [
         "react"

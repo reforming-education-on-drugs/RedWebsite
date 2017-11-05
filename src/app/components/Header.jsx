@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
 
-function Header() {
+export default function Header() {
   return (
     <Navbar className="navigation-clean">
       <Navbar.Header>
@@ -30,5 +30,3 @@ function Header() {
     </Navbar>
   );
 }
-
-export default Header;

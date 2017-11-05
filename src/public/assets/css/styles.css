@@ -40,7 +40,7 @@ p{
 }
 
 main .container{
-    padding: 4em;
+    padding: 4em 4em 2em 4em;
 }
 
 .coloredcontainer > .container {
@@ -134,6 +134,39 @@ a:link.redbackground,a:visited.redbackground,#blogcontainer .blog-item:nth-child
 }
  a:hover.redbackground, a:active.redbackground,#blogcontainer .blog-item:nth-child(even) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
     color: white;
+}
+
+.testimonial-quote {
+    color: rgba(0,0,0,.4);
+    text-align: center;
+}
+
+.testimonial-slider blockquote {
+    text-align: center;
+    border: none;
+}
+
+.testimonial-slider blockquote > p {
+    font-size: 1.1em;
+}
+
+.testimonial-from {
+    color: red;
+}
+.brands a{
+    padding: 0px;    
+}
+
+.testimonial-slider .swiper-pagination-bullet {
+    background: #E5E5E5;
+    opacity: 1;
+    border-color: #E5E5E5;
+}
+  
+.testimonial-slider .swiper-pagination-bullet-active {
+    background: #f00;
+    opacity: 1;
+    border-color: #f00;
 }
 
 @media(min-width: 991px) {
