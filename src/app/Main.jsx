@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import IndexPage from "./pages/IndexPage";
-import SchoolPage from "./pages/SchoolPage";
-import ParentPage from "./pages/ParentPage";
-import ConstitutionPage from "./pages/ConstitutionPage";
 import VisionPage from "./pages/VisionPage";
 import TeamPage from "./pages/TeamPage";
+import ConstitutionPage from "./pages/ConstitutionPage";
+import SchoolPage from "./pages/SchoolPage";
+import ParentPage from "./pages/ParentPage";
 import DonatePage from "./pages/DonatePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Footer from "./components/Footer";
 
 function Main() {
   return (
