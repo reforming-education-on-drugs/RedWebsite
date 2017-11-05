@@ -21,11 +21,11 @@ function Main() {
         <Switch>
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/schools" component={SchoolPage} />
-          <Route exact path="/parents" component={ParentPage}/>
-          <Route exact path="/about-us/constitution" component={ConstitutionPage}/>
-          <Route exact path="/about-us/vision" component={VisionPage}/>
-          <Route exact path="/about-us/team" component={TeamPage}/>
-          <Route exact path="/donate" component={DonatePage}/>
+          <Route exact path="/parents" component={ParentPage} />
+          <Route exact path="/about-us/constitution" component={ConstitutionPage} />
+          <Route exact path="/about-us/vision" component={VisionPage} />
+          <Route exact path="/about-us/team" component={TeamPage} />
+          <Route exact path="/donate" component={DonatePage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
         <Footer />

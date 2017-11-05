@@ -20,7 +20,8 @@
                 "ignoreUrls": true, 
                 "ignoreStrings": true,
                 "ignoreComments": true,
-                "ignoreTemplateLiterals": true
+                "ignoreTemplateLiterals": true,
+                "ignorePattern": "(<p([\\s\\S]*?)/p>)|(<li([\\s\\S]*?)/li>)"
             }
         ],
         "jsx-a11y/label-has-for": [ 2, {

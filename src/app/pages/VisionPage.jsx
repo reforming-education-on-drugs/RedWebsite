@@ -1,8 +1,9 @@
-import React from "react"; 
+import React from "react";
 
-function VisionPage() {
+export default function VisionPage() {
   document.title = "RED | Vision";
-   return (
+
+  return (
     <main>
       <div className="container">
         <h1 className="text-center">Our Vision</h1>
@@ -18,5 +19,3 @@ function VisionPage() {
     </main>
   );
 }
-
-export default VisionPage;
