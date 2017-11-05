@@ -13,7 +13,16 @@
         }
     },
     "rules": {
-        "quotes": ["error", "double"]
+        "quotes": ["error", "double"],
+        "max-len": ["error", 
+            { 
+                "code": 120, 
+                "ignoreUrls": true, 
+                "ignoreStrings": true,
+                "ignoreComments": true,
+                "ignoreTemplateLiterals": true
+            }
+        ]
     },
     "plugins": [
         "react"

@@ -1,8 +1,9 @@
 import React from "react";
 import ImageCarousel from "../components/ImageCarousel";
 import Testimonials from "../components/TextCarousel";
+import MailChimp from "../components/MailChimp";
 
-function IndexPage() {
+export default function IndexPage() {
   document.title = "RED | Reforming Education on Drugs";
 
   const carousel = {
@@ -32,8 +33,8 @@ function IndexPage() {
       <ImageCarousel path={carousel.path} images={carousel.images} />
       <Description />
       <Testimonials testimonials={textCarousel.quotes} />
-      {/* TODO: MailChimp Sign Up form */}
-      {/* TODO: Brands */}
+      <MailChimp />
+      <Brands />
       {/* TODO: Footer */}
     </main>
   );
@@ -51,5 +52,12 @@ function Description() {
   );
 }
 
-
-export default IndexPage;
+function Brands() {
+  return (
+    <div className="brands">
+      <img src="/assets/img/UniversityOfCalgary.png" alt="University of Calgary" />
+      <img src="/assets/img/StudentUnion.png" alt="Students' Union" />
+      <img src="/assets/img/Devon.png" alt="Devon" />
+    </div>
+  );
+}
