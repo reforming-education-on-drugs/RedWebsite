@@ -35,7 +35,6 @@ export default function IndexPage() {
       <Testimonials testimonials={textCarousel.quotes} />
       <MailChimp />
       <Brands />
-      {/* TODO: Footer */}
     </main>
   );
 }

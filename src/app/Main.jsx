@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import IndexPage from "./pages/IndexPage";
 import SchoolPage from "./pages/SchoolPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -17,6 +18,7 @@ function Main() {
           <Route exact path="/schools" component={SchoolPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
