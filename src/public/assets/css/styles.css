@@ -161,13 +161,13 @@ a:link.redbackground,a:visited.redbackground,#blogcontainer .blog-item:nth-child
     background: #E5E5E5;
     opacity: 1;
     border-color: #E5E5E5;
-  }
+}
   
-  .testimonial-slider .swiper-pagination-bullet-active {
+.testimonial-slider .swiper-pagination-bullet-active {
     background: #f00;
     opacity: 1;
     border-color: #f00;
-  }
+}
 
 @media(min-width: 991px) {
     .navigation-clean.navbar .navbar-nav > li > a:hover {
