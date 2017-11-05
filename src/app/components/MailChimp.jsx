@@ -21,7 +21,7 @@ export default function MailChimp() {
           noValidate
         >
           <div id="mc_embed_signup" style={mcEmbedSignup}>
-            <label htmlFor="mce-EMAIL">Subscribe to our Newsletter</label>
+            <label htmlFor="EMAIL">Subscribe to our Newsletter</label>
             <input
               type="email"
               name="EMAIL"
