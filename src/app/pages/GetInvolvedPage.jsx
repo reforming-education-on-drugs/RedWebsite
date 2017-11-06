@@ -21,7 +21,7 @@ function showExecPositions(hiring) {
   }
 
   return (
-    <p>Unfortunately, there are no available executive positions. We encourage you to sign up as a <a className="whitebackground" href="/get-involved">General Member</a> in order to receive regular updates.</p>
+    <p>Unfortunately, there are no executive positions available. We encourage you to sign up as a <a className="whitebackground" href="/get-involved">General Member</a> in order to receive regular updates.</p>
   );
 }
 
