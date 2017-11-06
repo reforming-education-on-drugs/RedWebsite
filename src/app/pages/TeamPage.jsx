@@ -20,16 +20,16 @@ function Executive (exec){
 
 }
 
-function Advisor (adv){
-  Advisor.propTypes = {
+function Alumni (alum){
+  Alumni.propTypes = {
     name:PropTypes.string.isRequired,
     position:PropTypes.string.isRequired,
   }
 
   return(
     <div className="col-md-4 item" >
-      <h3 className="text-center"><b>{adv.name}</b></h3>
-      <p className="text-center">{adv.position}</p>
+      <h3 className="text-center"><b>{alum.name}</b></h3>
+      <p className="text-center">{alum.position}</p>
     </div>
 
   );
@@ -93,15 +93,13 @@ function TeamPage() {
       <h1 className="text-center">Alumni</h1>
         
       <div className="container">
-        <div className="Advisor">
-          <div className="row">   
-            <Advisor name="SID GOUTAM" position="VP EXTERNAL"/>
-            <Advisor name="CORI MAH" position="VP INTERNAL"/>
-            <Advisor name="NILESH SHARMA" position="VP FINANCE"/>
-          </div>
-          <div className="row">   
-            <Advisor name="ASFAR KHAN" position="VP EXTERNAL"/>
-          </div>
+        <div className="row">   
+          <Alumni name="SID GOUTAM" position="VP EXTERNAL"/>
+          <Alumni name="CORI MAH" position="VP INTERNAL"/>
+          <Alumni name="NILESH SHARMA" position="VP FINANCE"/>
+        </div>
+        <div className="row">   
+          <Alumni name="ASFAR KHAN" position="VP EXTERNAL"/>
         </div>
       </div>            
     </main>
