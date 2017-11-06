@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function DonatePage() {
+  document.title = "RED | Donate";
+
   return (
     <main>
       <div className="container">

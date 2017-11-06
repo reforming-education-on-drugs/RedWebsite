@@ -8,6 +8,7 @@ import TeamPage from "./pages/TeamPage";
 import ConstitutionPage from "./pages/ConstitutionPage";
 import SchoolPage from "./pages/SchoolPage";
 import ParentPage from "./pages/ParentPage";
+import GetInvolvedPage from "./pages/GetInvolvedPage";
 import DonatePage from "./pages/DonatePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Footer from "./components/Footer";
@@ -26,7 +27,7 @@ function Main() {
           <Route exact path="/schools" component={SchoolPage} />
           <Route exact path="/parents" component={ParentPage} />
           <Route exact path="/blog" component={NotFoundPage} />
-          <Route exact path="/get-involved" component={NotFoundPage} />
+          <Route exact path="/get-involved" component={GetInvolvedPage} />
           <Route exact path="/donate" component={DonatePage} />
           <Route exact path="/booking" component={NotFoundPage} />
           <Route exact path="/contact-us" component={NotFoundPage} />
