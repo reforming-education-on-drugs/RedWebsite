@@ -15,7 +15,7 @@ const config = {
   },
   devServer: {
     contentBase: BUILD_DIR,
-    compress: true,
+    compress: false,
     port: 8080,
     stats: 'errors-only',
     historyApiFallback: true,
