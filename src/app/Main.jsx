@@ -11,6 +11,7 @@ import ParentPage from "./pages/ParentPage";
 import GetInvolvedPage from "./pages/GetInvolvedPage";
 import DonatePage from "./pages/DonatePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ContactUsPage from "./pages/ContactUsPage";
 import Footer from "./components/Footer";
 
 function Main() {
@@ -30,7 +31,7 @@ function Main() {
           <Route exact path="/get-involved" component={GetInvolvedPage} />
           <Route exact path="/donate" component={DonatePage} />
           <Route exact path="/booking" component={NotFoundPage} />
-          <Route exact path="/contact-us" component={NotFoundPage} />
+          <Route exact path="/contact-us" component={ContactUsPage} />
           <Route exact path="/faq" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
