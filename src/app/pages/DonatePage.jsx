@@ -6,10 +6,10 @@ export default function DonatePage() {
   return (
     <main>
       <div className="container">
-        <h1 className="text-center">Donate</h1>
+        <h1>Donate</h1>
       </div>
       <div className="container">
-        <h2 className="text-center">Thank You!</h2>
+        <h2>Thank You!</h2>
         <p>You can click the link below to donate to RED using PayPal. PayPal is a secure method for transferring funds online.
           <br />
           We are thankful for your donation and every contribution helps.

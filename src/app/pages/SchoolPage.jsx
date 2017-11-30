@@ -10,12 +10,12 @@ export default function SchoolPage() {
         <h1>Schools</h1>
       </div>
 
-      <div className="coloredcontainer">
-        <div className="container">
-          <h2>Objective</h2>
-          <p>We are a student-run club at the University of Calgary called Reforming Education of Drugs (RED) and our primary goal is to provide in-class educational sessions for the youth regarding drug abuse prevention. Through the means of interactive scientific demonstrations and presentations, we will establish a foundational understanding of the biological/neurological mechanisms involved in drug addiction and the social implications involved.</p>
-        </div>
+
+      <div className="container redcontainer">
+        <h2>Objective</h2>
+        <p>We are a student-run club at the University of Calgary called Reforming Education of Drugs (RED) and our primary goal is to provide in-class educational sessions for the youth regarding drug abuse prevention. Through the means of interactive scientific demonstrations and presentations, we will establish a foundational understanding of the biological/neurological mechanisms involved in drug addiction and the social implications involved.</p>
       </div>
+
 
       <div className="container">
         <h2>Specifications</h2>
@@ -26,12 +26,12 @@ export default function SchoolPage() {
           <li>Volunteer Count: 5</li>
         </ul>
       </div>
-      <div className="coloredcontainer">
-        <div className="container">
-          <h2>Layout</h2>
-          <img style={{ width: "100%" }} src="/assets/img/layout.png" alt="layout" />
-        </div>
+
+      <div className="container redcontainer">
+        <h2>Layout</h2>
+        <img style={{ width: "100%" }} src="/assets/img/layout.png" alt="layout" />
       </div>
+
 
       <div className="container">
         <h2>Activity Description</h2>
@@ -51,12 +51,12 @@ export default function SchoolPage() {
         </Row>
       </div>
 
-      <div className="coloredcontainer">
-        <div className="container">
-          <h2>Contact Us</h2>
-          <p className="text-center">If you would like us to come and present at your school, please schedule with us <a href="/booking" className="redbackground">here</a></p>
-        </div>
+
+      <div className="container redcontainer">
+        <h2>Contact Us</h2>
+        <p className="text-center">If you would like us to come and present at your school, please schedule with us <a href="/booking">here</a></p>
       </div>
+
     </main>
   );
 }

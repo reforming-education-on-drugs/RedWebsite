@@ -41,13 +41,13 @@ export default function IndexPage() {
 
 function Description() {
   return (
-    <div className="coloredcontainer">
-      <div className="container">
-        <h1 className="text-center">Reforming Education on Drugs</h1>
-        { // eslint-disable-next-line
-        }<p>RED’s mission is to establish a foundational understanding of the biological mechanisms involved in illicit drug use and substance abuse. With interactive in-class presentations and demonstrations, we provide students with the ability to engage and think critically with these topics, all while developing a love for learning science.</p>
-      </div>
+
+    <div className="container redcontainer">
+      <h1 className="text-center">Reforming Education on Drugs</h1>
+      { // eslint-disable-next-line
+      }<p>RED’s mission is to establish a foundational understanding of the biological mechanisms involved in illicit drug use and substance abuse. With interactive in-class presentations and demonstrations, we provide students with the ability to engage and think critically with these topics, all while developing a love for learning science.</p>
     </div>
+
   );
 }
 

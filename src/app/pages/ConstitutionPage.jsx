@@ -6,7 +6,7 @@ export default function ConstitutionPage() {
   return (
     <main>
       <div className="container">
-        <h1 className="text-center">Constitution</h1>
+        <h1>Constitution</h1>
       </div>
 
       <div className="container">
