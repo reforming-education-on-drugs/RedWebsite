@@ -35,16 +35,14 @@ p{
     }
 }
 
-.coloredcontainer{
-    color:white;
-}
 
 main .container{
     padding: 4em;
 }
 
-.coloredcontainer > .container {
+.redcontainer{
     background-color: #D00000;
+    color:white;
 }
 
 @media (max-width: 767px){
@@ -125,14 +123,14 @@ ul.nav a:link,ul.nav a:visited{
     text-decoration: none;
 }
 
-a:hover.whitebackground, a:active.whitebackground,#blogcontainer .blog-item:nth-child(odd) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
+a:hover, a:active,#blogcontainer .blog-item:nth-child(odd) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
     color:red;
 }
-a:link.redbackground,a:visited.redbackground,#blogcontainer .blog-item:nth-child(even) a:link, #blogcontainer .blog-item:nth-child(even) a:visited{
+.redcontainer a:link,.redcontainer a:visited,#blogcontainer .blog-item:nth-child(even) a:link, #blogcontainer .blog-item:nth-child(even) a:visited{
     color: black;
     display: inline-block;
 }
- a:hover.redbackground, a:active.redbackground,#blogcontainer .blog-item:nth-child(even) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
+.redcontainer a:hover, .redcontainer a:active,#blogcontainer .blog-item:nth-child(even) a:hover,#blogcontainer .blog-item:nth-child(even) a:active{
     color: white;
 }
 
