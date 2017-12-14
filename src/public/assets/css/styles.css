@@ -226,11 +226,18 @@ Blog Content
     font-size: 1.2em;
     margin: 1em 1em;
     font-family: "Caviar Dreams";
-    font-weight:bold;
+    font-weight: bold;
 }
 
 .date-location span {
-    padding: 0 1em;
+  padding: 0 1em;
+}
+
+@media (max-width: 767px) {
+  .date-location span {
+    display: block;
+    padding: 0;
+  }
 }
 
 .blog-icons {
