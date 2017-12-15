@@ -40,7 +40,7 @@ export default {
       "location": "University of Calgary",
       "image-name": "blog11.jpg",
       "image-alt-text": "RED Year in Review",
-      "content": "RED has had an amazing run in the academic year of 2016-2017. Click <a href=\"RED_YIR.pdf\" target=\"_blank\">here</a> to learn more.",
+      "content": "RED has had an amazing run in the academic year of 2016-2017. Click <a href=\"/assets/files/RED_YIR.pdf\" target=\"_blank\">here</a> to learn more.",
     },
     {
       "title": "McKenzie Highlands School!",

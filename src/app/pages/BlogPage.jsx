@@ -87,7 +87,7 @@ export default function BlogPage() {
               <img src="/assets/img/blog-imgs/blog11.jpg" width="80%" alt="" />
               <p>
                 RED has had an amazing run in the academic year of 2016-2017. Click
-                <a href="RED_YIR.pdf" target="_blank">here</a> to learn more.
+                <a href="/assets/files/RED_YIR.pdf" target="_blank">here</a> to learn more.
               </p>
             </div>
           </div>
