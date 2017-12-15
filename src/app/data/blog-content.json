@@ -1,4 +1,7 @@
 /** TEMPLATE
+
+  NOTE: If anchor links or other HTML elements are needed in the blog content, simply add them inline to the blog's content.
+
   {
     "title": "",
     "date": "",
@@ -9,7 +12,7 @@
   },
 */
 export default {
-  "content": [
+  "blogs": [
     {
       "title": "Fall 2017 Meet & Greet",
       "date": "September 27th, 2017",

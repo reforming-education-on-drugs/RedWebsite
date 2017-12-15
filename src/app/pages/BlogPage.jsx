@@ -3,14 +3,16 @@ import { Row, Col } from "react-bootstrap";
 import BlogData from "../data/blog-content.json";
 
 export default function BlogPage() {
-  document.title = "RED | Blog"; return (
+  document.title = "RED | Blog";
+
+  return (
     <main>
       <section id="blog">
         <div className="redcontainer container blog-header">
           <h2>RED Events 2017</h2>
           <p>There is always more to learn! Join us at our events and get the information you need.</p>
           {
-            BlogData.content.forEach((value, index) => {
+            BlogData.blogs.forEach((value, index) => {
               console.log(value.title);
             })
           }
