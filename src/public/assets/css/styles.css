@@ -311,7 +311,7 @@ Blog Content
 }
 
 .blog-content p {
-  text-align: justify;
+  text-align: left;
   display: inline-block;
   vertical-align: middle;
   font-size: 1.2em;
