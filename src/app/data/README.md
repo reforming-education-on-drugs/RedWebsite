@@ -15,8 +15,8 @@ Please put the most recent blog posts at the very top.
   "title": "",
   "date": "",
   "location": "",
-  "image-name": "",
-  "image-alt-text": "",
+  "imageName": "",
+  "imageAltText": "",
   "content": "",
 }
 ```

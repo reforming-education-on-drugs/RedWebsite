@@ -14,23 +14,23 @@ export default function BlogPage() {
 
         <div className="blog container" id="blogcontainer">
           {
-            BlogData.blogs.map(blog => (
-              <div className="blog-item">
-                <h2 className="text-center">{blog.title}</h2>
+            BlogData.blog.map(blogItem => (
+              <div className="blogItem-item">
+                <h2 className="text-center">{blogItem.title}</h2>
                 <div className="date-location">
                   <span>
                     <img className="blog-icons" id="date" src="../assets/img/blog-imgs/blog-icons/calendar-black.png" alt="calendar-icon" />
-                    {blog.date}
+                    {blogItem.date}
                   </span>
                   <span>
                     <img className="blog-icons" id="location" src="../assets/img/blog-imgs/blog-icons/location-black.png" alt="location-icon" />
-                    {blog.location}
+                    {blogItem.location}
                   </span>
                 </div>
                 <div className="blog-content">
-                  <img src={`/assets/img/blog-imgs/${blog.imageName}`} width="80%" alt={blog.imageAltText} />
+                  <img src={`/assets/img/blog-imgs/${blogItem.imageName}`} width="80%" alt={blogItem.imageAltText} />
                   { /* only way to set HTML from strings */ }
-                  <p dangerouslySetInnerHTML={{ __html: blog.content }} />
+                  <p dangerouslySetInnerHTML={{ __html: blogItem.content }} />
                 </div>
               </div>
             ))
