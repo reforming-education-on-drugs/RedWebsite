@@ -1,17 +1,4 @@
-/** TEMPLATE
-
-  NOTE: If anchor links or other HTML elements are needed in the blog content, simply add them inline to the blog's content.
-
-  {
-    "title": "",
-    "date": "",
-    "location": "",
-    "image-name": "",
-    "image-alt-text": "",
-    "content": "",
-  },
-*/
-export default {
+{
   "blogs": [
     {
       "title": "Fall 2017 Meet & Greet",
@@ -19,7 +6,7 @@ export default {
       "location": "University of Calgary",
       "image-name": "blog14.png",
       "image-alt-text": "Meet and greet",
-      "content": "RED's Meet & Greet was a success! Thank you to everyone who came out! Keep a lookout on your email and RED's social media pages to stay current with all of RED's plans for this school year‼️ 💯#rededucate",
+      "content": "RED's Meet & Greet was a success! Thank you to everyone who came out! Keep a lookout on your email and RED's social media pages to stay current with all of RED's plans for this school year‼️ 💯#rededucate"
     },
     {
       "title": "Devon Funding",
@@ -27,7 +14,7 @@ export default {
       "location": "Devon",
       "image-name": "blog13.png",
       "image-alt-text": "Devon and RED",
-      "content": "RED WOULD LIKE TO GIVE A HUGE THANK YOU SHOUTOUT TO DEVON FOR ITS CONTRIBUTIONS OF $1500.00! <br /> Your generous financial support is greatly appreciated.  With your contribution, RED will be able to allot more resources for a greater number of presentations in the school year (RED has 50 tentative presentations booked already), purchase more materials for the in-class presentations, and create a sense of team pride within RED through the distribution of customized RED crewnecks.  The generous support of individuals and groups like you make it possible for our club  to implement our vision regarding substance awareness and is an encouraging reminder of why we undoubtedly enjoy giving back to our community.",
+      "content": "RED WOULD LIKE TO GIVE A HUGE THANK YOU SHOUTOUT TO DEVON FOR ITS CONTRIBUTIONS OF $1500.00! <br /> Your generous financial support is greatly appreciated.  With your contribution, RED will be able to allot more resources for a greater number of presentations in the school year (RED has 50 tentative presentations booked already), purchase more materials for the in-class presentations, and create a sense of team pride within RED through the distribution of customized RED crewnecks.  The generous support of individuals and groups like you make it possible for our club  to implement our vision regarding substance awareness and is an encouraging reminder of why we undoubtedly enjoy giving back to our community."
     },
     {
       "title": "Blaze Fundraiser",
@@ -35,7 +22,7 @@ export default {
       "location": "Blaze Pizza",
       "image-name": "blog12.png",
       "image-alt-text": "RED Team at Blaze Pizza",
-      "content": "June 1st was definitely one for the books! Thank you to everyone who came out and made RED's fundraiser a success! A huge shoutout to our raffle sponsors and a big thank you to @blazepizza for hosting us! The final numbers will be rolling in shortly! Until then, be sure to check out the photos from the evening!",
+      "content": "June 1st was definitely one for the books! Thank you to everyone who came out and made RED's fundraiser a success! A huge shoutout to our raffle sponsors and a big thank you to @blazepizza for hosting us! The final numbers will be rolling in shortly! Until then, be sure to check out the photos from the evening!"
     },
     {
       "title": "Year in Review",
@@ -43,7 +30,7 @@ export default {
       "location": "University of Calgary",
       "image-name": "blog11.jpg",
       "image-alt-text": "RED Year in Review",
-      "content": "RED has had an amazing run in the academic year of 2016-2017. Click <a href=\"/assets/files/RED_YIR.pdf\" target=\"_blank\">here</a> to learn more.",
+      "content": "RED has had an amazing run in the academic year of 2016-2017. Click <a href=\"/assets/files/RED_YIR.pdf\" target=\"_blank\">here</a> to learn more."
     },
     {
       "title": "McKenzie Highlands School!",
@@ -51,7 +38,7 @@ export default {
       "location": "McKenzie Highlands School",
       "image-name": "blog10.png",
       "image-alt-text": "RED Team presenting at McKenzie Highlands School",
-      "content": "RED has hit another home-run with two presentation days back-to-back at the McKenzie Highlands School! With exposure to a variety of neuroscience related topics, RED has definitely knocked these presentations out of the ballpark! We would once again like to thank our hard working volunteers who have taken time out from their well-deserved summer break and have contributed towards such a great educational experience! Hope you all have a relaxing summer and be sure to look forward to more presentations and events RED has planned in the near future!",
+      "content": "RED has hit another home-run with two presentation days back-to-back at the McKenzie Highlands School! With exposure to a variety of neuroscience related topics, RED has definitely knocked these presentations out of the ballpark! We would once again like to thank our hard working volunteers who have taken time out from their well-deserved summer break and have contributed towards such a great educational experience! Hope you all have a relaxing summer and be sure to look forward to more presentations and events RED has planned in the near future!"
     },
     {
       "title": "That is a wrap!",
@@ -59,7 +46,7 @@ export default {
       "location": "Georges P. Vanier School",
       "image-name": "blog9.png",
       "image-alt-text": "Mug from Georges P. Vanier School",
-      "content": "That is a wrap!! First and foremost, RED would like to thank all of our presenters for their hard work and Georges P. Vanier School for letting us be a part of such a great, educational experience! Thanks to G.P. Vanier's generosity, four of our volunteers each received a mug. We love the gifts and are definitely looking forward to collaborating in the future.",
+      "content": "That is a wrap!! First and foremost, RED would like to thank all of our presenters for their hard work and Georges P. Vanier School for letting us be a part of such a great, educational experience! Thanks to G.P. Vanier's generosity, four of our volunteers each received a mug. We love the gifts and are definitely looking forward to collaborating in the future."
     },
     {
       "title": "SU Club Awards",
@@ -67,7 +54,7 @@ export default {
       "location": "University of Calgary",
       "image-name": "blog8.jpg",
       "image-alt-text": "SU Club awarding RED with Honorable Mention Community Service Award",
-      "content": "On Wednesday April 5th, RED had the pleasure of attending UofC's annual SU Club Awards Banquet and proudly brought home an Honourable Mention for Community Service award! We hope we can carry the momentum from last year onwards to the next year.",
+      "content": "On Wednesday April 5th, RED had the pleasure of attending UofC's annual SU Club Awards Banquet and proudly brought home an Honourable Mention for Community Service award! We hope we can carry the momentum from last year onwards to the next year."
     },
     {
       "title": "LINKages x RED Collaboration",
@@ -75,7 +62,7 @@ export default {
       "location": "Murdoch Manor",
       "image-name": "blog7.png",
       "image-alt-text": "RED team with participants from Murdoch Manor",
-      "content": "RED can add another presentation to it is done list! RED recently collaborated with LINKages this past weekend and had the opportunity to lead interactive activities aimed at informing seniors about several common drugs and their effects on one’s brain and behavior. Topics such as substance misuse and addiction were explored through interactions among participants and throughout the event. To start off the event, LINKages participants were first asked series of trivia questions regarding biological pathways and the role of neurons. In the latter half, participants learned about familiar drugs and found themselves engaged in an insightful discussion surrounding the legalization of marijuana to conclude the day! All in all, RED received a lot of positive feedback from the participants and hopes to collaborate with LINKages in the near future! A huge shout out to our hardworking RED club volunteers- we cannot thank you enough!",
+      "content": "RED can add another presentation to it is done list! RED recently collaborated with LINKages this past weekend and had the opportunity to lead interactive activities aimed at informing seniors about several common drugs and their effects on one’s brain and behavior. Topics such as substance misuse and addiction were explored through interactions among participants and throughout the event. To start off the event, LINKages participants were first asked series of trivia questions regarding biological pathways and the role of neurons. In the latter half, participants learned about familiar drugs and found themselves engaged in an insightful discussion surrounding the legalization of marijuana to conclude the day! All in all, RED received a lot of positive feedback from the participants and hopes to collaborate with LINKages in the near future! A huge shout out to our hardworking RED club volunteers- we cannot thank you enough!"
     },
     {
       "title": "More Presentations: Georges P. Vanier!",
@@ -83,7 +70,7 @@ export default {
       "location": "Georges P. Vanier",
       "image-name": "blog6.png",
       "image-alt-text": "RED Team group photo at Georges P. Vanier",
-      "content": "On February 23rd, RED had the privilege to deliver nine presentations to junior high school students in grades 7-9, attending Georges P. Vanier. It would not have been possible without our lovely RED club volunteers and we would like to thank each one of you for your continuous dedication and commitment! In terms of the in-class presentations, we were glad to hear about the heightened interest and engagement involving the activities planned and information conveyed by RED. Students were exposed to a variety of material from covering the role of the neurons in the brain to how different substances, such as alcohol, affect an individual’s behavior. Students also got the opportunity to take part in reaction time tests, engage in a debate surrounding a popular topic, and enjoyed diagnosing “patients” in our “Patient Overdose Investigation” activity. Overall, the presentations were an incredible experience and we look forward to the presentations planned in the near future!!",
+      "content": "On February 23rd, RED had the privilege to deliver nine presentations to junior high school students in grades 7-9, attending Georges P. Vanier. It would not have been possible without our lovely RED club volunteers and we would like to thank each one of you for your continuous dedication and commitment! In terms of the in-class presentations, we were glad to hear about the heightened interest and engagement involving the activities planned and information conveyed by RED. Students were exposed to a variety of material from covering the role of the neurons in the brain to how different substances, such as alcohol, affect an individual’s behavior. Students also got the opportunity to take part in reaction time tests, engage in a debate surrounding a popular topic, and enjoyed diagnosing “patients” in our “Patient Overdose Investigation” activity. Overall, the presentations were an incredible experience and we look forward to the presentations planned in the near future!!"
     },
     {
       "title": "First Presentation: R.T. Alderman Middle School ",
@@ -91,7 +78,7 @@ export default {
       "location": "R.T. Alderman Middle School",
       "image-name": "blog5.png",
       "image-alt-text": "RED volunteer with engaged students",
-      "content": "Our first set of presentations was a success. Several members of the club were able to prepare and present a total of five presentations to grade 8 and 9 classes at RT Alderman Middle school. The feedback we received was all positive and we are looking forward to going back next year with updated presentations. RED is constantly working on research and development to keep our presentations up to date and relevant.",
+      "content": "Our first set of presentations was a success. Several members of the club were able to prepare and present a total of five presentations to grade 8 and 9 classes at RT Alderman Middle school. The feedback we received was all positive and we are looking forward to going back next year with updated presentations. RED is constantly working on research and development to keep our presentations up to date and relevant."
     },
     {
       "title": "Adults Only Night",
@@ -99,7 +86,7 @@ export default {
       "location": "Telus Spark",
       "image-name": "RED team engaging the public with interactive activities",
       "image-alt-text": "",
-      "content": "Thanks to the Neuroscience Student Association (NSA) for wanting to collaborate with us for the \"Adults Only Night\" at Telus Spark on November 10th! Although RED is mainly focused on educating the youth, we were able to expand our horizon and try to implement our activities with a bit of an older audience. With the support of the NSA, we hosted a fantastic event which participants seemed to really enjoy. Many learned new things, some tried to diagnose patients while others were too busy being competitive in our reaction-time test. All in all, it was a lot of fun informing the general public about the science of drugs! Stay tuned for more updates!",
+      "content": "Thanks to the Neuroscience Student Association (NSA) for wanting to collaborate with us for the \"Adults Only Night\" at Telus Spark on November 10th! Although RED is mainly focused on educating the youth, we were able to expand our horizon and try to implement our activities with a bit of an older audience. With the support of the NSA, we hosted a fantastic event which participants seemed to really enjoy. Many learned new things, some tried to diagnose patients while others were too busy being competitive in our reaction-time test. All in all, it was a lot of fun informing the general public about the science of drugs! Stay tuned for more updates!"
     },
     {
       "title": "Bake Sale",
@@ -107,7 +94,7 @@ export default {
       "location": "University of Calgary",
       "image-name": "blog3.png",
       "image-alt-text": "Baked goods for sale!",
-      "content": "We had an amazing bake sale in which we raised roughly $200 that would be used to purchase materials for our presentations at our schools. Some of the money was also used to subsidize the cost of our new crewnecks for our members that are presenting. We want to personally thank anyone that contributed to the bake sale - especially Megan, with her awesome macarons!",
+      "content": "We had an amazing bake sale in which we raised roughly $200 that would be used to purchase materials for our presentations at our schools. Some of the money was also used to subsidize the cost of our new crewnecks for our members that are presenting. We want to personally thank anyone that contributed to the bake sale - especially Megan, with her awesome macarons!"
     },
     {
       "title": "Fall 2016 Meet & Greet",
@@ -115,7 +102,7 @@ export default {
       "location": "University of Calgary",
       "image-name": "blog2.png",
       "image-alt-text": "Students mingling and eating free pizza!",
-      "content": "On behalf of the executive team at RED, we want to thank everyone who attended the Meet and Greet on the 28th. We had a blast networking and meeting our new members, while enjoying some pizza! This year we have the opportunity to present at RT Alderman Junior high. We hope that with our hard work over the summer, we can deliver an amazing presentation in the coming weeks.",
-    },
+      "content": "On behalf of the executive team at RED, we want to thank everyone who attended the Meet and Greet on the 28th. We had a blast networking and meeting our new members, while enjoying some pizza! This year we have the opportunity to present at RT Alderman Junior high. We hope that with our hard work over the summer, we can deliver an amazing presentation in the coming weeks."
+    }
   ]
 }
