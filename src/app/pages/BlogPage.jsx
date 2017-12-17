@@ -15,8 +15,8 @@ export default function BlogPage() {
         <div className="blog container" id="blogcontainer">
           {
             BlogData.blog.map(blogItem => (
-              <div className="blogItem-item">
-                <h2 className="text-center">{blogItem.title}</h2>
+              <div className="blog-item">
+                <h2>{blogItem.title}</h2>
                 <div className="date-location">
                   <span>
                     <img className="blog-icons" id="date" src="../assets/img/blog-imgs/blog-icons/calendar-black.png" alt="calendar-icon" />
