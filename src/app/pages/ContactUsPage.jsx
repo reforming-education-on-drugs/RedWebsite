@@ -14,6 +14,8 @@ export default class ContactUsPage extends Component {
   }
 
   render() {
+    document.title = "RED | Contact Us";
+
     return (
       <main>
         <div className="container">
