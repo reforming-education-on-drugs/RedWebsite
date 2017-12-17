@@ -91,10 +91,10 @@ a.dropdown-toggle.btn:hover {
 
 #donateButton {
   background: red;
-  margin: 1em;
+  margin-top: 2em;
   border-radius: 30px;
   border-style: none;
-  padding: 1em 1em;
+  padding: 1.1em 2em;
 }
 
 @media (max-width: 991px) {
