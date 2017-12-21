@@ -1,6 +1,7 @@
 const Webpack = require("webpack");
 const Path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const BUILD_DIR = Path.resolve(__dirname, "src/public");
 const APP_DIR = Path.resolve(__dirname, "src/app");
@@ -53,6 +54,20 @@ const config = {
       template: `${APP_DIR}/index.html`,
       filename: "index.html",
       inject: "body",
+    }),
+    new UglifyJsPlugin({
+      test: /\.js($|\?)/i,
+      cache: true,
+      sourceMap: true,
+      uglifyOptions: {
+        output: {
+          comments: false,
+          beautify: false,
+        },
+        compress: {
+          warnings: false,
+        },
+      },
     }),
   ],
 };
