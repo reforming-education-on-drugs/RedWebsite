@@ -94,7 +94,7 @@ a.dropdown-toggle.btn:hover {
   margin-top: 2em;
   border-radius: 30px;
   border-style: none;
-  padding: 1.1em 2em;
+  padding: 15px 20px;
 }
 
 @media (max-width: 991px) {
