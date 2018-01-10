@@ -162,6 +162,30 @@ export default function TeamPage() {
       imagePath: "/assets/img/Slobodan.JPG",
       bio: "Hello, my name is Slobodan Zelic and I am currently completing my BCOMM degree in Finance. I joined RED because I appreciated their unique approach of educating students on the adverse effects of drug usage. We do so through the means of interactive scientific demonstrations and presentations. RED establishes a foundational understanding of the biological mechanisms involved in drug addiction and the social implications associated.  It is my goal to secure additional funding in order to support and ensure the successful growth of RED.  In my free time, I enjoy going to the gym, playing sports, traveling, and volunteering for the Breaking Free Foundation.",
     },
+    {
+      name: "SARAH ZANUTTO",
+      position: "EDUCATION COORDINATOR",
+      imagePath: "/assets/img/SarahZ.JPG",
+      bio:"ello, my name is Sarah and I am in my 2nd year of a BSc degree in Neuroscience. Why do I love RED? I am passionate about our mission to foster a curiosity in science and facilitate an informed dialogue on the effects and consequences of drug use on the brain. I believe that a comprehensive perspective on the complexities of drug abuse is particularly relevant considering the opioid crisis devastating North America. As an Education Coordinator, my goal is to deliver meaningful presentations that resonate with our audience to encourage healthy and informed decision-making. I do this by helping to construct holistic and scientifically accurate presentations, as well as providing training for our presenters. Outside RED, my interests include mental health, playing piano and wall climbing!",
+    },
+    {
+      name: "SOPHIE GOBEIL",
+      position: "EDUCATION COORDINATOR",
+      imagePath: "/assets/img/SophieG.jpg",
+      bio:"I am a second year Neuroscience student at the University of Calgary. For as long as I can remember, I have been curious about how and why our bodies function the way they do. I am thrilled to have the opportunity to put my love for science to use while having a positive impact on young students. It is important that youth be able to make informed decisions about substance use, and I believe that RED’s fact-based approach can be a valuable tool in their education. I look forward to delivering accurate and useful educational material to students, and hope to promote their own curiosity about science while doing so. When I am not studying, you can find me in the mountains hiking, backpacking, and coaching cross-country skiing.",
+    },
+    {
+      name: "SACHINEE WIJETILLEKE",
+      position: "IT COORDINATOR",
+      imagePath: "/assets/img/Sachinee.jpg",
+      bio:"My name is Sachinee Wijetilleke and I am a second year Electrical Engineering Student. I am passionate about learning new things; particularly learning about technology and how we can increase the functionality of electrical devices aimed at addressing societal needs, mainly in the branch of medical facilities. I believe in RED’s effort in providing youth with scientific facts to help them make informed decisions in life, and thus make a positive impact in their lives and the people they converse with. The importance of choice and its’ ever apparent consequences should be well advertised to youth in such an influential society. RED focuses its efforts into making that happen. Besides academics, I enjoy playing the guitar and piano, volunteering at the hospital and cooking!",
+    },
+    {
+      name: "ARAZ MINHAS",
+      position: "IT COORDINATOR",
+      imagePath: "/assets/img/Araz.jpg",
+      bio:"In pursuing my second year of the BSc Neuroscience program at the University of Calgary, I have been fortunate to discover the value of continually cultivating neuroscientific knowledge for making intelligent decisions in everyday life, and in pursuing long-term goals. Along with the academic introductions to the field has come the lesson that such empowering and practically-relevant knowledge should ultimately be disseminated to all – especially the youth – to enable them to make well-informed decisions. Hence, I was prompted to join RED; I hope to support the team’s mission of providing all with easier access to pragmatic neuroscience-based knowledge, such as that pertaining to the effects, functioning and regulation of drugs, through various exciting educational mediums. Further, I hope to facilitate the club’s endeavours, with the rest of the IT team, by helping to overcome all technical challenges, and by ultimately assisting the expansion of its opportunities, and positive influence.",
+    },
   ];
 
   const advisors = [
