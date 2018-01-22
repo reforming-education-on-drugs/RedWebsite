@@ -7,7 +7,7 @@ export default function IndexPage() {
   document.title = "RED | Reforming Education on Drugs";
 
   const carousel = {
-    path: "/assets/img/",
+    path: "/images/",
     images: ["main10.jpg", "main3.jpg", "main5.jpg", "main8.jpg", "main9.jpg"],
   };
 
@@ -54,9 +54,9 @@ function Description() {
 function Brands() {
   return (
     <div className="brands">
-      <img src="/assets/img/UniversityOfCalgary.png" alt="University of Calgary" />
-      <img src="/assets/img/StudentUnion.png" alt="Students' Union" />
-      <img src="/assets/img/Devon.png" alt="Devon" />
+      <img src="/images/UniversityOfCalgary.png" alt="University of Calgary" />
+      <img src="/images/StudentUnion.png" alt="Students' Union" />
+      <img src="/images/Devon.png" alt="Devon" />
     </div>
   );
 }

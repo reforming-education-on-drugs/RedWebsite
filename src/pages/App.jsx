@@ -1,27 +1,31 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Header";
-import IndexPage from "./pages/IndexPage";
-import VisionPage from "./pages/VisionPage";
-import TeamPage from "./pages/TeamPage";
-import ConstitutionPage from "./pages/ConstitutionPage";
-import SchoolPage from "./pages/SchoolPage";
-import BookingPage from "./pages/BookingPage";
-import ParentPage from "./pages/ParentPage";
-import BlogPage from "./pages/BlogPage";
-import GetInvolvedPage from "./pages/GetInvolvedPage";
-import DonatePage from "./pages/DonatePage";
-import NotFoundPage from "./pages/NotFoundPage";
-import ContactUsPage from "./pages/ContactUsPage";
-import Footer from "./components/Footer";
+import Header from "../components/Header";
+import IndexPage from "./IndexPage";
+import VisionPage from "./VisionPage";
+import TeamPage from "./TeamPage";
+import ConstitutionPage from "./ConstitutionPage";
+import SchoolPage from "./SchoolPage";
+import BookingPage from "./BookingPage";
+import ParentPage from "./ParentPage";
+import BlogPage from "./BlogPage";
+import GetInvolvedPage from "./GetInvolvedPage";
+import DonatePage from "./DonatePage";
+import NotFoundPage from "./NotFoundPage";
+import ContactUsPage from "./ContactUsPage";
+import Footer from "../components/Footer";
 
-function Main() {
-  return (
-    <Router>
+// This is a class-based component because the current
+// version of hot reloading won't hot reload a stateless
+// component at the top-level.
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
       <div>
         <Header />
-        <Spacer />
+        <div id="spacer" />
         <Switch>
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/about-us/vision" component={VisionPage} />
@@ -40,12 +44,12 @@ function Main() {
         <Footer />
       </div>
     </Router>
-  );
+    );
+  }
 }
 
-function Spacer() {
-  // Spacer required to separate main content from navigation bar
-  return (<div id="spacer" />);
-}
+App.propTypes = {
+  children: PropTypes.element
+};
 
-ReactDOM.render(<Main />, document.getElementById("main-content"));
+export default App;
