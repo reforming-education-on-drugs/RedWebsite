@@ -79,7 +79,7 @@ export default {
             options: {
               limit: 10000,
               mimetype: 'image/svg+xml',
-              name: 'image/[name].[ext]'
+              name: 'assets/images/[name].[ext]'
             }
           }
         ]
@@ -90,7 +90,7 @@ export default {
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name].[ext]'
+              name: 'assets/images/[name].[ext]'
             }
           }
         ]

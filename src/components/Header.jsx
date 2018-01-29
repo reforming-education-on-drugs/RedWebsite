@@ -8,7 +8,7 @@ export default function Header() {
       <Navbar.Header>
         <Navbar.Brand>
           <NavLink to="/">
-            <img src="/assets/img/Logo.png" id="logo" title="logo" alt="RED Logo" />
+            <img src={require("../assets/images/Logo.png")} id="logo" title="logo" alt="RED Logo" />
           </NavLink>
         </Navbar.Brand>
         <Navbar.Toggle />

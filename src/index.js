@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './pages/App';
+import App from './pages/App.jsx';
 import './styles/styles.scss'; 
-require('./images/favicon.ico');
+import './assets/images/favicon.ico';
 
 render(
   <AppContainer>

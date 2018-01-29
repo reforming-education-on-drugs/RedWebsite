@@ -28,7 +28,7 @@ export default function BlogPage() {
                   </span>
                 </div>
                 <div className="blog-content">
-                  <img src={`/assets/img/blog-imgs/${blogItem.imageName}`} width="80%" alt={blogItem.imageAltText} />
+                  <img src={require(`../assets/images/blog-imgs/${blogItem.imageName}`)} width="80%" alt={blogItem.imageAltText} />
                   { /* only way to set HTML from strings */ }
                   <p dangerouslySetInnerHTML={{ __html: blogItem.content }} />
                 </div>
