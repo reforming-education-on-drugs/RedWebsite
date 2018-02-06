@@ -19,16 +19,16 @@ export default function BlogPage() {
                 <h2>{blogItem.title}</h2>
                 <div className="date-location">
                   <span>
-                    <img className="blog-icons" id="date" src="../assets/img/blog-imgs/blog-icons/calendar-black.png" alt="calendar-icon" />
+                    <img className="blog-icons" id="date" src="../assets/images/blog-images/blog-icons/calendar-black.png" alt="calendar-icon" />
                     {blogItem.date}
                   </span>
                   <span>
-                    <img className="blog-icons" id="location" src="../assets/img/blog-imgs/blog-icons/location-black.png" alt="location-icon" />
+                    <img className="blog-icons" id="location" src="../assets/images/blog-images/blog-icons/location-black.png" alt="location-icon" />
                     {blogItem.location}
                   </span>
                 </div>
                 <div className="blog-content">
-                  <img src={require(`../assets/images/blog-imgs/${blogItem.imageName}`)} width="80%" alt={blogItem.imageAltText} />
+                  <img src={require(`../assets/images/blog-images/${blogItem.imageName}`)} width="80%" alt={blogItem.imageAltText} />
                   { /* only way to set HTML from strings */ }
                   <p dangerouslySetInnerHTML={{ __html: blogItem.content }} />
                 </div>

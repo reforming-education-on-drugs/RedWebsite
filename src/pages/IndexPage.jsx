@@ -2,6 +2,10 @@ import React from "react";
 import ImageCarousel from "../components/ImageCarousel.jsx";
 import Testimonials from "../components/TextCarousel.jsx";
 import MailChimp from "../components/MailChimp.jsx";
+import "../styles/Brands.css";
+import "../styles/Footer-Basic.css";
+import "../styles/Navigation-Clean1.css";
+import "../styles/Simple-Slider.css";
 
 
 function Description() {
