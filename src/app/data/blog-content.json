@@ -1,6 +1,36 @@
 {
   "blog": [
     {
+      "title": "Project Pulse",
+      "date": "November 18, 2017",
+      "location": "University of Calgary",
+      "imageName": "blog17.png",
+      "imageAltText": "Project Pulse",
+      "content": "RED was beyond elated to present at Zenith ‘17, a Project Pulse event. Our volunteers had the opportunity to educate and create awareness around drug education and related biological mechanisms. RED looks forward to collaborating with the Project Pulse team in the future."
+    },
+    {
+      "title": "RED’s Holiday Food Drive",
+      "date": "November 16, 2017",
+      "location": "University of Calgary",
+      "imageName": "blog16.png",
+      "imageAltText": "RED’s Holiday Food Drive",
+      "content": "RED placed first place in the poster contest for the SU Campus Food Drive 2017-2018! With all the food donations, our lovely volunteers helped build the successful RED Polar Express food sculpture. All proceeds went directly to the SU Campus Food Bank. Thank you to everyone who donated and contributed to a great cause, it will definitely be an event to remember."
+    },
+    {
+      "title": "Engaging Vulnerable People Workshop",
+      "date": "November 8, 2017",
+      "location": "University of Calgary",
+      "content": "Thank you to everyone who joined RED in conjunction with Bear Necessities & 3 Things for UCalgary. It was our pleasure hosting the Calgary Drop-In Centre in delivering the Engaging Vulnerable People workshop at the University of Calgary. We definitely had the opportunity to network, develop our resumes, and simply learn something new!"
+    },
+    {
+      "title": "RED x PARAMEDICS COLLAB",
+      "date": "October 2, 2017",
+      "location": "University of Calgary",
+      "imageName": "blog15.png",
+      "imageAltText": "RED x PARAMEDICS COLLAB",
+      "content": "RED x YYC PARAMEDICS. Name a better duo, we’ll wait. RED is thankful to the lovely paramedics who took time out of their busy schedule to help RED film such an interesting video! Be on the lookout as RED will be posting teasers and other exclusive footage in the future."
+    },
+    {
       "title": "Fall 2017 Meet & Greet",
       "date": "September 27, 2017",
       "location": "University of Calgary",

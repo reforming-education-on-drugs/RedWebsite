@@ -28,7 +28,8 @@ export default function BlogPage() {
                   </span>
                 </div>
                 <div className="blog-content">
-                  <img src={`/assets/img/blog-imgs/${blogItem.imageName}`} width="80%" alt={blogItem.imageAltText} />
+                  {/* To only display an image if one is provided */}
+                  { blogItem.imageName && blogItem.imageAltText ? <img src={`/assets/img/blog-imgs/${blogItem.imageName}`} width="80%" alt={blogItem.imageAltText} /> : "" }
                   { /* only way to set HTML from strings */ }
                   <p dangerouslySetInnerHTML={{ __html: blogItem.content }} />
                 </div>
