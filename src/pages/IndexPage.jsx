@@ -1,7 +1,7 @@
 import React from "react";
-import ImageCarousel from "../components/ImageCarousel.jsx";
-import Testimonials from "../components/TextCarousel.jsx";
-import MailChimp from "../components/MailChimp.jsx";
+import ImageCarousel from "../components/ImageCarousel";
+import Testimonials from "../components/TextCarousel";
+import MailChimp from "../components/MailChimp";
 import "../styles/Brands.css";
 import "../styles/Navigation-Clean1.css";
 import "../styles/Simple-Slider.css";
