@@ -22,13 +22,13 @@ export default function ParentPage() {
         <h2>Presentation & Activities</h2>
         <p>The RED presentation begins with a brief introduction where metaphors are used to explain how brain cells function as well as the different parts of the brain. Building off this understanding, three different drugs are presented to the class. Drugs range from commonly accessible drugs such as alcohol, to prescription drugs such as Adderall, to illegal drugs such as marijuana and cocaine. Students volunteer to participate in demonstrations that model the effects of the various drugs. For example, the effect of alcohol on reaction time is demonstrated by simulating a reaction time test. Following the presentation, students work in groups and investigate three patients in the ER of a hospital. The goal of the tasks is to have students correctly identify the substance(s) impairing each student based on symptoms and vital stats. The presentation is concluded with a Q & A session to address questions and concerns that may arise throughout the presentation.</p>
         <Col md={4}>
-          <img className="parents" title="Focused Kids" src="/assets/img/main1.jpg" alt="Focused Kids" />
+          <img className="parents" title="Focused Kids" src={require('../assets/images/main1.jpg')} alt="Focused Kids" />
         </Col>
         <Col md={4}>
-          <img className="parents" title="Focused Kids" src="/assets/img/main4.jpg" alt="Focused Kids" />
+          <img className="parents" title="Focused Kids" src={require('../assets/images/main4.jpg')} alt="Focused Kids" />
         </Col>
         <Col md={4}>
-          <img className="parents" title="Focused Kids" src="/assets/img/main7.jpg" alt="Focused Kids" />
+          <img className="parents" title="Focused Kids" src={require('../assets/images/main7.jpg')} alt="Focused Kids" />
         </Col>
       </div>
 
