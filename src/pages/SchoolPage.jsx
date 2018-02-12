@@ -29,7 +29,7 @@ export default function SchoolPage() {
 
       <div className="container redcontainer">
         <h2>Layout</h2>
-        <img style={{ width: "100%" }} src="/assets/img/layout.png" alt="layout" />
+        <img style={{ width: "100%" }} src={require('../assets/images/layout.png')} alt="layout" />
       </div>
 
 

@@ -6,7 +6,7 @@ export default function NotFoundPage() {
   return (
     <main className="text-center">
       <div className="container">
-        <img src="../assets/img/symbol.png" width="50px" height="50px" style={{ marginTop: "20px", marginBottom: "10px" }} alt="RED logo symbol" />
+        <img src={require('../assets/images/symbol.png')} width="50px" height="50px" style={{ marginTop: "20px", marginBottom: "10px" }} alt="RED logo symbol" />
       </div>
       <div className="container redcontainer">
         <h2>Oops! Page not found!</h2>
