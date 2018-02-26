@@ -1,5 +1,5 @@
 .footer-basic {
-  padding:40px 0;
+  padding:20px 0;
   background-color:#ffffff;
   color:#4b4c4d;
 }
@@ -33,7 +33,7 @@
 }
 
 .footer-basic .social > a {
-  font-size:24px;
+  font-size:28px;
   width:40px;
   height:40px;
   line-height:40px;
@@ -48,6 +48,14 @@
 
 .footer-basic .social > a:hover {
   opacity:0.9;
+}
+
+.footer-basic .social .icons > .icon {
+  fill: #4b4c4d;
+}
+
+.footer-basic .social .icons > svg:hover {
+  fill: red;
 }
 
 .footer-basic .copyright {

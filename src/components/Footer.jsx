@@ -1,4 +1,5 @@
 import React from "react";
+import Ionicon from 'react-ionicons';
 import "../styles/Footer-Basic.css";
 
 export default function Footer() {
@@ -6,11 +7,14 @@ export default function Footer() {
     <div className="footer-basic">
       <footer>
         <div className="social">
-          <a href="https://www.facebook.com/REDxClub/">
-            <i className="icon ion-social-facebook" />
+          <a className="icons" href="https://www.facebook.com/REDxClub/">
+            <Ionicon icon="logo-facebook" className="icon" />
           </a>
           <a className="icons" href="https://www.instagram.com/red_ucalgary/">
-            <i className="icon ion-social-instagram" />
+            <Ionicon icon="logo-instagram" className="icon" />
+          </a>
+          <a className="icons" href="https://twitter.com/red_ucalgary">
+            <Ionicon icon="logo-twitter" className="icon" />
           </a>
         </div>
         <ul className="list-inline">
