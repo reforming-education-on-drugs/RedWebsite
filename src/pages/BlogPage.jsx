@@ -1,5 +1,8 @@
 import React from "react";
 import BlogData from "../data/blog-content.json";
+// Don't import white version of these images because we use CSS to dictate the black/white altnerating
+import BlackCalendar from '../assets/images/blog-images/blog-icons/calendar-black.png';
+import BlackLocation from '../assets/images/blog-images/blog-icons/location-black.png';
 
 export default function BlogPage() {
   document.title = "RED | Blog";
@@ -19,11 +22,11 @@ export default function BlogPage() {
                 <h2>{blogItem.title}</h2>
                 <div className="date-location">
                   <span>
-                    <img className="blog-icons" id="date" src="../assets/images/blog-images/blog-icons/calendar-black.png" alt="calendar-icon" />
+                    <img className="blog-icons" id="date" src={BlackCalendar} alt="calendar-icon" />
                     {blogItem.date}
                   </span>
                   <span>
-                    <img className="blog-icons" id="location" src="../assets/images/blog-images/blog-icons/location-black.png" alt="location-icon" />
+                    <img className="blog-icons" id="location" src={BlackLocation} alt="location-icon" />
                     {blogItem.location}
                   </span>
                 </div>

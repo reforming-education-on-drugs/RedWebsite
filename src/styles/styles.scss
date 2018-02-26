@@ -231,7 +231,6 @@ hr {
   background: #D00000;
 }
 
-
 /* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Blog Content
 */
@@ -255,12 +254,12 @@ Blog Content
 @media (max-width: 767px) {
   .date-location span {
     display: block;
-    padding: 0;
+    padding: 0.2em 0;
   }
 }
 
 .blog-icons {
-  width: 3.5%;
+  width: 40px;
   vertical-align: middle;
   margin-right: 5px;
 }
