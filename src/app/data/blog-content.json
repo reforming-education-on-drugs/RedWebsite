@@ -1,5 +1,31 @@
 {
   "blog": [
+ {
+   "title": "Our first ever 2018 Presentation!",
+    "date": "Jan 15th 2018",
+    "location":"University of Calgary",
+    "imageName": "blog17.png",
+    "imageAltText": "Our first ever 2018 Presentation!",
+    "content": "The first presentation of 2018 is done. The RED Team is thankful for our lovely presenters who knocked it out of the park! RED could have not done it without each and every one of you. RED is definitely looking forward to future presentations at Georges P. Vanier."
+           
+  },
+  {
+    "title": "Cocobrooks Fundraiser",
+    "date": "December 7th, 2017",
+    "location":"University of Calgary",
+    "imageName": "blog16.png",
+    "imageAltText": "Cocobrooks Fundraiser",
+    "content": "RED wants to thank everyone for supporting RED’s successful Cocobrooks Fundraiser! RED would also like to give a huge shoutout to Kaitlyn for being the #1 seller and Megan for placing the most orders, you made us proud!"
+           
+  },
+  {
+    "title": "First Ever High School Presentation!",
+    "date": "November 24th, 2017",
+    "location": "Westmount Charter High School",
+    "imageName": "blog15.png",
+    "imageAltText": "First Ever High School Presentation!",
+    "content": "NOVEMBER 24 is definitely for the books! Why? Because it was RED’s first ever high school presentation! RED could not be more thankful to be able to present at Westmount Charter High School.  A special shoutout to all the RED members who presented, you knocked it out of the park! RED got an overwhelmingly positive response from the high school audience and looks forward to presenting to more high schools in the near future."
+    },
     {
       "title": "Project Pulse",
       "date": "November 18, 2017",
