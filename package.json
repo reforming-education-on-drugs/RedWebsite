@@ -19,6 +19,8 @@
     "prebuild": "npm run lint && npm run test && npm run clean-dist",
     "build": "babel-node tools/build.js && npm run open:dist",
     "test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
@@ -29,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/Kouroshb26/RedWebsite/issues"
   },
-  "homepage": "https://www.rededucate.com/",
+  "homepage": "https://kouroshb26.github.io/RedWebsite/",
   "author": "RED - IT Team",
   "contributors": [
     {
