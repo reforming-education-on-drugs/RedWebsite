@@ -17,7 +17,8 @@
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
     "prebuild": "npm run lint && npm run test && npm run clean-dist",
-    "build": "babel-node tools/build.js && npm run open:dist",
+    "build": "babel-node tools/build.js && cp _redirects dist",
+    "build:open": "npm run build && npm run open:dist",
     "test": "jest",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
@@ -29,10 +30,9 @@
   "bugs": {
     "url": "https://github.com/Kouroshb26/RedWebsite/issues"
   },
-  "homepage": "https://www.rededucate.com/",
+  "homepage": "https://reducalgary.netlify.com/",
   "author": "RED - IT Team",
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Jackie Luc",
       "email": "jackieluc17@gmail.com",
       "url": "https://github.com/jackieluc"
