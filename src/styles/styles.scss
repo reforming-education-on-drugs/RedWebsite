@@ -27,13 +27,16 @@ p {
 }
 
 @media (max-width: 767px) {
+
   h1,
   h2 {
     font-size: 3rem;
   }
+
   h3 {
     font-size: 2rem;
   }
+
   p,
   ul,
   ol {
@@ -196,6 +199,10 @@ img.parents {
   max-width: 100%;
 }
 
+.executive>.row {
+  margin-bottom: 2em;
+}
+
 .executive img {
   max-height: 500px;
   width: 65%;
@@ -203,6 +210,8 @@ img.parents {
   display: block;
   background: #DDDDDD;
   padding: 5px;
+  text-align: center;
+  line-height: 23;
 }
 
 @media (max-width: 767px) {
@@ -222,7 +231,6 @@ img.parents {
   text-align: center;
   margin: auto;
   padding: 0 1em;
-  margin-bottom: 2em;
 }
 
 hr {
@@ -234,7 +242,6 @@ hr {
 /* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Blog Content
 */
-
 #blog-banner {
   margin-top: 5em;
 }
@@ -322,6 +329,7 @@ Blog Content
   .blog-content p {
     width: 100%;
   }
+
   .blog-content {
     margin: 2em 0px;
   }
