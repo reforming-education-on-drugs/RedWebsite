@@ -199,19 +199,38 @@ img.parents {
   max-width: 100%;
 }
 
-#general-membership p {
+#club-membership p {
   margin-bottom: 15px;
 }
 
-#general-membership .membership-email {
+.membership-email {
   font-size: 1.75rem;
   text-align: center;
   margin-bottom: 15px;
 }
 
-#general-membership .membership-email > p {
+.membership-email p {
   display: inline-block;
   margin-bottom: 0;
+}
+
+#executive-membership {
+  text-align: center;
+}
+
+#executive-membership ul {
+  text-align: center;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#executive-membership ul li {
+  list-style: none;
+}
+
+.smaller-width-paragraph {
+  max-width: 700px;
+  margin: auto auto;
 }
 
 .executive>.row {
