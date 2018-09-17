@@ -30,9 +30,10 @@
   "bugs": {
     "url": "https://github.com/Kouroshb26/RedWebsite/issues"
   },
-  "homepage": "https://reducalgary.netlify.com/",
+  "homepage": "https://www.rededucate.com/",
   "author": "RED - IT Team",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Jackie Luc",
       "email": "jackieluc17@gmail.com",
       "url": "https://github.com/jackieluc"
