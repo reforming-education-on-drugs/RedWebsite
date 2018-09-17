@@ -17,6 +17,11 @@ function showExecPositions(hiring) {
         <h3 id="warning">Applications are due on Feb 3rd, 2017.</h3>
         <p >Please also sign up as a  <a href="/get-involved">General Member</a> to get updates.</p>
       </div>
+      // VP Finance (1)
+      // Jr Education (3)
+      // Jr IT (1)
+      // Jr Internal (1) Coordinator)
+      // Jr External (1)
     );
   }
 
@@ -36,12 +41,13 @@ export default function GetInvolvedPage() {
       </div>
 
       <Tabs justified id="Memberships">
-        <Tab eventKey={1} title="General Membership">
+        <Tab eventKey={1} title="Club Membership">
           <div id="general-membership" className="tab-pane fade active in">
             <div className="container">
-              <h2>General Membership</h2>
-              <p>At RED, our members are the core of our club are vital to all the endeavors we undertake. As a member of RED, you can expect to gain immediate expertise the areas of public speaking, team-based collaboration and leadership, all while contributing an interesting and professional position to your resumé or portfolio. Members have the opportunity to join any of the 4 teams that resonates with them. participating in the roles is completely optional.</p>
-              <ul>
+              <h2>Club Membership</h2>
+              <p>At RED, our educators are at the core of our club and are vital for our successful endeavours. As an educator of RED, you will have volunteer opportunities to run interactive presentation activities at our volunteering events. Before every event, we try to ensure that we provide enough learning resources and practice to ensure that every educator feels more comfortable presenting the material.</p>
+              <p>Throughout your experience, you can also expect to gain immediate expertise the areas of public speaking, team-based collaboration and leadership, all while contributing an interesting and professional position to your resumé or portfolio. There are also opportunities available to join our executive team and continue impacting the community!</p>
+              {/* <ul>
                 <li>
                   <p className="text-left"><b>Team External Communications (EC)</b> mainly contact and establish communications with Junior High Schools and prospective partners for RED presentations and Demonstrations with the help of VP External. Members of this team are ambassadors of Red, the SU and the U of C, thus they can expect to gain a lot of skills in the areas of public speaking, organizational ability, time/impression management and networking with the community.</p>
                 </li>
@@ -55,8 +61,12 @@ export default function GetInvolvedPage() {
                   <p className="text-left"><b>Team Fund</b> ensures that our members and Junior High students have the best RED experience possible by managing the monetary assets of the club. This team’s main priority is to seek out fundraising opportunities in the form of events held on campus, or completing grant/funding requests for industry/non-profit organizations to raise funds to cover costs of educational and branding materials with the help of VP Finance. Individuals on this team can expect to gain knowledge in negotiation, impression management, event organization and time management.</p>
                 </li>
               </ul>
-              <p>Regardless of what team a member is a part of, all members are expected to be active and involved by being vigilant for club-related updates on our Facebook group, or being prompt in filling out doodle-polls for various activities such as general meetings, club social, fundraisers, school presentations or other events. In exchange for their commitment, all members treated with respect and encouraged to share their ideas while also being supplied with numerous opportunities to further their professional development and build up transferable skills.</p>
-              <p>Registration as a member of RED is currently open to all University of Calgary Students</p>
+              <p>Regardless of what team a member is a part of, all members are expected to be active and involved by being vigilant for club-related updates on our Facebook group, or being prompt in filling out doodle-polls for various activities such as general meetings, club social, fundraisers, school presentations or other events. In exchange for their commitment, all members treated with respect and encouraged to share their ideas while also being supplied with numerous opportunities to further their professional development and build up transferable skills.</p> */}
+                <p>Registration as an educator is open to all University of Calgary Students.</p>
+              <div className="membership-email">
+                <p>For any questions or inquiries, please contact us at&nbsp;</p>
+                <a href="mailto:reducalgary@gmail.com?Subject=Membership questions">reducalgary@gmail.com</a>
+              </div>
               <iframe title="Loading..." id="get-involved-form" scrolling="auto" width="100%" frameBorder="0" marginHeight="0" marginWidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSfm2yoifTtBUAmI63Ww_jCRRzT4d5r3hyfwp8LIwDsoqg0OsQ/viewform?embedded=true" />
             </div>
           </div>

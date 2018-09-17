@@ -199,6 +199,21 @@ img.parents {
   max-width: 100%;
 }
 
+#general-membership p {
+  margin-bottom: 15px;
+}
+
+#general-membership .membership-email {
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#general-membership .membership-email > p {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
 .executive>.row {
   margin-bottom: 2em;
 }
