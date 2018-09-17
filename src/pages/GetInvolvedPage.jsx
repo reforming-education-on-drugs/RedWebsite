@@ -17,11 +17,6 @@ function showExecPositions(hiring) {
         <h3 id="warning">Applications are due on Feb 3rd, 2017.</h3>
         <p >Please also sign up as a  <a href="/get-involved">General Member</a> to get updates.</p>
       </div>
-      // VP Finance (1)
-      // Jr Education (3)
-      // Jr IT (1)
-      // Jr Internal (1) Coordinator)
-      // Jr External (1)
     );
   }
 
@@ -47,22 +42,7 @@ export default function GetInvolvedPage() {
               <h2>Club Membership</h2>
               <p>At RED, our educators are at the core of our club and are vital for our successful endeavours. As an educator of RED, you will have volunteer opportunities to run interactive presentation activities at our volunteering events. Before every event, we try to ensure that we provide enough learning resources and practice to ensure that every educator feels more comfortable presenting the material.</p>
               <p>Throughout your experience, you can also expect to gain immediate expertise the areas of public speaking, team-based collaboration and leadership, all while contributing an interesting and professional position to your resumé or portfolio. There are also opportunities available to join our executive team and continue impacting the community!</p>
-              {/* <ul>
-                <li>
-                  <p className="text-left"><b>Team External Communications (EC)</b> mainly contact and establish communications with Junior High Schools and prospective partners for RED presentations and Demonstrations with the help of VP External. Members of this team are ambassadors of Red, the SU and the U of C, thus they can expect to gain a lot of skills in the areas of public speaking, organizational ability, time/impression management and networking with the community.</p>
-                </li>
-                <li>
-                  <p className="text-left"><b>Team Education</b> is the bread and butter of RED. This team focus on planning, managing and executing RED presentations with the help of VP Education. Individuals on this team should be creative and prepared to generate ideas and modifying presentation content with the goal of enhancing the presentations and activities while keeping them relevant. Individuals in this team will gain experience in science communication, problem solving, public speaking and collaboration.</p>
-                </li>
-                <li>
-                  <p className="text-left"><b>Team Information Technology (IT)</b> is responsible for everything technology related. From website development and maintenance to marketing materials and photography are part of the team&#39;s focus. Individuals on this team act to maintain our brand and our club as a professional organization under the SU and the U of C with the help of VP Technology. These individuals will gain skills in collaboration, branding, and the respective programs and languages used such as Photoshop, HTML/CSS, etc.</p>
-                </li>
-                <li>
-                  <p className="text-left"><b>Team Fund</b> ensures that our members and Junior High students have the best RED experience possible by managing the monetary assets of the club. This team’s main priority is to seek out fundraising opportunities in the form of events held on campus, or completing grant/funding requests for industry/non-profit organizations to raise funds to cover costs of educational and branding materials with the help of VP Finance. Individuals on this team can expect to gain knowledge in negotiation, impression management, event organization and time management.</p>
-                </li>
-              </ul>
-              <p>Regardless of what team a member is a part of, all members are expected to be active and involved by being vigilant for club-related updates on our Facebook group, or being prompt in filling out doodle-polls for various activities such as general meetings, club social, fundraisers, school presentations or other events. In exchange for their commitment, all members treated with respect and encouraged to share their ideas while also being supplied with numerous opportunities to further their professional development and build up transferable skills.</p> */}
-                <p>Registration as an educator is open to all University of Calgary Students.</p>
+              <p>Registration as an educator is open to all University of Calgary Students.</p>
               <div className="membership-email">
                 <p>For any questions or inquiries, please contact us at&nbsp;</p>
                 <a href="mailto:reducalgary@gmail.com?Subject=Membership questions">reducalgary@gmail.com</a>
