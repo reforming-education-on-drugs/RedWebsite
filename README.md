@@ -7,7 +7,6 @@ Reforming Education on Drugs (RED) is a non-profit student-run club at the Unive
 * **Jackie Luc** - [GitHub](https://github.com/jackieluc)
 * **Kourosh Banaeianzadeh** - [GitHub](https://github.com/Kouroshb26)
 * **Araz Minhas** - [GitHub](https://github.com/arazzz)
-* **Sachinee Wijetilleke** - [GitHub](https://github.com/Sachineew)
 
 ## Getting started
 
@@ -15,8 +14,14 @@ Reforming Education on Drugs (RED) is a non-profit student-run club at the Unive
 npm install
 ```
 
-## Running a development server
+## Local development
 
+Developing on MacOSX? Install Homebrew to install watchman to start a local server successfully:  
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ; brew install watchman
+```
+
+Starting the local server:  
 ```
 npm start
 ```
@@ -60,12 +65,6 @@ This will run Webpack for the production environment, using **webpack.config.pro
 │   └── analyzeBundle.js      # Analyzes the webpack bundle
 ├── webpack.config.dev.js     # Configures webpack for development builds
 └── webpack.config.prod.js    # Configures webpack for production builds
-```
-
-## Running Tests
-
-```
-TODO
 ```
 
 ## Built With
