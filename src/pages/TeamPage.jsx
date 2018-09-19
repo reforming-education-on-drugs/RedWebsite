@@ -150,7 +150,7 @@ export default function TeamPage() {
       name: "KOUROSH BANAEIANZADEH",
       position: "VP INFORMATION & TECHNOLOGY",
       imageName: "Kourosh.jpg",
-      bio: "I am a third year Bioinformatics student learning computer programming while pursuing my passions in biology. One of the aspects of biology that fascinates me is the brain. It has the capacity to learn, understand and apply. Although today we are still unable to know how the whole brain functions, we have discovered many intresting properties of the brain. At the moment recreational drugs is one of the simplest concepts to learn yet very interesting. It is fascinating to know how the body reacts to these reagents and how we become addicted. In this club I will be ensuring the smooth operation of IT. I hope with this information we can educate teens, so they can make informed decisions.",
+      bio: "I am a 5th year Bioinformatics student on intership prusuing both my passion is computer science and biology. One of the aspects of biology that fascinates me is the brain. It has the capacity to learn, understand and apply. Although today we are still unable to know how the whole brain functions, we have discovered many intresting properties of the brain. At the moment recreational drugs is one of the simplest concepts to learn yet very interesting. It is fascinating to know how the body reacts to these reagents and how we become addicted. In this club I will be ensuring the smooth operation of IT. I hope with this information we can educate teens, so they can make informed decisions.",
     },
     {
       name: "JACKIE LUC",

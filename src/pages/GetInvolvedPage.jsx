@@ -28,7 +28,7 @@ function showExecPositions(hiring) {
           <p>If you have any questions about our roles, please contact us at&nbsp;</p>
           <a href="mailto:reducalgary@gmail.com?Subject=Executive Membership">reducalgary@gmail.com</a>
         </div>
-        <p id="warning" className="smaller-width-paragraph">If wish to join our executive team, please include your resume and a summary of why you would be a great candidate to join our team.</p>
+        <p id="warning" className="smaller-width-paragraph">If you wish to join our executive team, please include your resume and a summary of why you would be a great candidate to join our team.</p>
       </div>
     );
   }
