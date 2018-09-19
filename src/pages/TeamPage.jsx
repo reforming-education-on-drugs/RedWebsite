@@ -137,8 +137,8 @@ export default function TeamPage() {
     {
       name: "JARIN THUNDATHIL",
       position: "VP EXTERNAL",
-      imageName: "placeholder-img.png",
-      bio: "",
+      imageName: "Jarin.JPG",
+      bio: "When I joined RED nearly three years ago, I immediately understood the potential we had to improve the discourse around drug use for youth in our city.  As a biomedical sciences student, RED presented the perfect opportunity to unite my academic interests with my passion for advocacy. During my time with RED, I had my first real exposure to teaching in a classroom environment. It was inspiring to see students genuinely engaging with the real-world implications of contentious issues like addiction and the opioid crisis. Last year, we were able to reach over 1000 students at 13 different schools. This year, as VP External, my goals are to see RED expand its presence in Calgary to even more schools, and to lay the groundwork for our expansion to other parts of Alberta.",
     },
     {
       name: "SUMAN RANDHAWAL",
