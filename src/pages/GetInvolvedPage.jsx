@@ -35,7 +35,10 @@ function showExecPositions(hiring) {
 
   // No executive positions available
   return (
-    <p>Unfortunately, there are no executive positions available. We encourage you to sign up as a <a href="/get-involved">Club Member</a> in order to receive updates.</p>
+    <React.Fragment>
+      <p>Unfortunately, there are no executive positions available at this time.</p>
+      <p>We encourage you to sign up as an <a href="/get-involved">Educator</a> and <span style={{ color: 'red' }}>like</span> our page on <a href="https://www.facebook.com/REDxClub" target="_blank" rel="noopener noreferrer">Facebook</a> to receive updates and volunteering opportunities!</p>
+    </React.Fragment>
   );
 }
 
@@ -69,7 +72,7 @@ export default function GetInvolvedPage() {
             <h2>Executive Membership</h2>
             {
               // Pass in "true" if we want to show executive positions, otherwise "false"
-              showExecPositions(true)
+              showExecPositions(false)
             }
           </div>
         </Tab>
