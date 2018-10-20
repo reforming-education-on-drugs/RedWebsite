@@ -15,6 +15,7 @@ import DonatePage from "./DonatePage";
 import NotFoundPage from "./NotFoundPage";
 import ContactUsPage from "./ContactUsPage";
 import Footer from "../components/Footer";
+import FormTest from "./FormTest";
 
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -39,6 +40,7 @@ class App extends React.Component {
           <Route exact path="/booking" component={BookingPage} />
           <Route exact path="/contact-us" component={ContactUsPage} />
           <Route exact path="/faq" component={NotFoundPage} />
+          <Route exact path="/formtest" component={FormTest} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
         <Footer />
