@@ -20,11 +20,7 @@ export default function FormTest() {
                 </div>
                 <div className="col col-sm-8 sd-8" id="formSection">
                     {/* A little help for the Netlify post-processing bots */}
-                    <form name="PresSignUp" netlify netlify-honeypot="bot-field" hidden>
-                      <input type="email" name="email"/>
-                      <input type="text" name="groupName"/>
-                    </form>
-                    <form name="PresSignUp" method="POST" netlify>
+                    <form name="PresSignUp" method="POST">
                       <input type="hidden" name="form-name" value="PresSignUp" />
                       <p>
                         <label>Email address: <input type="email" name="email"/></label>
