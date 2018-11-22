@@ -239,6 +239,14 @@ export default function TeamPage() {
       name: "SACHINEE WIJETILLEKE",
       position: "IT COORDINATOR",
     },
+    {
+      name: "SID GHOUTAHM ",
+      position: "VP EXTERNAL",
+    },
+    {
+      name: "CORI MAH",
+      position: "VP INTERNAL",
+    },
   ];
 
   return (
