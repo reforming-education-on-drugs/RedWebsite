@@ -184,7 +184,7 @@ export default function TeamPage() {
 
     },
     {
-      name: "DAVID MINHAS",
+      name: "DAVID CHAU",
       position: "EDUCATION COORDINATOR",
       imageName: "David.JPG",
       bio:"Hey, my name is David and I am currently in my first year of Neuroscience at the University of Calgary. Ever since elementary school, one of the most important things in my life has been the idea of scientific literacy, and the view that it is not about your level of knowledge, but an overwhelming curiosity towards the world around you. As a result, I believe that it is essential that science is taught in a way that is engaging, interactive, and purposeful. I joined RED with the desire to educate students about the risks of drug use viewed through a scientific lens, and design presentations that would encourage them to apply what they have learned to their own lives. Whenever I have free time, you can usually find me listening to music or trying to learn new obscure hobbies."
