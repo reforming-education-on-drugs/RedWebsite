@@ -195,6 +195,18 @@ export default function TeamPage() {
       imageName: "Bilal.JPG",
       bio:"Hey! My name is Bilal Hafeez. I am in my third year of undergraduate studies here at the University of Calgary, pursing a major in Biological Sciences, alongside a minor in Nanoscience. Throughout my post-secondary career, I have heard the word “drugs” in its varying connotations as well as settings by people who certainly have no knowledge of what it actually entails. In this day and age, the difference between substance use as well as abuse, is unclear to many, especially for teenagers and with the recent legalization bill being passed, the importance of understanding various substances and their impacts is immense. That is where I believe RED makes its most impact – our club moves forward to allow the beautiful people of our city and those surrounding it, the opportunity to understand and comprehend everything shady out there. My role is to keep close contact with schools and organisations within the city of Calgary, and work on the expansion of our organisation within Alberta."
     },
+    {
+      name: "JENNY LE",
+      position: "IT COORDINATOR",
+      imageName: "Jenny.jpg",
+      bio:"I am a fifth-year Computer Science student who is also concentrating in Human-Computer Interaction at the University of Calgary. I believe that education about substance abuse through effective and engaging presentation is valuable. By joining RED, I hope to not only learn new technologies alongside the IT team but also help achieve RED's vision.  And with compelling education presented to others and especially youth about substance abuse, RED can aid them in making informed decisions in the future.  My goal is to assist RED with IT to reach out to more students and teachers in a user-friendly manner so that they can stay informed and educated."
+    },
+    {
+      name: "SANGKHA PAUL",
+      position: "EDUCATION COORDINATOR",
+      imageName: "Sangkha.jpg",
+      bio: "I am a third year Neuroscience student at the University of Calgary. I strongly believe in RED’s vision to use science-based education to communicate the effects of drugs on the body. As an Education Coordinator, I get to combine my love for teaching and sciences while working with great people and helping educate young members of our society. Through informative and interactive presentations, I truly believe that RED is effectively reaching a population that does not always have access to this knowledge; at the same time, it is also sparking scientific curiosity in young minds."
+    },
   ];
 
   const advisors = [
