@@ -66,7 +66,7 @@ function Advisors(props) {
               <Row>
                 {
                   advisorRow.map(advisor => (
-                    <Col md={6}>
+                    <Col md={6} style={{"display":"inline-block", "float":"none"}}>
                       <img src={importedImages[advisor.imageName]} className="img-circle wow fadeInDown" alt={advisor.name} />
                       <h3><b>{advisor.name}</b></h3>
                       <p>{advisor.bio}</p>
@@ -211,24 +211,15 @@ export default function TeamPage() {
 
   const advisors = [
     {
-      name: "YASSINE BENSAADA",
-      imageName: "Yassine.jpg",
-      bio: "When initially creating RED, our mission was simple: Provide an innovative and unique approach to drug education focused on the fundamentals of physiology and neuroscience as they relate to psychoactive drugs and substances of abuse. From the get-go, the focus was to deliver high-quality, interactive, and engaging presentations that not only resonate with students, but leave them excited and motivated for science-learning moving forward. As RED continues to grow, my goal is to ensure that these values with which RED was founded are maintained, promoted, and sought.",
-    },
-    {
-      name: "ABDULLAH AZEEM",
-      imageName: "Abdullah.jpg",
-      bio: "As I finish up my last year of Neurosciences at the University of Calgary, one of my main goals is to support RED in becoming the gold standard of drug education in Canada. Leveraging my background in neuroscience and addiction research, my role is to provide strategic guidance and assist the Management team as required.  RED has shown tremendous growth thus far; an advisory role gives me a front-row seat to all that will be accomplished in the future.",
+      name: "HASNAIEN AHMED",
+      imageName: "Hasnaien.jpg",
+      bio: "During myself and Megan's tenure as Co-Presidents, RED underwent incredible growth and hit milestones such as the launch of our Fentanyl Presentation, our biggest executive team and club size to date, as well as winning Club of the Year. My primary role as an adviser is to keep that same energy instilled in the current executive team; propelling them forward to bigger and better accomplishments. Aside from much-unsolicited backseat driving, my future with this club holds working on the non-profit wing of RED, laying the foundations for future chapters at universities across Canada. I would be remiss if I did not mention my having had the incredible privilege of watching so many amazing junior executives and executives mature and blossom into the formidable leaders they are today; I am incredibly excited to see what the future holds for RED. I sleep with great ease and comfort at night, with the knowledge that this club is run by the ambitious, conscientious and caring people by which it is."
     },
   ];
 
   const alumnis = [
     {
       name: "MEGAN LEUNG",
-      position: "CO-PRESIDENT",
-    },
-    {
-      name: "HASNAIEN AHMED",
       position: "CO-PRESIDENT",
     },
     {
@@ -250,6 +241,14 @@ export default function TeamPage() {
     {
       name: "SACHINEE WIJETILLEKE",
       position: "IT COORDINATOR",
+    },
+    {
+      name: "YASSINE BENSAADA",
+      position: "CO-FOUNDER",
+    },
+    {
+      name: "ABDULLAH AZEEM",
+      position: "CO-FOUNDER",
     },
     {
       name: "SID GHOUTAHM ",
