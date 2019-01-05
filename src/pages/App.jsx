@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "../components/Header";
 import IndexPage from "./IndexPage";
+import LoginPage from "./LoginPage";
 import VisionPage from "./VisionPage";
 import TeamPage from "./TeamPage";
 import ConstitutionPage from "./ConstitutionPage";
@@ -28,6 +29,7 @@ class App extends React.Component {
         <div id="spacer" />
         <Switch>
           <Route exact path="/" component={IndexPage} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/about-us/vision" component={VisionPage} />
           <Route exact path="/about-us/team" component={TeamPage} />
           <Route exact path="/about-us/constitution" component={ConstitutionPage} />

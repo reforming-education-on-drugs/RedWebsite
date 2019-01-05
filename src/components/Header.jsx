@@ -24,6 +24,7 @@ export default function Header() {
           <NavItem href="/parents">For Parents</NavItem>
           <NavItem href="/blog">Blog</NavItem>
           <NavItem href="/get-involved">Get Involved</NavItem>
+          <NavItem href="/login">Log in</NavItem>
           <NavItem id="donate" href="/donate">Donate</NavItem>
         </Nav>
       </Navbar.Collapse>
