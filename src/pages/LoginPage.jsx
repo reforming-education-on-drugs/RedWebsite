@@ -9,8 +9,10 @@ export default function LoginPage() {
       <div className="login">
         <div className="login-card">
           <img src={require('../assets/images/Logo.png')} alt="RED logo symbol" />
-          <Input label="Email" type="email" />
-          <Input label="Password" type="password" />
+          <form>
+            <Input label="Email" type="email" />
+            <Input label="Password" type="password" />
+          </form>
           <div className="password-reset">
             <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Forgot your password?</a>
           </div>
