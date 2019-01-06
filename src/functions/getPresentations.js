@@ -28,8 +28,8 @@ function successResponse(callback, res) {
 async function authenticate() {
 
   const creds = {client_email,private_key};
-  console.log(creds);
-  console.log(typeof creds);
+  console.log(creds.private_key);
+  console.log(creds.client_email);
   const doc = new GoogleSpreadsheet(spread_sheet_id);
   await promisify(doc.useServiceAccountAuth)(creds);
   console.log("Error was made here");
@@ -49,15 +49,6 @@ exports.handler = function(event, context, callback) {
 }
 
 
-
-
-console.log("hello");
-
-getPresentationForEmail("Heloo").then((response) => {
-  console.log(response);
-
-
-});
 
 async function getPresentationForEmail(email){
   try{
