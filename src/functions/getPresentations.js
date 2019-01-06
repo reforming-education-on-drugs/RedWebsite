@@ -28,8 +28,11 @@ function successResponse(callback, res) {
 async function authenticate() {
 
   const creds = {client_email,private_key};
+  console.log(creds);
+  console.log(typeof creds);
   const doc = new GoogleSpreadsheet(spread_sheet_id);
   await promisify(doc.useServiceAccountAuth)(creds);
+  console.log("Error was made here");
   return doc;
 }
 
@@ -40,54 +43,71 @@ async function getSheetByName(doc, name){
 
 exports.handler = function(event, context, callback) {
   console.log('START: Received request.');
-  getPresentationForEmail("kouroshb26@gmail.com",callback)
+  getPresentationForEmail("kouroshb26@gmail.com")
+    .then(response => successResponse(callback,response))
+    .catch(error => errorResponse(callback, error));
 }
 
-async function getPresentationForEmail(email,callback){
-
-  let response = { "user":{"email":email},
-    "data":[]};
-
-  let doc = await authenticate();
-  let presentationSheet = await getSheetByName(doc,"Presentation");
 
 
-  let presentations =  await promisify(presentationSheet.getRows)({
-    offset: 1,
-    limit: 100,
-  });
+
+console.log("hello");
+
+getPresentationForEmail("Heloo").then((response) => {
+  console.log(response);
 
 
-  //Todo get today's date to make sure the presentations are after today's date
-  for (let presentationRow of presentations){
-    if(presentationRow.name === "" || presentationRow.name === null ){
-      continue;
-    }
+});
+
+async function getPresentationForEmail(email){
+  try{
+    let response = { "user":{"email":email},
+      "data":[]};
+
+    let doc = await authenticate();
+    let presentationSheet = await getSheetByName(doc,"Presentation");
 
 
-    let timeSheet = await getSheetByName(doc,presentationRow.sheetname);
-    let times = await promisify(timeSheet.getRows)({
-      offset:1,
-      limit:100,
+    let presentations =  await promisify(presentationSheet.getRows)({
+      offset: 1,
+      limit: 100,
     });
 
 
-    let presentation = convertPresentation(presentationRow)
+    //Todo get today's date to make sure the presentations are after today's date
+    for (let presentationRow of presentations){
+      if(presentationRow.name === "" || presentationRow.name === null ){
+        continue;
+      }
 
-    for (let timeRow of times){
-      presentation.times.push(convertTime(timeRow));
+
+      let timeSheet = await getSheetByName(doc,presentationRow.sheetname);
+      let times = await promisify(timeSheet.getRows)({
+        offset:1,
+        limit:100,
+      });
+
+
+      let presentation = convertPresentation(presentationRow)
+
+      for (let timeRow of times){
+        presentation.times.push(convertTime(timeRow));
+      }
+
+      response.data.push(presentation);
     }
+    console.log(response)
 
-    response.data.push(presentation);
+    console.log("Example of times");
+    console.log(response.data[0].times);
+    console.log(response.data[1].times);
+    console.log(response.data[2].times);
+
+    return response;
+  }catch (error){
+    return error;
   }
-  console.log(response)
 
-  console.log("Example of times");
-  console.log(response.data[0].times);
-  console.log(response.data[1].times);
-  console.log(response.data[2].times);
-
-  successResponse(callback,response);
 
 }
 

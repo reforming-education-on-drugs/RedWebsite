@@ -14,6 +14,15 @@ export default {
     'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index.jsx') // Defining path seems necessary for this to work consistently on Windows machines.
   ],
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    proxy: {
+      "/.netlify": {
+        target: "http://localhost:9000",
+        pathRewrite: {"^/.netlify/functions": ""}
+      }
+    }
+  },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
