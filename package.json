@@ -47,6 +47,9 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "async": "2.6.1",
+    "dotenv": "6.2.0",
+    "google-spreadsheet": "2.0.6",
     "object-assign": "4.1.0",
     "react": "16.7.0",
     "react-bootstrap": "0.32.1",
