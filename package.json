@@ -10,7 +10,6 @@
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm run start-message",
     "start": "concurrently -k -r -s first \"npm run test:watch\" \"npm run open:src\" \"npm run lint:watch\"",
-    "start:netlify": "netlify-lambda serve src/functions",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "lint": "esw webpack.config.* src tools --color",
@@ -20,7 +19,6 @@
     "prebuild": "npm run lint && npm run test && npm run clean-dist",
     "build": "babel-node tools/build.js && cp _redirects dist",
     "build:open": "npm run build && npm run open:dist",
-    "build:netlify": "netlify-lambda build src/functions",
     "test": "jest",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
@@ -48,35 +46,31 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "async": "2.6.1",
-    "dotenv": "6.2.0",
-    "google-spreadsheet": "2.0.6",
-    "netlify-lambda": "1.1.1",
+    "gotrue-js": "0.9.24",
     "object-assign": "4.1.0",
-    "react": "16.2.0",
+    "react": "16.7.0",
     "react-bootstrap": "0.32.1",
-    "react-dom": "16.2.0",
+    "react-dom": "16.7.0",
     "react-ga": "2.4.0",
     "react-id-swiper": "1.6.1",
     "react-ionicons": "2.1.6",
     "react-router-dom": "4.2.2"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
-    "@babel/node": "7.0.0",
-    "@babel/plugin-proposal-class-properties": "7.0.0",
-    "@babel/plugin-transform-react-constant-elements": "7.0.0",
-    "@babel/polyfill": "7.0.0",
-    "@babel/preset-env": "7.0.0",
-    "@babel/preset-react": "7.0.0",
-    "autoprefixer": "9.1.3",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "9.0.0",
-    "babel-jest": "23.4.2",
-    "babel-loader": "8.0.0",
-    "babel-plugin-transform-react-remove-prop-types": "0.4.15",
-    "browser-sync": "2.18.12",
+    "autoprefixer": "7.1.4",
+    "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.1",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.6",
+    "babel-polyfill": "6.23.0",
+    "babel-preset-env": "1.6.0",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-react-hmre": "1.1.1",
+    "babel-preset-stage-1": "6.24.1",
+    "browser-sync": "2.26.3",
     "chalk": "2.0.1",
     "concurrently": "3.5.0",
     "connect-history-api-fallback": "1.3.0",
@@ -96,7 +90,7 @@
     "jest-cli": "20.0.4",
     "json-loader": "0.5.4",
     "mockdate": "2.0.1",
-    "node-sass": "4.5.3",
+    "node-sass": "4.11.0",
     "opn-cli": "3.1.0",
     "postcss-loader": "2.0.6",
     "prompt": "1.0.0",
@@ -135,40 +129,39 @@
     "env": {
       "development": {
         "presets": [
-          "@babel/preset-env",
-          "@babel/preset-react"
-        ],
-        "plugins": [
-          "@babel/plugin-proposal-class-properties",
-          "react-hot-loader/babel"
+          "env",
+          "react",
+          "react-hmre",
+          "stage-1"
         ]
       },
       "production": {
         "presets": [
           [
-            "@babel/preset-env",
+            "env",
             {
-              "targets": {
-                "ie": 9
+              "es2015": {
+                "modules": false
               },
-              "forceAllTransforms": true
+              "targets": {
+                "ie": 9,
+                "uglify": true
+              }
             }
           ],
-          "@babel/preset-react"
+          "react",
+          "stage-1"
         ],
         "plugins": [
-          "@babel/plugin-proposal-class-properties",
-          "@babel/plugin-transform-react-constant-elements",
+          "transform-react-constant-elements",
           "transform-react-remove-prop-types"
         ]
       },
       "test": {
         "presets": [
-          "@babel/preset-env",
-          "@babel/preset-react"
-        ],
-        "plugins": [
-          "@babel/plugin-proposal-class-properties"
+          "env",
+          "react",
+          "stage-1"
         ]
       }
     }
