@@ -15,6 +15,7 @@ import GetInvolvedPage from "./GetInvolvedPage";
 import DonatePage from "./DonatePage";
 import NotFoundPage from "./NotFoundPage";
 import ContactUsPage from "./ContactUsPage";
+import Gsheet from "./Gsheet";
 import Footer from "../components/Footer";
 
 // This is a class-based component because the current
@@ -40,6 +41,7 @@ class App extends React.Component {
           <Route exact path="/donate" component={DonatePage} />
           <Route exact path="/booking" component={BookingPage} />
           <Route exact path="/contact-us" component={ContactUsPage} />
+          <Route exact path="/gsheet" component={Gsheet} />
           <Route exact path="/faq" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
