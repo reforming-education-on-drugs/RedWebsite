@@ -23,7 +23,7 @@ function callGetPresentation(data) {
     body: JSON.stringify(data),
     method: 'POST'
   }).then(response => {
-    console.log(response);
+    console.log(response.body);
   }).catch(error => console.log(error));
 }
 
