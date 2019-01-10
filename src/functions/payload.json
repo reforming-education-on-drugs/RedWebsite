@@ -1,0 +1,22 @@
+{"user":
+  {"email":"kouroshb26@gmail.com"},
+
+  "data":[
+    {"name":"GP VANIER","address":"hellowWord","date":"7/17/2018","sheetname":"GP VANIER(7/17/2018)",
+      "times":[
+        {"startTime":"1:30:00 PM","endTime":"2:30:00 PM","capacity":"15","selected":true},
+        {"startTime":"2:30:00 PM","endTime":"3:30:00 PM","capacity":"15","selected":true}]},
+
+    {"name":"Langevin","address":"27 Country Park NW","date":"7/17/2019","sheetname":"Langevin(7/17/2019)",
+      "times":[
+        {"startTime":"1:30:00 PM","endTime":"2:30:00 PM","capacity":"15","selected":false},
+        {"startTime":"2:30:00 PM","endTime":"3:30:00 PM","capacity":"15","selected":false}]},
+
+
+    {"name":"Crescent","address":"18 ave nw","date":"7/12/2019","sheetname":"Crescent(7/12/2019)",
+      "times":[
+        {"startTime":"1:30:00 PM","endTime":"2:30:00 PM","capacity":"15","selected":true},
+        {"startTime":"2:30:00 PM","endTime":"3:30:00 PM","capacity":"15","selected":true}]
+    }
+  ]
+}
