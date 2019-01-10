@@ -30,7 +30,7 @@ async function savePresentation(payload){
     for (let i = 0;i < timeRows.length;i++){
       let timeRow = timeRows[i];
       //see if there is mismatch
-      if(! _.isEqual(convertTime(timeRow,email),presentation.times[i])){
+      if(! timeIsEqual(convertTime(timeRow,email),presentation.times[i])){
 
         //Get a list of volunteers
         let volunteers = timeRow.volunteers.split(",");
