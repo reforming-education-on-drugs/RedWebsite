@@ -21,10 +21,12 @@ export default function Gsheet() {
 function callGetPresentation(data) {
   return fetch('/.netlify/functions/getPresentations', {
     body: JSON.stringify(data),
-    method: 'POST'
-  }).then(response => {
-    console.log(response.body);
-  }).catch(error => console.log(error));
+    method: 'POST',
+  }).then(function(response) {
+    return response.json();
+  }).then(function(data) {
+    console.log(data);  // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+  });
 }
 
 
