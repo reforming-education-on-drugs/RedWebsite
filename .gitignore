@@ -67,3 +67,7 @@ node_modules/
 
 #Environmnet Variables
 .env
+
+
+#Netlify Functions
+/functions
