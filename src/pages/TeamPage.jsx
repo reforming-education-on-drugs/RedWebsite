@@ -251,6 +251,10 @@ export default function TeamPage() {
       position: "CO-FOUNDER",
     },
     {
+      name: "ASFAR KHAN",
+      position: "VP-EXTERNAL"
+    },
+    {
       name: "SID GHOUTAHM ",
       position: "VP EXTERNAL",
     },
