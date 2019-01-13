@@ -33,7 +33,7 @@ async function getPresentationForEmail(email){
 
     //Todo get today's date to make sure the presentations are after today's date
     for (let presentationRow of presentations){
-      if(presentationRow.name === "" || presentationRow.name === null ){
+      if(presentationRow.name === "" || presentationRow.name === null || presentationRow.name === "()"){
         continue;
       }
 
@@ -54,7 +54,5 @@ async function getPresentationForEmail(email){
       response.data.push(presentation);
     }
     return response;
-
-
 }
 

@@ -1,3 +1,4 @@
+require('google-spreadsheet');
 const { promisify } = require('util');
 
 const{ successResponse,errorResponse,authenticate,getSheetByName,convertTime,timeIsEqual} = require("./presentationUtil");
@@ -11,6 +12,81 @@ exports.handler = function(event, context, callback) {
     .catch(error => errorResponse(callback, error));
 };
 
+let payload = require("./payload.json")
+savePresentation(payload)
+  .then(response => successResponse(function (){},response))
+  .catch(error => errorResponse(function (){}, error));
+
+
+function overlap(data){
+
+
+  //Get the times they signed up for
+  let timeRanges = data.map(presentation =>
+    presentation.times
+      .filter(time => time.selected)
+      .map(time => {
+          return {
+            startTime: new Date(presentation.date + "T" + time.startTime),
+            endTime: new Date(presentation.date + "T" + time.endTime)
+          };
+        }
+      )
+   );
+  timeRanges = [].concat(...timeRanges) //Flatten the arrays
+
+  //Sort them
+
+  let sorted = timeRanges.sort((previous,current) =>
+    {
+      //If the previous start time is smaller.
+      if (previous.startTime < current.startTime) {
+        return -1;
+      }
+
+      //If start times match
+      if (previous.startTime === current.startTime) {
+        return 0;
+      }
+
+      //If not the two above cases
+      return 1
+    }
+  );
+
+  let result = sorted.reduce((result, current, idx, arr) => {
+    // get the previous range
+    if (idx === 0) { return result; }
+    var previous = arr[idx-1];
+
+    // check for any overlap
+    var overlap = (previous.endTime  > current.startTime);
+
+    // store the result
+    if (overlap) {
+      // yes, there is overlap
+      result.overlap = true;
+      // store the specific ranges that overlap
+      result.ranges.push({
+        previous: previous,
+        current: current
+      })
+    }
+
+    return result;
+
+    // seed the reduce
+  }, {overlap: false, ranges: []});
+
+
+  //If there is over lap throw error
+  if(result.overlap){
+    throw result;
+  }
+
+
+}
+
 async function savePresentation(payload){
 
   let email = payload.user.email;
@@ -18,6 +94,9 @@ async function savePresentation(payload){
 
 
   //verify there are no conflicting times
+  //Will through error if otherwise
+  overlap(payload.data);
+
 
   for (let presentation of payload.data){
     let timeSheet = await getSheetByName(doc,presentation.sheetname);
@@ -25,6 +104,14 @@ async function savePresentation(payload){
         offset: 1,
         limit: 100,
       });
+
+
+    //verify that the times match between the data and the spread sheet, they also must be in order
+    for (let i=0; i < timeRows.length; i++){
+      if(presentation.times[i].startTime !== timeRows[i].starttime){
+        throw "The times from presentation "+ presentation.name +" don't match the payload";
+      }
+    }
 
 
     for (let i = 0;i < timeRows.length;i++){
@@ -56,6 +143,6 @@ async function savePresentation(payload){
     }
 
   }
-  return true;
+  return "Values have been verified and saved to the database";
 }
 
