@@ -1,11 +1,18 @@
 let GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-require('dotenv').config();
+
+// let test=true;
+// if(test){
+//   require('dotenv').config("../../.env");
+// }else{
+// }
+  require('dotenv').config();
+
 
 
 const {spread_sheet_id , client_email, private_key } = process.env;
 
-export function errorResponse(callback, err) {
+exports.errorResponse = function(callback, err) {
   console.error('END: Error response.');
   console.error(err);
 
@@ -13,30 +20,30 @@ export function errorResponse(callback, err) {
     statusCode: 500,
     body: JSON.stringify({ error: err })
   });
-}
+};
 
-export function successResponse(callback, res) {
+exports.successResponse = function(callback, res){
   console.log('END: Success response.');
   console.log("Returning data:",res);
   callback(null, {
     statusCode: 200,
     body: JSON.stringify(res)
   });
-}
+};
 
-export async function authenticate() {
+exports.authenticate = async function(){
   const creds = {client_email,private_key};
   const doc = new GoogleSpreadsheet(spread_sheet_id);
   await promisify(doc.useServiceAccountAuth)(creds);
   return doc;
-}
+};
 
-export async function getSheetByName(doc, name){
+exports.getSheetByName = async function(doc, name){
   let info = await promisify(doc.getInfo)();
   return info.worksheets.filter(function(worksheet){return name === worksheet.title})[0]
-}
+};
 
-export function convertPresentation(presentationRow){
+exports.convertPresentation = function(presentationRow){
   return {
     name: presentationRow.name,
     address: presentationRow.address,
@@ -44,16 +51,16 @@ export function convertPresentation(presentationRow){
     sheetname: presentationRow.sheetname,
     times: [],
   };
-}
+};
 
-export function timeIsEqual(a,b){
+exports.timeIsEqual = function(a,b){
   return a.startTime === b.startTime &&
     a.endTime === b.endTime &&
     a.capacity === b.capacity &&
     a.selected === b.selected;
-}
+};
 
-export function convertTime(timeRow,email){
+exports.convertTime = function(timeRow,email){
   let time = {
     startTime: timeRow.starttime,
     endTime: timeRow.endtime,
@@ -68,4 +75,4 @@ export function convertTime(timeRow,email){
     }
   }
   return time;
-}
+};
