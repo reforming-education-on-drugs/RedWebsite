@@ -33,13 +33,13 @@
           "startTime": "13:30:00",
           "endTime": "14:30:00",
           "capacity": "15",
-          "selected": true
+          "selected": false
         },
         {
           "startTime": "14:30:00",
           "endTime": "15:30:00",
           "capacity": "15",
-          "selected": true
+          "selected": false
         }
       ]
     },
@@ -53,13 +53,13 @@
           "startTime": "13:30:00",
           "endTime": "14:30:00",
           "capacity": "2",
-          "selected": false
+          "selected": true
         },
         {
           "startTime": "14:30:00",
           "endTime": "15:30:00",
           "capacity": "2",
-          "selected": false
+          "selected": true
         }
       ]
     },
@@ -73,13 +73,33 @@
           "startTime": "12:00:00",
           "endTime": "13:00:00",
           "capacity": "15",
-          "selected": false
+          "selected": true
         },
         {
           "startTime": "12:30:00",
           "endTime": "13:30:00",
           "capacity": "15",
-          "selected": false
+          "selected": true
+        }
+      ]
+    },
+    {
+      "name": "Westmount",
+      "address": "15 Ave NW Calgray",
+      "date": "2019-01-13",
+      "sheetname": "Westmount(2019-01-13)",
+      "times": [
+        {
+          "startTime": "13:00:00",
+          "endTime": "14:00:00",
+          "capacity": "15",
+          "selected": true
+        },
+        {
+          "startTime": "14:00:00",
+          "endTime": "15:00:00",
+          "capacity": "2",
+          "selected": true
         }
       ]
     }

@@ -2,13 +2,12 @@ import React from "react";
 
 export default function Gsheet() {
   document.title = "RED | Vision";
+  callGetPresentation({user:{email:"kouroshb26@gmail.com"}});
 
   return (
     <main>
       <div className="container">
         <h1>Google Sheet Data</h1>
-
-        {callGetPresentation({user:{email:"kouroshb26@gmail.com"}})}
       </div>
 
 
