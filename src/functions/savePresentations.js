@@ -27,6 +27,7 @@ function overlap(data){
       .filter(time => time.selected)
       .map(time => {
           return {
+            presentation:presentation.name,
             startTime: new Date(presentation.date + "T" + time.startTime),
             endTime: new Date(presentation.date + "T" + time.endTime)
           };
@@ -50,7 +51,7 @@ function overlap(data){
       }
 
       //If not the two above cases
-      return 1
+      return 1;
     }
   );
 
@@ -119,8 +120,7 @@ async function savePresentation(payload){
       //see if there is mismatch
       if(! timeIsEqual(convertTime(timeRow,email),presentation.times[i])){
 
-        //Get a list of volunteers
-        let volunteers = timeRow.volunteers.split(",");
+        let volunteers = timeRow.volunteers === ""? [] : timeRow.volunteers.split(",");
 
         //If they have it selected, but are not on the google drive sheet and there is room for them to be added
         if(presentation.times[i].selected && volunteers.indexOf(email) <= -1 && timeRow.capacity > volunteers.length){
