@@ -45,7 +45,7 @@ async function getPresentationForEmail(email){
       });
 
 
-      let presentation = convertPresentation(presentationRow)
+      let presentation = convertPresentation(presentationRow);
 
       for (let timeRow of times){
         presentation.times.push(convertTime(timeRow,email));
