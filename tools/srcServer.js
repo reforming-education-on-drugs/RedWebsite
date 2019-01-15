@@ -10,8 +10,13 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from '../webpack.config.dev';
+import url from 'url';
+import proxy from 'proxy-middleware';
 
 const bundler = webpack(config);
+
+let proxyOptions = url.parse('http://localhost:9000');
+proxyOptions.route = '/.netlify/functions';
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
@@ -47,7 +52,8 @@ browserSync({
       }),
 
       // bundler should be the same as above
-      webpackHotMiddleware(bundler)
+      webpackHotMiddleware(bundler),
+      proxy(proxyOptions)
     ]
   },
 

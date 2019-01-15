@@ -40,7 +40,7 @@ exports.authenticate = async function(){
 
 exports.getSheetByName = async function(doc, name){
   let info = await promisify(doc.getInfo)();
-  return info.worksheets.filter(function(worksheet){return name === worksheet.title})[0]
+  return info.worksheets.filter(function(worksheet){return name === worksheet.title;})[0];
 };
 
 exports.convertPresentation = function(presentationRow){
