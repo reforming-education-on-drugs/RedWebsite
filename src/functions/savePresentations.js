@@ -12,10 +12,10 @@ exports.handler = function(event, context, callback) {
     .catch(error => errorResponse(callback, error));
 };
 
-let payload = require("./payload.json")
-savePresentation(payload)
-  .then(response => successResponse(function (){},response))
-  .catch(error => errorResponse(function (){}, error));
+// let payload = require("./payload.json")
+// savePresentation(payload)
+//   .then(response => successResponse(function (){},response))
+//   .catch(error => errorResponse(function (){}, error));
 
 
 function overlap(data){
@@ -145,4 +145,3 @@ async function savePresentation(payload){
   }
   return "Values have been verified and saved to the database";
 }
-

@@ -1,14 +1,6 @@
 let GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-
-// let test=true;
-// if(test){
-//   require('dotenv').config("../../.env");
-// }else{
-// }
-  require('dotenv').config();
-
-
+require('dotenv').config();
 
 const {spread_sheet_id , client_email, private_key } = process.env;
 
