@@ -117,7 +117,7 @@ export default class FormTest extends Component {
       .join('&');
   }
 
-  formSubmit(e) {
+  formSubmit = e => {
     let formIsValid = true;
     Object.keys(this.state.form).forEach(fieldName => {
       if (this.state.form[fieldName] === -1) {
@@ -143,7 +143,7 @@ export default class FormTest extends Component {
         .catch(error => console.log(error));
     }
     e.preventDefault();
-  }
+  };
 
   render() {
     return (
