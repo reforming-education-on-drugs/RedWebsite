@@ -134,7 +134,7 @@ export default class FormTest extends Component {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
+        body: this.encode({
           'form-name': 'presentation-booking-form',
           ...this.state.form
         })
