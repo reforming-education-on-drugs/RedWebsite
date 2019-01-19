@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Presentation from "../components/Presentation";
+
 
 class Presentations extends Component {
   constructor(props) {
@@ -12,12 +14,16 @@ class Presentations extends Component {
 
   componentDidMount() {
     fetch('/.netlify/functions/getPresentations', {
-      body: JSON.stringify({user:{email:"kouroshb26@gmail.com"}}),
+      body: JSON.stringify({user:{email:"sacxjenny@live.com"}}),
       method: 'POST',
     }).then(response =>
       response.text().then(
-        body => {console.log(body)
-          this.setState({ presentations: body, isLoading: false})
+        body => {
+          let presentations = JSON.parse(body).data;
+           presentations.map(presentation => presentation.times.forEach(
+            time => time.selected = time.selected ? "Confirmed" : "Unselected"
+          ));
+          this.setState({ presentations: presentations, isLoading: false});
         }
       )
     );
@@ -26,7 +32,8 @@ class Presentations extends Component {
 
   render() {
     const { presentations,isLoading } = this.state;
-
+    console.log("Presentation")
+    console.log(presentations);
 
     return (
       <div>
@@ -37,7 +44,7 @@ class Presentations extends Component {
       </p>
       <p>
         {
-          isLoading ? null : JSON.stringify(presentations)
+          isLoading ? null :presentations.map(presentation => <Presentation key={presentation.sheetname} presentation={presentation}/>)
         }
       </p>
       </div>
