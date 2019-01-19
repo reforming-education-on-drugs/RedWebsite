@@ -9,10 +9,36 @@ class Presentation extends Component {
     this.state = {
       presentation: props.presentation,
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick ={
-  };
+  handleClick(time1) {
+    console.log(this.state.presentation)
+
+    this.state.presentation.times
+      .forEach(time =>{
+        console.log(time1)
+        if(time.startTime === time1.startTime && time.endTime === time1.endTime) {
+          switch (time1.selected) {
+            case "Confirmed":
+              time.selected = "Unselected";
+              break;
+            case "Selected":
+              time.selected = "Unselected";
+              break;
+            case "Unselected":
+              time.selected = "Selected";
+              break;
+          }
+
+        }
+        return time;
+      });
+
+    this.setState({presentation: this.state.presentation})
+
+  }
 
 
   render() {
@@ -50,19 +76,18 @@ class Presentation extends Component {
               {
                 presentation.times.map(time => {
                   return (
-                    <tr onClick={this.handleClick()}>
+                    <tr>
                       <td> WTF </td>
-                      {
-                        (() => {
-                          if (time.selected === "Confirmed") {
-                            return (<td> Confirmed </td>)
-                          } else if (time.selected === "Unselected"){
-                            return (<td> Unselected </td>)
-                          } else {
-                            return (<td> Selected </td>)
-                            }
-                         })()
-                      }
+                      {/*{*/}
+                        {/*if (time.selected === "Confirmed") {*/}
+                          {/*<td  onClick={this.handleClick(time)}> Confirmed </td>*/}
+                        {/*} else if (time.selected === "Unselected"){*/}
+                          {/*<td  onClick={this.handleClick(time)}> Unselected </td>*/}
+                        {/*} else {*/}
+                          {/*<td  onClick={this.handleClick(time)}> Selected </td>*/}
+                        {/*}*/}
+                      {/*}*/}
+                      <td onClick={() => this.handleClick(time)}> {time.selected}</td>
                       <td> {moment(time.startTime,"hh:mm:ss").format("h:mm a")} - {moment(time.endTime, "hh:mm:ss").format("h:mm a")} </td>
                       <td> {time.capacity} </td>
                     </tr>
@@ -82,16 +107,5 @@ class Presentation extends Component {
 
 }
 
-function selectionState(time){
-  if(time.selected === time.stateToBe){
-    if(time.selected){
-      //Green
-    }else{
-      //Unchcked
-    }
-  }else{
-
-  }
-}
 
 export default Presentation;
