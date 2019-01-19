@@ -27,11 +27,11 @@ export default function MailChimp() {
               name="EMAIL"
               className="email"
               id="mce-EMAIL"
-              placeholder="email address"
+              placeholder="Email address"
               required
             />
             <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
-              <input type="text" name="b_a34f6f98c67b9ff0980cca0e9_d8c093bfa0" tabIndex="-1" value="" />
+              <input type="text" name="b_a34f6f98c67b9ff0980cca0e9_d8c093bfa0" tabIndex="-1" />
             </div>
             <div className="clear">
               <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
