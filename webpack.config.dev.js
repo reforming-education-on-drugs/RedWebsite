@@ -14,6 +14,15 @@ export default {
     'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index.jsx') // Defining path seems necessary for this to work consistently on Windows machines.
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    proxy: {
+      '/.netlify': {
+        target: 'http://localhost:9000',
+        pathRewrite: { '^/.netlify/functions': '' }
+      }
+    }
+  },
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
@@ -27,7 +36,8 @@ export default {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new HtmlWebpackPlugin({     // Create HTML file that includes references to bundled CSS and JS.
+    new HtmlWebpackPlugin({
+      // Create HTML file that includes references to bundled CSS and JS.
       template: 'src/index.ejs',
       minify: {
         removeComments: true,
@@ -104,15 +114,15 @@ export default {
             options: {
               sourceMap: true
             }
-          }, {
+          },
+          {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                require('autoprefixer')
-              ],
+              plugins: () => [require('autoprefixer')],
               sourceMap: true
             }
-          }, {
+          },
+          {
             loader: 'sass-loader',
             options: {
               includePaths: [path.resolve(__dirname, 'src', 'scss')],

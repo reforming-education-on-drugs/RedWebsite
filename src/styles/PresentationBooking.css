@@ -1,0 +1,48 @@
+.grid-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  margin: 2% auto 2% auto;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.info {
+  color: #ffffff;
+  background: #d90429;
+}
+
+.infoHeading {
+  font-size: 4rem;
+  margin-top: 25%;
+  font-weight: bold;
+}
+
+.formContent form {
+  margin: 15% 5% 20% 5%;
+}
+
+.info,
+.formContent {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.info li {
+  font-size: 1.5rem;
+  margin-top: 5%;
+}
+
+.info li:last-of-type {
+  margin-bottom: 20%;
+}
+
+#presSignUpBtn {
+  float: right;
+  color: #ffffff;
+  background: #d90429;
+  border: none;
+  font-size: 1.25rem;
+  padding: 4%;
+}
+
+.panel-heading {
+  background: none !important;
+}
