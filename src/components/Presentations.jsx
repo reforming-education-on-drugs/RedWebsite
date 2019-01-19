@@ -14,7 +14,7 @@ class Presentations extends Component {
 
   componentDidMount() {
     fetch('/.netlify/functions/getPresentations', {
-      body: JSON.stringify({user:{email:"jenny.le@ucalgary.ca"}}),
+      body: JSON.stringify({user:{email:"sacxjenny@live.com"}}),
       method: 'POST',
     }).then(response =>
       response.text().then(
@@ -37,6 +37,11 @@ class Presentations extends Component {
 
     return (
       <div>
+      <p>
+        {
+          "hello"
+        }
+      </p>
       <p>
         {
           isLoading ? null :presentations.map(presentation => <Presentation key={presentation.sheetname} presentation={presentation}/>)
