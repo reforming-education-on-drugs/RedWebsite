@@ -88,7 +88,10 @@ export default class InvitePage extends React.Component {
             <img src={require('../assets/images/Logo.png')} alt="RED logo symbol" />
             {
               this.state.passwordResetted
-                ? <p>Your password has successfully been changed.</p>
+                ? <div>
+                    <p>Your password has successfully been changed.</p>
+                    <button type="button" onClick="window.location.href='/login'">Login</button>
+                  </div>
                 : <form name="recover" onSubmit={this.handleSubmit}>
                     <Input name="password" label="Password" type="password" onChange={this.handleInputChange} />
                     <Input name="confirmPassword" label="Confirm password" type="password" onChange={this.handleInputChange} />
