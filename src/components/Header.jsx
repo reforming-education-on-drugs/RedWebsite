@@ -1,8 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+import auth from '../utils/auth';
 
 export default function Header() {
+  const logout = () => {
+    auth
+    .currentUser()
+    .logout()
+    .then(() => window.location.href = '/')
+    .catch(console.error);
+  };
+
   return (
     <Navbar className="navigation-clean">
       <Navbar.Header>
@@ -24,7 +33,11 @@ export default function Header() {
           <NavItem href="/parents">For Parents</NavItem>
           <NavItem href="/blog">Blog</NavItem>
           <NavItem href="/get-involved">Get Involved</NavItem>
-          <NavItem href="/login">Log in</NavItem>
+            { 
+              auth.currentUser()
+                ? <NavItem onClick={logout}>Log out</NavItem>
+                : <NavItem href="/login">Login</NavItem>
+            }
           <NavItem id="donate" href="/donate">Donate</NavItem>
         </Nav>
       </Navbar.Collapse>
