@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "../components/Header";
 import IndexPage from "./IndexPage";
 import LoginPage from "./LoginPage";
+import InvitePage from "./InvitePage";
 import VisionPage from "./VisionPage";
 import TeamPage from "./TeamPage";
 import ConstitutionPage from "./ConstitutionPage";
@@ -32,6 +33,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/login" component={LoginPage} />
+          <Route path="/invite" component={InvitePage} />
           <Route exact path="/about-us/vision" component={VisionPage} />
           <Route exact path="/about-us/team" component={TeamPage} />
           <Route exact path="/about-us/constitution" component={ConstitutionPage} />

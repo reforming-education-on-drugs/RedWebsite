@@ -6,7 +6,7 @@ export default function Input({ name, label, type, onChange }) {
       <label>
         {label}
       </label>
-      <input name={name} type={type} onChange={onChange} />
+      <input name={name} type={type} onChange={onChange} required />
     </div>
   );
 }
