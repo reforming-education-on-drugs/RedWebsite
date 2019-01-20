@@ -6,10 +6,10 @@ import auth from '../utils/auth';
 export default function Header() {
   const logout = () => {
     auth
-    .currentUser()
-    .logout()
-    .then(() => window.location.href = '/')
-    .catch(console.error);
+      .currentUser()
+      .logout()
+      .then(() => window.location.reload())
+      .catch(console.error);
   };
 
   return (
