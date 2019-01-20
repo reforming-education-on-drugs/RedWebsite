@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function Input({ label, type }) {
+export default function Input({ name, label, type, onChange }) {
   return (
     <div className="input-wrapper">
       <label>
         {label}
       </label>
-      <input type={type} />
+      <input name={name} type={type} onChange={onChange} />
     </div>
   );
 }
