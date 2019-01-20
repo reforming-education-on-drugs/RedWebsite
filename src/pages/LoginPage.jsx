@@ -57,7 +57,7 @@ export default class LoginPage extends React.Component {
               <Input name="email" label="Email" type="email" onChange={this.handleInputChange} />
               <Input name="password" label="Password" type="password" onChange={this.handleInputChange} />
               <div className="password-reset">
-                <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Forgot your password?</a>
+                <a href="/password-reset">Forgot your password?</a>
               </div>
               <button type="submit">Login</button>
               {
