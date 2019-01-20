@@ -17,6 +17,12 @@ export default class InvitePage extends React.Component {
     };
   }
 
+  componentWillMount() {
+    if (!window.location.hash.includes('#recovery_token=')) {
+      window.location.href = '/password-reset';
+    }
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     const name = target.name;
@@ -61,7 +67,7 @@ export default class InvitePage extends React.Component {
         })
         .catch(() => this.setFormState({
           formIsValid: false,
-          errorMsg: 'Registration failed. Please ensure that you do not already have an account.'
+          errorMsg: 'Account recovery failed. Please ensure that you have an account.'
         })
       );
     }
