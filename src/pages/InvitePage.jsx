@@ -16,6 +16,12 @@ export default class InvitePage extends React.Component {
     };
   }
 
+  componentWillMount() {
+    if (!window.location.hash.includes('#invite_token=')) {
+      window.location.href = '/login';
+    }
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     const name = target.name;
