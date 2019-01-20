@@ -59,7 +59,7 @@ export default class LoginPage extends React.Component {
               <div className="password-reset">
                 <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Forgot your password?</a>
               </div>
-              <button type="submit">Sign in</button>
+              <button type="submit">Login</button>
               {
                 this.state.formIsValid ? '' : <DisplayError msg={this.state.errorMsg} />
               }
