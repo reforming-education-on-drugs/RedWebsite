@@ -1,27 +1,53 @@
 .grid-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
-  margin: 2% auto 2% auto;
+  margin: 2% auto 5% auto;
   font-family: 'Montserrat', sans-serif !important;
+}
+
+.show-grid {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .info {
   color: #ffffff;
-  background: #d90429;
+  background: #ef233c;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
 }
 
 .infoHeading {
   font-size: 4rem;
-  margin-top: 25%;
+  /* margin-top: 25%; */
   font-weight: bold;
 }
 
+.info .subHeading {
+  /* margin: 10% auto auto auto; */
+  padding-top: 15%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.formContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .formContent form {
-  margin: 15% 5% 20% 5%;
+  /* margin: 25% 5% 5% 5%; */
+  width: 85%;
 }
 
 .info,
 .formContent {
-  height: 100vh;
+  /* height: 135vh; */
+  /* max-height: 1600px; */
+  padding-top: 10%;
+  padding-bottom: 10%;
   overflow-y: auto;
 }
 
@@ -37,12 +63,28 @@
 #presSignUpBtn {
   float: right;
   color: #ffffff;
-  background: #d90429;
+  background: #ef233c;
   border: none;
   font-size: 1.25rem;
   padding: 4%;
 }
 
 .panel-heading {
+  background: none !important;
+}
+
+.rdtActive {
+  background-color: #ef233c !important;
+}
+
+.panel-title a {
+  text-decoration: none;
+}
+
+.panel-title a:hover {
+  color: #ef233c;
+}
+
+.well {
   background: none !important;
 }
