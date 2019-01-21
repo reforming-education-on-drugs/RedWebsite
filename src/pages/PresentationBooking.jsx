@@ -181,14 +181,18 @@ export default class PresentationBooking extends Component {
   }
 
   checkFormValidity() {
-    let formIsValid = true;
-    const formValues = { ...this.state.form };
-    Object.keys(formValues).forEach(fieldName => {
-      if (this[`get${this.capitalize(fieldName)}State`]() !== 'success') {
-        formIsValid = false;
-      }
-    });
-    return !formIsValid;
+    if (!this.state.formSubmitted) {
+      let formIsValid = true;
+      const formValues = { ...this.state.form };
+      Object.keys(formValues).forEach(fieldName => {
+        if (this[`get${this.capitalize(fieldName)}State`]() !== 'success') {
+          formIsValid = false;
+        }
+      });
+      return !formIsValid;
+    } else {
+      return false;
+    }
   }
 
   formSubmit = e => {
