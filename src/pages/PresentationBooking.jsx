@@ -188,8 +188,7 @@ export default class PresentationBooking extends Component {
         formIsValid = false;
       }
     });
-    if (this.state.formSubmitted) return false;
-    else return !formIsValid;
+    return !formIsValid;
   }
 
   formSubmit = e => {
@@ -207,6 +206,7 @@ export default class PresentationBooking extends Component {
           ...validState,
           notes: this.state.formNotes
         };
+        // console.log(validStateWithFormNotes);
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
