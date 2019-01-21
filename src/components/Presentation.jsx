@@ -93,7 +93,7 @@ class Presentation extends Component {
           <Col xs={10}>
             <Table className="table table-sm presentationsTable">
               <thead>
-              <tr style={{textAlign:'center'}}>
+              <tr style={{textAlign:'center', fontSize: '12px'}}>
                 <th scope="col" style={{textAlign:'center'}}>Icon</th>
                 <th scope="col" style={{textAlign:'center'}}>Status</th>
                 <th scope="col" style={{textAlign:'center'}}>Time</th>

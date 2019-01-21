@@ -39,11 +39,6 @@ class Presentations extends Component {
       <div>
       <p>
         {
-          "hello"
-        }
-      </p>
-      <p>
-        {
           isLoading ? null :presentations.map(presentation => <Presentation key={presentation.sheetname} presentation={presentation}/>)
         }
       </p>
