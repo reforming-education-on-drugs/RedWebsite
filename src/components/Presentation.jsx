@@ -10,7 +10,36 @@ class Presentation extends Component {
       presentation: props.presentation,
     };
 
+    this.getStatusColor = this.getStatusColor.bind(this);
+    this.getStatusIcon = this.getStatusIcon.bind(this);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  getStatusColor(status) {
+    switch(status){
+      case "Confirmed":
+      return "green";
+      break;
+    case "Selected":
+      return "orange";
+      break;
+    case "Unselected":
+      return "black";
+      break;
+    }
+  }
+
+  getStatusIcon(status) {
+    switch(status){
+      case "Confirmed":
+      return "glyphicon glyphicon-check";
+      break;
+      case "Selected":
+      return "glyphicon glyphicon-check";
+      break;
+      case "Unselected":
+      return "glyphicon glyphicon-unchecked"
+    }
   }
 
   handleClick(time1) {
@@ -76,20 +105,11 @@ class Presentation extends Component {
               {
                 presentation.times.map(time => {
                   return (
-                    <tr>
-                      <td> WTF </td>
-                      {/*{*/}
-                        {/*if (time.selected === "Confirmed") {*/}
-                          {/*<td  onClick={this.handleClick(time)}> Confirmed </td>*/}
-                        {/*} else if (time.selected === "Unselected"){*/}
-                          {/*<td  onClick={this.handleClick(time)}> Unselected </td>*/}
-                        {/*} else {*/}
-                          {/*<td  onClick={this.handleClick(time)}> Selected </td>*/}
-                        {/*}*/}
-                      {/*}*/}
-                      <td onClick={() => this.handleClick(time)}> {time.selected}</td>
+                    <tr style={{color: this.getStatusColor(time.selected)}} onClick={() => this.handleClick(time)}>
+                      <td className={this.getStatusIcon(time.selected)} style={{top:'0px', display: 'table-cell'}}> </td>
+                      <td> {time.selected}</td>
                       <td> {moment(time.startTime,"hh:mm:ss").format("h:mm a")} - {moment(time.endTime, "hh:mm:ss").format("h:mm a")} </td>
-                      <td> {time.capacity} </td>
+                      <td> {time.enrolled} / {time.capacity} </td>
                     </tr>
                   );
                 })
