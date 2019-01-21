@@ -212,7 +212,7 @@ export default class PresentationBooking extends Component {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: this.encode({
             'form-name': 'presentation-booking-form',
-            validStateWithFormNotes
+            ...validStateWithFormNotes
           })
         })
           .then(() => this.setState({ ...this.state, formSubmitted: true }))
