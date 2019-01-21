@@ -87,6 +87,7 @@ function Volunteer() {
                 <Row>
 
                   <div className="container-fluid" id="panelContainer">
+                    <Presentation/>
                   </div>
 
                 </Row>
@@ -112,7 +113,6 @@ export default function VolunteerPage() {
   return (
     <main>
       <Volunteer/>
-      <Presentation/>
     </main>
   )
 }
