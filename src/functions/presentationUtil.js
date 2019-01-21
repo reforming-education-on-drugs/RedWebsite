@@ -4,6 +4,9 @@ require('dotenv').config();
 
 const {spread_sheet_id , client_email, private_key } = process.env;
 
+
+//Curl command for testing
+//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/getPresentations
 exports.errorResponse = function(callback, err) {
   console.error('END: Error response.');
   console.error(err);
@@ -53,14 +56,16 @@ exports.timeIsEqual = function(a,b){
 };
 
 exports.convertTime = function(timeRow,email){
+  let volunteers = timeRow.volunteers === "" ? [] : timeRow.volunteers.split(",");
   let time = {
     startTime: timeRow.starttime,
     endTime: timeRow.endtime,
-    capacity: timeRow.capacity,
+    enrolled: volunteers.length,
+    capacity: parseInt(timeRow.capacity,10),
     selected: false, // Will be reset if the user is inside
   };
 
-  for (let user of timeRow.volunteers.split(",")){
+  for (let user of volunteers){
     if (email === user){
       time.selected = true;
       break;
