@@ -54,13 +54,14 @@ class Presentation extends Component {
               time.selected = "Unselected";
               break;
             case "Selected":
+              --time.enrolled;
               time.selected = "Unselected";
               break;
             case "Unselected":
+              ++time.enrolled;
               time.selected = "Selected";
               break;
           }
-
         }
         return time;
       });
