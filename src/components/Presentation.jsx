@@ -51,6 +51,7 @@ class Presentation extends Component {
         if(time.startTime === time1.startTime && time.endTime === time1.endTime) {
           switch (time1.selected) {
             case "Confirmed":
+              --time.enrolled;
               time.selected = "Unselected";
               break;
             case "Selected":
@@ -95,7 +96,7 @@ class Presentation extends Component {
             <Table className="table table-sm presentationsTable">
               <thead>
               <tr style={{textAlign:'center', fontSize: '12px'}}>
-                <th scope="col" style={{textAlign:'center'}}>Icon</th>
+                <th scope="col" style={{textAlign:'center'}}></th>
                 <th scope="col" style={{textAlign:'center'}}>Status</th>
                 <th scope="col" style={{textAlign:'center'}}>Time</th>
                 <th scope="col" style={{textAlign:'center'}}>Availability</th>
