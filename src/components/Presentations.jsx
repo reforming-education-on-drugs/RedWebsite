@@ -21,7 +21,14 @@ class Presentations extends Component {
         body => {
           let presentations = JSON.parse(body).data;
            presentations.map(presentation => presentation.times.forEach(
-            time => time.selected = time.selected ? "Confirmed" : "Unselected"
+            //time => time.selected = time.selected ? "Confirmed" : "Unselected"
+            time => {if (time.selected) {
+              time.selected = "Confirmed";
+            } else if (time.enrolled == time.capacity) {
+              time.selected = "Full";
+            } else {
+              time.selected = "Unselected";
+            }}
           ));
           this.setState({ presentations: presentations, isLoading: false});
         }

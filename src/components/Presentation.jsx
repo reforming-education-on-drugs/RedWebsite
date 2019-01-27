@@ -26,11 +26,16 @@ class Presentation extends Component {
     case "Unselected":
       return "black";
       break;
+    case "Full":
+      return "grey";
+      break;
     }
   }
 
   getStatusIcon(status) {
     switch(status){
+      case "Full":
+      break;
       case "Confirmed":
       return "glyphicon glyphicon-check";
       break;
