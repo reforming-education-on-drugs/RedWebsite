@@ -14,7 +14,7 @@ class Presentations extends Component {
 
   componentDidMount() {
     fetch('/.netlify/functions/getPresentations', {
-      body: JSON.stringify({user:{email:"sacxjenny@live.com"}}),
+      body: JSON.stringify({user:{email:"jenny.le@ucalgary.ca"}}),
       method: 'POST',
     }).then(response =>
       response.text().then(
