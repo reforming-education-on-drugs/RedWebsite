@@ -6,12 +6,13 @@ const{ successResponse,errorResponse,authenticate,getSheetByName,convertTime,tim
 
 exports.handler = function(event, context, callback) {
   console.log('START: Received request.');
-
   savePresentation(JSON.parse(event.body))
     .then(response => successResponse(callback,response))
     .catch(error => errorResponse(callback, error));
 };
 
+//Curl command for testing
+//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/getPresentations
 // let payload = require("./payload.json")
 // savePresentation(payload)
 //   .then(response => successResponse(function (){},response))
@@ -20,12 +21,11 @@ exports.handler = function(event, context, callback) {
 
 function overlap(data){
 
-
   //Get the times they signed up for
-  let timeRanges = data.map(presentation =>
-    presentation.times
-      .filter(time => time.selected)
-      .map(time => {
+  let timeRanges = data.map(presentation =>  //Get one presentation
+    presentation.times // Takes its times
+      .filter(time => time.selected) //Selected only ones that user has selected
+      .map(time => {  //Transform them to time ranges
           return {
             presentation:presentation.name,
             startTime: new Date(presentation.date + "T" + time.startTime),
@@ -34,68 +34,43 @@ function overlap(data){
         }
       )
    );
-  timeRanges = [].concat(...timeRanges) //Flatten the arrays
+  timeRanges = [].concat(...timeRanges);//Flatten the arrays
 
-  //Sort them
+  let result = timeRanges.sort((previous,current) => previous.startTime - current.startTime)  // sort the times
+    .reduce((result, current, idx, arr) => {  //Find time conflicts
+      if (idx === 0) { return result; }
+      let previous = arr[idx-1]; // get the previous time
 
-  let sorted = timeRanges.sort((previous,current) =>
-    {
-      //If the previous start time is smaller.
-      if (previous.startTime < current.startTime) {
-        return -1;
+      // check for any overlap
+      let overlap = (previous.endTime  > current.startTime);
+
+      // store the result
+      if (overlap) {
+        result.overlap = true;
+        // store the specific ranges that overlap
+        result.ranges.push({
+          previous: previous,
+          current: current
+        });
       }
+      return result;
 
-      //If start times match
-      if (previous.startTime === current.startTime) {
-        return 0;
-      }
-
-      //If not the two above cases
-      return 1;
-    }
-  );
-
-  let result = sorted.reduce((result, current, idx, arr) => {
-    // get the previous range
-    if (idx === 0) { return result; }
-    var previous = arr[idx-1];
-
-    // check for any overlap
-    var overlap = (previous.endTime  > current.startTime);
-
-    // store the result
-    if (overlap) {
-      // yes, there is overlap
-      result.overlap = true;
-      // store the specific ranges that overlap
-      result.ranges.push({
-        previous: previous,
-        current: current
-      })
-    }
-
-    return result;
-
-    // seed the reduce
-  }, {overlap: false, ranges: []});
+      // seed the reduce
+    }, {overlap: false, ranges: []});
 
 
   //If there is over lap throw error
   if(result.overlap){
     throw result;
   }
-
-
 }
 
 async function savePresentation(payload){
-
   let email = payload.user.email;
   let doc = await authenticate();
 
 
   //verify there are no conflicting times
-  //Will through error if otherwise
   overlap(payload.data);
 
 
@@ -109,8 +84,9 @@ async function savePresentation(payload){
 
     //verify that the times match between the data and the spread sheet, they also must be in order
     for (let i=0; i < timeRows.length; i++){
-      if(presentation.times[i].startTime !== timeRows[i].starttime){
-        throw "The times from presentation "+ presentation.name +" don't match the payload";
+      if(presentation.times[i].startTime !== timeRows[i].starttime || presentation.times[i].endTime !== timeRows[i].endtime){
+        presentation.times[i].error = "The times "+presentation.times[i].startTime+"-"+presentation.times[i].endTime+
+          "don't match out records of "+timeRows[i].starttime+"-"+timeRows[i].endtime;
       }
     }
 
@@ -127,7 +103,6 @@ async function savePresentation(payload){
           volunteers.push(email);
           timeRow.volunteers = volunteers.join(",");
 
-          console.log("saved");
           await promisify(timeRow.save)();
         }
         //If they don't have it selected, but they are on the google drive sheet
@@ -135,7 +110,6 @@ async function savePresentation(payload){
           volunteers = volunteers.filter(volunteer => volunteer !== email);
           timeRow.volunteers = volunteers.join(",");
 
-          console.log("saved");
           await promisify(timeRow.save)();
         }
       }
