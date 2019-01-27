@@ -144,7 +144,8 @@
         ],
         "plugins": [
           "@babel/plugin-proposal-class-properties",
-          "react-hot-loader/babel"
+          "react-hot-loader/babel",
+          "@babel/plugin-transform-object-assign"
         ]
       },
       "production": {
@@ -173,7 +174,9 @@
           "@babel/preset-react"
         ],
         "plugins": [
-          "@babel/plugin-proposal-class-properties"
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-transform-object-assign"
+
         ]
       }
     }
