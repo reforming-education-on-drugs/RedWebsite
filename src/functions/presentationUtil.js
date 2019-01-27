@@ -5,8 +5,6 @@ require('dotenv').config();
 const {spread_sheet_id , client_email, private_key } = process.env;
 
 
-//Curl command for testing
-//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/getPresentations
 exports.errorResponse = function(callback, err) {
   console.error('END: Error response.');
   console.error(err);
