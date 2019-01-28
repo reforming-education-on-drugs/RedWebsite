@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Grid, Panel, Table, Button, NavItem } from 'react-bootstrap';
+import auth from '../utils/auth';
 import "../styles/Fonts.css";
 //import PresentationData from "../data/presentation-content.json";
 import Presentation from "../components/Presentations";
@@ -82,21 +83,21 @@ function Volunteer() {
             <Col md={10} mdOffset={2}>
               <h4 style={smallLiner}> Sign up for available presentations </h4>
             </Col>
-            <Col md={1}></Col>
+            <Col md={1} />
           </Row>
           <Row>
-            <Col md={2}></Col>
+            <Col md={2} />
             <Col md={8}>
               <p style={descriptionText}> Lorem ipsum dolor amet wolf snackwave vegan, viral hell of next level beard mustache before they sold out fashion axe. Iceland knausgaard snackwave pop-up hella, four dollar toast chartreuse woke hoodie neutra tumeric portland. Sustainable marfa chicharrones, biodiesel selvage brunch put a bird on it salvia tousled. </p>
             </Col>
-            <Col md={2}></Col>
+            <Col md={2} />
           </Row>
         </Col>
 
         <Col md={6}>
           <Row>
             <Col md={12} style={{height: '520px', overflowY: 'scroll'}}>
-              <Col md={1}> </Col>
+              <Col md={1} />
               <Col md={10}>
                 <Row>
 
@@ -106,12 +107,12 @@ function Volunteer() {
 
                 </Row>
               </Col>
-              <Col md={1}> </Col>
+              <Col md={1} />
             </Col>
           </Row>
 
           <Row style={{marginTop: '50px'}}>
-            <Col md={7}></Col>
+            <Col md={7} />
             <Col md={5}>
               <Button bsStyle="danger" style={{borderRadius: '20px'}}> Sign up for presentations </Button>
             </Col>
@@ -123,10 +124,24 @@ function Volunteer() {
   );
 }
 
-export default function VolunteerPage() {
-  return (
-    <main>
-      <Volunteer/>
-    </main>
-  )
+export default class VolunteerPage extends React.Component {
+  constructor() {
+    super();
+
+    this.state = { currentUser: auth.currentUser() };
+  }
+
+  componentWillMount() {
+    if (!this.state.currentUser) {
+      window.location.href = '/login';
+    }
+  }
+
+  render() {
+    return (
+      <main>
+        <Volunteer/>
+      </main>
+    );
+  }
 }
