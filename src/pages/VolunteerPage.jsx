@@ -95,7 +95,7 @@ function Volunteer() {
 
         <Col md={6}>
           <Row>
-            <Col md={12} style={{height: '650px', overflowY: 'scroll'}}>
+            <Col md={12} style={{height: '630px'}}>
               <Col md={1}> </Col>
               <Col md={10}>
                 <Row>

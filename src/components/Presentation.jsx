@@ -35,6 +35,7 @@ class Presentation extends Component {
   getStatusIcon(status) {
     switch(status){
       case "Full":
+      return "glyphicon glyphicon-ban-circle"
       break;
       case "Confirmed":
       return "glyphicon glyphicon-check";
@@ -112,11 +113,11 @@ class Presentation extends Component {
               {
                 presentation.times.map(time => {
                   return (
-                    <tr style={{color: this.getStatusColor(time.selected)}} onClick={() => this.handleClick(time)}>
+                    <tr style={{color: this.getStatusColor(time.selected), cursor: 'pointer'}} onClick={() => this.handleClick(time)}>
                       <td className={this.getStatusIcon(time.selected)} style={{top:'0px', display: 'table-cell'}}> </td>
-                      <td> {time.selected}</td>
-                      <td> {moment(time.startTime,"hh:mm:ss").format("h:mm a")} - {moment(time.endTime, "hh:mm:ss").format("h:mm a")} </td>
-                      <td> {time.enrolled} / {time.capacity} </td>
+                      <td style={{textAlign: 'center'}}> {time.selected}</td>
+                      <td style={{textAlign: 'center'}}> {moment(time.startTime,"hh:mm:ss").format("h:mm a")} - {moment(time.endTime, "hh:mm:ss").format("h:mm a")} </td>
+                      <td style={{textAlign: 'center'}}> {time.enrolled} / {time.capacity} </td>
                     </tr>
                   );
                 })
