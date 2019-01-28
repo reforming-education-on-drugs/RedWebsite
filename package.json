@@ -70,6 +70,7 @@
     "@babel/core": "7.0.0",
     "@babel/node": "7.0.0",
     "@babel/plugin-proposal-class-properties": "7.0.0",
+    "@babel/plugin-transform-object-assign": "7.2.0",
     "@babel/plugin-transform-react-constant-elements": "7.0.0",
     "@babel/polyfill": "7.0.0",
     "@babel/preset-env": "7.0.0",
@@ -176,7 +177,6 @@
         "plugins": [
           "@babel/plugin-proposal-class-properties",
           "@babel/plugin-transform-object-assign"
-
         ]
       }
     }
