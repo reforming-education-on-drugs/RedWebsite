@@ -2,7 +2,7 @@ let GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
 require('dotenv').config();
 
-const {spreadSheetID , email, privateKey } = process.env;
+const {spreadSheetID , email, googleAPIKey } = process.env;
 
 
 exports.errorResponse = function(callback, err) {
@@ -26,7 +26,7 @@ exports.successResponse = function(callback, res){
 
 exports.authenticate = async function(){
   console.log(process.env);
-  const creds = {email,privateKey};
+  const creds = {email,googleAPIKey};
   const doc = new GoogleSpreadsheet(spreadSheetID);
   await promisify(doc.useServiceAccountAuth)(creds);
   return doc;
