@@ -32,7 +32,10 @@ export default class LoginPage extends React.Component {
 
     auth
       .login(email, password, true)
-      .then(() => window.location.href = '/volunteer')
+      .then(() => {
+        this.setState({ formIsValid: true });
+        window.location.href = '/volunteer';
+      })
       .catch(() => this.setFormState({
         formIsValid: false,
         errorMsg: 'Login failed. Please ensure your password is correct.'
