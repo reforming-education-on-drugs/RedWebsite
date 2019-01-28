@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Grid, Panel, Table, Button, NavItem } from 'react-bootstrap';
 import Presentation from "../components/Presentation";
-
-
+import '../styles/loaderStyle.css'
 
 class Presentations extends Component {
   constructor(props) {
@@ -53,6 +52,8 @@ sendPresentations(presentations){
     ).catch(error =>
       console.log("JSON.stringify(error): " + JSON.stringify(error))
     );
+
+    window.location.reload();
 }
 
 convertAndSavePresentation(){
@@ -91,14 +92,20 @@ convertAndSavePresentation(){
     console.log(presentations);
 
     return (
-      <div>
-      <p>
-        {
-          isLoading ? null :presentations.map(presentation => <Presentation key={presentation.sheetname} presentation={presentation}/>)
-        }
-      </p>
-      <Button bsStyle="danger" style={{borderRadius: '20px'}} onClick={this.convertAndSavePresentation}> Sign up for presentations </Button>  
-      </div>
+      <Row>
+        <Row >
+          <Col md={12} style={{height: '550px', overflowY: 'scroll'}}>
+            {
+              isLoading ? <div class="loader"></div> : presentations.map(presentation => <Presentation key={presentation.sheetname} presentation={presentation}/>)
+            }
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+            <Button bsStyle="danger" style={{borderRadius: '20px', marginTop: '30px', marginLeft: '45%'}} onClick={this.convertAndSavePresentation}> Sign up for presentations </Button>  
+          </Col>
+        </Row>
+      </Row>
     );
   }
 
