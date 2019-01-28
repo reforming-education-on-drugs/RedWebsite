@@ -96,7 +96,7 @@ function Volunteer() {
 
         <Col md={6}>
           <Row>
-            <Col md={12} style={{height: '520px', overflowY: 'scroll'}}>
+            <Col md={12} style={{height: '630px'}}>
               <Col md={1} />
               <Col md={10}>
                 <Row>
@@ -110,15 +110,8 @@ function Volunteer() {
               <Col md={1} />
             </Col>
           </Row>
-
-          <Row style={{marginTop: '50px'}}>
-            <Col md={7} />
-            <Col md={5}>
-              <Button bsStyle="danger" style={{borderRadius: '20px'}}> Sign up for presentations </Button>
-            </Col>
-          </Row>
-
         </Col>
+
       </Row>
     </Grid>
   );
