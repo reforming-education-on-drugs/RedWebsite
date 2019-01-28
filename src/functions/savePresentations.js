@@ -1,7 +1,7 @@
 require('google-spreadsheet');
 const { promisify } = require('util');
 
-const{ successResponse,errorResponse,authenticate,getSheetByName,convertTime,timeIsEqual} = require("./presentationUtil");
+const{ successResponse,errorResponse,authenticate,getSheetByName,convertTime,update} = require("./presentationUtil");
 
 
 exports.handler = function(event, context, callback) {
@@ -12,7 +12,7 @@ exports.handler = function(event, context, callback) {
 };
 
 //Curl command for testing
-//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/getPresentations
+//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/savePresentations
 // let payload = require("./payload.json")
 // savePresentation(payload)
 //   .then(response => successResponse(function (){},response))
@@ -28,6 +28,7 @@ function overlap(data){
       .map(time => {  //Transform them to time ranges
           return {
             presentation:presentation.name,
+            time:time,
             startTime: new Date(presentation.date + "T" + time.startTime),
             endTime: new Date(presentation.date + "T" + time.endTime)
           };
@@ -36,33 +37,20 @@ function overlap(data){
    );
   timeRanges = [].concat(...timeRanges);//Flatten the arrays
 
-  let result = timeRanges.sort((previous,current) => previous.startTime - current.startTime)  // sort the times
-    .reduce((result, current, idx, arr) => {  //Find time conflicts
-      if (idx === 0) { return result; }
+  timeRanges.sort((previous,current) => previous.startTime - current.startTime)  // sort the times
+    .forEach((current,idx,arr) => {  //Find time conflicts
+
+      if (idx === 0) { return; }
       let previous = arr[idx-1]; // get the previous time
 
-      // check for any overlap
-      let overlap = (previous.endTime  > current.startTime);
-
       // store the result
-      if (overlap) {
-        result.overlap = true;
-        // store the specific ranges that overlap
-        result.ranges.push({
-          previous: previous,
-          current: current
-        });
-      }
-      return result;
+      if (previous.endTime  > current.startTime) {
 
-      // seed the reduce
-    }, {overlap: false, ranges: []});
+        previous.time.error = "The time conflicts with presentation "+ current.presentation+ " at "+current.startTime.toLocaleString('en-US', {timeZone: 'America/Denver'});
+        current.time.error = "The time conflicts with presentation "+ previous.presentation+ " at "+previous.startTime.toLocaleString('en-US', {timeZone: 'America/Denver'});
+      }// seed the reduce
+    });
 
-
-  //If there is over lap throw error
-  if(result.overlap){
-    throw result;
-  }
 }
 
 async function savePresentation(payload){
@@ -73,7 +61,6 @@ async function savePresentation(payload){
   //verify there are no conflicting times
   overlap(payload.data);
 
-
   for (let presentation of payload.data){
     let timeSheet = await getSheetByName(doc,presentation.sheetname);
     let timeRows = await promisify(timeSheet.getRows)({
@@ -81,41 +68,58 @@ async function savePresentation(payload){
         limit: 100,
       });
 
-
-    //verify that the times match between the data and the spread sheet, they also must be in order
-    for (let i=0; i < timeRows.length; i++){
-      if(presentation.times[i].startTime !== timeRows[i].starttime || presentation.times[i].endTime !== timeRows[i].endtime){
-        presentation.times[i].error = "The times "+presentation.times[i].startTime+"-"+presentation.times[i].endTime+
-          "don't match out records of "+timeRows[i].starttime+"-"+timeRows[i].endtime;
-      }
-    }
-
-
     for (let i = 0;i < timeRows.length;i++){
-      let timeRow = timeRows[i];
-      //see if there is mismatch
-      if(! timeIsEqual(convertTime(timeRow,email),presentation.times[i])){
+      let dbTime = convertTime(timeRows[i],email);
+      let userTime = presentation.times[i];   //Time given by the user
+      let volunteers = timeRows[i].volunteers === ""? [] : timeRows[i].volunteers.split(",");
 
-        let volunteers = timeRow.volunteers === ""? [] : timeRow.volunteers.split(",");
+
+      //verify that the times match between the data and the spread sheet, they also must be in order
+      if(userTime.startTime !== dbTime.startTime || userTime.endTime !== dbTime.endTime){
+        userTime.error = "The times "+userTime.startTime+"-"+userTime.endTime+
+          "don't match out records of "+dbTime.startTime+"-"+dbTime.endTime;
+
+        //Update the times
+        update(userTime,dbTime);
+        continue;
+      }
+
+      //If there is errors from time conflicts just skip
+      if(userTime.error !== undefined){
+        //Update the times
+        update(userTime,dbTime);
+        continue;
+      }
+
+
+      if(userTime.selected !== dbTime.selected){ //If there is a difference between our user data and database data
 
         //If they have it selected, but are not on the google drive sheet and there is room for them to be added
-        if(presentation.times[i].selected && volunteers.indexOf(email) <= -1 && timeRow.capacity > volunteers.length){
+        if(userTime.selected && dbTime.capacity > volunteers.length){
           volunteers.push(email);
-          timeRow.volunteers = volunteers.join(",");
-
-          await promisify(timeRow.save)();
+          timeRows[i].volunteers = volunteers.join(",");
+          timeRows[i].save();
+          userTime.error="";
         }
         //If they don't have it selected, but they are on the google drive sheet
-        else if( ! presentation.times[i].selected && volunteers.indexOf(email) > -1){
+        else if( !userTime.selected ){
           volunteers = volunteers.filter(volunteer => volunteer !== email);
-          timeRow.volunteers = volunteers.join(",");
-
-          await promisify(timeRow.save)();
+          timeRows[i].volunteers = volunteers.join(",");
+          timeRows[i].save();
+          userTime.error="";
         }
+        //When the presentation is full
+        else{
+          //Update the times
+          update(userTime,dbTime);
+          userTime.error="Could not sign up for presentations as the presentation is full";
+        }
+      }else{ //Everything is up to date
+        userTime.error="";
       }
 
     }
 
   }
-  return "Values have been verified and saved to the database";
+  return payload.data;
 }
