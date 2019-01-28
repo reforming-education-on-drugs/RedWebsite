@@ -1,6 +1,5 @@
 let GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-
 require('dotenv').config();
 
 const {spreadSheetID , email, privateKey } = process.env;
@@ -26,8 +25,6 @@ exports.successResponse = function(callback, res){
 };
 
 exports.authenticate = async function(){
-  console.log(spreadSheetID);
-  console.log(email);
   console.log(process.env);
   const creds = {email,privateKey};
   const doc = new GoogleSpreadsheet(spreadSheetID);
