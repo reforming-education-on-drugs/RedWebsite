@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid, Panel, Table, Button, NavItem } from 'react-bootstrap';
+import { Row, Col, Grid, Panel, Table, NavItem } from 'react-bootstrap';
 import Presentation from "../components/Presentation";
 import '../styles/loaderStyle.css'
 
@@ -19,7 +19,7 @@ class Presentations extends Component {
   componentDidMount() {
     fetch('/.netlify/functions/getPresentations', {
       body: JSON.stringify({user:{email:"jenny.le@ucalgary.ca"}}),
-      method: 'POST',
+      method: 'POST', 
     }).then(response =>
       response.text().then(
         body => {
@@ -102,7 +102,20 @@ convertAndSavePresentation(){
         </Row>
         <Row>
           <Col md={12}>
-            <Button bsStyle="danger" style={{borderRadius: '20px', marginTop: '30px', marginLeft: '45%'}} onClick={this.convertAndSavePresentation}> Sign up for presentations </Button>  
+            <button
+              className="pull-right"
+              style={{
+                color: '#FFFFFF',
+                backgroundColor: '#EF233C',
+                padding: '15px 30px',
+                borderRadius: '30px',
+                fontSize: '16px',
+                border: '0',
+                marginTop: '30px',
+              }}
+              onClick={this.convertAndSavePresentation}>
+                Sign up for presentations
+            </button>
           </Col>
         </Row>
       </Row>
