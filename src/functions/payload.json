@@ -35,7 +35,7 @@
           "endTime": "13:30:00",
           "enrolled": 1,
           "capacity": 2,
-          "selected": false
+          "selected": true
         }
       ]
     },
