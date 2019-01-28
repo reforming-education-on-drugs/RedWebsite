@@ -176,7 +176,6 @@
         "plugins": [
           "@babel/plugin-proposal-class-properties",
           "@babel/plugin-transform-react-constant-elements",
-          "@babel/plugin-transform-object-assign",
           "transform-react-remove-prop-types"
         ]
       },
