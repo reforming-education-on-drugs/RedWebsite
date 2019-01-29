@@ -18,7 +18,6 @@ import NotFoundPage from "./NotFoundPage";
 import PasswordResetPage from "./PasswordResetPage";
 import PasswordRecoveryPage from "./PasswordRecoveryPage";
 import ContactUsPage from "./ContactUsPage";
-import Gsheet from "./Gsheet";
 import VolunteerPage from "./VolunteerPage"
 import Footer from "../components/Footer";
 
@@ -46,7 +45,6 @@ class App extends React.Component {
           <Route exact path="/donate" component={DonatePage} />
           <Route exact path="/booking" component={BookingPage} />
           <Route exact path="/contact-us" component={ContactUsPage} />
-          <Route exact path="/gsheet" component={Gsheet} />
           <Route exact path="/volunteer" component={VolunteerPage} />
           <Route exact path="/faq" component={NotFoundPage} />
           <Route path="/password-reset" component={PasswordResetPage} />
