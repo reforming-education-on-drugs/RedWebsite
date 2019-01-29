@@ -24,6 +24,7 @@ exports.successResponse = function(callback, res){
 };
 
 exports.authenticate = async function(){
+  console.log(process.env);
   const creds = {client_email,private_key};
   const doc = new GoogleSpreadsheet(spread_sheet_id);
   await promisify(doc.useServiceAccountAuth)(creds);
