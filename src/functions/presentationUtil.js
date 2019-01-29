@@ -24,6 +24,11 @@ exports.successResponse = function(callback, res){
 };
 
 exports.authenticate = async function(){
+  console.log("The environment variables we want");
+  console.log(client_email);
+  console.log(private_key);
+  console.log(spread_sheet_id);
+  console.log("Process")
   console.log(process.env);
   const creds = {client_email,private_key};
   const doc = new GoogleSpreadsheet(spread_sheet_id);
