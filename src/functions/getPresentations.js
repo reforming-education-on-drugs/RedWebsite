@@ -7,6 +7,8 @@ exports.handler = function(event, context, callback) {
   console.log(identity);
   console.log(user);
   console.log(context.clientContext);
+  console.log(event);
+  console.log(event.body);
   getPresentationForEmail(JSON.parse(event.body).user.email)
     .then(response => successResponse(callback,response))
     .catch(error => errorResponse(callback, error));
