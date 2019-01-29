@@ -26,9 +26,11 @@ exports.successResponse = function(callback, res){
 exports.authenticate = async function(){
   console.log("The environment variables we want");
   console.log(client_email);
-  console.log(private_key);
   console.log(spread_sheet_id);
-  const creds = {client_email,private_key};
+  let privateKeyWithNewline = private_key.replace(/\\n/g, '\n');
+  console.log(privateKeyWithNewline);
+
+  const creds = {client_email,private_key:privateKeyWithNewline};
   const doc = new GoogleSpreadsheet(spread_sheet_id);
   await promisify(doc.useServiceAccountAuth)(creds);
   return doc;
