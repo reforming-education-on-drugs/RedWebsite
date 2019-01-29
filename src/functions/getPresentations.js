@@ -8,7 +8,8 @@ exports.handler = function(event, context, callback) {
   fetch(`${identity.url}/user`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${identity.token}` }
-  }).then(response => console.log(response.json().body));
+  }).then(response => response.json())
+    .then(response => console.log(response.body));
 
   getPresentationForEmail(JSON.parse(event.body).user.email)
     .then(response => successResponse(callback,response))
