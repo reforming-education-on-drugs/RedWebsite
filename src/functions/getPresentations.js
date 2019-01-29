@@ -5,6 +5,7 @@ const fetch = require('node-fetch');
 exports.handler = function(event, context, callback) {
 
   const {identity} = context.clientContext;
+  console.log(identity);
   fetchUser(identity, JSON.parse(atob(identity.token.split('.')[1])))
     .then((user) => console.log(user));
 
