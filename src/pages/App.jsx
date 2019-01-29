@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "../components/Header";
 import IndexPage from "./IndexPage";
+import LoginPage from "./LoginPage";
+import InvitePage from "./InvitePage";
 import VisionPage from "./VisionPage";
 import TeamPage from "./TeamPage";
 import ConstitutionPage from "./ConstitutionPage";
@@ -13,6 +15,8 @@ import BlogPage from "./BlogPage";
 import GetInvolvedPage from "./GetInvolvedPage";
 import DonatePage from "./DonatePage";
 import NotFoundPage from "./NotFoundPage";
+import PasswordResetPage from "./PasswordResetPage";
+import PasswordRecoveryPage from "./PasswordRecoveryPage";
 import ContactUsPage from "./ContactUsPage";
 import Gsheet from "./Gsheet";
 import VolunteerPage from "./VolunteerPage"
@@ -30,6 +34,8 @@ class App extends React.Component {
         <div id="spacer" />
         <Switch>
           <Route exact path="/" component={IndexPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route path="/invite" component={InvitePage} />
           <Route exact path="/about-us/vision" component={VisionPage} />
           <Route exact path="/about-us/team" component={TeamPage} />
           <Route exact path="/about-us/constitution" component={ConstitutionPage} />
@@ -43,6 +49,8 @@ class App extends React.Component {
           <Route exact path="/gsheet" component={Gsheet} />
           <Route exact path="/volunteer" component={VolunteerPage} />
           <Route exact path="/faq" component={NotFoundPage} />
+          <Route path="/password-reset" component={PasswordResetPage} />
+          <Route path="/recover" component={PasswordRecoveryPage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
         <Footer />
