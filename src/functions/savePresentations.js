@@ -12,7 +12,7 @@ exports.handler = function(event, context, callback) {
 };
 
 //Curl command for testing
-//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/savePresentations
+//curl --header "Content-Type: application/json" --request POST --data @@src/functions/payload.json localhost:9000/savePresentations
 // let payload = require("./payload.json")
 // savePresentation(payload)
 //   .then(response => successResponse(function (){},response))

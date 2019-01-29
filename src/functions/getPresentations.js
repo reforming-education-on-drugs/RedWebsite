@@ -11,7 +11,7 @@ exports.handler = function(event, context, callback) {
 
 
 //Curl command for testing
-//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/getPresentations
+//curl --header "Content-Type: application/json" --request POST --data @src/functions/payload.json localhost:9000/getPresentations
 // getPresentationForEmail("kouroshb26@gmail.com")
 //   .then(response => successResponse(function(){},response))
 //   .catch(error => errorResponse(function(){}, error));
