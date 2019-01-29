@@ -3,13 +3,10 @@ const {successResponse, errorResponse,authenticate,getSheetByName,convertPresent
 const fetch = require('node-fetch');
 
 exports.handler = function(event, context, callback) {
-  console.log('START: Received request.');
-  const {identity} = context.clientContext;
-  fetch(`${identity.url}/user`, {
-    method: 'GET',
-    headers: { Authorization: `Bearer ${identity.token}` }
-  }).then(response => response.json())
-    .then(response => console.log(response.body));
+
+  const claims = context.clientContext && context.clientContext.user;
+  fetchUser(context.clientContext.identity, claims.sub)
+    .then((user) => console.log(user));
 
   getPresentationForEmail(JSON.parse(event.body).user.email)
     .then(response => successResponse(callback,response))
@@ -83,3 +80,51 @@ async function getPresentation(doc, email, presentationRow){
   }
 }
 
+function fetchUser(identity, id) {
+  const api = new IdentityAPI(identity.url, identity.token);
+  return api.request(`/admin/users/${id}`);
+}
+
+class IdentityAPI {
+  constructor(apiURL, token) {
+    this.apiURL = apiURL;
+    this.token = token;
+  }
+
+  headers(headers = {}) {
+    return {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${this.token}`,
+      ...headers
+    };
+  }
+
+  parseJsonResponse(response) {
+    return response.json().then(json => {
+      if (!response.ok) {
+        return Promise.reject({ status: response.status, json });
+      }
+
+      return json;
+    });
+  }
+
+  request(path, options = {}) {
+    const headers = this.headers(options.headers || {});
+    return fetch(this.apiURL + path, { ...options, headers }).then(response => {
+      const contentType = response.headers.get("Content-Type");
+      if (contentType && contentType.match(/json/)) {
+        return this.parseJsonResponse(response);
+      }
+
+      if (!response.ok) {
+        return response.text().then(data => {
+          return Promise.reject({ stauts: response.status, data });
+        });
+      }
+      return response.text().then(data => {
+        data;
+      });
+    });
+  }
+}
