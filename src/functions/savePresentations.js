@@ -57,6 +57,9 @@ async function savePresentation(payload){
   let email = payload.user.email;
   let doc = await authenticate();
 
+  //Remove all errors
+  payload.data.forEach(presentation => presentation.times.forEach(time => time.error = undefined));
+
 
   //verify there are no conflicting times
   overlap(payload.data);
@@ -121,5 +124,5 @@ async function savePresentation(payload){
     }
 
   }
-  return payload.data;
+  return payload;
 }
