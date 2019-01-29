@@ -4,7 +4,8 @@ const fetch = require('node-fetch');
 
 exports.handler = function(event, context, callback) {
 
-  fetchUser(context.clientContext.identity, JSON.parse(atob(identity.token.split('.')[1])))
+  const {identity} = context.clientContext;
+  fetchUser(identity, JSON.parse(atob(identity.token.split('.')[1])))
     .then((user) => console.log(user));
 
   getPresentationForEmail(JSON.parse(event.body).user.email)
