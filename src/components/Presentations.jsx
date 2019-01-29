@@ -44,16 +44,33 @@ sendPresentations(presentations){
   let email = "jenny.le@ucalgary.ca";
   let obj = { "user":{"email":email}, "data": presentations};
   console.log("3. JSON.stringify(obj):"+JSON.stringify(obj));
+
+  this.setState({isLoading:true});
+
   fetch('/.netlify/functions/savePresentations', {
     body: JSON.stringify(obj), // PASS IN JSON OBJECT 
     method: 'POST',
-  }).then(response => 
-      console.log("JSON.stringify(response): " + JSON.stringify(response))
-    ).catch(error =>
+  }).then(response =>
+    response.text().then(
+      body => {
+        let presentations = JSON.parse(body).data;
+        presentations.map(presentation => presentation.times.forEach(
+          time => {if (time.selected) {
+            time.selected = "Confirmed";
+          } else if (time.enrolled == time.capacity) {
+            time.selected = "Full";
+          } else {
+            time.selected = "Unselected";
+          }}
+        ));
+        this.setState({ presentations: presentations, isLoading: false});
+      }
+    )
+  ).catch(error =>
       console.log("JSON.stringify(error): " + JSON.stringify(error))
-    );
+  );
 
-    window.location.reload();
+    // window.location.reload();
 }
 
 convertAndSavePresentation(){
@@ -61,26 +78,20 @@ convertAndSavePresentation(){
   console.log("presentations.length: " + presentations.length);
   console.log("1. JSON.stringify(presentations): " + JSON.stringify(presentations));
 
-  presentations.map(presentation => presentation.times.forEach(
+  presentations.forEach(presentation => presentation.times.forEach(
     time =>{
       switch (time.selected) {
         case "Selected":
-          time.selected = true;
-          break;
         case "Confirmed":
           time.selected = true;
           break;
         case "Full":
-          time.selected = false;
-          break;
         case "Unselected":
           time.selected = false;
           break;
       }
     return time;
   }));
-
-  this.setState({presentations: presentations});
 
   console.log("2. JSON.stringify(presentations): " + JSON.stringify(presentations));
   this.sendPresentations(presentations);
