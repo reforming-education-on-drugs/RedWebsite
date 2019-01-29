@@ -3,12 +3,12 @@ const {successResponse, errorResponse,authenticate,getSheetByName,convertPresent
 
 exports.handler = function(event, context, callback) {
   console.log('START: Received request.');
-  const {identity, user} = context.clientContext;
-  console.log(identity);
-  console.log(user);
-  console.log(context.clientContext);
-  console.log(event);
-  console.log(event.body);
+  const {identity} = context.clientContext;
+  fetch(`${identity.url}/user`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${identity.token}` }
+  }).then(response => console.log(response));
+
   getPresentationForEmail(JSON.parse(event.body).user.email)
     .then(response => successResponse(callback,response))
     .catch(error => errorResponse(callback, error));
