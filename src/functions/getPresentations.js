@@ -10,49 +10,69 @@ exports.handler = function(event, context, callback) {
 };
 
 
+//Curl command for testing
+//curl --header "Content-Type: application/json" --request POST --data @src/functions/payload.json localhost:9000/getPresentations
 // getPresentationForEmail("kouroshb26@gmail.com")
 //   .then(response => successResponse(function(){},response))
 //   .catch(error => errorResponse(function(){}, error));
 
 
-
-
 async function getPresentationForEmail(email){
-    let response = { "user":{"email":email},
-      "data":[]};
+  let response = { "user":{"email":email},
+    "data":[]};
 
-    let doc = await authenticate();
-    let presentationSheet = await getSheetByName(doc,"Presentation");
+  let doc = await authenticate();
+  let presentationSheet = await getSheetByName(doc,"Presentation"); //Master spread sheet denoting all presentations we have
+
+  let presentations =  await promisify(presentationSheet.getRows)({  //Get presentation information
+    offset: 1,
+    limit: 100,
+  });
+
+  let promises = [];
+  for (let presentationRow of presentations){
+    //Don't process empty presentations
+    if(presentationRow.sheetname === "" || presentationRow.sheetname === null|| presentationRow.sheetname === "()"){
+      continue;
+    }
+    //Don't show information about past presentations
+    if(new Date(presentationRow.date) < Date.now()){
+      continue;
+    }
+    promises.push(getPresentation(doc,email,presentationRow));
+  }
+
+  response.data = await Promise.all(promises); //Wait till all presentations are gathered
+
+  //remove ones that had errors out and sort based on date
+  response.data = response.data
+    .filter(presentation => presentation !== null)
+    .sort((a,b) => new Date(a.date) - new Date(b.date));
+
+  return response;
+}
 
 
-    let presentations =  await promisify(presentationSheet.getRows)({
+async function getPresentation(doc, email, presentationRow){
+
+  try {
+    let timeSheet = await getSheetByName(doc, presentationRow.sheetname); //Get sheet
+
+    let times = await promisify(timeSheet.getRows)({ //Get rows
       offset: 1,
       limit: 100,
     });
 
+    let presentation = convertPresentation(presentationRow); //Convert presentationRow to meet our API
 
-    //Todo get today's date to make sure the presentations are after today's date
-    for (let presentationRow of presentations){
-      if(presentationRow.name === "" || presentationRow.name === null || presentationRow.name === "()"){
-        continue;
-      }
-
-
-      let timeSheet = await getSheetByName(doc,presentationRow.sheetname);
-      let times = await promisify(timeSheet.getRows)({
-        offset:1,
-        limit:100,
-      });
-
-
-      let presentation = convertPresentation(presentationRow);
-
-      for (let timeRow of times){
-        presentation.times.push(convertTime(timeRow,email));
-      }
-
-      response.data.push(presentation);
+    for (let timeRow of times) {  //Convert the times to meet out API
+      presentation.times.push(convertTime(timeRow, email));
     }
-    return response;
+    return presentation;
+
+  }catch (e) {//Log errors
+    console.log(e);
+    return null;
+  }
 }
 

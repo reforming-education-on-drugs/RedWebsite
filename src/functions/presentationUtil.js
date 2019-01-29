@@ -1,12 +1,9 @@
 let GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
 require('dotenv').config();
+const {spread_sheet_id , client_email, private_key} = process.env;
 
-const {spread_sheet_id , client_email, private_key } = process.env;
 
-
-//Curl command for testing
-//curl --header "Content-Type: application/json" --request POST --data @payload.json localhost:9000/getPresentations
 exports.errorResponse = function(callback, err) {
   console.error('END: Error response.');
   console.error(err);
@@ -27,6 +24,10 @@ exports.successResponse = function(callback, res){
 };
 
 exports.authenticate = async function(){
+  console.log("The environment variables we want");
+  console.log(client_email);
+  console.log(private_key);
+  console.log(spread_sheet_id);
   const creds = {client_email,private_key};
   const doc = new GoogleSpreadsheet(spread_sheet_id);
   await promisify(doc.useServiceAccountAuth)(creds);
@@ -48,11 +49,12 @@ exports.convertPresentation = function(presentationRow){
   };
 };
 
-exports.timeIsEqual = function(a,b){
-  return a.startTime === b.startTime &&
-    a.endTime === b.endTime &&
-    a.capacity === b.capacity &&
-    a.selected === b.selected;
+exports.update = function(a,b){
+  a.startTime = b.startTime;
+  a.endTime = b.endTime;
+  a.enrolled = b.enrolled;
+  a.capacity = b.capacity;
+  a.selected = b.selected;
 };
 
 exports.convertTime = function(timeRow,email){
