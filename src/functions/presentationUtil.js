@@ -24,11 +24,7 @@ exports.successResponse = function(callback, res){
 };
 
 exports.authenticate = async function(){
-  console.log("The environment variables we want");
-  console.log(client_email);
-  console.log(spread_sheet_id);
-  let privateKeyWithNewline = private_key.replace(/\\n/g, '\n');
-  console.log(privateKeyWithNewline);
+  let privateKeyWithNewline = private_key.replace(/\\n/g, '\n'); //Fix environment variable
 
   const creds = {client_email,private_key:privateKeyWithNewline};
   const doc = new GoogleSpreadsheet(spread_sheet_id);
