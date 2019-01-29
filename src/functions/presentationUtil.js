@@ -1,7 +1,7 @@
 let GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
 require('dotenv').config();
-const spread_sheet_id , client_email, private_key} = process.env;
+const {spread_sheet_id , client_email, private_key} = process.env;
 
 
 exports.errorResponse = function(callback, err) {
