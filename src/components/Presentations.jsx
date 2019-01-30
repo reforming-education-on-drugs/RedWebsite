@@ -21,54 +21,17 @@ class Presentations extends Component {
     netlifyIdentity.init();
     this.generateHeaders().then((headers) =>
       fetch('/.netlify/functions/getPresentations', {
-        body: JSON.stringify({user:{email:"jenny.le@ucalgary.ca"}}),
         headers,
         method: 'POST',
-      }).then(response =>
-        response.text().then(
-          body => {
-            let presentations = JSON.parse(body).data;
-             presentations.map(presentation => presentation.times.forEach(
-              //time => time.selected = time.selected ? "Confirmed" : "Unselected"
-              time => {if (time.selected) {
-                time.selected = "Confirmed";
-              } else if (time.enrolled == time.capacity) {
-                time.selected = "Full";
-              } else {
-                time.selected = "Unselected";
-              }}
-            ));
-            this.setState({ presentations: presentations, isLoading: false});
-          }
-        )
-      ));
+      }).then(response => this.updateUI(response)));
   }
 
-  generateHeaders() {
-    const headers = { "Content-Type": "application/json" };
-    if (netlifyIdentity.currentUser()) {
-      return netlifyIdentity.currentUser().jwt().then((token) => {
-        return { ...headers, Authorization: `Bearer ${token}` };
-      })
-    }
-    return Promise.resolve(headers);
-  }
-
-sendPresentations(presentations){
-  let email = "jenny.le@ucalgary.ca";
-  let obj = { "user":{"email":email}, "data": presentations};
-  console.log("3. JSON.stringify(obj):"+JSON.stringify(obj));
-
-  this.setState({isLoading:true});
-
-  fetch('/.netlify/functions/savePresentations', {
-    body: JSON.stringify(obj), // PASS IN JSON OBJECT 
-    method: 'POST',
-  }).then(response =>
+  updateUI(response){
     response.text().then(
       body => {
-        let presentations = JSON.parse(body).data;
+        let presentations = JSON.parse(body);
         presentations.map(presentation => presentation.times.forEach(
+          //time => time.selected = time.selected ? "Confirmed" : "Unselected"
           time => {if (time.selected) {
             time.selected = "Confirmed";
           } else if (time.enrolled == time.capacity) {
@@ -79,37 +42,57 @@ sendPresentations(presentations){
         ));
         this.setState({ presentations: presentations, isLoading: false});
       }
-    )
-  ).catch(error =>
-      console.log("JSON.stringify(error): " + JSON.stringify(error))
-  );
+    );
+  }
 
-    // window.location.reload();
-}
+  generateHeaders() {
+    const headers = { "Content-Type": "application/json" };
+    if (netlifyIdentity.currentUser()) {
+      return netlifyIdentity.currentUser().jwt().then((token) => {
+        return { ...headers, Authorization: `Bearer ${token}` };
+      });
+    }
+    return Promise.resolve(headers);
+  }
 
-convertAndSavePresentation(){
-  const { presentations, isLoading } = this.state;
-  console.log("presentations.length: " + presentations.length);
-  console.log("1. JSON.stringify(presentations): " + JSON.stringify(presentations));
+  sendPresentations(presentations){
+    this.setState({isLoading:true});
 
-  presentations.forEach(presentation => presentation.times.forEach(
-    time =>{
-      switch (time.selected) {
-        case "Selected":
-        case "Confirmed":
-          time.selected = true;
-          break;
-        case "Full":
-        case "Unselected":
-          time.selected = false;
-          break;
-      }
-    return time;
-  }));
+    this.generateHeaders().then( headers =>
+      fetch('/.netlify/functions/savePresentations', {
+      body: JSON.stringify(presentations), // PASS IN JSON OBJECT
+      method: 'POST',
+      headers})
+        .then(response => this.updateUI(response))
+        .catch(error => console.log("JSON.stringify(error): " + JSON.stringify(error))
+    ));
 
-  console.log("2. JSON.stringify(presentations): " + JSON.stringify(presentations));
-  this.sendPresentations(presentations);
-}
+      // window.location.reload();
+  }
+
+  convertAndSavePresentation(){
+    const { presentations, isLoading } = this.state;
+    console.log("presentations.length: " + presentations.length);
+    console.log("1. JSON.stringify(presentations): " + JSON.stringify(presentations));
+
+    presentations.forEach(presentation => presentation.times.forEach(
+      time =>{
+        switch (time.selected) {
+          case "Selected":
+          case "Confirmed":
+            time.selected = true;
+            break;
+          case "Full":
+          case "Unselected":
+            time.selected = false;
+            break;
+        }
+      return time;
+    }));
+
+    console.log("2. JSON.stringify(presentations): " + JSON.stringify(presentations));
+    this.sendPresentations(presentations);
+  }
 
   render() {
     const { presentations,isLoading } = this.state;
