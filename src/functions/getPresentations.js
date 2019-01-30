@@ -4,10 +4,10 @@ const {successResponse, errorResponse,authenticate,getSheetByName,convertPresent
 exports.handler = function(event, context, callback) {
 
   console.log(context);
-  console.log(context.uesr);
-  console.log(context.user.email);
+  console.log(context.clientContext.uesr);
+  console.log(context.clientContext.user.email);
 
-  if(context && context.user && context.user.email){
+  if(context.clientContext && context.clientContext.user && context.clientContext.user.email){
     getPresentationForEmail(context.user.email)
       .then(response => successResponse(callback,response))
       .catch(error => errorResponse(callback, error));
