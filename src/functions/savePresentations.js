@@ -6,9 +6,14 @@ const{ successResponse,errorResponse,authenticate,getSheetByName,convertTime,upd
 
 exports.handler = function(event, context, callback) {
   console.log('START: Received request.');
-  savePresentation(JSON.parse(event.body))
-    .then(response => successResponse(callback,response))
-    .catch(error => errorResponse(callback, error));
+
+  if(context && context.user && context.user.email) {
+    savePresentation(JSON.parse(event.body).data,context.user.email)
+      .then(response => successResponse(callback, response))
+      .catch(error => errorResponse(callback, error));
+  }else{
+    errorResponse(callback,"Unauthorized request. Please login in.")
+  }
 };
 
 //Curl command for testing
@@ -53,18 +58,17 @@ function overlap(data){
 
 }
 
-async function savePresentation(payload){
-  let email = payload.user.email;
+async function savePresentation(presentations,email){
   let doc = await authenticate();
 
   //Remove all errors
-  payload.data.forEach(presentation => presentation.times.forEach(time => time.error = undefined));
+  presentations.forEach(presentation => presentation.times.forEach(time => time.error = undefined));
 
 
   //verify there are no conflicting times
-  overlap(payload.data);
+  overlap(presentations);
 
-  for (let presentation of payload.data){
+  for (let presentation of presentations){
     let timeSheet = await getSheetByName(doc,presentation.sheetname);
     let timeRows = await promisify(timeSheet.getRows)({
         offset: 1,
@@ -124,5 +128,5 @@ async function savePresentation(payload){
     }
 
   }
-  return payload;
+  return presentations;
 }
