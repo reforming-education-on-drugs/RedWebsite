@@ -2,6 +2,11 @@ const { promisify } = require('util');
 const {successResponse, errorResponse,authenticate,getSheetByName,convertPresentation,convertTime} = require('./presentationUtil');
 
 exports.handler = function(event, context, callback) {
+
+  console.log(context);
+  console.log(context.uesr);
+  console.log(context.user.email);
+
   if(context && context.user && context.user.email){
     getPresentationForEmail(context.user.email)
       .then(response => successResponse(callback,response))
