@@ -1,5 +1,6 @@
 require('google-spreadsheet');
 const { promisify } = require('util');
+let moment = require('moment');
 
 const{ successResponse,errorResponse,authenticate,getSheetByName,convertTime,update} = require("./presentationUtil");
 
@@ -51,8 +52,8 @@ function overlap(data){
       // store the result
       if (previous.endTime  > current.startTime) {
 
-        previous.time.error = "The time conflicts with presentation "+ current.presentation+ " at "+current.startTime.toLocaleString('en-US', {timeZone: 'America/Denver'});
-        current.time.error = "The time conflicts with presentation "+ previous.presentation+ " at "+previous.startTime.toLocaleString('en-US', {timeZone: 'America/Denver'});
+        previous.time.error = "The time conflicts with presentation "+ current.presentation+ " at "+moment(current.startTime).format("YYYY-MM-DD h:mm a");
+        current.time.error = "The time conflicts with presentation "+ previous.presentation+ " at "+moment(previous.startTime).format("YYYY-MM-DD h:mm a");
       }// seed the reduce
     });
 

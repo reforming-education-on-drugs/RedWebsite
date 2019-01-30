@@ -90,15 +90,15 @@ function Volunteer() {
             <Col md={8}>
               <p style={descriptionText}> 
                 Here's how to sign up: 
-                <p></p>
-                1. Select your desired volunteer times
-                <br />
-                2. Make sure they don't conflict or else you will get errors!
-                <br />
+                <br/><br/>
+                1. Select your desired volunteer times.
+                <br/>
+                2. Make sure they don't conflict. If they do you will get an error.
+                <br/>
                 3. Click 'sign up for presentations'!
-                <br />
-                4. Now you will have signed up!
-                <p></p>
+                <br/>
+                4. Confirm you have signed up with the green check.
+                <br/><br/>
                 If you have any questions or problems, <br /> email reducalgary@gmail.com
               </p>
             </Col>
