@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Grid, Panel, Table, NavItem } from 'react-bootstrap';
 import Presentation from "../components/Presentation";
 import '../styles/loaderStyle.css';
+import netlifyIdentity from "netlify-identity-widget";
 
 class Presentations extends Component {
   constructor(props) {
@@ -17,27 +18,40 @@ class Presentations extends Component {
   }
 
   componentDidMount() {
-    fetch('/.netlify/functions/getPresentations', {
-      body: JSON.stringify({user:{email:"jenny.le@ucalgary.ca"}}),
-      method: 'POST', 
-    }).then(response =>
-      response.text().then(
-        body => {
-          let presentations = JSON.parse(body).data;
-           presentations.map(presentation => presentation.times.forEach(
-            //time => time.selected = time.selected ? "Confirmed" : "Unselected"
-            time => {if (time.selected) {
-              time.selected = "Confirmed";
-            } else if (time.enrolled == time.capacity) {
-              time.selected = "Full";
-            } else {
-              time.selected = "Unselected";
-            }}
-          ));
-          this.setState({ presentations: presentations, isLoading: false});
-        }
-      )
-    );
+    netlifyIdentity.init();
+    this.generateHeaders().then((headers) =>
+      fetch('/.netlify/functions/getPresentations', {
+        body: JSON.stringify({user:{email:"jenny.le@ucalgary.ca"}}),
+        headers,
+        method: 'POST',
+      }).then(response =>
+        response.text().then(
+          body => {
+            let presentations = JSON.parse(body).data;
+             presentations.map(presentation => presentation.times.forEach(
+              //time => time.selected = time.selected ? "Confirmed" : "Unselected"
+              time => {if (time.selected) {
+                time.selected = "Confirmed";
+              } else if (time.enrolled == time.capacity) {
+                time.selected = "Full";
+              } else {
+                time.selected = "Unselected";
+              }}
+            ));
+            this.setState({ presentations: presentations, isLoading: false});
+          }
+        )
+      );
+  }
+
+  generateHeaders() {
+    const headers = { "Content-Type": "application/json" };
+    if (netlifyIdentity.currentUser()) {
+      return netlifyIdentity.currentUser().jwt().then((token) => {
+        return { ...headers, Authorization: `Bearer ${token}` };
+      })
+    }
+    return Promise.resolve(headers);
   }
 
 sendPresentations(presentations){
