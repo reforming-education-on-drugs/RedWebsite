@@ -4,10 +4,13 @@ const fetch = require('node-fetch');
 
 exports.handler = function(event, context, callback) {
 
-  const {identity} = context.clientContext;
-  console.log(identity);
-  fetchUser(identity, JSON.parse(atob(identity.token.split('.')[1])))
-    .then((user) => console.log(user));
+  // let identity = { url: 'https://emailextraction--reducalgary.netlify.com/.netlify/identity',
+  //   token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDg3NTQ2OTIsInN1YiI6IjAifQ.FyU86YXB3OViW26ZLdt1BTDM6jZM_oIDTWSnhfGrXHc' };
+  // console.log(parseJwt(identity.token));
+  // fetchUser(identity, parseJwt(identity.token).sub)
+  //   .then((user) => console.log(user));
+  console.log("Context is");
+  console.log(context);
 
   getPresentationForEmail(JSON.parse(event.body).user.email)
     .then(response => successResponse(callback,response))
@@ -81,51 +84,61 @@ async function getPresentation(doc, email, presentationRow){
   }
 }
 
-function fetchUser(identity, id) {
-  const api = new IdentityAPI(identity.url, identity.token);
-  return api.request(`/admin/users/${id}`);
+
+
+
+function parseJwt (token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  return JSON.parse(Buffer.from(base64, 'base64').toString());
 }
 
-class IdentityAPI {
-  constructor(apiURL, token) {
-    this.apiURL = apiURL;
-    this.token = token;
-  }
 
-  headers(headers = {}) {
-    return {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${this.token}`,
-      ...headers
-    };
-  }
+function fetchUser(identity, id) {
+  class IdentityAPI {
+    constructor(apiURL, token) {
+      this.apiURL = apiURL;
+      this.token = token;
+    }
 
-  parseJsonResponse(response) {
-    return response.json().then(json => {
-      if (!response.ok) {
-        return Promise.reject({ status: response.status, json });
-      }
+    headers(headers = {}) {
+      return {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${this.token}`,
+        ...headers
+      };
+    }
 
-      return json;
-    });
-  }
+    parseJsonResponse(response) {
+      return response.json().then(json => {
+        if (!response.ok) {
+          return Promise.reject({ status: response.status, json });
+        }
 
-  request(path, options = {}) {
-    const headers = this.headers(options.headers || {});
-    return fetch(this.apiURL + path, { ...options, headers }).then(response => {
-      const contentType = response.headers.get("Content-Type");
-      if (contentType && contentType.match(/json/)) {
-        return this.parseJsonResponse(response);
-      }
-
-      if (!response.ok) {
-        return response.text().then(data => {
-          return Promise.reject({ stauts: response.status, data });
-        });
-      }
-      return response.text().then(data => {
-        data;
+        return json;
       });
-    });
+    }
+
+    request(path, options = {}) {
+      const headers = this.headers(options.headers || {});
+      return fetch(this.apiURL + path, { ...options, headers }).then(response => {
+        const contentType = response.headers.get("Content-Type");
+        if (contentType && contentType.match(/json/)) {
+          return this.parseJsonResponse(response);
+        }
+
+        if (!response.ok) {
+          return response.text().then(data => {
+            return Promise.reject({ stauts: response.status, data });
+          });
+        }
+        return response.text().then(data => {
+          data;
+        });
+      });
+    }
   }
+
+  const api = new IdentityAPI(identity.url, identity.token);
+  return api.request(`/admin/users/${id}`);
 }
