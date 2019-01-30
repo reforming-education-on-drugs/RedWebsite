@@ -88,7 +88,19 @@ function Volunteer() {
           <Row>
             <Col md={2} />
             <Col md={8}>
-              <p style={descriptionText}> Lorem ipsum dolor amet wolf snackwave vegan, viral hell of next level beard mustache before they sold out fashion axe. Iceland knausgaard snackwave pop-up hella, four dollar toast chartreuse woke hoodie neutra tumeric portland. Sustainable marfa chicharrones, biodiesel selvage brunch put a bird on it salvia tousled. </p>
+              <p style={descriptionText}> 
+                Here's how to sign up: 
+                <p></p>
+                1. Select your desired volunteer times
+                <br />
+                2. Make sure they don't conflict or else you will get errors!
+                <br />
+                3. Click 'sign up for presentations'!
+                <br />
+                4. Now you will have signed up!
+                <p></p>
+                If you have any questions or problems, <br /> email reducalgary@gmail.com
+              </p>
             </Col>
             <Col md={2} />
           </Row>
