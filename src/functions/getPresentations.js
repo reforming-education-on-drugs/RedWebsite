@@ -1,6 +1,6 @@
 const { promisify } = require('util');
 const {successResponse, errorResponse,authenticate,getSheetByName,convertPresentation,convertTime} = require('./presentationUtil');
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
 exports.handler = function(event, context, callback) {
 
