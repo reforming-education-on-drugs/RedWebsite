@@ -16,7 +16,8 @@ exports.errorResponse = function(callback, err) {
 
 exports.successResponse = function(callback, res){
   console.log('END: Success response.');
-  console.log("Returning data:",res);
+  console.log("Returning data:");
+  console.log(JSON.stringify(res));
   callback(null, {
     statusCode: 200,
     body: JSON.stringify(res)
