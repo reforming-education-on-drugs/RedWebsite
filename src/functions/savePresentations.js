@@ -8,7 +8,7 @@ exports.handler = function(event, context, callback) {
   console.log('START: Received request.');
 
   if(context.clientContext && context.clientContext.user && context.clientContext.user.email) {
-    savePresentation(JSON.parse(event.body).data,context.clientContext.user.email)
+    savePresentation(JSON.parse(event.body),context.clientContext.user.email)
       .then(response => successResponse(callback, response))
       .catch(error => errorResponse(callback, error));
   }else{
@@ -18,8 +18,8 @@ exports.handler = function(event, context, callback) {
 
 //Curl command for testing
 //curl --header "Content-Type: application/json" --request POST --data @@src/functions/payload.json localhost:9000/savePresentations
-// let payload = require("./payload.json")
-// savePresentation(payload)
+// let payload = require("./payload.json");
+// savePresentation(payload,"kourosh@ucalgary.ca")
 //   .then(response => successResponse(function (){},response))
 //   .catch(error => errorResponse(function (){}, error));
 
