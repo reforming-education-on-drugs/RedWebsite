@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid, Panel, Table, Button, NavItem } from 'react-bootstrap';
+import { Row, Col, Grid, Panel, Table, Button, NavItem, Modal } from 'react-bootstrap';
 let moment = require('moment');
 
 class Presentation extends Component {
@@ -8,11 +8,17 @@ class Presentation extends Component {
 
     this.state = {
       presentation: props.presentation,
+      show: false,
+      errorMsg: "",
     };
 
     this.getStatusColor = this.getStatusColor.bind(this);
     this.getStatusIcon = this.getStatusIcon.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.getErrorIcon = this.getErrorIcon.bind(this);
+    this.getErrorIconColor = this.getErrorIconColor.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   getStatusColor(status) {
@@ -77,14 +83,52 @@ class Presentation extends Component {
 
   }
 
+  getErrorIcon(error){
+    if(error == "" || error === undefined){
+      return "";
+    } else {
+      return "glyphicon glyphicon-info-sign";
+    }
+  }
+
+  getErrorIconColor(error){
+    if(error == "" || error === undefined){
+      return "";
+    } else {
+      return "red";
+    }
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow(err) {
+    this.setState({ show: true });
+    this.setState({ errorMsg: err });
+  }
 
   render() {
     const { presentation } = this.state;
 
 
     return (
-      <Panel>
 
+      <div>
+
+      <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Error Message</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{this.state.errorMsg}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={this.handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Panel>
         <Row>
           {/* Name of school, date and address */}
           <Col xs={6}>
@@ -106,6 +150,7 @@ class Presentation extends Component {
                 <th scope="col" style={{textAlign:'center'}}>Status</th>
                 <th scope="col" style={{textAlign:'center'}}>Time</th>
                 <th scope="col" style={{textAlign:'center'}}>Availability</th>
+                <th scope="col" style={{textAlign:'center'}} />
               </tr>
               </thead>
 
@@ -113,11 +158,12 @@ class Presentation extends Component {
               {
                 presentation.times.map(time => {
                   return (
-                    <tr style={{color: this.getStatusColor(time.selected), cursor: 'pointer'}} onClick={() => this.handleClick(time)}>
-                      <td className={this.getStatusIcon(time.selected)} style={{top:'0px', display: 'table-cell'}} />
-                      <td style={{textAlign: 'center'}}> {time.selected}</td>
-                      <td style={{textAlign: 'center'}}> {moment(time.startTime,"hh:mm:ss").format("h:mm a")} - {moment(time.endTime, "hh:mm:ss").format("h:mm a")} </td>
-                      <td style={{textAlign: 'center'}}> {time.enrolled} / {time.capacity} </td>
+                    <tr style={{color: this.getStatusColor(time.selected), cursor: 'pointer'}}>
+                      <td className={this.getStatusIcon(time.selected)} style={{top:'0px', display: 'table-cell'}} onClick={() => this.handleClick(time)} />
+                      <td style={{textAlign: 'center'}} onClick={() => this.handleClick(time)}> {time.selected}</td>
+                      <td style={{textAlign: 'center'}} onClick={() => this.handleClick(time)}> {moment(time.startTime,"hh:mm:ss").format("h:mm a")} - {moment(time.endTime, "hh:mm:ss").format("h:mm a")} </td>
+                      <td style={{textAlign: 'center'}} onClick={() => this.handleClick(time)}> {time.enrolled} / {time.capacity} </td>
+                      <td className={this.getErrorIcon(time.error)} style={{top:'0px', display: 'table-cell', zIndex:'1000', color: this.getErrorIconColor(time.error)}} onClick={() => this.handleShow(time.error)}> </td>
                     </tr>
                   );
                 })
@@ -130,6 +176,7 @@ class Presentation extends Component {
         </Row> {/* End of table */}
 
       </Panel>
+      </div>
     );
   }
 
