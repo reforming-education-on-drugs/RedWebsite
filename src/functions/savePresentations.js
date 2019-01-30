@@ -7,8 +7,8 @@ const{ successResponse,errorResponse,authenticate,getSheetByName,convertTime,upd
 exports.handler = function(event, context, callback) {
   console.log('START: Received request.');
 
-  if(context && context.user && context.user.email) {
-    savePresentation(JSON.parse(event.body).data,context.user.email)
+  if(context.clientContext && context.clientContext.user && context.clientContext.user.email) {
+    savePresentation(JSON.parse(event.body).data,context.clientContext.user.email)
       .then(response => successResponse(callback, response))
       .catch(error => errorResponse(callback, error));
   }else{
