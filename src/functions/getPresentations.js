@@ -4,13 +4,19 @@ const {successResponse, errorResponse,authenticate,getSheetByName,convertPresent
 exports.handler = function(event, context, callback) {
   console.log('START: Received request.');
 
-  if(context.clientContext && context.clientContext.user && context.clientContext.user.email){
-    getPresentationForEmail(context.clientContext.user.email)
-      .then(response => successResponse(callback,response))
-      .catch(error => errorResponse(callback, error));
-  }else{
-    errorResponse(callback,"Unauthorized request. Please login in.")
-  }
+  //temp fix
+  getPresentationForEmail("jenny@ucalgary.ca")
+    .then(response => successResponse(callback,response))
+    .catch(error => errorResponse(callback, error));
+
+
+  // if(context.clientContext && context.clientContext.user && context.clientContext.user.email){
+  //   getPresentationForEmail(context.clientContext.user.email)
+  //     .then(response => successResponse(callback,response))
+  //     .catch(error => errorResponse(callback, error));
+  // }else{
+  //   errorResponse(callback,"Unauthorized request. Please login in.")
+  // }
 
 };
 
