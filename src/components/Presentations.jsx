@@ -41,7 +41,7 @@ class Presentations extends Component {
             this.setState({ presentations: presentations, isLoading: false});
           }
         )
-      );
+      ));
   }
 
   generateHeaders() {
