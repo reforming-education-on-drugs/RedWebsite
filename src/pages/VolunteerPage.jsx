@@ -53,6 +53,7 @@ const descriptionText = {
   fontSize: '14px',
   color: 'white',
   textAlign: 'left',
+  lineHeight: '24px',
 };
 
 /*
@@ -75,7 +76,7 @@ function Volunteer() {
       <Row>
         <Col md={6} style={firstBox}>
           <Row>
-            <Col md={10} mdOffset={3}>
+            <Col md={10} mdOffset={2}>
               <h1 style={headLiner}> Lets volunteer <br /> together </h1>
             </Col>
           </Row>
@@ -89,41 +90,37 @@ function Volunteer() {
             <Col md={2} />
             <Col md={8}>
               <p style={descriptionText}> 
-                Here's how to sign up: 
+                How to sign up for presentations: 
                 <br/><br/>
                 1. Select your desired volunteer times.
                 <br/>
-                2. Make sure they don't conflict. If they do you will get an error.
+                2. Make sure there are no time conflicts. If there are conflicts, you will not be able to sign up.
                 <br/>
-                3. Click 'sign up for presentations'!
+                3. Click 'Sign up for presentations'.
                 <br/>
-                4. Confirm you have signed up with the green check.
+                4. Your volunteer times are confirmed if they have a green check.
                 <br/><br/>
-                If you have any questions or problems, <br /> email reducalgary@gmail.com
+                If you have any questions or problems, contact us at reducalgary@gmail.com
               </p>
             </Col>
             <Col md={2} />
           </Row>
         </Col>
-
         <Col md={6}>
           <Row>
             <Col md={12} style={{height: '630px'}}>
               <Col md={1} />
               <Col md={10}>
                 <Row>
-
                   <div className="container-fluid" id="panelContainer">
                     <Presentation/>
                   </div>
-
                 </Row>
               </Col>
               <Col md={1} />
             </Col>
           </Row>
         </Col>
-
       </Row>
     </Grid>
   );
