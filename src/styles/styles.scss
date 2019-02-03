@@ -84,7 +84,6 @@ a.dropdown-toggle.btn:hover {
 
 #donate {
   background: red;
-  margin-left: 1em;
   border-radius: 30px;
   border-style: none;
   padding: 15px 20px;
@@ -193,10 +192,28 @@ a:active,
   border-color: #f00;
 }
 
+@media(max-width: 990px) {
+  .navbar {
+    li {
+      margin-right: 0 !important;
+    }
+  }
+}
+
 @media(min-width: 991px) {
   .navigation-clean.navbar .navbar-nav>li>a:hover {
     border-radius: 8px;
   }
+  .navbar {
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .navbar-header {
+      margin-right: auto;
+    }
+  }
+    
 }
 
 img.parents {
