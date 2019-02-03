@@ -35,8 +35,11 @@ export default function Header() {
           <NavItem href="/get-involved">Get Involved</NavItem>
             { 
               auth.currentUser()
-                ? <NavItem onClick={logout}>Log out</NavItem>
-                : <NavItem href="/login">Login</NavItem>
+                ? <>
+                    <NavItem href="/volunteer">Volunteer</NavItem>
+                    <NavItem onClick={logout} style={{ marginRight: '9em' }}>Log out</NavItem>
+                  </>
+                : <NavItem href="/login" style={{ marginRight: '10em' }}>Login</NavItem>
             }
           <NavItem id="donate" href="/donate">Donate</NavItem>
         </Nav>
