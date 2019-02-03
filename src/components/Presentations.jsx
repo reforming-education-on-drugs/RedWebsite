@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import { Row, Col, Grid, Panel, Table, NavItem } from 'react-bootstrap';
 import Presentation from "../components/Presentation";
 import '../styles/loaderStyle.css';
-import netlifyIdentity from "netlify-identity-widget";
+import auth from '../utils/auth';
+// import netlifyIdentity from "netlify-identity-widget";
 
 class Presentations extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isLoading:true,
+      isLoading: true,
       presentations: [],
     };
-
-    this.sendPresentations = this.sendPresentations.bind(this);
-    this.convertAndSavePresentation = this.convertAndSavePresentation.bind(this);
   }
 
   componentDidMount() {
-    netlifyIdentity.init();
     this.generateHeaders().then((headers) =>
       fetch('/.netlify/functions/getPresentations', {
         headers,
@@ -45,20 +42,20 @@ class Presentations extends Component {
     );
   }
 
-  generateHeaders() {
+  generateHeaders = () => {
     const headers = { "Content-Type": "application/json" };
-    if (netlifyIdentity.currentUser()) {
-      return netlifyIdentity.currentUser().jwt().then((token) => {
+    if (auth.currentUser()) {
+      return auth.currentUser().jwt().then((token) => {
         return { ...headers, Authorization: `Bearer ${token}` };
       });
     }
     return Promise.resolve(headers);
   }
 
-  sendPresentations(presentations){
+  sendPresentations = (presentations) => {
     this.setState({isLoading:true});
 
-    this.generateHeaders().then( headers =>
+    this.generateHeaders().then(headers =>
       fetch('/.netlify/functions/savePresentations', {
       body: JSON.stringify(presentations), // PASS IN JSON OBJECT
       method: 'POST',
@@ -70,7 +67,7 @@ class Presentations extends Component {
       // window.location.reload();
   }
 
-  convertAndSavePresentation(){
+  convertAndSavePresentation = () => {
     const { presentations, isLoading } = this.state;
     console.log("presentations.length: " + presentations.length);
     console.log("1. JSON.stringify(presentations): " + JSON.stringify(presentations));
@@ -129,7 +126,6 @@ class Presentations extends Component {
       </Row>
     );
   }
-
 }
 
 export default Presentations;
