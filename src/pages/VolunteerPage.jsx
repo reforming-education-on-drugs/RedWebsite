@@ -1,8 +1,7 @@
 import React from "react";
-import { Row, Col, Grid, Panel, Table, Button, NavItem } from 'react-bootstrap';
+import { Row, Col, Grid } from 'react-bootstrap';
 import auth from '../utils/auth';
 import "../styles/Fonts.css";
-//import PresentationData from "../data/presentation-content.json";
 import Presentation from "../components/Presentations";
 
 const monty = {
