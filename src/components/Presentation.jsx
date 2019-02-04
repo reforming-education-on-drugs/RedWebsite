@@ -45,7 +45,7 @@ class Presentation extends Component {
 
     this.state.presentation.times.forEach(time => {
       console.log(time1);
-      if(time.startTime === time1.startTime && time.endTime === time1.endTime) {
+      if (time.startTime === time1.startTime && time.endTime === time1.endTime) {
         switch (time1.selected) {
           case "Confirmed":
             --time.enrolled;
@@ -69,7 +69,7 @@ class Presentation extends Component {
   }
 
   getErrorIcon = error => {
-    if(error == "" || error === undefined) {
+    if (error == "" || error === undefined) {
       return "";
     }
     else {
@@ -78,7 +78,7 @@ class Presentation extends Component {
   }
 
   getErrorIconColor = error => {
-    if(error == "" || error === undefined) {
+    if (error == "" || error === undefined) {
       return "";
     }
     else {
