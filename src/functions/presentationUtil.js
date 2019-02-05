@@ -50,6 +50,7 @@ exports.convertPresentation = function(presentationRow) {
     address: presentationRow.address,
     date: presentationRow.date,
     sheetname: presentationRow.sheetname,
+    type:presentationRow.type,
     times: [],
   };
 };
