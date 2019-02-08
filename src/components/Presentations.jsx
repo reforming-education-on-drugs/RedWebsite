@@ -77,8 +77,6 @@ class Presentations extends Component {
 
   convertAndSavePresentation = () => {
     const { presentations } = this.state;
-    console.log("presentations.length: " + presentations.length);
-    console.log("1. JSON.stringify(presentations): " + JSON.stringify(presentations));
 
     presentations.forEach(presentation => 
       presentation.times.forEach(time => {
@@ -97,14 +95,11 @@ class Presentations extends Component {
       })
     );
 
-    console.log("2. JSON.stringify(presentations): " + JSON.stringify(presentations));
     this.sendPresentations(presentations);
   }
 
   render() {
     const { presentations, isLoading } = this.state;
-    console.log("Presentation");
-    console.log(presentations);
 
     return (
       <Row>

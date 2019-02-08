@@ -41,10 +41,7 @@ class Presentation extends Component {
   }
 
   handleClick = time1 => {
-    console.log(this.state.presentation);
-
     this.state.presentation.times.forEach(time => {
-      console.log(time1);
       if (time.startTime === time1.startTime && time.endTime === time1.endTime) {
         switch (time1.selected) {
           case "Confirmed":
