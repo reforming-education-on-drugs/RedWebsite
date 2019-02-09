@@ -119,7 +119,7 @@ class Presentation extends Component {
               <p style={{fontFamily: 'Montserrat', textAlign: 'left', fontSize: '12px', marginLeft: '10px'}}> {presentation.address} </p>
             </Col>
             <Col xs={6}>
-              <h6 style={{textAlign: 'right', fontWeight: '700', marginRight: '10px'}}> {presentation.date} </h6>
+              <h6 style={{textAlign: 'right', fontWeight: '700', marginRight: '10px', marginBottom: '0px'}}> {presentation.date} </h6>
               <p style={{textAlign: 'right', fontFamily: 'Montserrat', fontSize: '12px', marginRight: '10px'}}> {presentation.type} </p>
             </Col>
           </Row>
