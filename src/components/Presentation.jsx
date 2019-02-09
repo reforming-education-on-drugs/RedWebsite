@@ -120,6 +120,7 @@ class Presentation extends Component {
             </Col>
             <Col xs={6}>
               <h6 style={{textAlign: 'right', fontWeight: '700', marginRight: '10px'}}> {presentation.date} </h6>
+              <p style={{textAlign: 'right', fontFamily: 'Montserrat', fontSize: '12px', marginRight: '10px'}}> {presentation.type} </p>
             </Col>
           </Row>
 
