@@ -59,7 +59,10 @@ export default class InvitePage extends React.Component {
           
           user
             .update({ email: user.email, password: password })
-            .then(() => this.setState({ passwordResetted: true }))
+            .then(() => this.setState({ 
+              passwordResetted: true,
+              formisValid: true,
+            }))
             .catch(() => this.setFormState({
               formIsValid: false,
               errorMsg: 'Failed to reset password.'

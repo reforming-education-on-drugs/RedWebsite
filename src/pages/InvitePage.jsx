@@ -53,7 +53,10 @@ export default class InvitePage extends React.Component {
 
       auth
         .acceptInvite(token, password, true)
-        .then(() => window.location.href = '/volunteer')
+        .then(() => {
+          this.setState({ formIsValid: true });
+          window.location.href = '/volunteer';
+        })
         .catch(() => this.setFormState({
           formIsValid: false,
           errorMsg: 'Registration failed. Please ensure that you do not already have an account.'
