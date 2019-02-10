@@ -59,7 +59,10 @@ export default class InvitePage extends React.Component {
           
           user
             .update({ email: user.email, password: password })
-            .then(() => this.setState({ passwordResetted: true }))
+            .then(() => this.setState({ 
+              passwordResetted: true,
+              formisValid: true,
+            }))
             .catch(() => this.setFormState({
               formIsValid: false,
               errorMsg: 'Failed to reset password.'
@@ -79,6 +82,10 @@ export default class InvitePage extends React.Component {
       errorMsg
     });
   }
+
+  goToLogin = () => {
+    window.location.href='/login';
+  }
   
   render() {    
     return (
@@ -90,7 +97,7 @@ export default class InvitePage extends React.Component {
               this.state.passwordResetted
                 ? <div>
                     <p>Your password has successfully been changed.</p>
-                    <button type="button" onClick="window.location.href='/login'">Login</button>
+                    <button type="button" onClick={this.goToLogin}>Login</button>
                   </div>
                 : <form name="recover" onSubmit={this.handleSubmit}>
                     <Input name="password" label="Password" type="password" onChange={this.handleInputChange} />
