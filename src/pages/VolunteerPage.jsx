@@ -55,20 +55,6 @@ const descriptionText = {
   lineHeight: '24px',
 };
 
-/*
-function savePresentation(){
-  fetch('/.netlify/functions/savePresentations', {
-    body: JSON.stringify(), // PASS IN JSON OBJECT 
-    method: 'POST',
-  }).then(response =>
-    response.text().then(
-      it gud
-    ).catch(error =>
-      
-    )
-  );
-}*/
-
 function Volunteer() {
   return (
     <Grid style={monty}>
