@@ -18,7 +18,7 @@ export default function BlogPage() {
         <div className="blog container" id="blogcontainer">
           {
             BlogData.blog.map(blogItem => (
-              <div className="blog-item">
+              <div className="blog-item" key={blogItem.title}>
                 <h2>{blogItem.title}</h2>
                 <div className="date-location">
                   <span>
@@ -32,7 +32,7 @@ export default function BlogPage() {
                 </div>
                 <div className="blog-content">
                   {/* To only display an image if one is provided */}
-                  { blogItem.imageName && blogItem.imageAltText ? <img src={require(`../assets/images/blog-images/${blogItem.imageName}`)} width="80%" alt={blogItem.imageAltText} /> : "" }
+                  { blogItem.imageName && blogItem.imageAltText ? <img src={require('../assets/images/blog-images/' + blogItem.imageName)} width="80%" alt={blogItem.imageAltText} /> : "" }
                   { /* only way to set HTML from strings */ }
                   <p dangerouslySetInnerHTML={{ __html: blogItem.content }} />
                 </div>
