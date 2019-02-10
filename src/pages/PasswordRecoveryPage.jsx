@@ -93,7 +93,7 @@ export default class InvitePage extends React.Component {
               this.state.passwordResetted
                 ? <div>
                     <p>Your password has successfully been changed.</p>
-                    <button type="button" onClick="window.location.href='/login'">Login</button>
+                    <button type="button" onClick={window.location.href='/login'}>Login</button>
                   </div>
                 : <form name="recover" onSubmit={this.handleSubmit}>
                     <Input name="password" label="Password" type="password" onChange={this.handleInputChange} />

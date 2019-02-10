@@ -29,7 +29,10 @@ export default class PasswordReset extends React.Component {
 
     auth
       .requestPasswordRecovery(email)
-      .then(() => this.setState({ isSubmitted: true }))
+      .then(() => this.setState({
+        isSubmitted: true,
+        formIsValid: true,
+      }))
       .catch(() => this.setFormState({
         formIsValid: false,
         errorMsg: 'Request password reset failed, please verify that the email is correct.'
@@ -51,7 +54,10 @@ export default class PasswordReset extends React.Component {
             <img src={require('../assets/images/Logo.png')} alt="RED logo symbol" />
             {
               this.state.isSubmitted
-                ? <p>An email from <b>no-reply@netlify.com</b> will arrive shortly for you to reset your password.</p>
+                ? <>
+                    <p>An email from <b>no-reply@netlify.com</b> will arrive shortly for you to reset your password.</p>
+                    <p>No email? Contact us at reducalgary@gmail.com to request a password reset.</p>
+                  </>
                 : <form name="register" onSubmit={this.handleSubmit}>
                     <Input name="email" label="Email" type="email" onChange={this.handleInputChange} />
                     <button type="submit">Request password reset</button>
