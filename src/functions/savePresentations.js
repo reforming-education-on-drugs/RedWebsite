@@ -1,25 +1,31 @@
 /* eslint-disable no-console */
 require('google-spreadsheet');
-const { promisify } = require('util');
+const {promisify} = require('util');
 const Moment = require('moment');
-const{
+const {
   successResponse,
   errorResponse,
   authenticate,
   getSheetByName,
   convertTime,
-  update
+  update,
+  isLocal,
+  localContext
 } = require('./presentationUtil');
 
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
   console.log('START: Received request.');
+
+  if (isLocal()) {
+    context = localContext;
+  }
 
   if (context.clientContext && context.clientContext.user && context.clientContext.user.email) {
     savePresentation(JSON.parse(event.body), context.clientContext.user.email)
       .then(response => successResponse(callback, response))
       .catch(error => errorResponse(callback, error));
   }
-  else{
+  else {
     errorResponse(callback, 'Unauthorized request. Please login in.');
   }
 };
@@ -47,15 +53,15 @@ function overlap(data) {
           endTime: new Date(presentation.date + 'T' + time.endTime)
         };
       })
-    );
-  
+  );
+
   timeRanges = [].concat(...timeRanges); //Flatten the arrays
 
   timeRanges
     .sort((previous, current) => previous.startTime - current.startTime)  // sort the times
     .forEach((current, idx, arr) => {  //Find time conflicts
       if (idx === 0) return;
-      const previous = arr[idx-1]; // get the previous time
+      const previous = arr[idx - 1]; // get the previous time
 
       // store the result
       if (previous.endTime > current.startTime) {
@@ -111,24 +117,24 @@ async function savePresentation(presentations, email) {
           volunteers.push(email);
           timeRows[i].volunteers = volunteers.join(',');
           timeRows[i].save();
-          userTime.error= '';
+          userTime.error = '';
         }
         //If they don't have it selected, but they are on the google drive sheet
         else if (!userTime.selected) {
           volunteers = volunteers.filter(volunteer => volunteer !== email);
           timeRows[i].volunteers = volunteers.join(',');
           timeRows[i].save();
-          userTime.error= '';
+          userTime.error = '';
         }
         //When the presentation is full
         else {
           //Update the times
           update(userTime, dbTime);
-          userTime.error= 'Could not sign up for presentations as the presentation is full';
+          userTime.error = 'Could not sign up for presentations as the presentation is full';
         }
       }
       else { //Everything is up to date
-        userTime.error= '';
+        userTime.error = '';
       }
     }
   }
