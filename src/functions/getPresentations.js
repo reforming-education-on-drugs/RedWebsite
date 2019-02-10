@@ -1,23 +1,30 @@
 /* eslint-disable no-console */
-const { promisify } = require('util');
+const {promisify} = require('util');
 const {
   successResponse,
   errorResponse,
   authenticate,
   getSheetByName,
   convertPresentation,
-  convertTime
+  convertTime,
+  isLocal,
+  localContext,
 } = require('./presentationUtil');
 
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
   console.log('START: Received request.');
+
+  if (isLocal()) {
+    context = localContext;
+  }
+
 
   if (context.clientContext && context.clientContext.user && context.clientContext.user.email) {
     getPresentationForEmail(context.clientContext.user.email)
-      .then(response => successResponse(callback,response))
+      .then(response => successResponse(callback, response))
       .catch(error => errorResponse(callback, error));
   }
-  else{
+  else {
     errorResponse(callback, 'Unauthorized request. Please login in.');
   }
 };
@@ -44,7 +51,7 @@ async function getPresentationForEmail(email) {
   let promises = [];
   for (let presentationRow of presentations) {
     //Don't process empty presentations
-    if (presentationRow.sheetname === '' || presentationRow.sheetname === null|| presentationRow.sheetname === '()') {
+    if (presentationRow.sheetname === '' || presentationRow.sheetname === null || presentationRow.sheetname === '()') {
       continue;
     }
     //Don't show information about past presentations
@@ -60,7 +67,7 @@ async function getPresentationForEmail(email) {
   //remove ones that had errors out and sort based on date
   response = response
     .filter(presentation => presentation !== null)
-    .sort((a,b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return response;
 }

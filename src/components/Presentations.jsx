@@ -27,13 +27,13 @@ class Presentations extends Component {
       .text()
       .then(body => {
         let presentations = JSON.parse(body);
-        
-        presentations.map(presentation => 
+
+        presentations.map(presentation =>
           presentation.times.forEach(time => {
             if (time.selected) {
               time.selected = "Confirmed";
             }
-            else if (time.enrolled == time.capacity) {
+            else if (time.enrolled >= time.capacity) {
               time.selected = "Full";
             }
             else {
@@ -48,7 +48,7 @@ class Presentations extends Component {
         });
       }
     );
-  }
+  };
 
   generateHeaders = () => {
     const headers = { "Content-Type": "application/json" };
@@ -58,7 +58,7 @@ class Presentations extends Component {
       });
     }
     return Promise.resolve(headers);
-  }
+  };
 
   sendPresentations = presentations => {
     this.setState({ isLoading: true });
@@ -73,12 +73,12 @@ class Presentations extends Component {
         .then(response => this.updateUI(response))
         .catch(error => console.error("JSON.stringify(error): " + JSON.stringify(error))
       ));
-  }
+  };
 
   convertAndSavePresentation = () => {
     const { presentations } = this.state;
 
-    presentations.forEach(presentation => 
+    presentations.forEach(presentation =>
       presentation.times.forEach(time => {
 
         switch (time.selected) {
@@ -96,7 +96,7 @@ class Presentations extends Component {
     );
 
     this.sendPresentations(presentations);
-  }
+  };
 
   render() {
     const { presentations, isLoading } = this.state;
@@ -106,7 +106,7 @@ class Presentations extends Component {
         <Row>
           <Col md={12} style={{height: '550px', overflowY: 'scroll'}}>
             {
-              isLoading 
+              isLoading
                 ? <div className="loader" />
                 : presentations.map(presentation => <Presentation key={presentation.sheetname} presentation={presentation}/>)
             }
