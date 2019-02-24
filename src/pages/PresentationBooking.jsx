@@ -400,7 +400,7 @@ export default class PresentationBooking extends Component {
     return (
       <Grid className="grid-container">
         <Row className="show-grid">
-          <Col className="info" md={7}>
+          <Col className="info" md={6}>
             <Row>
               <Col className="infoHeading" md={7} mdOffset={2}>
                 Book a presentation with us today
@@ -434,7 +434,7 @@ export default class PresentationBooking extends Component {
               </Col>
             </Row>
           </Col>
-          <Col className="formContent" md={5} xs={12}>
+          <Col className="formContent" md={6} xs={12}>
             <form name="presentation-booking-form" onSubmit={this.formSubmit}>
               {this.validationMessage()}
               <Panel expanded={this.state.contactInfoOpen} defaultExpanded>
