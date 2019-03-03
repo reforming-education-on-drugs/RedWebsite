@@ -522,13 +522,16 @@ export default class PresentationBooking extends Component {
           </Radio>{' '}
           <i className="fas fa-cannabis" />
           <label className="presentationDesc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-            recusandae blanditiis eum culpa nemo optio in deleniti, magni
-            maiores ex obcaecati cumque nostrum corrupti qui a repellendus
-            libero! Enim obcaecati quidem neque debitis repellat numquam beatae
-            voluptates, doloremque vero error accusamus? Sint est quasi ullam
-            omnis? Quos dolorem, iste optio nam aliquid, vero voluptatem itaque
-            quod ab obcaecati reprehenderit aspernatur!
+            While cannabis was legalized in 2018, there remain many
+            misconceptions about this drug. This presentation seeks to present
+            accurate information about the use and effects of recreational and
+            medical cannabis, and point to what remains unknown about the drug.
+            This is especially important for this age group, as there is
+            evidence that cannabis can have negative long-term effects on the
+            developing brain. We finish with a case study activity in which
+            students are put into the shoes of physicians and use their
+            new-found knowledge to evaluate the prescription of cannabis to
+            various patients.
           </label>
         </Well>
       </FormGroup>
