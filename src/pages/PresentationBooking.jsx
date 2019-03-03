@@ -5,14 +5,18 @@ import {
   Grid,
   FormGroup,
   Radio,
+  Checkbox,
   FormControl,
   ControlLabel,
   HelpBlock,
   Button,
   Panel,
   Alert,
+  InputGroup,
+  Glyphicon,
   // PanelGroup,
-  Well
+  Well,
+  Clearfix
 } from 'react-bootstrap';
 
 import '../styles/react-datetime.css';
@@ -28,15 +32,19 @@ export default class PresentationBooking extends Component {
     this.state = {
       form: {
         school: -1,
-        gradeLevel: -1,
+        grades: -1,
         numClassrooms: -1,
         numStudents: -1,
         contactName: -1,
         email: -1,
         phone: -1,
         dateTime: -1,
-        topic: -1
+        topic: -1,
+        kahoot: -1
       },
+      showGradesSelect: false,
+      gradesSelected: [],
+      dateTimeChoices: ['', '', ''],
       formNotes: '',
       formIsValid: -1,
       contactInfoOpen: true,
@@ -69,7 +77,7 @@ export default class PresentationBooking extends Component {
   }
   fieldIsAlphaNumeric(fieldName) {
     const field = this.state.form[fieldName];
-    const alphaNumericRegex = /[A-Za-z0-9 _.,!"'/$]*/;
+    const alphaNumericRegex = /[A-Za-z0-9 _.,!"'/$]*/; // * Allows punctuation marks
     if (field.length === -1) return null;
     else if (alphaNumericRegex.test(String(field).toLowerCase()))
       return 'success';
@@ -89,22 +97,27 @@ export default class PresentationBooking extends Component {
     else if (phoneRegex.test(field)) return 'success';
     else return 'error';
   }
-  fieldIsDateTime(fieldName) {
-    const field = this.state.form[fieldName];
-    if (field.length === -1) return null;
-    else if (Datetime.moment(field, 'MM/DD/YYYY h:mm A', true).isValid())
+  fieldIsDateTime(fieldName, choice) {
+    let field = this.state.dateTimeChoices;
+    let res = [];
+    field.forEach((k, v) => {
+      if (Datetime.moment(k, 'MM/DD/YYYY h:mm A', true).isValid())
+        res.push(true);
+      else res.push(false);
+    });
+    if (res[choice - 1] == true) {
       return 'success';
-    else return 'error';
+    } else if (res[choice - 1] == false) {
+      if (field[choice - 1].length == 0) return null;
+      else return 'error';
+    }
   }
 
   getSchoolState() {
     return this.fieldIsRequired('school') && this.fieldIsAlphaNumeric('school');
   }
-  getGradeLevelState() {
-    return (
-      this.fieldIsRequired('gradeLevel') &&
-      this.fieldIsAlphaNumeric('gradeLevel')
-    );
+  getGradesState() {
+    return this.fieldIsRequired('grades');
   }
   getNumClassroomsState() {
     return (
@@ -130,10 +143,26 @@ export default class PresentationBooking extends Component {
     return this.fieldIsRequired('phone') && this.fieldIsPhone('phone');
   }
   getDateTimeState() {
-    return this.fieldIsRequired('dateTime') && this.fieldIsDateTime('dateTime');
+    let dateTimeChoices = this.state.dateTimeChoices;
+    let dateTimeValid = true;
+    dateTimeChoices.forEach((k, v) => {
+      if (
+        !Datetime.moment(k, 'MM/DD/YYYY h:mm A', true).isValid() &&
+        k.length > 0
+      )
+        dateTimeValid = false;
+    });
+    if (dateTimeValid == true) return 'success';
+    else return 'error';
+  }
+  getChoiceState(choice) {
+    return this.fieldIsDateTime('dateTime', choice);
   }
   getTopicState() {
     return this.fieldIsRequired('topic');
+  }
+  getKahootState() {
+    return this.fieldIsRequired('kahoot');
   }
 
   handleFormNotes(e) {
@@ -149,21 +178,59 @@ export default class PresentationBooking extends Component {
       }
     });
   }
-  handleDateTime(e) {
-    let dateTimeInput = -1;
+  handleDateTimeChoices(choice, e) {
+    let choice_idx = choice - 1;
+    let dateTimeInput = '';
+    let updated_dateTimeChoices = [...this.state.dateTimeChoices];
     if (typeof e === 'string' && e.length > 0) {
       dateTimeInput = e;
     } else if (typeof e === 'object' && e !== null && e._isValid) {
       dateTimeInput = e.format('MM/DD/YYYY h:mm A');
     }
-    if (dateTimeInput !== -1) {
-      this.setState({
-        form: {
-          ...this.state.form,
-          dateTime: dateTimeInput
-        }
-      });
+    updated_dateTimeChoices[choice_idx] = dateTimeInput.replace(/,/g, '');
+    this.setState({
+      ...this.state,
+      dateTimeChoices: updated_dateTimeChoices
+    });
+    this.handleDateTime(updated_dateTimeChoices);
+  }
+  handleDateTime(updated_dateTimeChoices) {
+    let dateTimeChoices = updated_dateTimeChoices.filter(val => val).join(',');
+    this.setState({
+      form: {
+        ...this.state.form,
+        dateTime: dateTimeChoices.length > 0 ? dateTimeChoices : -1
+      }
+    });
+  }
+  handleKahoot(e) {
+    this.handleChange({
+      target: {
+        id: 'kahoot',
+        value: e.target.value
+      }
+    });
+  }
+  handleGradeSelection(e) {
+    const grade_value = e.target.value.trim();
+    let current_gradesSelected = [...this.state.gradesSelected];
+    let updated_gradesSelected = [];
+    if (e.target.checked) {
+      current_gradesSelected.push(grade_value);
+    } else {
+      const delete_idx = current_gradesSelected.indexOf(grade_value);
+      if (delete_idx !== -1) current_gradesSelected.splice(delete_idx, 1);
     }
+    updated_gradesSelected = current_gradesSelected.sort(
+      (num1, num2) => num1 - num2
+    );
+    this.setState({
+      ...this.state,
+      gradesSelected: updated_gradesSelected
+    });
+    this.handleChange({
+      target: { id: 'grades', value: updated_gradesSelected.join(',') }
+    });
   }
   handleChange(e) {
     this.setState({
@@ -171,6 +238,13 @@ export default class PresentationBooking extends Component {
         ...this.state.form,
         [e.target.id]: e.target.value.trim().length > 0 ? e.target.value : -1
       }
+    });
+  }
+
+  showGradesSelect() {
+    this.setState({
+      ...this.state,
+      showGradesSelect: !this.state.showGradesSelect
     });
   }
 
@@ -210,7 +284,7 @@ export default class PresentationBooking extends Component {
           ...validState,
           notes: this.state.formNotes
         };
-        // console.log(validStateWithFormNotes);
+        console.log(validStateWithFormNotes);
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -225,7 +299,10 @@ export default class PresentationBooking extends Component {
             this.setState({ ...this.state, formSubmitted: true });
           });
       }
-      this.setState({ form: validState, formIsValid: formIsValid });
+      this.setState({
+        form: validState,
+        formIsValid: formIsValid
+      });
     }
     e.preventDefault();
   };
@@ -256,62 +333,10 @@ export default class PresentationBooking extends Component {
     }
   }
 
-  presentationOptions() {
-    return (
-      <FormGroup
-        controlId="topic"
-        onChange={this.handleTopicSelection.bind(this)}
-        validationState={this.getTopicState()}
-      >
-        <Well bsSize="small">
-          <Radio value="drug overview" name="radioGroup" inline>
-            Drug Overview
-          </Radio>{' '}
-          <i className="fas fa-capsules" />
-        </Well>
-        <Well bsSize="small">
-          <Radio value="fentanyl" name="radioGroup" inline>
-            Fentanyl
-          </Radio>{' '}
-          <i className="fas fa-tablets" />
-        </Well>
-        <Well bsSize="small">
-          <Radio value="cannabis" name="radioGroup" inline>
-            Cannabis
-          </Radio>{' '}
-          <i className="fas fa-cannabis" />
-        </Well>
-      </FormGroup>
-      // <PanelGroup accordion id="presentationTopics">
-      //   <Panel eventKey="1">
-      //     <Panel.Heading>
-      //       <Panel.Title toggle>Drug Overview</Panel.Title>
-      //     </Panel.Heading>
-      //     <Panel.Body collapsible>
-      //       <i className="fas fa-capsules" />
-      //     </Panel.Body>
-      //   </Panel>
-      //   <Panel eventKey="2">
-      //     <Panel.Heading>
-      //       <Panel.Title toggle>Fentanyl</Panel.Title>
-      //     </Panel.Heading>
-      //     <Panel.Body collapsible>
-      //       <i className="fas fa-tablets" />
-      //     </Panel.Body>
-      //   </Panel>
-      //   <Panel eventKey="3">
-      //     <Panel.Heading>
-      //       <Panel.Title toggle>Cannabis</Panel.Title>
-      //     </Panel.Heading>
-      //     <Panel.Body collapsible>
-      //       <i className="fas fa-cannabis" />
-      //     </Panel.Body>
-      //   </Panel>
-      // </PanelGroup>
-    );
-  }
-
-  contactInfoForm() {
+  contactInfoOptions() {
+    let showGrades = this.state.showGradesSelect ? 'showGrades' : 'hide';
+    let gradesSelected =
+      this.state.form.grades !== -1 ? this.state.form.grades : '';
     return (
       <div>
         <FormGroup controlId="school" validationState={this.getSchoolState()}>
@@ -324,19 +349,74 @@ export default class PresentationBooking extends Component {
           <FormControl.Feedback />
         </FormGroup>
         <FormGroup
-          controlId="gradeLevel"
-          validationState={this.getGradeLevelState()}
+          controlId="grades"
+          className="grades_multiselect"
+          validationState={this.getGradesState()}
         >
-          <ControlLabel>Grade Level</ControlLabel>
-          <FormControl
-            componentClass="select"
-            placeholder=""
-            onChange={this.handleChange.bind(this)}
+          <div
+            className="grades_selectBox"
+            onClick={this.showGradesSelect.bind(this)}
           >
-            <option disabled selected value />
-            <option value="Junior High">Junior High School</option>
-            <option value="High School">High School</option>
-          </FormControl>
+            <ControlLabel>Grade(s)</ControlLabel>
+            <FormControl
+              componentClass="select"
+              placeholder=""
+              onChange={this.handleChange.bind(this)}
+            >
+              <option selected="selected" value={gradesSelected}>
+                {gradesSelected}
+              </option>
+            </FormControl>
+            <FormControl.Feedback />
+            <div className="overSelect" />
+          </div>
+          <div className={showGrades}>
+            <Row>
+              <Col md={6}>
+                <label>Junior High School</label>
+                <Checkbox
+                  value="7"
+                  onClick={this.handleGradeSelection.bind(this)}
+                >
+                  Grade 7
+                </Checkbox>
+                <Checkbox
+                  value="8"
+                  onClick={this.handleGradeSelection.bind(this)}
+                >
+                  Grade 8
+                </Checkbox>
+                <Checkbox
+                  value="9"
+                  onClick={this.handleGradeSelection.bind(this)}
+                >
+                  Grade 9
+                </Checkbox>
+              </Col>
+              <Col md={6}>
+                <label>High School</label>
+                <Checkbox
+                  value="10"
+                  onClick={this.handleGradeSelection.bind(this)}
+                >
+                  Grade 10
+                </Checkbox>
+                <Checkbox
+                  value="11"
+                  onClick={this.handleGradeSelection.bind(this)}
+                >
+                  Grade 11
+                </Checkbox>
+                <Checkbox
+                  value="12"
+                  onClick={this.handleGradeSelection.bind(this)}
+                >
+                  Grade 12
+                </Checkbox>
+              </Col>
+            </Row>
+            <Clearfix />
+          </div>
         </FormGroup>
         <FormGroup
           controlId="numClassrooms"
@@ -396,11 +476,160 @@ export default class PresentationBooking extends Component {
     );
   }
 
+  presentationOptions() {
+    return (
+      <FormGroup
+        controlId="topic"
+        onChange={this.handleTopicSelection.bind(this)}
+        validationState={this.getTopicState()}
+      >
+        <Well bsSize="small">
+          <Radio value="drug overview" name="radioGroup" inline>
+            Drug Overview
+          </Radio>{' '}
+          <i className="fas fa-capsules" />
+          <label className="presentationDesc">
+            Students are introduced to brain through a brief introduction of
+            it's parts and common neurotransmitters. With this knowledge,
+            students discuss three commonly seen drugs, adderall, alcohol and
+            marijuana. The presentation is delivered through engaging videos,
+            interactive actives and educated debates on controversial topics.
+            Students are challenged with a final application activity of a
+            patient investigation where they study vital signs and symptoms to
+            diagnose overdose patients.
+          </label>
+        </Well>
+        <Well bsSize="small">
+          <Radio value="fentanyl" name="radioGroup" inline>
+            Fentanyl
+          </Radio>{' '}
+          <i className="fas fa-tablets" />
+          <label className="presentationDesc">
+            The current "hot topic" drug, fentanyl, is presented to students
+            through an interactive poll relating to shocking current statistics
+            on this drug. Students are challenged through interactive activities
+            to understand the realities of this opioid and it's presence in the
+            media. This newly developed presentations discusses symptoms of
+            overdose as well as the administration of naloxone kits. Students
+            will participate in a debate on the topic of injection sites before
+            discussing newer drugs on the market that have evolved in relation
+            to fentanyl.
+          </label>
+        </Well>
+        <Well bsSize="small">
+          <Radio value="cannabis" name="radioGroup" inline>
+            Cannabis
+          </Radio>{' '}
+          <i className="fas fa-cannabis" />
+          <label className="presentationDesc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            recusandae blanditiis eum culpa nemo optio in deleniti, magni
+            maiores ex obcaecati cumque nostrum corrupti qui a repellendus
+            libero! Enim obcaecati quidem neque debitis repellat numquam beatae
+            voluptates, doloremque vero error accusamus? Sint est quasi ullam
+            omnis? Quos dolorem, iste optio nam aliquid, vero voluptatem itaque
+            quod ab obcaecati reprehenderit aspernatur!
+          </label>
+        </Well>
+      </FormGroup>
+    );
+  }
+
+  dateTimePresentationOptions() {
+    return (
+      <div>
+        <ControlLabel>
+          <b>
+            Please list up to three dates and times for your presentation
+            booking, in order of preference.
+          </b>{' '}
+          Please note that you may not receive your first choice. We process all
+          bookings in the order that they are received. We will work with you to
+          ensure that you get a date that works for you!
+        </ControlLabel>
+        <FormGroup
+          controlId="dateTime"
+          validationState={this.getChoiceState(1)}
+        >
+          <div className="dateTimeChoice">
+            <label>First Choice: </label>
+            <Datetime
+              value={this.state.dateTimeChoices[0]}
+              onChange={this.handleDateTimeChoices.bind(this, 1)}
+            />
+            <FormControl.Feedback />
+          </div>
+        </FormGroup>
+        <FormGroup
+          controlId="dateTime"
+          validationState={this.getChoiceState(2)}
+        >
+          <div className="dateTimeChoice">
+            <label>Second Choice: </label>
+            <Datetime
+              value={this.state.dateTimeChoices[1]}
+              onChange={this.handleDateTimeChoices.bind(this, 2)}
+            />
+            <FormControl.Feedback />
+          </div>
+        </FormGroup>
+        <FormGroup
+          controlId="dateTime"
+          validationState={this.getChoiceState(3)}
+        >
+          <div className="dateTimeChoice">
+            <label>Third Choice: </label>
+            <Datetime
+              value={this.state.dateTimeChoices[2]}
+              onChange={this.handleDateTimeChoices.bind(this, 3)}
+            />
+            <FormControl.Feedback />
+          </div>
+        </FormGroup>
+      </div>
+    );
+  }
+
+  additionalNotesOption() {
+    return (
+      <div>
+        <FormGroup
+          controlId="kahoot"
+          onChange={this.handleKahoot.bind(this)}
+          validationState={this.getKahootState()}
+        >
+          <ControlLabel>
+            Does your class use <a href="https://kahoot.it">Kahoot</a>?
+          </ControlLabel>
+          <br />
+          <Radio value="Yes" name="kahootRadioGroup" inline>
+            Yes
+          </Radio>
+          <Radio value="No" name="kahootRadioGroup" inline>
+            No
+          </Radio>
+          <FormControl.Feedback />
+        </FormGroup>
+        <FormGroup controlId="formNotes">
+          <ControlLabel>
+            Please note anything our presenters should be aware of prior to
+            presenting to your class below.
+          </ControlLabel>
+          <FormControl
+            placeholder="(Optional)"
+            componentClass="textarea"
+            onChange={this.handleFormNotes.bind(this)}
+          />
+        </FormGroup>
+      </div>
+    );
+  }
+
   render() {
     return (
       <Grid className="grid-container">
         <Row className="show-grid">
-          <Col className="info" md={7}>
+          <Col className="info" md={6}>
             <Row>
               <Col className="infoHeading" md={7} mdOffset={2}>
                 Book a presentation with us today
@@ -434,7 +663,7 @@ export default class PresentationBooking extends Component {
               </Col>
             </Row>
           </Col>
-          <Col className="formContent" md={5} xs={12}>
+          <Col className="formContent" md={6} xs={12}>
             <form name="presentation-booking-form" onSubmit={this.formSubmit}>
               {this.validationMessage()}
               <Panel expanded={this.state.contactInfoOpen} defaultExpanded>
@@ -451,7 +680,7 @@ export default class PresentationBooking extends Component {
                   </Panel.Title>
                 </Panel.Heading>
                 <Panel.Collapse>
-                  <Panel.Body>{this.contactInfoForm()}</Panel.Body>
+                  <Panel.Body>{this.contactInfoOptions()}</Panel.Body>
                 </Panel.Collapse>
               </Panel>
               <Panel
@@ -488,17 +717,7 @@ export default class PresentationBooking extends Component {
                   </Panel.Title>
                 </Panel.Heading>
                 <Panel.Collapse>
-                  <Panel.Body>
-                    <FormGroup
-                      controlId="dateTime"
-                      validationState={this.getDateTimeState()}
-                    >
-                      <Datetime
-                        value={this.state.form.dateTime.value}
-                        onChange={this.handleDateTime.bind(this)}
-                      />
-                    </FormGroup>
-                  </Panel.Body>
+                  <Panel.Body>{this.dateTimePresentationOptions()}</Panel.Body>
                 </Panel.Collapse>
               </Panel>
               <Panel expanded={this.state.notesOpen} defaultExpanded>
@@ -513,19 +732,7 @@ export default class PresentationBooking extends Component {
                   </Panel.Title>
                 </Panel.Heading>
                 <Panel.Collapse>
-                  <Panel.Body>
-                    <FormGroup controlId="formNotes">
-                      <ControlLabel>
-                        Please note anything our presenters should be aware of
-                        prior to presenting to your class below.
-                      </ControlLabel>
-                      <FormControl
-                        placeholder="(Optional)"
-                        componentClass="textarea"
-                        onChange={this.handleFormNotes.bind(this)}
-                      />
-                    </FormGroup>
-                  </Panel.Body>
+                  <Panel.Body>{this.additionalNotesOption()}</Panel.Body>
                 </Panel.Collapse>
               </Panel>
               <Button
