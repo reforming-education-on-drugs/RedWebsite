@@ -19,6 +19,7 @@ export default function Footer() {
         </div>
         <ul className="list-inline">
           <li>
+            <a href="/donate">Donate</a>
             <a href="/contact-us">Contact Us</a>
           </li>
         </ul>
