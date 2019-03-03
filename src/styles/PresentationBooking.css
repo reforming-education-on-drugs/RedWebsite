@@ -147,3 +147,9 @@
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
+.alert-success ul {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.8em;
+}

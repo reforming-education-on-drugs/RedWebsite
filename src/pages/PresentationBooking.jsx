@@ -195,7 +195,7 @@ export default class PresentationBooking extends Component {
     this.handleDateTime(updated_dateTimeChoices);
   }
   handleDateTime(updated_dateTimeChoices) {
-    let dateTimeChoices = updated_dateTimeChoices.filter(val => val).join(',');
+    let dateTimeChoices = updated_dateTimeChoices.filter(val => val).join(', ');
     this.setState({
       form: {
         ...this.state.form,
@@ -311,12 +311,30 @@ export default class PresentationBooking extends Component {
     const formIsValid = this.state.formIsValid;
     const formSubmitted = this.state.formSubmitted;
     if (formIsValid === true && formSubmitted === true) {
+      const presentation_topic = this.state.form.topic;
+      const presentation_dateTimes = this.state.form.dateTime.split(', ');
       return (
         <Alert bsStyle="success">
           <strong>
             Thank you for your interest in RED (Reforming Education on Drugs)!
-            Your request has been submitted.
+            Your request has been submitted with the following details:
           </strong>
+          <br />
+          <br />
+          <ul>
+            <li>Presentation topic: {this.capitalize(presentation_topic)}</li>
+            <li>
+              Selected dates and times for presentation
+              <br />
+              (in order of preference):
+              <br />
+              <ul>
+                {presentation_dateTimes.map(dateTimeItem => (
+                  <li>{dateTimeItem}</li>
+                ))}
+              </ul>
+            </li>
+          </ul>
           <br />
           You will be contacted by the RED team within 48hrs of your booking.
           Please contact us at reducalgary@gmail.com for any questions. We are
@@ -628,6 +646,86 @@ export default class PresentationBooking extends Component {
     );
   }
 
+  renderForm() {
+    return (
+      <form name="presentation-booking-form" onSubmit={this.formSubmit}>
+        <Panel expanded={this.state.contactInfoOpen} defaultExpanded>
+          <Panel.Heading>
+            <Panel.Title
+              toggle
+              onClick={() =>
+                this.setState({
+                  contactInfoOpen: !this.state.contactInfoOpen
+                })
+              }
+            >
+              Contact Information
+            </Panel.Title>
+          </Panel.Heading>
+          <Panel.Collapse>
+            <Panel.Body>{this.contactInfoOptions()}</Panel.Body>
+          </Panel.Collapse>
+        </Panel>
+        <Panel expanded={this.state.presentationTopicOpen} defaultExpanded>
+          <Panel.Heading>
+            <Panel.Title
+              toggle
+              onClick={() =>
+                this.setState({
+                  presentationTopicOpen: !this.state.presentationTopicOpen
+                })
+              }
+            >
+              Presentation Topic
+            </Panel.Title>
+          </Panel.Heading>
+          <Panel.Collapse>
+            <Panel.Body>{this.presentationOptions()}</Panel.Body>
+          </Panel.Collapse>
+        </Panel>
+        <Panel expanded={this.state.dateTimeOpen} defaultExpanded>
+          <Panel.Heading>
+            <Panel.Title
+              toggle
+              onClick={() =>
+                this.setState({
+                  dateTimeOpen: !this.state.dateTimeOpen
+                })
+              }
+            >
+              Date and Time of Presentation
+            </Panel.Title>
+          </Panel.Heading>
+          <Panel.Collapse>
+            <Panel.Body>{this.dateTimePresentationOptions()}</Panel.Body>
+          </Panel.Collapse>
+        </Panel>
+        <Panel expanded={this.state.notesOpen} defaultExpanded>
+          <Panel.Heading>
+            <Panel.Title
+              toggle
+              onClick={() =>
+                this.setState({ notesOpen: !this.state.notesOpen })
+              }
+            >
+              Additional Notes
+            </Panel.Title>
+          </Panel.Heading>
+          <Panel.Collapse>
+            <Panel.Body>{this.additionalNotesOption()}</Panel.Body>
+          </Panel.Collapse>
+        </Panel>
+        <Button
+          type="submit"
+          id="presSignUpBtn"
+          disabled={this.checkFormValidity()}
+        >
+          Book Presentation
+        </Button>
+      </form>
+    );
+  }
+
   render() {
     return (
       <Grid className="grid-container">
@@ -667,85 +765,8 @@ export default class PresentationBooking extends Component {
             </Row>
           </Col>
           <Col className="formContent" md={6} xs={12}>
-            <form name="presentation-booking-form" onSubmit={this.formSubmit}>
-              {this.validationMessage()}
-              <Panel expanded={this.state.contactInfoOpen} defaultExpanded>
-                <Panel.Heading>
-                  <Panel.Title
-                    toggle
-                    onClick={() =>
-                      this.setState({
-                        contactInfoOpen: !this.state.contactInfoOpen
-                      })
-                    }
-                  >
-                    Contact Information
-                  </Panel.Title>
-                </Panel.Heading>
-                <Panel.Collapse>
-                  <Panel.Body>{this.contactInfoOptions()}</Panel.Body>
-                </Panel.Collapse>
-              </Panel>
-              <Panel
-                expanded={this.state.presentationTopicOpen}
-                defaultExpanded
-              >
-                <Panel.Heading>
-                  <Panel.Title
-                    toggle
-                    onClick={() =>
-                      this.setState({
-                        presentationTopicOpen: !this.state.presentationTopicOpen
-                      })
-                    }
-                  >
-                    Presentation Topic
-                  </Panel.Title>
-                </Panel.Heading>
-                <Panel.Collapse>
-                  <Panel.Body>{this.presentationOptions()}</Panel.Body>
-                </Panel.Collapse>
-              </Panel>
-              <Panel expanded={this.state.dateTimeOpen} defaultExpanded>
-                <Panel.Heading>
-                  <Panel.Title
-                    toggle
-                    onClick={() =>
-                      this.setState({
-                        dateTimeOpen: !this.state.dateTimeOpen
-                      })
-                    }
-                  >
-                    Date and Time of Presentation
-                  </Panel.Title>
-                </Panel.Heading>
-                <Panel.Collapse>
-                  <Panel.Body>{this.dateTimePresentationOptions()}</Panel.Body>
-                </Panel.Collapse>
-              </Panel>
-              <Panel expanded={this.state.notesOpen} defaultExpanded>
-                <Panel.Heading>
-                  <Panel.Title
-                    toggle
-                    onClick={() =>
-                      this.setState({ notesOpen: !this.state.notesOpen })
-                    }
-                  >
-                    Additional Notes
-                  </Panel.Title>
-                </Panel.Heading>
-                <Panel.Collapse>
-                  <Panel.Body>{this.additionalNotesOption()}</Panel.Body>
-                </Panel.Collapse>
-              </Panel>
-              <Button
-                type="submit"
-                id="presSignUpBtn"
-                disabled={this.checkFormValidity()}
-              >
-                Book Presentation
-              </Button>
-            </form>
+            {this.validationMessage()}
+            {this.state.formSubmitted ? '' : this.renderForm()}
           </Col>
         </Row>
       </Grid>
