@@ -148,7 +148,7 @@ export default class PresentationBooking extends Component {
     dateTimeChoices.forEach((k, v) => {
       if (
         !Datetime.moment(k, 'MM/DD/YYYY h:mm A', true).isValid() &&
-        k.length > 0
+        k.trim().length > 0
       )
         dateTimeValid = false;
     });
