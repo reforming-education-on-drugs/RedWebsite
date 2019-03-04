@@ -54,7 +54,7 @@ export default function SchoolPage() {
 
       <div className="container redcontainer">
         <h2>Contact Us</h2>
-        <p className="text-center">If you would like us to come and present at your school, please email us at <a href="mailto:reducalgary@gmail.com?Subject=Presentation Request">reducalgary@gmail.com</a></p>
+        <p className="text-center">If you would like us to come and present at your school, please fill out our <a href="/booking">form</a></p>
       </div>
 
     </main>
