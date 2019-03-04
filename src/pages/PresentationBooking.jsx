@@ -655,7 +655,10 @@ export default class PresentationBooking extends Component {
               toggle
               onClick={() =>
                 this.setState({
-                  contactInfoOpen: !this.state.contactInfoOpen
+                  contactInfoOpen: !this.state.contactInfoOpen,
+                  presentationTopicOpen: false,
+                  dateTimeOpen: false,
+                  notesOpen: false,
                 })
               }
             >
@@ -672,7 +675,10 @@ export default class PresentationBooking extends Component {
               toggle
               onClick={() =>
                 this.setState({
-                  presentationTopicOpen: !this.state.presentationTopicOpen
+                  contactInfoOpen: false,
+                  presentationTopicOpen: !this.state.presentationTopicOpen,
+                  dateTimeOpen: false,
+                  notesOpen: false,
                 })
               }
             >
@@ -689,7 +695,10 @@ export default class PresentationBooking extends Component {
               toggle
               onClick={() =>
                 this.setState({
-                  dateTimeOpen: !this.state.dateTimeOpen
+                  contactInfoOpen: false,
+                  presentationTopicOpen: false,
+                  dateTimeOpen: !this.state.dateTimeOpen,
+                  notesOpen: false,
                 })
               }
             >
@@ -705,7 +714,12 @@ export default class PresentationBooking extends Component {
             <Panel.Title
               toggle
               onClick={() =>
-                this.setState({ notesOpen: !this.state.notesOpen })
+                this.setState({ 
+                  contactInfoOpen: false,
+                  presentationTopicOpen: false,
+                  dateTimeOpen: false,
+                  notesOpen: !this.state.notesOpen,
+                })
               }
             >
               Additional Notes

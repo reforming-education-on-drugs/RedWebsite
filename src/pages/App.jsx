@@ -9,7 +9,6 @@ import VisionPage from './VisionPage';
 import TeamPage from './TeamPage';
 import ConstitutionPage from './ConstitutionPage';
 import SchoolPage from './SchoolPage';
-import BookingPage from './BookingPage';
 import ParentPage from './ParentPage';
 import BlogPage from './BlogPage';
 import GetInvolvedPage from './GetInvolvedPage';
@@ -38,27 +37,18 @@ class App extends React.Component {
             <Route path="/invite" component={InvitePage} />
             <Route exact path="/about-us/vision" component={VisionPage} />
             <Route exact path="/about-us/team" component={TeamPage} />
-            <Route
-              exact
-              path="/about-us/constitution"
-              component={ConstitutionPage}
-            />
+            <Route exact path="/about-us/constitution" component={ConstitutionPage} />
             <Route exact path="/schools" component={SchoolPage} />
             <Route exact path="/parents" component={ParentPage} />
             <Route exact path="/blog" component={BlogPage} />
             <Route exact path="/get-involved" component={GetInvolvedPage} />
             <Route exact path="/donate" component={DonatePage} />
-            <Route exact path="/booking" component={BookingPage} />
+            <Route exact path="/booking" component={PresentationBooking} />
             <Route exact path="/contact-us" component={ContactUsPage} />
             <Route exact path="/volunteer" component={VolunteerPage} />
             <Route exact path="/faq" component={NotFoundPage} />
             <Route path="/password-reset" component={PasswordResetPage} />
             <Route path="/recover" component={PasswordRecoveryPage} />
-            <Route
-              exact
-              path="/presentation-booking"
-              component={PresentationBooking}
-            />
             <Route path="*" component={NotFoundPage} />
           </Switch>
           <Footer />
