@@ -37,11 +37,11 @@ export default function Header() {
               auth.currentUser()
                 ? <>
                     <NavItem href="/volunteer">Volunteer</NavItem>
-                    <NavItem onClick={logout} style={{ marginRight: '9em' }}>Log out</NavItem>
+                    <NavItem onClick={logout} style={{ marginRight: '5em' }}>Log out</NavItem>
                   </>
-                : <NavItem href="/login" style={{ marginRight: '10em' }}>Login</NavItem>
+                : <NavItem href="/login" style={{ marginRight: '8em' }}>Login</NavItem>
             }
-          <NavItem id="donate" href="/donate">Donate</NavItem>
+          <NavItem id="primary" href="/booking">Book a presentation</NavItem>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

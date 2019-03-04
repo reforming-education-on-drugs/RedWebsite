@@ -1,0 +1,155 @@
+.grid-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+  margin: 2% auto 5% auto;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.show-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info {
+  color: #ffffff;
+  background: #ef233c;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.infoHeading {
+  font-size: 4rem;
+  /* margin-top: 25%; */
+  font-weight: bold;
+}
+
+.info .subHeading {
+  /* margin: 10% auto auto auto; */
+  padding-top: 15%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.formContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.formContent form {
+  /* margin: 25% 5% 5% 5%; */
+  width: 85%;
+  /* margin-top: 200%; */
+  /* padding-top: 10%;
+  padding-bottom: 10%; */
+}
+
+.info,
+.formContent {
+  /* height: 135vh; */
+  /* max-height: 1600px; */
+  padding-top: 10%;
+  padding-bottom: 10%;
+  /* overflow-y: auto; */
+}
+
+.info li {
+  font-size: 1.5rem;
+  margin-top: 5%;
+}
+
+.info li:last-of-type {
+  margin-bottom: 20%;
+}
+
+#presSignUpBtn {
+  float: right;
+  color: #ffffff;
+  background: #ef233c;
+  border: none;
+  font-size: 1.25rem;
+  padding: 4%;
+}
+
+.panel-heading {
+  background: none !important;
+}
+
+.panel-body label {
+  font-weight: normal !important;
+}
+
+.rdtActive {
+  background-color: #ef233c !important;
+}
+
+.panel-title a {
+  text-decoration: none;
+}
+
+.panel-title a:hover {
+  color: #ef233c;
+}
+
+.well {
+  background: none !important;
+}
+
+/* .grades_multiselect {
+  width: 200px;
+} */
+
+.grades_selectBox {
+  position: relative;
+}
+
+.grades_selectBox select {
+  width: 100%;
+}
+
+.grades_selectBox .form-control-feedback {
+  margin-right: 1.5em;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.showGrades {
+  display: block;
+  border: 1px #dadada solid;
+  text-align: center;
+  float: none;
+  margin: 0 auto;
+}
+
+.showGrades .row {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.dateTimeChoice {
+  margin-top: 3%;
+}
+
+.presentationDesc {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.alert-success ul {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.8em;
+}
