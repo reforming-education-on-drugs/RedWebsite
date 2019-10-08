@@ -507,14 +507,17 @@ export default class PresentationBooking extends Component {
           </Radio>{' '}
           <i className="fas fa-capsules" />
           <label className="presentationDesc">
-            Students are introduced to brain through a brief introduction of
-            it's parts and common neurotransmitters. With this knowledge,
-            students discuss three commonly seen drugs, adderall, alcohol and
-            marijuana. The presentation is delivered through engaging videos,
-            interactive actives and educated debates on controversial topics.
-            Students are challenged with a final application activity of a
-            patient investigation where they study vital signs and symptoms to
-            diagnose overdose patients.
+            The Drug Overview provides an understanding of the commonly-used
+            drugs amphetamine (adderall), alcohol, and cannabis. Students are
+            first introduced to the brain and its normal function. Different
+            parts of the brain are discussed, as well as the role of
+            neurotransmitters in permitting communication. This provides a
+            foundation on which to discuss the drugs’ effects on the brain. The
+            presentation is delivered through engaging videos, interactive
+            activities and educational discussions of topics related to these
+            drugs, such as the legalization of cannabis. Students are challenged
+            in a final investigation activity where they study vital signs and
+            symptoms to diagnose patients who have overdosed.
           </label>
         </Well>
         <Well bsSize="small">
@@ -523,15 +526,14 @@ export default class PresentationBooking extends Component {
           </Radio>{' '}
           <i className="fas fa-tablets" />
           <label className="presentationDesc">
-            The current "hot topic" drug, fentanyl, is presented to students
-            through an interactive poll relating to shocking current statistics
-            on this drug. Students are challenged through interactive activities
-            to understand the realities of this opioid and it's presence in the
-            media. This newly developed presentations discusses symptoms of
-            overdose as well as the administration of naloxone kits. Students
-            will participate in a debate on the topic of injection sites before
-            discussing newer drugs on the market that have evolved in relation
-            to fentanyl.
+            The Fentanyl presentation was developed in response to the opioid
+            crisis in Alberta. The topic of fentanyl is first approached through
+            a series of interactive questions relating to current statistics on
+            this drug. Students are challenged to understand the realities of
+            this opioid and its presence in the media. Importantly, students
+            then learn about the symptoms of overdose, naloxone kits, and the
+            science behind how opioids work. Finally, students participate in a
+            classroom discussion on the topic of supervised injection sites.
           </label>
         </Well>
         <Well bsSize="small">
@@ -543,11 +545,11 @@ export default class PresentationBooking extends Component {
             While cannabis was legalized in 2018, there remain many
             misconceptions about this drug. This presentation seeks to present
             accurate information about the use and effects of recreational and
-            medical cannabis, and point to what remains unknown about the drug.
-            This is especially important for this age group, as there is
-            evidence that cannabis can have negative long-term effects on the
-            developing brain. We finish with a case study activity in which
-            students are put into the shoes of physicians and use their
+            medical cannabis, and points to what remains unknown about the drug.
+            This information is especially important for this age group, as
+            there is evidence that cannabis can have negative long-term effects
+            on the developing brain. We finish with a case study activity in
+            which students are put into the shoes of physicians and use their
             new-found knowledge to evaluate the prescription of cannabis to
             various patients.
           </label>
@@ -658,7 +660,7 @@ export default class PresentationBooking extends Component {
                   contactInfoOpen: !this.state.contactInfoOpen,
                   presentationTopicOpen: false,
                   dateTimeOpen: false,
-                  notesOpen: false,
+                  notesOpen: false
                 })
               }
             >
@@ -678,7 +680,7 @@ export default class PresentationBooking extends Component {
                   contactInfoOpen: false,
                   presentationTopicOpen: !this.state.presentationTopicOpen,
                   dateTimeOpen: false,
-                  notesOpen: false,
+                  notesOpen: false
                 })
               }
             >
@@ -698,7 +700,7 @@ export default class PresentationBooking extends Component {
                   contactInfoOpen: false,
                   presentationTopicOpen: false,
                   dateTimeOpen: !this.state.dateTimeOpen,
-                  notesOpen: false,
+                  notesOpen: false
                 })
               }
             >
@@ -714,11 +716,11 @@ export default class PresentationBooking extends Component {
             <Panel.Title
               toggle
               onClick={() =>
-                this.setState({ 
+                this.setState({
                   contactInfoOpen: false,
                   presentationTopicOpen: false,
                   dateTimeOpen: false,
-                  notesOpen: !this.state.notesOpen,
+                  notesOpen: !this.state.notesOpen
                 })
               }
             >
