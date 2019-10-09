@@ -133,14 +133,14 @@ export default function TeamPage() {
     },
     {
       name: 'DANA NEWTON-GUNDERSON',
-      position: 'EDUCATION COORDINATOR',
+      position: 'VP EDUCATION',
       imageName: 'Dana.JPG',
       bio:
         'Hello, my name is Dana and I am a third year Neuroscience student at the University of Calgary. In my past year of volunteering with RED, I’ve been excited by RED’s ability to both engage young people in science and get them thinking critically about drug use. Given the current opioid crisis and the recent legalization of cannabis, it’s increasingly important for young people to understand the effects of drugs on the brain, in order to be able to make informed decisions. This year I’m looking forward to helping construct scientific presentations that are both relevant to today’s youth and that will help facilitate a discussion on drug use. In my spare time, I enjoy reading, playing music and downhill skiing.'
     },
     {
       name: 'DAVID CHAU',
-      position: 'EDUCATION COORDINATOR',
+      position: 'VP EDUCATION',
       imageName: 'David.JPG',
       bio:
         'Hey, my name is David and I am currently in my second year of Neuroscience at the University of Calgary. Ever since elementary school, one of the most important things in my life has been the idea of scientific literacy, and the view that it is not about your level of knowledge, but an overwhelming curiosity towards the world around you. As a result, I believe that it is essential that science is taught in a way that is engaging, interactive, and purposeful. I joined RED with the desire to educate students about the risks of drug use viewed through a scientific lens, and design presentations that would encourage them to apply what they have learned to their own lives. Whenever I have free time, you can usually find me listening to music or trying to learn new obscure hobbies.'
