@@ -26,6 +26,14 @@
   text-align: justify;
 }
 
+#Presentations {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 #presentation_info {
   display: flex;
   flex-direction: column;
@@ -34,6 +42,10 @@
   align-content: center;
   justify-content: center;
   padding: 20px;
+}
+
+#Presentations .tab-content {
+  padding: 20px 0;
 }
 
 #Presentations .nav-tabs li.active > [role=tab] {
@@ -47,12 +59,16 @@
   flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
-  padding: 8%;
   text-align: left;
 }
 
 .presentation_desc b {
   margin: 15px 0 15px 0;
+}
+
+.presentation_title {
+  text-align: left;
+  font-weight: bold;
 }
 
 /* .presentation_desc i {
@@ -61,8 +77,8 @@
 
 #presentation_footer {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 25px;
-  padding-top: 0px;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+  margin: 0 auto;
 }

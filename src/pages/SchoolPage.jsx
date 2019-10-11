@@ -40,18 +40,24 @@ export default function SchoolPage() {
                   as the legalization of cannabis. Students are challenged in a
                   final investigation activity where they study vital signs and
                   symptoms to diagnose patients who have overdosed.
-                  <b>Patient Overdose Investigation</b>
+                </p>
+                <h3 className="presentation_title">Patient Overdose Investigation</h3>
+                <p className="presentation_desc">
                   In this activity, students must use neurological and
                   physiological symptoms in order to successfully diagnose
                   patients with the correct drug overdose. This activity is
                   conducted in teams of 4-5, and the teams compete for prizes
                   with one another to successfully diagnose their patients!
-                  <b>Reaction Time Test</b>
+                </p>
+                <h3 className="presentation_title">Reaction Time Test</h3>
+                <p className="presentation_desc">
                   In this activity, the effects of drugs on the brain’s reaction
                   speed are explained with a hands-on reaction time test.
                   Students measure their reaction speeds in normal conditions
                   and under simulated drug impairment.
-                  <b>Trivia</b>
+                </p>
+                <h3 className="presentation_title">Trivia</h3>
+                <p className="presentation_desc">
                   Students will participate in a trivia game designed to test
                   their background knowledge and spark discussion regarding
                   various abused substances. Throughout the game, misconceptions
@@ -69,13 +75,13 @@ export default function SchoolPage() {
                   of overdose, naloxone kits, and the science behind how opioids
                   work. Finally, students participate in a classroom discussion
                   on the topic of supervised injection sites.
-                  <b>Debate</b>
+                  <h3 className="presentation_title">Debate</h3>
                   In this activity, the classroom will be divided in two, with
                   half arguing in favour of supervised injection sites, and half
                   arguing against the idea. This debate will encourage students
                   to think on both sides of the issue and spark some great
                   discussion.
-                  <b>Concluding Activity</b>
+                  <h3 className="presentation_title">Concluding Activity</h3>
                   At the end of the presentation the class will be divided into
                   groups and asked to brainstorm answers to several questions
                   relating to drug use and opioids. This gives students the
@@ -96,7 +102,7 @@ export default function SchoolPage() {
                   are put into the shoes of physicians and use their new-found
                   knowledge to evaluate the prescription of cannabis to various
                   patients.
-                  <b>Case Study Activity </b>
+                  <h3 className="presentation_title">Case Study Activity </h3>
                   In this activity, students evaluate three different cases
                   involving the use or prescription of cannabis. The case
                   studies encourage students to think critically about the
@@ -111,9 +117,9 @@ export default function SchoolPage() {
       <Row className="show-grid">
         <Col id="presentation_footer" md={12}>
           <p>
-            If you would like us to come and present at your school, please fill
-            out our <a href="/booking">form</a>.
+            We would love to come to your school and present!
           </p>
+          <a id="primary" href="/booking">Book a presentation</a>
         </Col>
       </Row>
     </Grid>
