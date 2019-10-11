@@ -20,7 +20,7 @@ import {
 } from 'react-bootstrap';
 
 import '../styles/react-datetime.css';
-import '../styles/PresentationBooking.css';
+import '../styles/presentation-booking.css';
 import { toUnicode } from 'punycode';
 
 const Datetime = require('react-datetime');
