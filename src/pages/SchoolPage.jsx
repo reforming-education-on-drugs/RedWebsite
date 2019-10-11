@@ -12,13 +12,11 @@ export default function SchoolPage() {
           <h2>Information for Schools</h2>
           <br />
           <p id="desc">
-            We are a student-run club at the University of Calgary called
-            Reforming Education of Drugs (RED) and our primary goal is to
-            provide in-class educational sessions for the youth regarding drug
-            abuse prevention. Through the means of interactive scientific
-            demonstrations and presentations, we will establish a foundational
-            understanding of the biological/neurological mechanisms involved in
-            drug addiction and the social implications involved.
+            We are a student-run club at the University of Calgary whose primary
+            goal is to provide in-class substance use education sessions.
+            Through the means of interactive, scientific presentations, we will
+            establish a foundational understanding of the biological effects of
+            drug use to empower youth to make informed decisions.
           </p>
         </Col>
       </Row>
