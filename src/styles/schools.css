@@ -36,6 +36,11 @@
   padding: 20px;
 }
 
+#Presentations .nav-tabs li.active > [role=tab] {
+  background: #ef233c;
+  color: #ffffff;
+}
+
 .presentation_desc {
   display: flex;
   flex-direction: column;

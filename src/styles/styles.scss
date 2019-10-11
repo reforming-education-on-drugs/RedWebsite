@@ -223,6 +223,11 @@ img.parents {
   max-width: 100%;
 }
 
+#Memberships .nav-tabs li.active > [role=tab] {
+  background: #ef233c;
+  color: #ffffff;
+}
+
 #club-membership p {
   margin-bottom: 15px;
 }
