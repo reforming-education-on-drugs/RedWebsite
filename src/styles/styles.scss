@@ -89,6 +89,7 @@ a.dropdown-toggle.btn:hover {
   border-style: none;
   padding: 15px 20px;
   color: white;
+  max-width: 300px;
 }
 
 #primary:hover,
@@ -221,6 +222,11 @@ a:active,
 
 img.parents {
   max-width: 100%;
+}
+
+#Memberships .nav-tabs li.active > [role=tab] {
+  background: #ef233c;
+  color: #ffffff;
 }
 
 #club-membership p {
