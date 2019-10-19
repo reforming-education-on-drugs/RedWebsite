@@ -50,9 +50,13 @@ export default function Header() {
               Login
             </NavItem>
           )}
-          <NavItem id="primary" href="/booking">
-            Book a presentation
-          </NavItem>
+          {window.location.pathname != '/booking' ? (
+            <NavItem id="primary" href="/booking">
+              Book a presentation
+            </NavItem>
+          ) : (
+            <></>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
