@@ -16,7 +16,9 @@ import {
   Glyphicon,
   // PanelGroup,
   Well,
-  Clearfix
+  Clearfix,
+  OverlayTrigger,
+  Tooltip
 } from 'react-bootstrap';
 
 import '../styles/react-datetime.css';
@@ -351,6 +353,10 @@ export default class PresentationBooking extends Component {
     }
   }
 
+  req() {
+    return <span className="requiredField">*</span>;
+  }
+
   contactInfoOptions() {
     let showGrades = this.state.showGradesSelect ? 'showGrades' : 'hide';
     let gradesSelected =
@@ -358,7 +364,7 @@ export default class PresentationBooking extends Component {
     return (
       <div>
         <FormGroup controlId="school" validationState={this.getSchoolState()}>
-          <ControlLabel>School</ControlLabel>
+          <ControlLabel>School {this.req()}</ControlLabel>
           <FormControl
             type="text"
             value={this.state.form.school.value}
@@ -375,7 +381,7 @@ export default class PresentationBooking extends Component {
             className="grades_selectBox"
             onClick={this.showGradesSelect.bind(this)}
           >
-            <ControlLabel>Grade(s)</ControlLabel>
+            <ControlLabel>Grade(s) {this.req()}</ControlLabel>
             <FormControl
               componentClass="select"
               placeholder=""
@@ -440,7 +446,7 @@ export default class PresentationBooking extends Component {
           controlId="numClassrooms"
           validationState={this.getNumClassroomsState()}
         >
-          <ControlLabel>Number of Classrooms</ControlLabel>
+          <ControlLabel>Number of Classrooms {this.req()}</ControlLabel>
           <FormControl
             type="text"
             value={this.state.form.numClassrooms.value}
@@ -452,7 +458,7 @@ export default class PresentationBooking extends Component {
           controlId="numStudents"
           validationState={this.getNumStudentsState()}
         >
-          <ControlLabel>Number of Students</ControlLabel>
+          <ControlLabel>Number of Students {this.req()}</ControlLabel>
           <FormControl
             type="text"
             value={this.state.form.numStudents.value}
@@ -464,7 +470,7 @@ export default class PresentationBooking extends Component {
           controlId="contactName"
           validationState={this.getContactNameState()}
         >
-          <ControlLabel>Contact Name</ControlLabel>
+          <ControlLabel>Contact Name {this.req()}</ControlLabel>
           <FormControl
             type="text"
             value={this.state.form.contactName.value}
@@ -473,7 +479,7 @@ export default class PresentationBooking extends Component {
           <FormControl.Feedback />
         </FormGroup>
         <FormGroup controlId="email" validationState={this.getEmailState()}>
-          <ControlLabel>Email Address</ControlLabel>
+          <ControlLabel>Email Address {this.req()}</ControlLabel>
           <FormControl
             type="email"
             value={this.state.form.email.value}
@@ -482,7 +488,7 @@ export default class PresentationBooking extends Component {
           <FormControl.Feedback />
         </FormGroup>
         <FormGroup controlId="phone" validationState={this.getPhoneState()}>
-          <ControlLabel>Phone Number</ControlLabel>
+          <ControlLabel>Phone Number {this.req()}</ControlLabel>
           <FormControl
             type="tel"
             value={this.state.form.phone.value}
@@ -564,7 +570,8 @@ export default class PresentationBooking extends Component {
         <ControlLabel>
           <b>
             Please list up to three dates and times for your presentation
-            booking, in order of preference.
+            booking, in order of preference. The duration of each presentation
+            is 90 minutes.
           </b>{' '}
           Please note that you may not receive your first choice. We process all
           bookings in the order that they are received. We will work with you to
@@ -575,7 +582,7 @@ export default class PresentationBooking extends Component {
           validationState={this.getChoiceState(1)}
         >
           <div className="dateTimeChoice">
-            <label>First Choice: </label>
+            <label>First Choice: {this.req()} </label>
             <Datetime
               value={this.state.dateTimeChoices[0]}
               onChange={this.handleDateTimeChoices.bind(this, 1)}
@@ -622,7 +629,8 @@ export default class PresentationBooking extends Component {
           validationState={this.getKahootState()}
         >
           <ControlLabel>
-            Does your class use <a href="https://kahoot.it">Kahoot</a>?
+            Does your class use <a href="https://kahoot.it">Kahoot</a>?{' '}
+            {this.req()}
           </ControlLabel>
           <br />
           <Radio value="Yes" name="kahootRadioGroup" inline>
@@ -646,6 +654,19 @@ export default class PresentationBooking extends Component {
         </FormGroup>
       </div>
     );
+  }
+
+  presentationButtonOverlay() {
+    if (this.checkFormValidity()) {
+      return (
+        <Tooltip id="tooltip-disabled">
+          Please complete all the required ({this.req()}) fields to submit the
+          form.
+        </Tooltip>
+      );
+    } else {
+      return <></>;
+    }
   }
 
   renderForm() {
@@ -688,7 +709,18 @@ export default class PresentationBooking extends Component {
             </Panel.Title>
           </Panel.Heading>
           <Panel.Collapse>
-            <Panel.Body>{this.presentationOptions()}</Panel.Body>
+            <Panel.Body>
+              <div>
+                <b>
+                  Please select one of the presentation topics from the list
+                  below.
+                </b>{' '}
+                {this.req()} For more information regarding our presentations,
+                please see <a href="/schools">For Schools</a>.<br />
+                <br />
+              </div>
+              {this.presentationOptions()}
+            </Panel.Body>
           </Panel.Collapse>
         </Panel>
         <Panel expanded={this.state.dateTimeOpen} defaultExpanded>
@@ -731,13 +763,15 @@ export default class PresentationBooking extends Component {
             <Panel.Body>{this.additionalNotesOption()}</Panel.Body>
           </Panel.Collapse>
         </Panel>
-        <Button
-          type="submit"
-          id="presSignUpBtn"
-          disabled={this.checkFormValidity()}
-        >
-          Book Presentation
-        </Button>
+        <OverlayTrigger overlay={this.presentationButtonOverlay()}>
+          <Button
+            type="submit"
+            id="presSignUpBtn"
+            disabled={this.checkFormValidity()}
+          >
+            Book Presentation
+          </Button>
+        </OverlayTrigger>
       </form>
     );
   }

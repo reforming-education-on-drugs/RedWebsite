@@ -9,6 +9,10 @@
   flex-wrap: wrap;
 }
 
+.requiredField {
+  color: #ef233c;
+}
+
 .info {
   color: #ffffff;
   background: #ef233c;
