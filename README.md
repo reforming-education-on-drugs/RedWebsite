@@ -7,6 +7,7 @@ Reforming Education on Drugs (RED) is a non-profit student-run club at the Unive
 * **Jackie Luc** - [GitHub](https://github.com/jackieluc)
 * **Kourosh Banaeianzadeh** - [GitHub](https://github.com/Kouroshb26)
 * **Araz Minhas** - [GitHub](https://github.com/arazzz)
+* **Jerome Gobeil** - [GitHub](https://github.com/JeromeGobeil)
 
 ## Getting started
 
