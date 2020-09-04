@@ -114,7 +114,7 @@
     "jest-cli": "20.0.4",
     "json-loader": "0.5.4",
     "mockdate": "2.0.1",
-    "node-sass": "4.11.0",
+    "node-sass": "4.13.1",
     "opn-cli": "3.1.0",
     "postcss-loader": "2.0.6",
     "prompt": "1.0.0",
