@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {Button, Col, Modal, Panel, Row, Table} from 'react-bootstrap';
-import PropTypes from 'prop-types';
-import Moment from 'moment';
+import React, { Component } from "react";
+import { Button, Col, Modal, Card, Row, Table } from "react-bootstrap";
+import PropTypes from "prop-types";
+import Moment from "moment";
 
 class Presentation extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Presentation extends Component {
     };
   }
 
-  getStatusColor = status => {
+  getStatusColor = (status) => {
     switch (status) {
       case "Confirmed":
         return "green";
@@ -27,7 +27,7 @@ class Presentation extends Component {
     }
   };
 
-  getStatusIcon = status => {
+  getStatusIcon = (status) => {
     switch (status) {
       case "Full":
         return "glyphicon glyphicon-ban-circle";
@@ -40,9 +40,12 @@ class Presentation extends Component {
     }
   };
 
-  handleClick = time1 => {
-    this.state.presentation.times.forEach(time => {
-      if (time.startTime === time1.startTime && time.endTime === time1.endTime) {
+  handleClick = (time1) => {
+    this.state.presentation.times.forEach((time) => {
+      if (
+        time.startTime === time1.startTime &&
+        time.endTime === time1.endTime
+      ) {
         switch (time1.selected) {
           case "Confirmed":
             --time.enrolled;
@@ -62,40 +65,38 @@ class Presentation extends Component {
       return time;
     });
 
-    this.setState({presentation: this.state.presentation});
+    this.setState({ presentation: this.state.presentation });
   };
 
-  getErrorIcon = error => {
+  getErrorIcon = (error) => {
     if (error === "" || error === undefined) {
       return "";
-    }
-    else {
+    } else {
       return "glyphicon glyphicon-info-sign";
     }
   };
 
-  getErrorIconColor = error => {
+  getErrorIconColor = (error) => {
     if (error === "" || error === undefined) {
       return "";
-    }
-    else {
+    } else {
       return "red";
     }
   };
 
   handleClose = () => {
-    this.setState({show: false});
+    this.setState({ show: false });
   };
 
-  handleShow = error => {
+  handleShow = (error) => {
     this.setState({
       show: true,
-      errorMsg: error
+      errorMsg: error,
     });
   };
 
   render() {
-    const {presentation} = this.state;
+    const { presentation } = this.state;
 
     return (
       <>
@@ -111,76 +112,131 @@ class Presentation extends Component {
           </Modal.Footer>
         </Modal>
 
-        <Panel>
+        <Card>
           <Row>
             {/* Name of school, date and address */}
             <Col xs={6}>
-              <h5 style={{textAlign: 'left', fontWeight: '700', marginBottom: '0px', marginLeft: '10px'}}> {presentation.name} </h5>
-              <p style={{fontFamily: 'Montserrat', textAlign: 'left', fontSize: '12px', marginLeft: '10px'}}> {presentation.address} </p>
+              <h5
+                style={{
+                  textAlign: "left",
+                  fontWeight: "700",
+                  marginBottom: "0px",
+                  marginLeft: "10px",
+                }}
+              >
+                {" "}
+                {presentation.name}{" "}
+              </h5>
+              <p
+                style={{
+                  fontFamily: "Montserrat",
+                  textAlign: "left",
+                  fontSize: "12px",
+                  marginLeft: "10px",
+                }}
+              >
+                {" "}
+                {presentation.address}{" "}
+              </p>
             </Col>
             <Col xs={6}>
-              <h6 style={{textAlign: 'right', fontWeight: '700', marginRight: '10px', marginBottom: '0px'}}> {presentation.date} </h6>
-              <p style={{textAlign: 'right', fontFamily: 'Montserrat', fontSize: '12px', marginRight: '10px'}}> {presentation.type} </p>
+              <h6
+                style={{
+                  textAlign: "right",
+                  fontWeight: "700",
+                  marginRight: "10px",
+                  marginBottom: "0px",
+                }}
+              >
+                {" "}
+                {presentation.date}{" "}
+              </h6>
+              <p
+                style={{
+                  textAlign: "right",
+                  fontFamily: "Montserrat",
+                  fontSize: "12px",
+                  marginRight: "10px",
+                }}
+              >
+                {" "}
+                {presentation.type}{" "}
+              </p>
             </Col>
           </Row>
-
           <Row>
-            <Col xs={1}/>
+            <Col xs={1} />
             <Col xs={10}>
               <Table className="table table-sm presentationsTable">
                 <thead>
-                <tr style={{textAlign: 'center', fontSize: '12px'}}>
-                  <th scope="col" style={{textAlign: 'center'}}/>
-                  <th scope="col" style={{textAlign: 'center'}}>Status</th>
-                  <th scope="col" style={{textAlign: 'center'}}>Time</th>
-                  <th scope="col" style={{textAlign: 'center'}}>Availability</th>
-                  <th scope="col" style={{textAlign: 'center'}}/>
-                </tr>
+                  <tr style={{ textAlign: "center", fontSize: "12px" }}>
+                    <th scope="col" style={{ textAlign: "center" }} />
+                    <th scope="col" style={{ textAlign: "center" }}>
+                      Status
+                    </th>
+                    <th scope="col" style={{ textAlign: "center" }}>
+                      Time
+                    </th>
+                    <th scope="col" style={{ textAlign: "center" }}>
+                      Availability
+                    </th>
+                    <th scope="col" style={{ textAlign: "center" }} />
+                  </tr>
                 </thead>
 
-                <tbody style={{fontSize: '11px'}}>
-                {
-                  presentation.times.map(time => {
+                <tbody style={{ fontSize: "11px" }}>
+                  {presentation.times.map((time) => {
                     return (
-                      <tr style={{color: this.getStatusColor(time.selected), cursor: 'pointer'}}>
+                      <tr
+                        style={{
+                          color: this.getStatusColor(time.selected),
+                          cursor: "pointer",
+                        }}
+                      >
                         <td
                           className={this.getStatusIcon(time.selected)}
-                          style={{top: '0px', display: 'table-cell'}}
+                          style={{ top: "0px", display: "table-cell" }}
                           onClick={() => this.handleClick(time)}
                         />
                         <td
-                          style={{textAlign: 'center'}}
+                          style={{ textAlign: "center" }}
                           onClick={() => this.handleClick(time)}
                         >
                           {time.selected}
                         </td>
                         <td
-                          style={{textAlign: 'center'}}
+                          style={{ textAlign: "center" }}
                           onClick={() => this.handleClick(time)}
                         >
-                          {Moment(time.startTime, "hh:mm:ss").format("h:mm a")} - {Moment(time.endTime, "hh:mm:ss").format("h:mm a")}
+                          {Moment(time.startTime, "hh:mm:ss").format("h:mm a")}{" "}
+                          - {Moment(time.endTime, "hh:mm:ss").format("h:mm a")}
                         </td>
                         <td
-                          style={{textAlign: 'center'}}
+                          style={{ textAlign: "center" }}
                           onClick={() => this.handleClick(time)}
                         >
                           {time.enrolled} / {time.capacity}
                         </td>
                         <td
                           className={this.getErrorIcon(time.error)}
-                          style={{ top:'0px', display: 'table-cell', zIndex:'1000', color: this.getErrorIconColor(time.error) }}
+                          style={{
+                            top: "0px",
+                            display: "table-cell",
+                            zIndex: "1000",
+                            color: this.getErrorIconColor(time.error),
+                          }}
                           onClick={() => this.handleShow(time.error)}
                         />
                       </tr>
                     );
-                  })
-                }
+                  })}
                 </tbody>
               </Table>
             </Col>
-            <Col xs={1}/>
-          </Row> {/* End of table */}
-        </Panel>
+            <Col xs={1} />
+          </Row>{" "}
+          {/* End of table */}
+        </Card>
       </>
     );
   }

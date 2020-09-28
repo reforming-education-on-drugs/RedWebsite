@@ -1,12 +1,12 @@
-import React from 'react';
-import { Row, Col, Grid, Tabs, Tab } from 'react-bootstrap';
-import '../styles/schools.css';
+import React from "react";
+import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
+import "../styles/schools.css";
 
 export default function SchoolPage() {
-  document.title = 'RED | For Schools';
+  document.title = "RED | For Schools";
 
   return (
-    <Grid className="grid-container">
+    <Container className="grid-container">
       <Row className="show-grid">
         <Col id="schools_info" md={12}>
           <h2>Information for Schools</h2>
@@ -41,7 +41,9 @@ export default function SchoolPage() {
                   final investigation activity where they study vital signs and
                   symptoms to diagnose patients who have overdosed.
                 </p>
-                <h3 className="presentation_title">Patient Overdose Investigation</h3>
+                <h3 className="presentation_title">
+                  Patient Overdose Investigation
+                </h3>
                 <p className="presentation_desc">
                   In this activity, students must use neurological and
                   physiological symptoms in order to successfully diagnose
@@ -116,13 +118,13 @@ export default function SchoolPage() {
       </Row>
       <Row className="show-grid">
         <Col id="presentation_footer" md={12}>
-          <p>
-            We would love to come to your school and present!
-          </p>
-          <a id="primary" href="/booking">Book a presentation</a>
+          <p>We would love to come to your school and present!</p>
+          <a id="primary" href="/booking">
+            Book a presentation
+          </a>
         </Col>
       </Row>
-    </Grid>
+    </Container>
 
     // <main>
     //   <div className="container">

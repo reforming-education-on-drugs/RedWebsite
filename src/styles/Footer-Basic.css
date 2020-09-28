@@ -1,6 +1,6 @@
 .footer-basic {
   padding: 20px 0;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   color: #4b4c4d;
 }
 
@@ -34,12 +34,10 @@
 }
 
 .footer-basic .social>a {
-  font-size: 28px;
+  font-size: 22px;
   width: 40px;
   height: 40px;
-  line-height: 40px;
   display: inline-block;
-  text-align: center;
   border-radius: 50%;
   border: 1px solid #ccc;
   margin: 0 8px;
@@ -56,7 +54,7 @@
 }
 
 .footer-basic .social .icons>svg:hover {
-  fill: red;
+  fill: #d90429;
 }
 
 .footer-basic .copyright {

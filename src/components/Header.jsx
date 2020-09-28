@@ -1,7 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import auth from '../utils/auth';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from "react-bootstrap";
+import auth from "../utils/auth";
 
 export default function Header() {
   const logout = () => {
@@ -18,7 +18,7 @@ export default function Header() {
         <Navbar.Brand>
           <NavLink to="/">
             <img
-              src={require('../assets/images/Logo.png')}
+              src={require("../assets/images/Logo.png")}
               id="logo"
               title="logo"
               alt="RED Logo"
@@ -41,16 +41,16 @@ export default function Header() {
           {auth.currentUser() ? (
             <>
               <NavItem href="/volunteer">Volunteer</NavItem>
-              <NavItem onClick={logout} style={{ marginRight: '5em' }}>
+              <NavItem onClick={logout} style={{ marginRight: "5em" }}>
                 Log out
               </NavItem>
             </>
           ) : (
-            <NavItem href="/login" style={{ marginRight: '8em' }}>
+            <NavItem href="/login" style={{ marginRight: "8em" }}>
               Login
             </NavItem>
           )}
-          {window.location.pathname != '/booking' ? (
+          {window.location.pathname != "/booking" ? (
             <NavItem id="primary" href="/booking">
               Book a presentation
             </NavItem>

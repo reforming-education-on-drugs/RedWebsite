@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Row,
   Col,
@@ -7,10 +7,10 @@ import {
   Radio,
   Checkbox,
   FormControl,
-  ControlLabel,
+  // ControlLabel,
   HelpBlock,
   Button,
-  Panel,
+  // Panel,
   Alert,
   InputGroup,
   Glyphicon,
@@ -18,14 +18,14 @@ import {
   Well,
   Clearfix,
   OverlayTrigger,
-  Tooltip
-} from 'react-bootstrap';
+  Tooltip,
+} from "react-bootstrap";
 
-import '../styles/react-datetime.css';
-import '../styles/presentation-booking.css';
-import { toUnicode } from 'punycode';
+import "../styles/react-datetime.css";
+import "../styles/presentation-booking.css";
+import { toUnicode } from "punycode";
 
-const Datetime = require('react-datetime');
+const Datetime = require("react-datetime");
 
 export default class PresentationBooking extends Component {
   constructor(props, context) {
@@ -42,18 +42,18 @@ export default class PresentationBooking extends Component {
         phone: -1,
         dateTime: -1,
         topic: -1,
-        kahoot: -1
+        kahoot: -1,
       },
       showGradesSelect: false,
       gradesSelected: [],
-      dateTimeChoices: ['', '', ''],
-      formNotes: '',
+      dateTimeChoices: ["", "", ""],
+      formNotes: "",
       formIsValid: -1,
       contactInfoOpen: true,
       presentationTopicOpen: false,
       dateTimeOpen: false,
       notesOpen: false,
-      formSubmitted: false
+      formSubmitted: false,
     };
   }
 
@@ -66,105 +66,105 @@ export default class PresentationBooking extends Component {
       this.state.form[fieldName] === -1
         ? -1
         : this.state.form[fieldName].trim().length;
-    if (length > 0) return 'success';
+    if (length > 0) return "success";
     else if (length === -1) return null;
-    else if (length === 0) return 'error';
+    else if (length === 0) return "error";
   }
   fieldIsNumeric(fieldName) {
     const field = this.state.form[fieldName];
     const numericRegex = /^[0-9]+$/;
     if (field.length === -1) return null;
-    else if (numericRegex.test(field)) return 'success';
-    else return 'error';
+    else if (numericRegex.test(field)) return "success";
+    else return "error";
   }
   fieldIsAlphaNumeric(fieldName) {
     const field = this.state.form[fieldName];
     const alphaNumericRegex = /[A-Za-z0-9 _.,!"'/$]*/; // * Allows punctuation marks
     if (field.length === -1) return null;
     else if (alphaNumericRegex.test(String(field).toLowerCase()))
-      return 'success';
-    else return 'error';
+      return "success";
+    else return "error";
   }
   fieldIsEmail(fieldName) {
     const field = this.state.form[fieldName];
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (field.length === -1) return null;
-    else if (emailRegex.test(String(field).toLowerCase())) return 'success';
-    else return 'error';
+    else if (emailRegex.test(String(field).toLowerCase())) return "success";
+    else return "error";
   }
   fieldIsPhone(fieldName) {
     const field = this.state.form[fieldName];
     const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     if (field.length === -1) return null;
-    else if (phoneRegex.test(field)) return 'success';
-    else return 'error';
+    else if (phoneRegex.test(field)) return "success";
+    else return "error";
   }
   fieldIsDateTime(fieldName, choice) {
     let field = this.state.dateTimeChoices;
     let res = [];
     field.forEach((k, v) => {
-      if (Datetime.moment(k, 'MM/DD/YYYY h:mm A', true).isValid())
+      if (Datetime.moment(k, "MM/DD/YYYY h:mm A", true).isValid())
         res.push(true);
       else res.push(false);
     });
     if (res[choice - 1] == true) {
-      return 'success';
+      return "success";
     } else if (res[choice - 1] == false) {
       if (field[choice - 1].length == 0) return null;
-      else return 'error';
+      else return "error";
     }
   }
 
   getSchoolState() {
-    return this.fieldIsRequired('school') && this.fieldIsAlphaNumeric('school');
+    return this.fieldIsRequired("school") && this.fieldIsAlphaNumeric("school");
   }
   getGradesState() {
-    return this.fieldIsRequired('grades');
+    return this.fieldIsRequired("grades");
   }
   getNumClassroomsState() {
     return (
-      this.fieldIsRequired('numClassrooms') &&
-      this.fieldIsNumeric('numClassrooms')
+      this.fieldIsRequired("numClassrooms") &&
+      this.fieldIsNumeric("numClassrooms")
     );
   }
   getNumStudentsState() {
     return (
-      this.fieldIsRequired('numStudents') && this.fieldIsNumeric('numStudents')
+      this.fieldIsRequired("numStudents") && this.fieldIsNumeric("numStudents")
     );
   }
   getContactNameState() {
     return (
-      this.fieldIsRequired('contactName') &&
-      this.fieldIsAlphaNumeric('contactName')
+      this.fieldIsRequired("contactName") &&
+      this.fieldIsAlphaNumeric("contactName")
     );
   }
   getEmailState() {
-    return this.fieldIsRequired('email') && this.fieldIsEmail('email');
+    return this.fieldIsRequired("email") && this.fieldIsEmail("email");
   }
   getPhoneState() {
-    return this.fieldIsRequired('phone') && this.fieldIsPhone('phone');
+    return this.fieldIsRequired("phone") && this.fieldIsPhone("phone");
   }
   getDateTimeState() {
     let dateTimeChoices = this.state.dateTimeChoices;
     let dateTimeValid = true;
     dateTimeChoices.forEach((k, v) => {
       if (
-        !Datetime.moment(k, 'MM/DD/YYYY h:mm A', true).isValid() &&
+        !Datetime.moment(k, "MM/DD/YYYY h:mm A", true).isValid() &&
         k.trim().length > 0
       )
         dateTimeValid = false;
     });
-    if (dateTimeValid == true) return 'success';
-    else return 'error';
+    if (dateTimeValid == true) return "success";
+    else return "error";
   }
   getChoiceState(choice) {
-    return this.fieldIsDateTime('dateTime', choice);
+    return this.fieldIsDateTime("dateTime", choice);
   }
   getTopicState() {
-    return this.fieldIsRequired('topic');
+    return this.fieldIsRequired("topic");
   }
   getKahootState() {
-    return this.fieldIsRequired('kahoot');
+    return this.fieldIsRequired("kahoot");
   }
 
   handleFormNotes(e) {
@@ -176,41 +176,43 @@ export default class PresentationBooking extends Component {
     this.setState({
       form: {
         ...this.state.form,
-        topic: e.target.value.trim().length > 0 ? e.target.value : -1
-      }
+        topic: e.target.value.trim().length > 0 ? e.target.value : -1,
+      },
     });
   }
   handleDateTimeChoices(choice, e) {
     let choice_idx = choice - 1;
-    let dateTimeInput = '';
+    let dateTimeInput = "";
     let updated_dateTimeChoices = [...this.state.dateTimeChoices];
-    if (typeof e === 'string' && e.length > 0) {
+    if (typeof e === "string" && e.length > 0) {
       dateTimeInput = e;
-    } else if (typeof e === 'object' && e !== null && e._isValid) {
-      dateTimeInput = e.format('MM/DD/YYYY h:mm A');
+    } else if (typeof e === "object" && e !== null && e._isValid) {
+      dateTimeInput = e.format("MM/DD/YYYY h:mm A");
     }
-    updated_dateTimeChoices[choice_idx] = dateTimeInput.replace(/,/g, '');
+    updated_dateTimeChoices[choice_idx] = dateTimeInput.replace(/,/g, "");
     this.setState({
       ...this.state,
-      dateTimeChoices: updated_dateTimeChoices
+      dateTimeChoices: updated_dateTimeChoices,
     });
     this.handleDateTime(updated_dateTimeChoices);
   }
   handleDateTime(updated_dateTimeChoices) {
-    let dateTimeChoices = updated_dateTimeChoices.filter(val => val).join(', ');
+    let dateTimeChoices = updated_dateTimeChoices
+      .filter((val) => val)
+      .join(", ");
     this.setState({
       form: {
         ...this.state.form,
-        dateTime: dateTimeChoices.length > 0 ? dateTimeChoices : -1
-      }
+        dateTime: dateTimeChoices.length > 0 ? dateTimeChoices : -1,
+      },
     });
   }
   handleKahoot(e) {
     this.handleChange({
       target: {
-        id: 'kahoot',
-        value: e.target.value
-      }
+        id: "kahoot",
+        value: e.target.value,
+      },
     });
   }
   handleGradeSelection(e) {
@@ -228,40 +230,42 @@ export default class PresentationBooking extends Component {
     );
     this.setState({
       ...this.state,
-      gradesSelected: updated_gradesSelected
+      gradesSelected: updated_gradesSelected,
     });
     this.handleChange({
-      target: { id: 'grades', value: updated_gradesSelected.join(',') }
+      target: { id: "grades", value: updated_gradesSelected.join(",") },
     });
   }
   handleChange(e) {
     this.setState({
       form: {
         ...this.state.form,
-        [e.target.id]: e.target.value.trim().length > 0 ? e.target.value : -1
-      }
+        [e.target.id]: e.target.value.trim().length > 0 ? e.target.value : -1,
+      },
     });
   }
 
   showGradesSelect() {
     this.setState({
       ...this.state,
-      showGradesSelect: !this.state.showGradesSelect
+      showGradesSelect: !this.state.showGradesSelect,
     });
   }
 
   encode(data) {
     return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
   }
 
   checkFormValidity() {
     if (!this.state.formSubmitted) {
       let formIsValid = true;
       const formValues = { ...this.state.form };
-      Object.keys(formValues).forEach(fieldName => {
-        if (this[`get${this.capitalize(fieldName)}State`]() !== 'success') {
+      Object.keys(formValues).forEach((fieldName) => {
+        if (this[`get${this.capitalize(fieldName)}State`]() !== "success") {
           formIsValid = false;
         }
       });
@@ -271,39 +275,39 @@ export default class PresentationBooking extends Component {
     }
   }
 
-  formSubmit = e => {
+  formSubmit = (e) => {
     if (!this.state.formSubmitted) {
       let formIsValid = true;
       const validState = { ...this.state.form };
-      Object.keys(validState).forEach(fieldName => {
-        if (this[`get${this.capitalize(fieldName)}State`]() !== 'success') {
+      Object.keys(validState).forEach((fieldName) => {
+        if (this[`get${this.capitalize(fieldName)}State`]() !== "success") {
           formIsValid = false;
-          validState[fieldName] = '';
+          validState[fieldName] = "";
         }
       });
       if (formIsValid) {
         const validStateWithFormNotes = {
           ...validState,
-          notes: this.state.formNotes
+          notes: this.state.formNotes,
         };
         console.log(validStateWithFormNotes);
-        fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: this.encode({
-            'form-name': 'presentation-booking-form',
-            ...validStateWithFormNotes
-          })
+            "form-name": "presentation-booking-form",
+            ...validStateWithFormNotes,
+          }),
         })
           .then(() => this.setState({ ...this.state, formSubmitted: true }))
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             this.setState({ ...this.state, formSubmitted: true });
           });
       }
       this.setState({
         form: validState,
-        formIsValid: formIsValid
+        formIsValid: formIsValid,
       });
     }
     e.preventDefault();
@@ -314,7 +318,7 @@ export default class PresentationBooking extends Component {
     const formSubmitted = this.state.formSubmitted;
     if (formIsValid === true && formSubmitted === true) {
       const presentation_topic = this.state.form.topic;
-      const presentation_dateTimes = this.state.form.dateTime.split(', ');
+      const presentation_dateTimes = this.state.form.dateTime.split(", ");
       return (
         <Alert bsStyle="success">
           <strong>
@@ -331,7 +335,7 @@ export default class PresentationBooking extends Component {
               (in order of preference):
               <br />
               <ul>
-                {presentation_dateTimes.map(dateTimeItem => (
+                {presentation_dateTimes.map((dateTimeItem) => (
                   <li>{dateTimeItem}</li>
                 ))}
               </ul>
@@ -358,9 +362,9 @@ export default class PresentationBooking extends Component {
   }
 
   contactInfoOptions() {
-    let showGrades = this.state.showGradesSelect ? 'showGrades' : 'hide';
+    let showGrades = this.state.showGradesSelect ? "showGrades" : "hide";
     let gradesSelected =
-      this.state.form.grades !== -1 ? this.state.form.grades : '';
+      this.state.form.grades !== -1 ? this.state.form.grades : "";
     return (
       <div>
         <FormGroup controlId="school" validationState={this.getSchoolState()}>
@@ -510,7 +514,7 @@ export default class PresentationBooking extends Component {
         <Well bsSize="small">
           <Radio value="drug overview" name="radioGroup" inline>
             Drug Overview
-          </Radio>{' '}
+          </Radio>{" "}
           <i className="fas fa-capsules" />
           <label className="presentationDesc">
             The Drug Overview provides an understanding of the commonly-used
@@ -529,7 +533,7 @@ export default class PresentationBooking extends Component {
         <Well bsSize="small">
           <Radio value="fentanyl" name="radioGroup" inline>
             Fentanyl
-          </Radio>{' '}
+          </Radio>{" "}
           <i className="fas fa-tablets" />
           <label className="presentationDesc">
             The Fentanyl presentation was developed in response to the opioid
@@ -545,7 +549,7 @@ export default class PresentationBooking extends Component {
         <Well bsSize="small">
           <Radio value="cannabis" name="radioGroup" inline>
             Cannabis
-          </Radio>{' '}
+          </Radio>{" "}
           <i className="fas fa-cannabis" />
           <label className="presentationDesc">
             While cannabis was legalized in 2018, there remain many
@@ -572,7 +576,7 @@ export default class PresentationBooking extends Component {
             Please list up to three dates and times for your presentation
             booking, in order of preference. The duration of each presentation
             is 90 minutes.
-          </b>{' '}
+          </b>{" "}
           Please note that you may not receive your first choice. We process all
           bookings in the order that they are received. We will work with you to
           ensure that you get a date that works for you!
@@ -629,7 +633,7 @@ export default class PresentationBooking extends Component {
           validationState={this.getKahootState()}
         >
           <ControlLabel>
-            Does your class use <a href="https://kahoot.it">Kahoot</a>?{' '}
+            Does your class use <a href="https://kahoot.it">Kahoot</a>?{" "}
             {this.req()}
           </ControlLabel>
           <br />
@@ -681,7 +685,7 @@ export default class PresentationBooking extends Component {
                   contactInfoOpen: !this.state.contactInfoOpen,
                   presentationTopicOpen: false,
                   dateTimeOpen: false,
-                  notesOpen: false
+                  notesOpen: false,
                 })
               }
             >
@@ -701,7 +705,7 @@ export default class PresentationBooking extends Component {
                   contactInfoOpen: false,
                   presentationTopicOpen: !this.state.presentationTopicOpen,
                   dateTimeOpen: false,
-                  notesOpen: false
+                  notesOpen: false,
                 })
               }
             >
@@ -714,7 +718,7 @@ export default class PresentationBooking extends Component {
                 <b>
                   Please select one of the presentation topics from the list
                   below.
-                </b>{' '}
+                </b>{" "}
                 {this.req()} For more information regarding our presentations,
                 please see <a href="/schools">For Schools</a>.<br />
                 <br />
@@ -732,7 +736,7 @@ export default class PresentationBooking extends Component {
                   contactInfoOpen: false,
                   presentationTopicOpen: false,
                   dateTimeOpen: !this.state.dateTimeOpen,
-                  notesOpen: false
+                  notesOpen: false,
                 })
               }
             >
@@ -752,7 +756,7 @@ export default class PresentationBooking extends Component {
                   contactInfoOpen: false,
                   presentationTopicOpen: false,
                   dateTimeOpen: false,
-                  notesOpen: !this.state.notesOpen
+                  notesOpen: !this.state.notesOpen,
                 })
               }
             >
@@ -816,7 +820,7 @@ export default class PresentationBooking extends Component {
           </Col>
           <Col className="formContent" md={6} xs={12}>
             {this.validationMessage()}
-            {this.state.formSubmitted ? '' : this.renderForm()}
+            {this.state.formSubmitted ? "" : this.renderForm()}
           </Col>
         </Row>
       </Grid>

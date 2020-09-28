@@ -54,7 +54,7 @@ main .container {
 }
 
 .redcontainer {
-  background-color: #D00000;
+  background-color: #d00000;
   color: white;
 }
 
@@ -72,15 +72,19 @@ main .container {
   height: 2em;
 }
 
+.navigation-clean.navbar-default .navbar-nav>li>a {
+  color: #fff !important;
+}
+
 a.dropdown-toggle.btn {
-  padding: 11px 10px;
-  font: inherit;
-  background-color: white;
-  border-radius: 8px;
+  // padding: 11px 10px;
+  // font: inherit;
+  // background-color: white;
+  // border-radius: 8px;
 }
 
 a.dropdown-toggle.btn:hover {
-  background-color: #ddd;
+  // background-color: #ddd;
 }
 
 #primary {
@@ -94,7 +98,7 @@ a.dropdown-toggle.btn:hover {
 
 #primary:hover,
 #primaryButton:hover {
-  background-color: #D00000;
+  background-color: #d00000;
 }
 
 #donateButton {
@@ -129,7 +133,7 @@ a.dropdown-toggle.btn:hover {
 #booking-schedule {
   height: 92em;
   position: relative;
-  top: -95px
+  top: -95px;
 }
 
 ul.nav a:link,
@@ -161,7 +165,7 @@ a:active,
 }
 
 .testimonial-quote {
-  color: rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 
@@ -183,9 +187,9 @@ a:active,
 }
 
 .testimonial-slider .swiper-pagination-bullet {
-  background: #E5E5E5;
+  background: #e5e5e5;
   opacity: 1;
-  border-color: #E5E5E5;
+  border-color: #e5e5e5;
 }
 
 .testimonial-slider .swiper-pagination-bullet-active {
@@ -194,37 +198,75 @@ a:active,
   border-color: #f00;
 }
 
-@media(max-width: 990px) {
+.navbar .container {
+  background: #d90429;
+}
+
+.navigation-clean.navbar .navbar-nav>li>a {
+  font-family: "Montserrat" !important;
+  font-size: 2rem;
+}
+
+@media (max-width: 990px) {
   .navbar {
     li {
-      margin-right: 0 !important;
+      // margin-right: 0 !important;
     }
   }
 }
 
-@media(min-width: 991px) {
-  .navigation-clean.navbar .navbar-nav>li>a:hover {
-    border-radius: 8px;
+.navbar {
+  padding-top: 0;
+}
+
+.navbar .container {
+  width: 100%;
+  padding: 5px 0 5px 0;
+}
+
+@media (min-width: 991px) {
+
+  .navigation-clean.navbar .navbar-nav>li>a,
+  .navbar-nav>li>a:hover {
+    // border-radius: 8px;
+    background: none !important;
+  }
+
+  .navigation-clean .navbar-nav .open .dropdown-menu>li>a:hover {
+    background: none;
+  }
+
+  .navigation-clean .dropdown-menu>li>a:focus,
+  .navigation-clean .dropdown-menu>li>a:hover {
+    background: none;
   }
 
   .navbar {
     .container {
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
+      justify-content: space-evenly;
     }
 
-    .navbar-header {
-      margin-right: auto;
+    .navbar-brand {
+      // margin-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .navbar-header {}
+
+    .navbar-collapse {
+      // background: #ccc;
+      align-self: end;
     }
   }
-
 }
 
 img.parents {
   max-width: 100%;
 }
 
-#Memberships .nav-tabs li.active > [role=tab] {
+#Memberships .nav-tabs li.active>[role="tab"] {
   background: #ef233c;
   color: #ffffff;
 }
@@ -273,7 +315,7 @@ img.parents {
   width: 65%;
   margin: auto;
   display: block;
-  background: #DDDDDD;
+  background: #dddddd;
   padding: 5px;
   text-align: center;
   line-height: 23;
@@ -301,7 +343,7 @@ img.parents {
 hr {
   margin: 4em auto;
   height: 2px;
-  background: #D00000;
+  background: #d00000;
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -347,7 +389,7 @@ Blog Content
 
 #blogcontainer .blog-item:nth-child(odd),
 .greycontainer {
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   color: black;
 }
 
@@ -368,7 +410,7 @@ Blog Content
 }
 
 #blogcontainer .blog-item:nth-child(even) {
-  background-color: #D00000;
+  background-color: #d00000;
   color: white;
 }
 
@@ -428,7 +470,7 @@ Login
   .identity-card {
     width: 320px;
     font-size: 16px;
-    border: 1px solid #C4C4C4;
+    border: 1px solid #c4c4c4;
     margin-bottom: 30px;
     padding: 20px;
     border-radius: 6px;
@@ -452,9 +494,9 @@ Login
 
     button {
       width: 100%;
-      color: #FFFFFF;
+      color: #ffffff;
       padding: 10px;
-      background-color: #EF233C;
+      background-color: #ef233c;
       border: none;
       border-radius: 6px;
     }
@@ -462,7 +504,7 @@ Login
 
   .disclaimer {
     width: 320px;
-    border: 1px solid #C4C4C4;
+    border: 1px solid #c4c4c4;
     padding: 10px 15px;
     border-radius: 6px;
 
@@ -487,7 +529,6 @@ Login
   }
 }
 
-
 .input-wrapper {
   margin-bottom: 20px;
 
@@ -500,7 +541,7 @@ Login
   input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #EF233C;
+    border: 1px solid #ef233c;
     border-radius: 6px;
   }
 }

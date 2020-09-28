@@ -1,0 +1,144 @@
+html,
+body {
+  height: 100%;
+}
+
+/* h1 {
+  font-size: 4rem;
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h3 {
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+p,
+ul,
+ol {
+  font-size: 1.75rem;
+  font-family: "Montserrat";
+}
+
+p {
+  text-align: center;
+} */
+
+main .container {
+  padding: 4em;
+}
+
+@media (max-width: 767px) {
+  main .container {
+    padding: 2em 10px;
+  }
+}
+
+#spacer {
+  height: 5em;
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  background: #d90429;
+  font-family: "Montserrat";
+  /* min-height: 80px; */
+  -webkit-box-shadow: 0px 8px 25px -10px rgba(89, 89, 89, 0.7);
+  -moz-box-shadow: 0px 8px 25px -10px rgba(89, 89, 89, 0.7);
+  box-shadow: 0px 8px 25px -10px rgba(89, 89, 89, 0.7);
+}
+
+.navbar .container {
+  min-width: 71%;
+}
+
+.navbar .navbar-nav a {
+  color: #fff !important;
+}
+
+/* .navbar .container {
+  width: 65%;
+  padding: 5px 0 5px 0;
+} */
+
+.navbar .navbar-brand img {
+  height: 2em;
+}
+
+/* @media (max-width: 990px) {
+
+  .nav>li>a:hover,
+  .nav>li>a:focus {
+    text-decoration: none;
+    background: none !important;
+  }
+
+  .navbar .container {
+    width: 90%;
+  }
+
+  li.dropdown .dropdown-toggle {
+    background: none !important;
+    color: #fff !important;
+  }
+
+} */
+
+.navbar .dropdown-menu {
+  background: #d90429 !important;
+  border: none;
+}
+
+.navbar .dropdown-menu a {
+  color: #fff !important;
+}
+
+.navbar .navbar-nav a:hover {
+  background: #ad001f !important;
+}
+
+.navbar .navbar-toggler:hover,
+.navbar .navbar-toggler:focus {
+  background: #eb002a !important;
+}
+
+.navbar .navbar-collapse.collapse.show {
+  display: block !important;
+}
+
+.navbar .navbar-nav>* {
+  margin-left: 0.7em;
+}
+
+.navbar .navbar-nav a {
+  padding-left: 0.7em;
+}
+
+.navbar .navbar-nav {
+  display: flex;
+}
+
+.navbar .navbar-nav {
+  justify-content: end;
+}
+
+@media (min-width: 991px) {
+
+  .navbar .navbar-brand {
+    padding: 5px 0 !important;
+  }
+
+}
+
+.footer-basic {
+  height: 170px;
+}

@@ -1,0 +1,272 @@
+#app,
+#app>div {
+  height: 100%;
+}
+
+#landing_page_container {
+  margin-top: 160px;
+  font-family: "Montserrat";
+  min-width: 70%;
+}
+
+/* @media (max-width: 768px) {
+  section#landing_page {
+    margin: 2em auto;
+    width: 90%;
+  }
+} */
+
+#landing_page {
+  padding: 5px;
+}
+
+.red_text {
+  color: #d90429;
+}
+
+/* @media (min-width: 769px) {
+  section#landing_page {
+    margin: 0 auto;
+    width: 65%;
+    min-width: 768px;
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: bisque;
+  }
+} */
+
+@media (max-width: 768px) {
+  #landing_page_container {
+    margin-top: 110px;
+  }
+
+  #club_graphic_container {
+    padding-top: 0.5em !important;
+  }
+}
+
+@media (max-width: 990px) and (min-width: 769px) {
+  #club_graphic_container {
+    padding-top: 5em !important;
+  }
+}
+
+/* iPhone 5/SE */
+@media (max-width: 320px) {
+  #club_desc #club_name {
+    letter-spacing: 8px !important;
+  }
+}
+
+#club_desc {
+  /* border: 1px solid blue; */
+}
+
+#club_desc #club_name {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: calc(8px + 1vw);
+  font-size: calc(24px + 1vw);
+  /* line-height: 1em; */
+  white-space: nowrap;
+}
+
+#club_desc #club_info {
+  display: block;
+  font-size: calc(15.3px + 0.6vw);
+  line-height: 180%;
+  padding-top: 15px;
+  word-break: break-word;
+}
+
+#club_graphic_container {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  user-select: none !important;
+}
+
+#club_graphic_container img#club_graphic {
+  width: 90%;
+  /* border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .2); */
+  /* border-bottom: 1vh ridge #D90429; */
+  border-bottom: 1vh solid #91031B;
+  padding: 1em 1em 0 1em;
+}
+
+#club_graphic_container #brands {
+  /* border: 1px solid springgreen; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+#club_graphic_container #brands img {
+  margin: 0 2% 0 2%;
+
+}
+
+#club_desc #desc_footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  /* border: 1px solid palevioletred; */
+  /* height: 50px; */
+  font-size: calc(8px + 0.5vw);
+}
+
+#club_desc #desc_footer>* {
+  margin: 0 1em;
+}
+
+#club_desc #desc_footer span {
+  display: flex;
+  align-items: center;
+  /* min-width: 240px; */
+}
+
+#club_desc #desc_footer button#book_presentation {
+  color: #ffffff;
+  padding: 1em;
+  border: 0px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #D90429;
+  text-align: center;
+}
+
+#club_desc #desc_footer button#book_presentation:hover {
+  background-color: #EB002A;
+}
+
+#club_desc #desc_footer #scroll_to_learn {
+  align-self: center;
+  font-size: calc(14px + 0.4vw);
+  text-align: center;
+}
+
+#club_desc #desc_footer #scroll_to_learn i {
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+#mission_page {
+  margin-top: 11%;
+}
+
+#mission_page #mission_title_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mission_page #mission_title_container #mission_title {
+  font-size: calc(14px + 0.7vw);
+  letter-spacing: calc(2px + 0.5vw);
+  text-align: center;
+  width: 100%;
+}
+
+#mission_page #mission_title_container::before,
+#mission_title_container::after {
+  background-color: #EF233C;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20vw;
+  /* margin: 0 2%; */
+}
+
+#mission_page #mission_page_desc {
+  width: 100%;
+  margin-top: 2%;
+  padding: 0 4%;
+  font-size: calc(12px + 0.5vw);
+  line-height: 200%;
+  text-align: justify;
+}
+
+#mission_page #mission_page_desc span a {
+  color: #91031B;
+  cursor: pointer;
+}
+
+#mission_page #mission_page_detail {
+  margin-top: 3%;
+  padding: 0 4%;
+}
+
+#mission_page #mission_page_detail .card {
+  /* border: 1px solid #91031B; */
+  /* transition: 0.5s; */
+}
+
+#mission_page #mission_page_detail .card-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+#mission_page #mission_page_detail .card-text {
+  /* text-align: left; */
+}
+
+
+
+
+#impact_page {
+  margin-top: 11%;
+}
+
+#impact_page #impact_title_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#impact_page #impact_title_container #impact_title {
+  font-size: calc(14px + 0.7vw);
+  letter-spacing: calc(2px + 0.5vw);
+  text-align: center;
+  width: 100%;
+}
+
+#impact_page #impact_title_container::before,
+#impact_title_container::after {
+  background-color: #EF233C;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20vw;
+  /* margin: 0 2%; */
+}
+
+#impact_page #impact_page_desc {
+  width: 100%;
+  margin-top: 2%;
+  padding: 0 4%;
+  font-size: calc(12px + 0.5vw);
+  line-height: 200%;
+  text-align: justify;
+}
+
+#impact_page #impact_page_detail {
+  /* margin-top: 3%; */
+  /* border: 1px solid teal; */
+}
+
+
+
+
+#landing_page_container .row:last-of-type {
+  margin-bottom: 10%;
+}

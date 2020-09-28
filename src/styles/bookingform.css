@@ -1,0 +1,51 @@
+#presentation_booking_wizard {
+  margin-top: 140px;
+  margin-bottom: 1%;
+}
+
+#presentation_booking_wizard #step1_title_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#presentation_booking_wizard #step1_title_container #step1_title {
+  font-size: calc(14px + 0.7vw);
+  letter-spacing: calc(2px + 0.5vw);
+  text-align: center;
+  width: 100%;
+}
+
+#presentation_booking_wizard #step1_title_container::before,
+#step1_title_container::after {
+  background-color: #ef233c;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 20vw;
+}
+
+#presentation_booking_wizard #step1_desc {
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 0 4%;
+  font-size: calc(8px + 0.5vw);
+  line-height: 200%;
+  text-align: justify;
+}
+
+#presentation_booking_wizard #step3 .card-text {
+  font-size: 12px;
+}
+
+#presentation_booking_wizard .card-deck {
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.requiredField {
+  color: #ef233c;
+}
