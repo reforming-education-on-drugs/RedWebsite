@@ -64,7 +64,8 @@ export default function Header() {
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>
             )}
-            {useLocation().pathname != "/booking" ? (
+            {useLocation().pathname != "/booking" &&
+            useLocation().pathname != "/volunteer" ? (
               <Nav.Link
                 id="book_presentation"
                 className="primary_red"
