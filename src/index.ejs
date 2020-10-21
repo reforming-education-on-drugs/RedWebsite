@@ -1,42 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta charset="UTF-8" />
-  <meta name="description"
-    content="RED’s mission is to establish a foundational understanding of the biological mechanisms involved in illicit drug use and substance abuse. With interactive in-class presentations, we engage our students to think critically about these topics." />
-  <meta name="keywords"
-    content="RED, Reforming Education on Drugs, reducalgary, red ucalgary, red educate, reforming, education, drugs, university, uofc, university of calgary" />
-  <title>RED | Reforming Education on Drugs</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="RED’s mission is to establish a foundational understanding of the biological mechanisms involved in illicit drug use and substance abuse. With interactive in-class presentations, we engage our students to think critically about these topics."
+    />
+    <meta
+      name="keywords"
+      content="RED, Reforming Education on Drugs, reducalgary, red ucalgary, red educate, reforming, education, drugs, university, uofc, university of calgary"
+    />
+    <title>RED | Reforming Education on Drugs</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-</head>
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <!-- Latest compiled and minified CSS -->
 
-<body>
-  <!-- A little help for the Netlify bots -->
-  <form name="presentation-booking-form" netlify netlify-honeypot="bot-field" hidden>
-    <input name="bot-field" />
-    <input type="text" name="school" />
-    <input type="text" name="grades" />
-    <input type="text" name="numClassrooms" />
-    <input type="text" name="numStudents" />
-    <input type="text" name="contactName" />
-    <input type="email" name="email" />
-    <input type="text" name="phone" />
-    <input type="text" name="topic" />
-    <input type="text" name="dateTime" />
-    <input type="text" name="kahoot" />
-    <input type="text" name="notes" />
-  </form>
-  <div id="app"></div>
-</body>
+    <!-- Bootstrap 4 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css"
+    />
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+  </head>
+
+  <body>
+    <!-- A little help for the Netlify bots -->
+    <form
+      name="presentation-booking-form"
+      netlify
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input name="bot-field" />
+      <input type="text" name="school" />
+      <input type="text" name="grades" />
+      <input type="text" name="numClassrooms" />
+      <input type="text" name="numStudents" />
+      <input type="text" name="contactName" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="topic" />
+      <input type="text" name="dateTime" />
+      <input type="text" name="kahoot" />
+      <input type="text" name="notes" />
+    </form>
+    <div id="app"></div>
+  </body>
 </html>

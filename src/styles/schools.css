@@ -1,12 +1,7 @@
 .grid-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
   margin: 2% auto 5% auto;
-  font-family: 'Montserrat', sans-serif !important;
-}
-
-.show-grid {
-  display: flex;
-  flex-wrap: wrap;
+  /* font-family: "Montserrat", sans-serif !important; */
 }
 
 #schools_info {
@@ -18,7 +13,7 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-  padding: 20px;
+  padding: 50px;
 }
 
 #schools_info #desc {
@@ -26,7 +21,7 @@
   text-align: justify;
 }
 
-#Presentations {
+#our_presentations {
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -44,12 +39,16 @@
   padding: 20px;
 }
 
-#Presentations .tab-content {
+#our_presentations .tab-content {
   padding: 20px 0;
 }
 
-#Presentations .nav-tabs li.active > [role=tab] {
-  background: #ef233c;
+#our_presentations > .nav_tabs > a {
+  color: #000000 !important;
+}
+
+#our_presentations .nav-tabs > a.active {
+  background-color: #ef233c;
   color: #ffffff;
 }
 
@@ -60,6 +59,7 @@
   width: 100%;
   margin: 0 auto;
   text-align: left;
+  padding: 20px 5px;
 }
 
 .presentation_desc b {

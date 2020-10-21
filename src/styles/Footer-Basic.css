@@ -33,7 +33,7 @@
   padding-bottom: 25px;
 }
 
-.footer-basic .social>a {
+.footer-basic .social > a {
   font-size: 28px;
   width: 40px;
   height: 40px;
@@ -41,21 +41,21 @@
   display: inline-block;
   text-align: center;
   border-radius: 50%;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   margin: 0 8px;
   color: inherit;
   opacity: 0.75;
 }
 
-.footer-basic .social>a:hover {
+.footer-basic .social > a:hover {
   opacity: 0.9;
 }
 
-.footer-basic .social .icons>.icon {
+.footer-basic .social .icons > .icon {
   fill: #4b4c4d;
 }
 
-.footer-basic .social .icons>svg:hover {
+.footer-basic .social .icons > svg:hover {
   fill: red;
 }
 
