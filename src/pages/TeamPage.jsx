@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Row, Col } from 'react-bootstrap';
-import chunk from 'lodash/chunk';
+import React from "react";
+import PropTypes from "prop-types";
+import { Row, Col } from "react-bootstrap";
+import chunk from "lodash/chunk";
 
 // This will import all the images because ES6 standard doesn't allow
 // dynamic importing of images
@@ -10,19 +10,19 @@ import chunk from 'lodash/chunk';
 // @returns {images}
 function importAll(r) {
   let images = {};
-  r.keys().map(item => {
-    images[item.replace('./', '')] = r(item);
+  r.keys().map((item) => {
+    images[item.replace("./", "")] = r(item);
   });
   return images;
 }
 
 const importedImages = importAll(
-  require.context('../assets/images', false, /\.(png|jpe?g|JPE?G|svg)$/)
+  require.context("../assets/images", false, /\.(png|jpe?g|JPE?G|svg)$/)
 );
 
 function Executive(props) {
   Executive.propTypes = {
-    executives: PropTypes.arrayOf(PropTypes.object).isRequired
+    executives: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
 
   const executives = chunk(props.executives, 2);
@@ -30,9 +30,9 @@ function Executive(props) {
   return (
     <div className="container">
       <div className="executive">
-        {executives.map(executiveRow => (
+        {executives.map((executiveRow) => (
           <Row>
-            {executiveRow.map(executive => (
+            {executiveRow.map((executive) => (
               <Col md={6}>
                 <img
                   src={importedImages[executive.imageName]}
@@ -55,7 +55,7 @@ function Executive(props) {
 
 function Advisors(props) {
   Advisors.propTypes = {
-    advisors: PropTypes.arrayOf(PropTypes.object).isRequired
+    advisors: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
 
   // Pair the advisors into two chunks, using lodash
@@ -66,10 +66,10 @@ function Advisors(props) {
       <h1>Advisors</h1>
       <div className="container">
         <div className="executive">
-          {advisors.map(advisorRow => (
+          {advisors.map((advisorRow) => (
             <Row>
-              {advisorRow.map(advisor => (
-                <Col md={6} style={{ display: 'inline-block', float: 'none' }}>
+              {advisorRow.map((advisor) => (
+                <Col md={6} style={{ display: "inline-block", float: "none" }}>
                   <img
                     src={importedImages[advisor.imageName]}
                     className="img-circle wow fadeInDown"
@@ -91,7 +91,7 @@ function Advisors(props) {
 
 function Alumni(props) {
   Alumni.propTypes = {
-    alumnis: PropTypes.arrayOf(PropTypes.object).isRequired
+    alumnis: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
 
   return (
@@ -99,7 +99,7 @@ function Alumni(props) {
       <h1>Alumni</h1>
       <div className="container">
         <Row>
-          {props.alumnis.map(alimuni => (
+          {props.alumnis.map((alimuni) => (
             <Col md={4}>
               <h3>
                 <b>{alimuni.name}</b>
@@ -114,153 +114,157 @@ function Alumni(props) {
 }
 
 export default function TeamPage() {
-  document.title = 'RED | Team';
+  document.title = "RED | Team";
 
   const executives = [
     {
-      name: 'SOPHIE GOBEIL',
-      position: 'CO-PRESIDENT',
-      imageName: 'SophieG.jpg',
+      name: "DANA NEWTON-GUNDERSON",
+      position: "CO-PRESIDENT",
+      imageName: "Dana.jpg",
       bio:
-        'I am a fourth year Neuroscience student at the University of Calgary. For as long as I can remember, I have been curious about how and why our bodies function the way they do. I am thrilled to have the opportunity to put my love for science to use while having a positive impact on young students. It is important that youth be able to make informed decisions about substance use, and I believe that RED’s fact-based approach can be a valuable tool in their education. I look forward to delivering accurate and useful educational material to students, and hope to promote their own curiosity about science while doing so. When I am not studying, you can find me in the mountains hiking, backpacking, and coaching cross-country skiing.'
+        "Hello, my name is Dana and I am a fourth year Neuroscience student at the University of Calgary. In my past year of volunteering with RED, I’ve been excited by RED’s ability to both engage young people in science and get them thinking critically about drug use. Given the current opioid crisis and the recent legalization of cannabis, it’s increasingly important for young people to understand the effects of drugs on the brain, in order to be able to make informed decisions. This year I’m looking forward to helping construct scientific presentations that are both relevant to today’s youth and that will help facilitate a discussion on drug use. In my spare time, I enjoy reading, playing music and downhill skiing.",
     },
     {
-      name: 'BILAL HAFEEZ',
-      position: 'CO-PRESIDENT',
-      imageName: 'Bilal.JPG',
+      name: "JARIN THUNDATHIL",
+      position: "CO-PRESIDENT",
+      imageName: "Jarin.jpg",
       bio:
-        'Hey! My name is Bilal Hafeez. I am in my fourth year of undergraduate studies here at the University of Calgary, pursing a major in Biological Sciences, alongside a minor in Nanoscience. Throughout my post-secondary career, I have heard the word “drugs” in its varying connotations as well as settings by people who certainly have no knowledge of what it actually entails. In this day and age, the difference between substance use as well as abuse, is unclear to many, especially for teenagers and with the recent legalization bill being passed, the importance of understanding various substances and their impacts is immense. That is where I believe RED makes its most impact – our club moves forward to allow the beautiful people of our city and those surrounding it, the opportunity to understand and comprehend everything shady out there. My role is to keep close contact with schools and organisations within the city of Calgary, and work on the expansion of our organisation within Alberta.'
+        "When I joined RED nearly five years ago, I immediately understood the potential we had to improve the discourse around drug use for youth in our city.  As a biomedical sciences student, RED presented the perfect opportunity to unite my academic interests with my passion for advocacy. During my time with RED, I had my first real exposure to teaching in a classroom environment. It was inspiring to see students genuinely engaging with the real-world implications of contentious issues like addiction and the opioid crisis. Last year, we were able to reach over 1000 students at 13 different schools. This year, as VP External, my goals are to see RED expand its presence in Calgary to even more schools, and to lay the groundwork for our expansion to other parts of Alberta.",
     },
     {
-      name: 'DANA NEWTON-GUNDERSON',
-      position: 'VP EDUCATION',
-      imageName: 'Dana.JPG',
+      name: "SUMAN RANDHAWA",
+      position: "VP INTERNAL",
+      imageName: "Suman.jpg",
       bio:
-        'Hello, my name is Dana and I am a third year Neuroscience student at the University of Calgary. In my past year of volunteering with RED, I’ve been excited by RED’s ability to both engage young people in science and get them thinking critically about drug use. Given the current opioid crisis and the recent legalization of cannabis, it’s increasingly important for young people to understand the effects of drugs on the brain, in order to be able to make informed decisions. This year I’m looking forward to helping construct scientific presentations that are both relevant to today’s youth and that will help facilitate a discussion on drug use. In my spare time, I enjoy reading, playing music and downhill skiing.'
+        "Hi, my name is Suman and I am a fifth-year Kinesiology major. My interest with substance abuse issues began at a young age when I witnessed my peers experimenting with drugs. Over the years, their habits progressed and drugs became a part of their lifestyle. Witnessing first-hand the impact that substance abuse has on youth has driven me to take a stand and educate a younger audience. My goal and purpose on this team is to make sure that the next generation of students get the opportunity to learn about substance abuse in a way that was not made available to me or my peers. Through engaging presentations and interactive learning, I hope to inform the younger generation about the science, and knowledge of drugs and substances. I would also like to introduce the world of science to youth at a younger age as it is one of the fastest-growing and innovative industries.",
     },
     {
-      name: 'DAVID CHAU',
-      position: 'VP EDUCATION',
-      imageName: 'David.JPG',
+      name: "ARAZ MINHAS",
+      position: "VP INFORMATION & TECHNOLOGY",
+      imageName: "Araz.jpg",
       bio:
-        'Hey, my name is David and I am currently in my second year of Neuroscience at the University of Calgary. Ever since elementary school, one of the most important things in my life has been the idea of scientific literacy, and the view that it is not about your level of knowledge, but an overwhelming curiosity towards the world around you. As a result, I believe that it is essential that science is taught in a way that is engaging, interactive, and purposeful. I joined RED with the desire to educate students about the risks of drug use viewed through a scientific lens, and design presentations that would encourage them to apply what they have learned to their own lives. Whenever I have free time, you can usually find me listening to music or trying to learn new obscure hobbies.'
+        "As a fifth-year student in the BSc Neuroscience program (minoring in Data Science) at the University of Calgary, I have been fortunate to discover the value of continually cultivating neuroscientific knowledge for making intelligent decisions in everyday life, and in pursuing long-term goals. Along with the academic introductions to the field has come the lesson that such empowering and practically-relevant knowledge should ultimately be disseminated to all – especially the youth – to enable them to make well-informed decisions. Hence, I was prompted to join RED; I hope to support the team’s mission of providing all with easier access to pragmatic neuroscience-based knowledge, such as that pertaining to the effects, functioning and regulation of drugs, through various exciting educational mediums. Further, I hope to facilitate the club’s endeavours, with the rest of the IT team, by helping to overcome all technical challenges, and by ultimately assisting the expansion of its opportunities, and positive influence.",
     },
     {
-      name: 'JARIN THUNDATHIL',
-      position: 'VP EXTERNAL',
-      imageName: 'Jarin.JPG',
+      name: "DAVID CHAU",
+      position: "VP EDUCATION",
+      imageName: "David.jpg",
       bio:
-        'When I joined RED nearly four years ago, I immediately understood the potential we had to improve the discourse around drug use for youth in our city.  As a biomedical sciences student, RED presented the perfect opportunity to unite my academic interests with my passion for advocacy. During my time with RED, I had my first real exposure to teaching in a classroom environment. It was inspiring to see students genuinely engaging with the real-world implications of contentious issues like addiction and the opioid crisis. Last year, we were able to reach over 1000 students at 13 different schools. This year, as VP External, my goals are to see RED expand its presence in Calgary to even more schools, and to lay the groundwork for our expansion to other parts of Alberta.'
+        "Hey, my name is David and I am currently in my third year of Neuroscience at the University of Calgary. Ever since elementary school, one of the most important things in my life has been the idea of scientific literacy, and the view that it is not about your level of knowledge, but an overwhelming curiosity towards the world around you. As a result, I believe that it is essential that science is taught in a way that is engaging, interactive, and purposeful. I joined RED with the desire to educate students about the risks of drug use viewed through a scientific lens, and design presentations that would encourage them to apply what they have learned to their own lives. Whenever I have free time, you can usually find me listening to music or trying to learn new obscure hobbies.",
     },
     {
-      name: 'SUMAN RANDHAWA',
-      position: 'VP INTERNAL',
-      imageName: 'Suman.jpg',
+      name: "ALLY NECULITA",
+      position: "VP FINANCE",
+      imageName: "Ally.jpg",
       bio:
-        'Hi, my name is Suman and I am a fourth-year Kinesiology major. My interest with substance abuse issues began at a young age when I witnessed my peers experimenting with drugs. Over the years, their habits progressed and drugs became a part of their lifestyle. Witnessing first-hand the impact that substance abuse has on youth has driven me to take a stand and educate a younger audience. My goal and purpose on this team is to make sure that the next generation of students get the opportunity to learn about substance abuse in a way that was not made available to me or my peers. Through engaging presentations and interactive learning, I hope to inform the younger generation about the science, and knowledge of drugs and substances. I would also like to introduce the world of science to youth at a younger age as it is one of the fastest-growing and innovative industries.'
+        "I’m Ally and I am a fifth-year accounting student at the University of Calgary. My goal with RED is to inspire youths, along with the rest of my community, to be able to make informed decisions regarding to substance use. Drug abuse is not a new issue in our community, and has been around for a while, and I am excited to collaborate with younger generations and deliver interesting facts on how these substances have an effect on the human body. I value the right of education for everyone, and besides my passion to learn, I also love musicals and dancing. As Vice President of Finance, I am excited to take on new fundraising projects and ensure that RED continues to grow.",
     },
     {
-      name: 'ARAZ MINHAS',
-      position: 'VP INFORMATION & TECHNOLOGY',
-      imageName: 'Araz.jpg',
-      bio:
-        'As a fourth-year student in the BSc Neuroscience program at the University of Calgary, I have been fortunate to discover the value of continually cultivating neuroscientific knowledge for making intelligent decisions in everyday life, and in pursuing long-term goals. Along with the academic introductions to the field has come the lesson that such empowering and practically-relevant knowledge should ultimately be disseminated to all – especially the youth – to enable them to make well-informed decisions. Hence, I was prompted to join RED; I hope to support the team’s mission of providing all with easier access to pragmatic neuroscience-based knowledge, such as that pertaining to the effects, functioning and regulation of drugs, through various exciting educational mediums. Further, I hope to facilitate the club’s endeavours, with the rest of the IT team, by helping to overcome all technical challenges, and by ultimately assisting the expansion of its opportunities, and positive influence.'
+      name: "PUNIT BHATT",
+      position: "VP EXTERNAL",
+      imageName: "Punit.jpg",
+      bio: `Hey! My name is Punit Bhatt. I am second year student at U of C pursuing a undergraduate degree in Neuroscience. Drug education and awareness is something that I think is especially important for our generation due to the impact of social media. Drugs and alcohol are always "advertised" on our socials through big celebrities and that may lead to many misconceptions about consumption. Additionally, the popularity of vapes and the legalization of marijuana demands that we as a society look to promote drug education. That is why I think that RED can have a huge impact on our community: by expanding beyond just saying "drugs are bad" and actually explaining some of the science behind drugs, we are able to promote safe consumption and healthy choices. Additionally, as students we may be able to provide a connection that is more impactful. As this year's VP External I hope to continue our steps towards expansion and continue to spread out message to as many schools as possible.`,
     },
-    {
-      name: 'ALLY NECULITA',
-      position: 'VP FINANCE',
-      imageName: 'Ally.JPG',
-      bio:
-        'I’m Ally and I am a fifth-year accounting student at the University of Calgary. My goal with RED is to inspire youths, along with the rest of my community, to be able to make informed decisions regarding to substance use. Drug abuse is not a new issue in our community, and has been around for a while, and I am excited to collaborate with younger generations and deliver interesting facts on how these substances have an effect on the human body. I value the right of education for everyone, and besides my passion to learn, I also love musicals and dancing. As Vice President of Finance, I am excited to take on new fundraising projects and ensure that RED continues to grow.'
-    }
   ];
 
   const advisors = [
     {
-      name: 'HASNAIEN AHMED',
-      imageName: 'Hasnaien.jpg',
+      name: "HASNAIEN AHMED",
+      imageName: "Hasnaien.jpg",
       bio:
-        "During myself and Megan's tenure as Co-Presidents, RED underwent incredible growth and hit milestones such as the launch of our Fentanyl Presentation, our biggest executive team and club size to date, as well as winning Club of the Year. My primary role as an adviser is to keep that same energy instilled in the current executive team; propelling them forward to bigger and better accomplishments. Aside from much-unsolicited backseat driving, my future with this club holds working on the non-profit wing of RED, laying the foundations for future chapters at universities across Canada. I would be remiss if I did not mention my having had the incredible privilege of watching so many amazing junior executives and executives mature and blossom into the formidable leaders they are today; I am incredibly excited to see what the future holds for RED. I sleep with great ease and comfort at night, with the knowledge that this club is run by the ambitious, conscientious and caring people by which it is."
-    }
+        "During myself and Megan's tenure as Co-Presidents, RED underwent incredible growth and hit milestones such as the launch of our Fentanyl Presentation, our biggest executive team and club size to date, as well as winning Club of the Year. My primary role as an adviser is to keep that same energy instilled in the current executive team; propelling them forward to bigger and better accomplishments. Aside from much-unsolicited backseat driving, my future with this club holds working on the non-profit wing of RED, laying the foundations for future chapters at universities across Canada. I would be remiss if I did not mention my having had the incredible privilege of watching so many amazing junior executives and executives mature and blossom into the formidable leaders they are today; I am incredibly excited to see what the future holds for RED. I sleep with great ease and comfort at night, with the knowledge that this club is run by the ambitious, conscientious and caring people by which it is.",
+    },
   ];
 
   const alumnis = [
     {
-      name: 'KAITLYN VAN BAKEL',
-      position: 'CO-PRESIDENT'
+      name: "JEROME GOBEIL",
+      position: "IT COORDINATOR",
     },
     {
-      name: 'URIEL PEREZ',
-      position: 'CO-PRESIDENT'
+      name: "SOPHIE GOBEIL",
+      position: "CO-PRESIDENT",
     },
     {
-      name: 'SARAH ZANUTTO',
-      position: 'VP EDUCATION'
+      name: "BILAL HAFEEZ",
+      position: "CO-PRESIDENT",
     },
     {
-      name: 'KOUROSH BANAEIANZADEH',
-      position: 'VP INFORMATION & TECHNOLOGY'
+      name: "KAITLYN VAN BAKEL",
+      position: "CO-PRESIDENT",
     },
     {
-      name: 'JACKIE LUC',
-      position: 'VP INFORMATION & TECHNOLOGY'
+      name: "URIEL PEREZ",
+      position: "CO-PRESIDENT",
     },
     {
-      name: 'VINCENT CHIANG',
-      position: 'EDUCATION COORDINATOR'
+      name: "SARAH ZANUTTO",
+      position: "VP EDUCATION",
     },
     {
-      name: 'JENNY LE',
-      position: 'IT COORDINATOR'
+      name: "KOUROSH BANAEIANZADEH",
+      position: "VP INFORMATION & TECHNOLOGY",
     },
     {
-      name: 'SANGKHA PAUL',
-      position: 'EDUCATION COORDINATOR'
+      name: "JACKIE LUC",
+      position: "VP INFORMATION & TECHNOLOGY",
     },
     {
-      name: 'MEGAN LEUNG',
-      position: 'CO-PRESIDENT'
+      name: "VINCENT CHIANG",
+      position: "EDUCATION COORDINATOR",
     },
     {
-      name: 'JANNA NEWTON',
-      position: 'VP INTERNAL'
+      name: "JENNY LE",
+      position: "IT COORDINATOR",
     },
     {
-      name: 'SOPHIE OU YANG',
-      position: 'VP FINANCE'
+      name: "SANGKHA PAUL",
+      position: "EDUCATION COORDINATOR",
     },
     {
-      name: 'MONICA UPPAL',
-      position: 'MARKETING COORDINATOR'
+      name: "MEGAN LEUNG",
+      position: "CO-PRESIDENT",
     },
     {
-      name: 'SLOBODAN ZELIC',
-      position: 'SPONSORSHIP COORDINATOR'
+      name: "JANNA NEWTON",
+      position: "VP INTERNAL",
     },
     {
-      name: 'SACHINEE WIJETILLEKE',
-      position: 'IT COORDINATOR'
+      name: "SOPHIE OU YANG",
+      position: "VP FINANCE",
     },
     {
-      name: 'YASSINE BENSAADA',
-      position: 'CO-FOUNDER'
+      name: "MONICA UPPAL",
+      position: "MARKETING COORDINATOR",
     },
     {
-      name: 'ABDULLAH AZEEM',
-      position: 'CO-FOUNDER'
+      name: "SLOBODAN ZELIC",
+      position: "SPONSORSHIP COORDINATOR",
     },
     {
-      name: 'ASFAR KHAN',
-      position: 'VP-EXTERNAL'
+      name: "SACHINEE WIJETILLEKE",
+      position: "IT COORDINATOR",
     },
     {
-      name: 'SID GHOUTAHM ',
-      position: 'VP EXTERNAL'
+      name: "YASSINE BENSAADA",
+      position: "CO-FOUNDER",
     },
     {
-      name: 'CORI MAH',
-      position: 'VP INTERNAL'
-    }
+      name: "ABDULLAH AZEEM",
+      position: "CO-FOUNDER",
+    },
+    {
+      name: "ASFAR KHAN",
+      position: "VP-EXTERNAL",
+    },
+    {
+      name: "SID GHOUTAHM ",
+      position: "VP EXTERNAL",
+    },
+    {
+      name: "CORI MAH",
+      position: "VP INTERNAL",
+    },
   ];
 
   return (

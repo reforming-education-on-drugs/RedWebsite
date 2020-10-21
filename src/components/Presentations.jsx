@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Row, Col, Container } from "react-bootstrap";
 import Presentation from "../components/Presentation";
-import auth from '../utils/auth';
-import '../styles/loaderStyle.css';
+import auth from "../utils/auth";
+import "../styles/loaderStyle.css";
 
 class Presentations extends Component {
   constructor(props) {
@@ -15,72 +15,74 @@ class Presentations extends Component {
   }
 
   componentDidMount() {
-    this.generateHeaders().then(headers =>
-      fetch('/.netlify/functions/getPresentations', {
+    this.generateHeaders().then((headers) =>
+      fetch("/.netlify/functions/getPresentations", {
         headers,
-        method: 'POST',
-      }).then(response => this.updateUI(response)));
+        method: "POST",
+      }).then((response) => {
+        console.log(response);
+        this.updateUI(response);
+      })
+    );
   }
 
-  updateUI = response => {
-    response
-      .text()
-      .then(body => {
-        let presentations = JSON.parse(body);
+  updateUI = (response) => {
+    response.text().then((body) => {
+      let presentations = JSON.parse(body);
 
-        presentations.map(presentation =>
-          presentation.times.forEach(time => {
-            if (time.selected) {
-              time.selected = "Confirmed";
-            }
-            else if (time.enrolled >= time.capacity) {
-              time.selected = "Full";
-            }
-            else {
-              time.selected = "Unselected";
-            }
-          })
-        );
+      presentations.map((presentation) =>
+        presentation.times.forEach((time) => {
+          if (time.selected) {
+            time.selected = "Confirmed";
+          } else if (time.enrolled >= time.capacity) {
+            time.selected = "Full";
+          } else {
+            time.selected = "Unselected";
+          }
+        })
+      );
 
-        this.setState({
-          presentations: presentations,
-          isLoading: false
-        });
-      }
-    );
+      this.setState({
+        presentations: presentations,
+        isLoading: false,
+      });
+    });
   };
 
   generateHeaders = () => {
     const headers = { "Content-Type": "application/json" };
     if (auth.currentUser()) {
-      return auth.currentUser().jwt().then((token) => {
-        return { ...headers, Authorization: `Bearer ${token}` };
-      });
+      return auth
+        .currentUser()
+        .jwt()
+        .then((token) => {
+          return { ...headers, Authorization: `Bearer ${token}` };
+        });
     }
     return Promise.resolve(headers);
   };
 
-  sendPresentations = presentations => {
+  sendPresentations = (presentations) => {
     this.setState({ isLoading: true });
 
-    this.generateHeaders()
-      .then(headers =>
-        fetch('/.netlify/functions/savePresentations', {
-          body: JSON.stringify(presentations),
-          method: 'POST',
-          headers,
-        })
-        .then(response => this.updateUI(response))
-        .catch(error => console.error("JSON.stringify(error): " + JSON.stringify(error))
-      ));
+    this.generateHeaders().then((headers) =>
+      fetch("/.netlify/functions/savePresentations", {
+        body: JSON.stringify(presentations),
+        method: "POST",
+        headers,
+      })
+        .then((response) => this.updateUI(response))
+        .catch((error) =>
+          console.error("JSON.stringify(error): " + JSON.stringify(error))
+        )
+    );
   };
 
   convertAndSavePresentation = () => {
     const { presentations } = this.state;
 
-    presentations.forEach(presentation =>
-      presentation.times.forEach(time => {
-
+    presentations.forEach((presentation) =>
+      presentation.times.forEach((time) => {
         switch (time.selected) {
           case "Selected":
           case "Confirmed":
@@ -102,35 +104,44 @@ class Presentations extends Component {
     const { presentations, isLoading } = this.state;
 
     return (
-      <Row>
+      <Container className="container-no-padding">
         <Row>
-          <Col md={12} style={{height: '550px', overflowY: 'scroll'}}>
-            {
-              isLoading
-                ? <div className="loader" />
-                : presentations.map(presentation => <Presentation key={presentation.sheetname} presentation={presentation}/>)
-            }
+          <Col
+            md={12}
+            style={{ height: "550px", overflowY: "scroll", zIndex: "10" }}
+          >
+            {isLoading ? (
+              <div className="loader" />
+            ) : (
+              presentations.map((presentation) => (
+                <Presentation
+                  key={presentation.sheetname}
+                  presentation={presentation}
+                />
+              ))
+            )}
           </Col>
         </Row>
-        <Row>
+        <Row className="float-right">
           <Col md={12}>
             <button
               className="pull-right"
               style={{
-                color: '#FFFFFF',
-                backgroundColor: '#EF233C',
-                padding: '15px 30px',
-                borderRadius: '30px',
-                fontSize: '16px',
-                border: '0',
-                marginTop: '30px',
+                color: "#FFFFFF",
+                backgroundColor: "#EF233C",
+                padding: "15px 30px",
+                borderRadius: "30px",
+                fontSize: "16px",
+                border: "0",
+                marginTop: "30px",
               }}
-              onClick={this.convertAndSavePresentation}>
-                Sign up for presentations
+              onClick={this.convertAndSavePresentation}
+            >
+              Sign up for presentations
             </button>
           </Col>
         </Row>
-      </Row>
+      </Container>
     );
   }
 }

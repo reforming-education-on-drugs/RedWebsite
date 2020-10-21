@@ -1,12 +1,12 @@
-import React from 'react';
-import { Row, Col, Grid, Tabs, Tab } from 'react-bootstrap';
-import '../styles/schools.css';
+import React from "react";
+import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
+import "../styles/schools.css";
 
 export default function SchoolPage() {
-  document.title = 'RED | For Schools';
+  document.title = "RED | For Schools";
 
   return (
-    <Grid className="grid-container">
+    <Container className="grid-container">
       <Row className="show-grid">
         <Col id="schools_info" md={12}>
           <h2>Information for Schools</h2>
@@ -20,7 +20,7 @@ export default function SchoolPage() {
           </p>
         </Col>
       </Row>
-      <Row className="show-grid">
+      <Row id="our_presentations">
         <Col id="presentation_info" md={12}>
           <h2>Our Presentations</h2>
           <Col md={12}>
@@ -41,7 +41,9 @@ export default function SchoolPage() {
                   final investigation activity where they study vital signs and
                   symptoms to diagnose patients who have overdosed.
                 </p>
-                <h3 className="presentation_title">Patient Overdose Investigation</h3>
+                <h3 className="presentation_title">
+                  Patient Overdose Investigation
+                </h3>
                 <p className="presentation_desc">
                   In this activity, students must use neurological and
                   physiological symptoms in order to successfully diagnose
@@ -74,14 +76,19 @@ export default function SchoolPage() {
                   the media. Importantly, students then learn about the symptoms
                   of overdose, naloxone kits, and the science behind how opioids
                   work. Finally, students participate in a classroom discussion
-                  on the topic of supervised injection sites.
-                  <h3 className="presentation_title">Debate</h3>
+                  on the topic of supervised injection sites.{" "}
+                </p>
+                <h3 className="presentation_title">Debate</h3>
+                <p className="presentation_desc">
+                  {" "}
                   In this activity, the classroom will be divided in two, with
                   half arguing in favour of supervised injection sites, and half
                   arguing against the idea. This debate will encourage students
                   to think on both sides of the issue and spark some great
                   discussion.
-                  <h3 className="presentation_title">Concluding Activity</h3>
+                </p>
+                <h3 className="presentation_title">Concluding Activity</h3>
+                <p className="presentation_desc">
                   At the end of the presentation the class will be divided into
                   groups and asked to brainstorm answers to several questions
                   relating to drug use and opioids. This gives students the
@@ -102,7 +109,9 @@ export default function SchoolPage() {
                   are put into the shoes of physicians and use their new-found
                   knowledge to evaluate the prescription of cannabis to various
                   patients.
-                  <h3 className="presentation_title">Case Study Activity </h3>
+                </p>
+                <h3 className="presentation_title">Case Study Activity </h3>
+                <p className="presentation_desc">
                   In this activity, students evaluate three different cases
                   involving the use or prescription of cannabis. The case
                   studies encourage students to think critically about the
@@ -116,13 +125,13 @@ export default function SchoolPage() {
       </Row>
       <Row className="show-grid">
         <Col id="presentation_footer" md={12}>
-          <p>
-            We would love to come to your school and present!
-          </p>
-          <a id="primary" href="/booking">Book a presentation</a>
+          <p>We would love to come to your school and present!</p>
+          <a class="primary_red" href="/booking">
+            Book a presentation
+          </a>
         </Col>
       </Row>
-    </Grid>
+    </Container>
 
     // <main>
     //   <div className="container">
