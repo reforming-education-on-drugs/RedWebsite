@@ -1,36 +1,42 @@
 /* eslint-disable no-console */
-const GoogleSpreadsheet = require('google-spreadsheet');
-const {promisify} = require('util');
-require('dotenv').config();
-const {spread_sheet_id, client_email, private_key, local, testEmail} = process.env;
+const GoogleSpreadsheet = require("google-spreadsheet");
+const { promisify } = require("util");
+require("dotenv").config();
+const {
+  spread_sheet_id,
+  client_email,
+  private_key,
+  local,
+  testEmail,
+} = process.env;
 
 exports.errorResponse = function (callback, err) {
-  console.error('END: Error response.');
+  console.error("END: Error response.");
   console.error(err);
 
   callback(null, {
     statusCode: 500,
-    body: JSON.stringify({error: err})
+    body: JSON.stringify({ error: err }),
   });
 };
 
 exports.successResponse = function (callback, res) {
-  console.log('END: Success response.');
-  console.log('Returning data:');
+  console.log("END: Success response.");
+  console.log("Returning data:");
   console.log(JSON.stringify(res));
 
   callback(null, {
     statusCode: 200,
-    body: JSON.stringify(res)
+    body: JSON.stringify(res),
   });
 };
 
 exports.authenticate = async function () {
-  const privateKeyWithNewline = private_key.replace(/\\n/g, '\n'); //Fix environment variable
+  const privateKeyWithNewline = private_key.replace(/\\n/g, "\n"); //Fix environment variable
 
   const creds = {
     client_email,
-    private_key: privateKeyWithNewline
+    private_key: privateKeyWithNewline,
   };
 
   const doc = new GoogleSpreadsheet(spread_sheet_id);
@@ -41,7 +47,7 @@ exports.authenticate = async function () {
 
 exports.getSheetByName = async function (doc, name) {
   const info = await promisify(doc.getInfo)();
-  return info.worksheets.filter(worksheet => name === worksheet.title)[0];
+  return info.worksheets.filter((worksheet) => name === worksheet.title)[0];
 };
 
 exports.convertPresentation = function (presentationRow) {
@@ -64,7 +70,8 @@ exports.update = function (a, b) {
 };
 
 exports.convertTime = function (timeRow, email) {
-  let volunteers = timeRow.volunteers === '' ? [] : timeRow.volunteers.split(',');
+  let volunteers =
+    timeRow.volunteers === "" ? [] : timeRow.volunteers.split(",");
   let time = {
     startTime: timeRow.starttime,
     endTime: timeRow.endtime,
@@ -86,11 +93,10 @@ exports.convertTime = function (timeRow, email) {
 exports.localContext = {
   clientContext: {
     user: {
-      email: testEmail
-    }
-  }
+      email: testEmail,
+    },
+  },
 };
-
 
 exports.isLocal = function () {
   return local === "true";

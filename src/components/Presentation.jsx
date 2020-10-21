@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Button, Col, Modal, Card, Row, Table } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Modal,
+  Card,
+  Row,
+  Table,
+  Container,
+} from "react-bootstrap";
 import PropTypes from "prop-types";
 import Moment from "moment";
 
@@ -30,13 +38,13 @@ class Presentation extends Component {
   getStatusIcon = (status) => {
     switch (status) {
       case "Full":
-        return "glyphicon glyphicon-ban-circle";
+        return "fas fa-ban";
       case "Confirmed":
-        return "glyphicon glyphicon-check";
+        return "far fa-check-square";
       case "Selected":
-        return "glyphicon glyphicon-check";
+        return "far fa-check-square";
       case "Unselected":
-        return "glyphicon glyphicon-unchecked";
+        return "far fa-square";
     }
   };
 
@@ -99,7 +107,7 @@ class Presentation extends Component {
     const { presentation } = this.state;
 
     return (
-      <div className="container d-flex">
+      <Container className="container-no-padding">
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Error</Modal.Title>
@@ -112,7 +120,7 @@ class Presentation extends Component {
           </Modal.Footer>
         </Modal>
 
-        <Card>
+        <Card className="p-2 presentation-item">
           <Row>
             {/* Name of school, date and address */}
             <Col xs={6}>
@@ -184,7 +192,7 @@ class Presentation extends Component {
                   </tr>
                 </thead>
 
-                <tbody style={{ fontSize: "11px" }}>
+                <tbody style={{ fontSize: "10px" }}>
                   {presentation.times.map((time) => {
                     return (
                       <tr
@@ -237,7 +245,7 @@ class Presentation extends Component {
           </Row>{" "}
           {/* End of table */}
         </Card>
-      </div>
+      </Container>
     );
   }
 }

@@ -62,13 +62,13 @@ export default function GetInvolvedPage() {
 
   return (
     <main>
-      <div className="container">
-        <h1>Get Involved</h1>
-      </div>
       <Container>
+        <div>
+          <h1>Get Involved</h1>
+        </div>
         <Tabs justified id="Memberships">
           <Tab eventKey={1} title="Club Membership">
-            <div id="club-membership" className="tab-pane fade active in">
+            <div id="club-membership" className="tab-pane">
               <div className="container">
                 <h2>Club Membership</h2>
                 <p className="smaller-width-paragraph">

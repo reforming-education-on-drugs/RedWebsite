@@ -55,8 +55,16 @@ p {
   // }
 }
 
-main .container {
+main .container:not(.container-no-padding) {
   padding: 4em;
+}
+
+.container-no-padding {
+  padding: 0 !important;
+}
+
+.card.presentation-item:first-of-type {
+  margin-top: 15px;
 }
 
 .redcontainer {

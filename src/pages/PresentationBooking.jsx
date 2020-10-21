@@ -293,24 +293,24 @@ export default class PresentationBooking extends Component {
           notes: this.state.formNotes,
         };
         console.log(validStateWithFormNotes);
-        // fetch("/", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        //   body: this.encode({
-        //     "form-name": "presentation-booking-form",
-        //     ...validStateWithFormNotes,
-        //   }),
-        // })
-        //   .then(() => this.setState({ ...this.state, formSubmitted: true }))
-        //   .catch((error) => {
-        //     console.log(error);
-        //     this.setState({ ...this.state, formSubmitted: true });
-        //   });
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: this.encode({
+            "form-name": "presentation-booking-form",
+            ...validStateWithFormNotes,
+          }),
+        })
+          .then(() => this.setState({ ...this.state, formSubmitted: true }))
+          .catch((error) => {
+            console.log(error);
+            this.setState({ ...this.state, formSubmitted: true });
+          });
       }
       this.setState({
         form: validState,
         formIsValid: formIsValid,
-        formSubmitted: true,
+        // formSubmitted: true,
       });
     }
     e.preventDefault();
@@ -648,6 +648,13 @@ export default class PresentationBooking extends Component {
           Please note that you may not receive your first choice. We process all
           bookings in the order that they are received. We will work with you to
           ensure that you get a date that works for you!
+          <br />
+          <br />
+          <b>
+            NOTE: We have reached our maximum capacity of presentation bookings
+            for November 2020, and are currently only accepting bookings for
+            later dates.
+          </b>
         </FormLabel>
         <Form.Group className="dateTime-group" controlId="dateTime">
           <div className="dateTimeChoice">

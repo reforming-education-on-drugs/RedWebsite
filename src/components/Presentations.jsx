@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import Presentation from "../components/Presentation";
 import auth from "../utils/auth";
 import "../styles/loaderStyle.css";
@@ -19,7 +19,10 @@ class Presentations extends Component {
       fetch("/.netlify/functions/getPresentations", {
         headers,
         method: "POST",
-      }).then((response) => this.updateUI(response))
+      }).then((response) => {
+        console.log(response);
+        this.updateUI(response);
+      })
     );
   }
 
@@ -101,9 +104,12 @@ class Presentations extends Component {
     const { presentations, isLoading } = this.state;
 
     return (
-      <Row>
+      <Container className="container-no-padding">
         <Row>
-          <Col md={12} style={{ height: "550px", overflowY: "scroll" }}>
+          <Col
+            md={12}
+            style={{ height: "550px", overflowY: "scroll", zIndex: "10" }}
+          >
             {isLoading ? (
               <div className="loader" />
             ) : (
@@ -116,7 +122,7 @@ class Presentations extends Component {
             )}
           </Col>
         </Row>
-        <Row>
+        <Row className="float-right">
           <Col md={12}>
             <button
               className="pull-right"
@@ -135,7 +141,7 @@ class Presentations extends Component {
             </button>
           </Col>
         </Row>
-      </Row>
+      </Container>
     );
   }
 }

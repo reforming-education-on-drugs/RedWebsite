@@ -57,9 +57,9 @@ const descriptionText = {
 
 function Volunteer() {
   return (
-    <Container style={monty}>
+    <Container style={monty} className="container-no-padding">
       <Row>
-        <Col md={6} style={firstBox}>
+        <Col md={6} style={firstBox} className="px-4">
           <Row>
             <Col md={{ span: 10, offset: 2 }}>
               <h1 style={headLiner}>
@@ -124,19 +124,21 @@ export default class VolunteerPage extends React.Component {
     super();
 
     this.state = { currentUser: auth.currentUser() };
-  }
 
-  componentWillMount() {
     if (!this.state.currentUser) {
       window.location.href = "/login";
     }
   }
 
   render() {
-    return (
-      <main>
-        <Volunteer />
-      </main>
-    );
+    if (this.state.currentUser) {
+      return (
+        <main>
+          <Volunteer />
+        </main>
+      );
+    } else {
+      return <div></div>;
+    }
   }
 }
