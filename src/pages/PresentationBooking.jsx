@@ -874,7 +874,7 @@ export default class PresentationBooking extends Component {
             </Accordion.Collapse>
           </Card>
         </Accordion>
-        {console.log(this.checkFormValidity())}
+        {/* {console.log(this.checkFormValidity())} */}
         {this.checkFormValidity() ? (
           <div className="d-flex justify-content-end">
             <div>

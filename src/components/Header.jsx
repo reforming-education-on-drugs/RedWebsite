@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Nav, Navbar, NavItem, NavDropdown, Container } from "react-bootstrap";
 import auth from "../utils/auth";
 
@@ -64,7 +64,7 @@ export default function Header() {
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>
             )}
-            {window.location.pathname != "/booking" ? (
+            {useLocation().pathname != "/booking" ? (
               <Nav.Link
                 id="book_presentation"
                 className="primary_red"
