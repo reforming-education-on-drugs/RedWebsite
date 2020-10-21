@@ -25,7 +25,6 @@ class Presentations extends Component {
 
   updateUI = (response) => {
     response.text().then((body) => {
-      console.log(body);
       let presentations = JSON.parse(body);
 
       presentations.map((presentation) =>
