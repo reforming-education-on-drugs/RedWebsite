@@ -64,13 +64,17 @@ export default function Header() {
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>
             )}
-            <Nav.Link
-              id="book_presentation"
-              className="primary_red"
-              href="/booking"
-            >
-              Book a presentation
-            </Nav.Link>
+            {window.location.pathname != "/booking" ? (
+              <Nav.Link
+                id="book_presentation"
+                className="primary_red"
+                href="/booking"
+              >
+                Book a presentation
+              </Nav.Link>
+            ) : (
+              <div></div>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
