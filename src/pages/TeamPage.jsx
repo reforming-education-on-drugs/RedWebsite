@@ -178,6 +178,10 @@ export default function TeamPage() {
 
   const alumnis = [
     {
+      name: "JEROME GOBEIL",
+      position: "IT COORDINATOR",
+    },
+    {
       name: "SOPHIE GOBEIL",
       position: "CO-PRESIDENT",
     },
