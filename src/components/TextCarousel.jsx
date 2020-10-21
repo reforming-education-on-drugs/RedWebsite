@@ -22,7 +22,7 @@ export default function TextCarousel(props) {
 
   return (
     <Container id="testimonial">
-      <Row className="w-100">
+      <Row className="w-100" style={{ margin: "0 auto" }}>
         {/* <Col md={8} lgOffset={2}> */}
         <Col md="auto">
           <div className="testimonial-quote">
