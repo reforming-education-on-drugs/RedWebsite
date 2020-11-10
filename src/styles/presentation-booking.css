@@ -13,7 +13,7 @@
   color: #ef233c;
 }
 
-.card {
+#presentation-booking-form .card {
   margin-bottom: 20px;
   border-bottom: 1px !important;
   overflow: visible !important;
@@ -21,15 +21,15 @@
   box-shadow: 0 4px 2px rgba(0, 0, 0, 0.05);
 }
 
-.card-header {
+#presentation-booking-form .card-header {
   background: #ffffff;
 }
 
-.card-title {
+#presentation-booking-form .card-title {
   margin-bottom: 0;
 }
 
-.card-title:hover {
+#presentation-booking-form .card-title:hover {
   cursor: pointer;
   color: #ef233c;
 }

@@ -19,6 +19,7 @@ import PasswordRecoveryPage from "./PasswordRecoveryPage";
 import ContactUsPage from "./ContactUsPage";
 import VolunteerPage from "./VolunteerPage";
 import PresentationBooking from "./PresentationBooking";
+import PresentationBookingWizard from "./PresentationBookingWizard";
 import Footer from "../components/Footer";
 
 // This is a class-based component because the current
@@ -47,7 +48,12 @@ class App extends React.Component {
             <Route exact path="/blog" component={BlogPage} />
             <Route exact path="/get-involved" component={GetInvolvedPage} />
             <Route exact path="/donate" component={DonatePage} />
-            <Route exact path="/booking" component={PresentationBooking} />
+            <Route exact path="/old-booking" component={PresentationBooking} />
+            <Route
+              exact
+              path="/booking"
+              component={PresentationBookingWizard}
+            />
             <Route exact path="/contact-us" component={ContactUsPage} />
             <Route exact path="/volunteer" component={VolunteerPage} />
             <Route exact path="/faq" component={NotFoundPage} />

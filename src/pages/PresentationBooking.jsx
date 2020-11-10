@@ -946,7 +946,12 @@ export default class PresentationBooking extends Component {
               </Col>
             </Row>
           </Col>
-          <Col className="formContent" md={6} xs={12}>
+          <Col
+            id="presentation-booking-form"
+            className="formContent"
+            md={6}
+            xs={12}
+          >
             {this.validationMessage()}
             {this.state.formSubmitted ? "" : this.renderForm()}
           </Col>

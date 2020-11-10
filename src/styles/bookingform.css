@@ -1,0 +1,232 @@
+#presentation_booking_wizard {
+  margin-top: 140px;
+  margin-bottom: 5%;
+}
+
+#presentation_booking_wizard > .container > .container {
+  padding: 3em;
+  margin-bottom: 5%;
+}
+
+@media (max-width: 767px) {
+  .booking-form-info {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden;
+  }
+  .booking-form-info .steps-form .steps-row .steps-step p {
+    font-size: 10px;
+  }
+  #presentation_booking_wizard .step_title_container > span:first-of-type {
+    font-size: 1.5rem !important;
+  }
+  #presentation_booking_wizard #step3 .presentation_option {
+    margin: 14px auto;
+  }
+  div.presentation-valid {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 767px) {
+  #presentation_booking_wizard #step3 .card-subtitle {
+    font-size: 0.65rem !important;
+  }
+  #presentation_booking_wizard #step3 .card-text {
+    font-size: 10px !important;
+  }
+}
+
+#presentation_booking_wizard > .container {
+  padding-bottom: 7% !important;
+}
+
+#presentation_booking_wizard .step_title_container > span:first-of-type {
+  /* font-size: calc(18px + 0.7vw); */
+  /* letter-spacing: calc(2px + 0.5vw); */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#presentation_booking_wizard .step_title_instruc > span:first-of-type {
+  font-weight: bold;
+}
+
+#presentation_booking_wizard .step_title_instruc li {
+  margin: 10px auto;
+}
+
+#presentation_booking_wizard #step3 .presentation_option:hover {
+  cursor: pointer;
+}
+
+#presentation_booking_wizard #step3 .card-text {
+  font-size: 12px;
+  /* text-align: justify; */
+  text-align: left;
+}
+
+#presentation_booking_wizard #step3 .card-subtitle {
+  font-size: 0.75rem;
+}
+
+#presentation_booking_wizard .card-deck {
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.requiredField {
+  color: #ef233c;
+}
+
+/* Stepper */
+.steps-form {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+.steps-form .steps-row {
+  display: table-row;
+}
+.steps-form .steps-row:before {
+  top: 14px;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+}
+.steps-form .steps-row .steps-step {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+}
+.steps-form .steps-row .steps-step a:hover {
+  color: #000000;
+}
+.steps-form .steps-row .steps-step a {
+  background: #ffffff;
+}
+
+.steps-form .steps-row .steps-step a.active_step {
+  background: #708090;
+  color: #ffffff;
+}
+
+.steps-form .steps-row .steps-step p {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.steps-form .steps-row .steps-step .btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  margin-top: 0;
+}
+
+select#contact_role,
+select#grades_field,
+select#presentation_duration_field,
+select#presentation_medium {
+  background-position: right 30px center;
+}
+
+div.selected_presentation {
+  background: #ffffff;
+  border: 1px solid #28a745;
+  border-radius: calc(0.25rem - 1px);
+  padding: 0;
+  z-index: 2;
+}
+
+div.presentation-valid {
+  border-color: #28a745;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  width: 40%;
+  margin: 40px auto;
+}
+
+div.dateTime-valid {
+  border-color: #28a745;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  background-position: right 30px center;
+}
+
+div.dateTime-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  background-position: right 30px center;
+}
+
+#step4 .dateTime-group {
+  position: relative;
+}
+
+/* #step4 .dateTime-group .rdt, */
+#step4 .dateTime-group .dateTime-valid,
+#step4 .dateTime-group .dateTime-invalid {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+#step4 .dateTime-group .rdt > input {
+  position: relative;
+  background: none !important;
+  z-index: 2 !important;
+}
+
+#step4 .dateTime-group > .dateTime-valid,
+#step4 .dateTime-group > .dateTime-invalid {
+  z-index: 1 !important;
+}
+
+#step4 .dateTime-group input#dateTime.is-invalid ~ .rdt > input.form-control {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+}
+#step4 .dateTime-group input#dateTime.is-valid ~ .rdt > input.form-control {
+  border-color: #28a745;
+  padding-right: calc(1.5em + 0.75rem);
+}
+
+#step4 #presentation_datetime_field_note {
+  margin-top: 40px;
+}
+
+/* Quick fix on presentation_datetime_field for iPhone 5 screen size */
+@media (max-width: 320px) {
+  #step4 .dateTime-group .dateTime-valid,
+  #step4 .dateTime-group .dateTime-invalid {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 16px;
+    left: 0;
+  }
+  #step4 #presentation_datetime_field_note {
+    margin-top: 45px;
+  }
+  #step4 .dateTime-group input {
+    margin-top: 30px;
+  }
+}
