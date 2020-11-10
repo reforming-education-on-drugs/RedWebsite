@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import chunk from "lodash/chunk";
 
 // This will import all the images because ES6 standard doesn't allow
@@ -28,12 +28,19 @@ function Executive(props) {
   const executives = chunk(props.executives, 2);
 
   return (
-    <div className="container">
+    <Container>
       <div className="executive">
         {executives.map((executiveRow) => (
           <Row>
             {executiveRow.map((executive) => (
-              <Col md={6}>
+              <Col
+                md={6}
+                onClick={() => {
+                  props.setModalShow(true);
+                  props.setViewingExec(executive.name);
+                }}
+                className="exec-card hvr-float"
+              >
                 <img
                   src={importedImages[executive.imageName]}
                   className="img-circle wow fadeInDown"
@@ -43,14 +50,56 @@ function Executive(props) {
                   <b>{executive.name}</b>
                 </h3>
                 <h3>{executive.position}</h3>
-                <p>{executive.bio}</p>
+                {/* <p>{executive.bio}</p> */}
               </Col>
             ))}
           </Row>
         ))}
       </div>
-    </div>
+    </Container>
   );
+}
+
+function BioModal(props) {
+  if (props.viewingExec != null) {
+    const { show, onHide } = props;
+    const exec = props.viewingExec;
+    return (
+      <Modal
+        show={show}
+        onHide={onHide}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <div className="executive_modal">
+          <Row className="justify-content-end mr-4 mt-4">
+            <i
+              onClick={onHide}
+              style={{ cursor: "pointer" }}
+              className="fas fa-times"
+            ></i>
+          </Row>
+          <Row className="justify-content-center p-4">
+            <Col md={12}>
+              <img
+                src={importedImages[exec.imageName]}
+                className="img-circle wow fadeInDown"
+                alt={exec.name}
+              />
+              <h3>
+                <b>{exec.name}</b>
+              </h3>
+              <h3>{exec.position}</h3>
+              <p className="mb-4 text-justify mx-2">{exec.bio}</p>
+            </Col>
+          </Row>
+        </div>
+      </Modal>
+    );
+  } else {
+    return <></>;
+  }
 }
 
 function Advisors(props) {
@@ -69,7 +118,15 @@ function Advisors(props) {
           {advisors.map((advisorRow) => (
             <Row>
               {advisorRow.map((advisor) => (
-                <Col md={6} style={{ display: "inline-block", float: "none" }}>
+                <Col
+                  md={6}
+                  onClick={() => {
+                    props.setModalShow(true);
+                    props.setViewingExec(advisor.name);
+                  }}
+                  style={{ display: "inline-block", float: "none" }}
+                  className="exec-card hvr-float"
+                >
                   <img
                     src={importedImages[advisor.imageName]}
                     className="img-circle wow fadeInDown"
@@ -78,7 +135,7 @@ function Advisors(props) {
                   <h3>
                     <b>{advisor.name}</b>
                   </h3>
-                  <p>{advisor.bio}</p>
+                  {/* <p>{advisor.bio}</p> */}
                 </Col>
               ))}
             </Row>
@@ -267,14 +324,43 @@ export default function TeamPage() {
     },
   ];
 
+  const [modalShow, setModalShow] = React.useState(false);
+  const [viewingExec, setViewingExec] = React.useState(null);
+
+  const executives_and_advisors = executives.concat(advisors);
+
   return (
     <main>
       <div className="container">
         <h1>Our Team</h1>
       </div>
-      <Executive executives={executives} />
-      <Advisors advisors={advisors} />
+      <Executive
+        modalShow={modalShow}
+        setModalShow={setModalShow}
+        executives={executives}
+        viewingExec={viewingExec}
+        setViewingExec={setViewingExec}
+      />
+      <Advisors
+        advisors={advisors}
+        modalShow={modalShow}
+        setModalShow={setModalShow}
+        viewingExec={viewingExec}
+        setViewingExec={setViewingExec}
+      />
       <Alumni alumnis={alumnis} />
+      <BioModal
+        viewingExec={
+          viewingExec != null
+            ? executives_and_advisors.find((exec) => exec.name == viewingExec)
+            : null
+        }
+        show={modalShow}
+        onHide={() => {
+          setModalShow(false);
+          setViewingExec(null);
+        }}
+      />
     </main>
   );
 }
