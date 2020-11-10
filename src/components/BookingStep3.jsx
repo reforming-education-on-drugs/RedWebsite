@@ -88,7 +88,7 @@ export default class BookingStep1 extends React.Component {
                 >
                   <Card.Img
                     variant="top"
-                    src={require("../assets/images/placeholder.png")}
+                    src={require("../assets/images/drug_overview.png")}
                   />
                   <Card.Body>
                     <Card.Title className="font-weight-bold">
@@ -115,7 +115,7 @@ export default class BookingStep1 extends React.Component {
                 >
                   <Card.Img
                     variant="top"
-                    src={require("../assets/images/placeholder.png")}
+                    src={require("../assets/images/fentanyl.png")}
                   />
                   <Card.Body>
                     <Card.Title className="font-weight-bold">
@@ -143,7 +143,7 @@ export default class BookingStep1 extends React.Component {
                 >
                   <Card.Img
                     variant="top"
-                    src={require("../assets/images/placeholder.png")}
+                    src={require("../assets/images/cannabis.png")}
                   />
                   <Card.Body>
                     <Card.Title className="font-weight-bold">
