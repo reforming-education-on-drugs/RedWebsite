@@ -22,6 +22,9 @@ import PresentationBooking from "./PresentationBooking";
 import PresentationBookingWizard from "./PresentationBookingWizard";
 import Footer from "../components/Footer";
 
+// Presentation pages
+// import DrugOverviewPage from "./DrugOverviewPage";
+
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -59,6 +62,10 @@ class App extends React.Component {
             <Route exact path="/faq" component={NotFoundPage} />
             <Route path="/password-reset" component={PasswordResetPage} />
             <Route path="/recover" component={PasswordRecoveryPage} />
+            {/* <Route
+              path="/presentations/drug-overview"
+              component={DrugOverviewPage}
+            /> */}
             <Route path="*" component={NotFoundPage} />
           </Switch>
           <Footer />

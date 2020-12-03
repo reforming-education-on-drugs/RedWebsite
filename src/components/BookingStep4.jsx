@@ -249,7 +249,7 @@ export default class BookingStep1 extends React.Component {
                   isInvalid={this.getMediumState() == false ? true : false}
                 >
                   <option></option>
-                  <option>In-person</option>
+                  <option disabled>In-person (currently unavailable)</option>
                   <option>Online</option>
                 </Form.Control>
                 <Form.Text className="text-muted">
