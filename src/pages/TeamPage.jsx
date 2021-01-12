@@ -41,11 +41,13 @@ function Executive(props) {
                 }}
                 className="exec-card hvr-float"
               >
-                <img
-                  src={importedImages[executive.imageName]}
-                  className="img-circle wow fadeInDown"
-                  alt={executive.name}
-                />
+                {executive.imageName && (
+                  <img
+                    src={importedImages[executive.imageName]}
+                    className="img-circle wow fadeInDown"
+                    alt={executive.name}
+                  />
+                )}
                 <h3>
                   <b>{executive.name}</b>
                 </h3>
@@ -210,17 +212,31 @@ export default function TeamPage() {
         "Hey, my name is David and I am currently in my third year of Neuroscience at the University of Calgary. Ever since elementary school, one of the most important things in my life has been the idea of scientific literacy, and the view that it is not about your level of knowledge, but an overwhelming curiosity towards the world around you. As a result, I believe that it is essential that science is taught in a way that is engaging, interactive, and purposeful. I joined RED with the desire to educate students about the risks of drug use viewed through a scientific lens, and design presentations that would encourage them to apply what they have learned to their own lives. Whenever I have free time, you can usually find me listening to music or trying to learn new obscure hobbies.",
     },
     {
-      name: "ALLY NECULITA",
-      position: "VP FINANCE",
-      imageName: "Ally.jpg",
+      name: "VELLA KIM",
+      position: "EDUCATION COORDINATOR",
+      imageName: "Vella.jpg",
       bio:
-        "I’m Ally and I am a fifth-year accounting student at the University of Calgary. My goal with RED is to inspire youths, along with the rest of my community, to be able to make informed decisions regarding to substance use. Drug abuse is not a new issue in our community, and has been around for a while, and I am excited to collaborate with younger generations and deliver interesting facts on how these substances have an effect on the human body. I value the right of education for everyone, and besides my passion to learn, I also love musicals and dancing. As Vice President of Finance, I am excited to take on new fundraising projects and ensure that RED continues to grow.",
+        "With the ongoing prevalence of substance abuse in our community, it is critical to educate adolescents of drug use. As a current 3rd year neuroscience student at the University of Calgary, I was drawn to RED not only by its vision for such education, but also the use of scientific knowledge as a vehicle towards this goal. My aim as an Education Coordinator is to continue creating and distributing content that sparks the interest of youth towards the scientific and social implications of drugs in order to allow self-made mature and informed decisions. I am grateful to be part of such an impactful club, and am excited to further broaden our reach towards the younger generation. In my free time, I enjoy playing and listening to music.",
+    },
+    {
+      name: "RIVA KESSEL",
+      position: "EDUCATION COORDINATOR",
+      imageName: "Riva.jpg",
+      bio:
+        "Hey everyone! My name is Riva and I am currently a fourth year student in Cellular, Molecular and Microbial Biology at the University of Calgary. Growing up, I was taught about drugs and substance use disorders in a way that scared me. This made me avoid these subject areas because I was afraid. Being at university, studying science, and presenting at RED, has made me realize how essential it is for everyone to have a scientific-based knowledge of drugs and substance use. Understanding and learning through a scientific lens can change one’s perspective in regards to the decisions they make and how they see others. By using science and making the learning process engaging and interactive, I have seen our presentations make kids more open to being educated and less scared of being informed. With RED I want to keep up their desire to learn about these subject areas that are important and prevalent in their society, so that they can make decisions while understanding their consequences. In my free time I powerlift, play spikeball, and take care of my dog Yoshi!",
     },
     {
       name: "PUNIT BHATT",
       position: "VP EXTERNAL",
       imageName: "Punit.jpg",
       bio: `Hey! My name is Punit Bhatt. I am second year student at U of C pursuing a undergraduate degree in Neuroscience. Drug education and awareness is something that I think is especially important for our generation due to the impact of social media. Drugs and alcohol are always "advertised" on our socials through big celebrities and that may lead to many misconceptions about consumption. Additionally, the popularity of vapes and the legalization of marijuana demands that we as a society look to promote drug education. That is why I think that RED can have a huge impact on our community: by expanding beyond just saying "drugs are bad" and actually explaining some of the science behind drugs, we are able to promote safe consumption and healthy choices. Additionally, as students we may be able to provide a connection that is more impactful. As this year's VP External I hope to continue our steps towards expansion and continue to spread out message to as many schools as possible.`,
+    },
+    {
+      name: "ALLY NECULITA",
+      position: "VP FINANCE",
+      imageName: "Ally.jpg",
+      bio:
+        "I’m Ally and I am a fifth-year accounting student at the University of Calgary. My goal with RED is to inspire youths, along with the rest of my community, to be able to make informed decisions regarding to substance use. Drug abuse is not a new issue in our community, and has been around for a while, and I am excited to collaborate with younger generations and deliver interesting facts on how these substances have an effect on the human body. I value the right of education for everyone, and besides my passion to learn, I also love musicals and dancing. As Vice President of Finance, I am excited to take on new fundraising projects and ensure that RED continues to grow.",
     },
   ];
 
