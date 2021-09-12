@@ -156,13 +156,6 @@ export default class BookingStep1 extends React.Component {
           <Card className="w-80">
             <Card.Header as="h5">Presentation Date/Time and Format</Card.Header>
             <Form className="p-4">
-              <Row>
-                <span className="font-weight-bold text-wrap m-4 text-center">
-                  NOTE: We have reached our maximum capacity of presentation
-                  bookings for November 2020, and are currently only accepting
-                  bookings for later dates.
-                </span>
-              </Row>
               <Form.Group>
                 <Form.Group className="dateTime-group" controlId="dateTime">
                   <Form.Label className="font-weight-bold">
