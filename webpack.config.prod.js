@@ -114,6 +114,7 @@ export default {
               limit: 10000,
               mimetype: "image/svg+xml",
               name: "assets/images/[name].[ext]",
+              esModule: false,
             },
           },
         ],
@@ -125,6 +126,7 @@ export default {
             loader: "file-loader",
             options: {
               name: "assets/images/[name].[ext]",
+              esModule: false,
             },
           },
         ],
