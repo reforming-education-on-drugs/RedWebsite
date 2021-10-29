@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 require("google-spreadsheet");
-const { promisify } = require("util");
+// const { promisify } = require("util");
 const Moment = require("moment");
 const {
   successResponse,

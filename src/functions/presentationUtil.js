@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 // const GoogleSpreadsheet = require("google-spreadsheet");
 const { GoogleSpreadsheet } = require("google-spreadsheet");
-const { promisify } = require("util");
+// const { promisify } = require("util");
 require("dotenv").config();
 const { spread_sheet_id, client_email, private_key, local, testEmail } =
   process.env;
