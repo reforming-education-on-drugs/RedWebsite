@@ -1,14 +1,10 @@
 /* eslint-disable no-console */
-const GoogleSpreadsheet = require("google-spreadsheet");
+// const GoogleSpreadsheet = require("google-spreadsheet");
+const { GoogleSpreadsheet } = require("google-spreadsheet");
 const { promisify } = require("util");
 require("dotenv").config();
-const {
-  spread_sheet_id,
-  client_email,
-  private_key,
-  local,
-  testEmail,
-} = process.env;
+const { spread_sheet_id, client_email, private_key, local, testEmail } =
+  process.env;
 
 exports.errorResponse = function (callback, err) {
   console.error("END: Error response.");
@@ -40,23 +36,44 @@ exports.authenticate = async function () {
   };
 
   const doc = new GoogleSpreadsheet(spread_sheet_id);
-  await promisify(doc.useServiceAccountAuth)(creds);
+  // await promisify(doc.useServiceAccountAuth)(creds);
+  await doc.useServiceAccountAuth(creds);
 
   return doc;
 };
 
 exports.getSheetByName = async function (doc, name) {
-  const info = await promisify(doc.getInfo)();
-  return info.worksheets.filter((worksheet) => name === worksheet.title)[0];
+  // const info = await promisify(doc.getInfo)();
+  await doc.loadInfo();
+  // return info.worksheets.filter((worksheet) => name === worksheet.title)[0];
+  // const res = Object.values(doc._rawSheets).filter(
+  //   (worksheet) => name === worksheet._rawProperties.title
+  // )[0];
+
+  const sheet = doc.sheetsByTitle[name];
+
+  return sheet;
 };
 
 exports.convertPresentation = function (presentationRow) {
+  // console.info(
+  //   "START: convertPresentation ------------------",
+  //   presentationRow
+  // );
+  // return {
+  //   name: presentationRow.name,
+  //   address: presentationRow.address,
+  //   date: presentationRow.date,
+  //   sheetname: presentationRow.sheetname,
+  //   type: presentationRow.type,
+  //   times: [],
+  // };
   return {
-    name: presentationRow.name,
-    address: presentationRow.address,
-    date: presentationRow.date,
-    sheetname: presentationRow.sheetname,
-    type: presentationRow.type,
+    name: presentationRow["Name:"],
+    address: presentationRow["Address:"],
+    date: presentationRow["Date:"],
+    sheetname: presentationRow["Sheet Name:"],
+    type: presentationRow["Type:"],
     times: [],
   };
 };
@@ -70,13 +87,25 @@ exports.update = function (a, b) {
 };
 
 exports.convertTime = function (timeRow, email) {
+  // let volunteers =
+  //   timeRow.volunteers === "" ? [] : timeRow.volunteers.split(",");
   let volunteers =
-    timeRow.volunteers === "" ? [] : timeRow.volunteers.split(",");
+    String(timeRow["Volunteers:"]).trim() === "" ||
+    typeof timeRow["Volunteers:"] === "undefined"
+      ? []
+      : String(timeRow["Volunteers:"]).split(",");
+  // let time = {
+  //   startTime: timeRow.starttime,
+  //   endTime: timeRow.endtime,
+  //   enrolled: volunteers.length,
+  //   capacity: parseInt(timeRow.capacity, 10),
+  //   selected: false, // Will be reset if the user is inside
+  // };
   let time = {
-    startTime: timeRow.starttime,
-    endTime: timeRow.endtime,
+    startTime: timeRow["Start Time"],
+    endTime: timeRow["End Time"],
     enrolled: volunteers.length,
-    capacity: parseInt(timeRow.capacity, 10),
+    capacity: parseInt(timeRow["Capacity:"], 10),
     selected: false, // Will be reset if the user is inside
   };
 

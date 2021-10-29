@@ -104,14 +104,16 @@ export default class PresentationBookingWizard extends React.Component {
   };
   fieldIsEmail = (fieldName) => {
     const field = this.state[fieldName];
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (field.length === -1) return null;
     else if (emailRegex.test(String(field).toLowerCase())) return true;
     else return false;
   };
   fieldIsPhone = (fieldName) => {
     const field = this.state[fieldName];
-    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    const phoneRegex =
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     if (field.length === -1) return null;
     else if (phoneRegex.test(field)) return true;
     else return false;

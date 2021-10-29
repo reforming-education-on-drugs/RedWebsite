@@ -45,11 +45,11 @@
   /* font-size: calc(18px + 0.7vw); */
   /* letter-spacing: calc(2px + 0.5vw); */
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 #presentation_booking_wizard .step_title_instruc > span:first-of-type {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 #presentation_booking_wizard .step_title_instruc li {

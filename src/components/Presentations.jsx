@@ -112,33 +112,42 @@ class Presentations extends Component {
           >
             {isLoading ? (
               <div className="loader" />
+            ) : Array.isArray(presentations) && presentations.length > 0 ? (
+              presentations.map((presentation) => {
+                return (
+                  <Presentation
+                    key={presentation.sheetname}
+                    presentation={presentation}
+                  />
+                );
+              })
             ) : (
-              presentations.map((presentation) => (
-                <Presentation
-                  key={presentation.sheetname}
-                  presentation={presentation}
-                />
-              ))
+              <h5 style={{ marginTop: "25%", textAlign: "center" }}>
+                There are currently no volunteer presentation opportunities
+                available. Please check back later.
+              </h5>
             )}
           </Col>
         </Row>
         <Row className="float-right">
           <Col md={12}>
-            <button
-              className="pull-right"
-              style={{
-                color: "#FFFFFF",
-                backgroundColor: "#EF233C",
-                padding: "15px 30px",
-                borderRadius: "30px",
-                fontSize: "16px",
-                border: "0",
-                marginTop: "30px",
-              }}
-              onClick={this.convertAndSavePresentation}
-            >
-              Sign up for presentations
-            </button>
+            {Array.isArray(presentations) && presentations.length > 0 && (
+              <button
+                className="pull-right"
+                style={{
+                  color: "#FFFFFF",
+                  backgroundColor: "#EF233C",
+                  padding: "15px 30px",
+                  borderRadius: "30px",
+                  fontSize: "16px",
+                  border: "0",
+                  marginTop: "30px",
+                }}
+                onClick={this.convertAndSavePresentation}
+              >
+                Sign up for presentations
+              </button>
+            )}
           </Col>
         </Row>
       </Container>

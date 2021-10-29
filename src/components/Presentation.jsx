@@ -80,7 +80,8 @@ class Presentation extends Component {
     if (error === "" || error === undefined) {
       return "";
     } else {
-      return "glyphicon glyphicon-info-sign";
+      // return "glyphicon glyphicon-info-sign";
+      return "fas fa-info-circle";
     }
   };
 
@@ -105,6 +106,8 @@ class Presentation extends Component {
 
   render() {
     const { presentation } = this.state;
+
+    console.log(this.state);
 
     return (
       <Container className="container-no-padding">
@@ -193,9 +196,11 @@ class Presentation extends Component {
                 </thead>
 
                 <tbody style={{ fontSize: "10px" }}>
-                  {presentation.times.map((time) => {
+                  {console.log(presentation.times)}
+                  {presentation.times.map((time, idx) => {
                     return (
                       <tr
+                        key={idx}
                         style={{
                           color: this.getStatusColor(time.selected),
                           cursor: "pointer",
@@ -250,8 +255,8 @@ class Presentation extends Component {
   }
 }
 
-Presentation.propTypes = {
-  presentation: PropTypes.arrayOf(Object),
-};
+// Presentation.propTypes = {
+//   presentation: PropTypes.arrayOf(Object),
+// };
 
 export default Presentation;

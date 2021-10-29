@@ -17,11 +17,18 @@ export default class BookingStep1 extends React.Component {
     this.myRef = React.createRef();
     this.state = {
       presentation: props.values.presentation,
-
       loaded: true,
     };
   }
-  continue = (e) => {
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.state.loaded == true) {
+      this.scrollToMyRef();
+      this.setState({ loaded: false });
+    }
+  }
+
+  continue = () => {
     // e.preventDefault();
     this.props.nextStep();
   };
@@ -33,13 +40,6 @@ export default class BookingStep1 extends React.Component {
   scrollToMyRef = () => {
     window.scrollTo(0, this.myRef.current.offsetTop - 300);
   };
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.loaded == true) {
-      this.scrollToMyRef();
-      this.setState({ loaded: false });
-    }
-  }
 
   // Validation
   getPresentationState() {

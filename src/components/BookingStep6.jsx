@@ -14,6 +14,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+const moment = require("moment");
 const Datetime = require("react-datetime");
 
 export default class BookingStep1 extends React.Component {
@@ -134,7 +135,7 @@ export default class BookingStep1 extends React.Component {
     let dateTimeChoice = this.props.values.presentation_datetime;
     let dateTimeValid = null;
     if (
-      !Datetime.moment(dateTimeChoice, "MM/DD/YYYY h:mm A", true).isValid() &&
+      !moment(dateTimeChoice, "MM/DD/YYYY h:mm A", true).isValid() &&
       dateTimeChoice.trim().length > 0
     ) {
       dateTimeValid = false;

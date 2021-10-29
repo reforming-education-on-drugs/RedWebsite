@@ -30,10 +30,11 @@ function Executive(props) {
   return (
     <Container>
       <div className="executive">
-        {executives.map((executiveRow) => (
-          <Row>
-            {executiveRow.map((executive) => (
+        {executives.map((executiveRow, idx) => (
+          <Row key={idx}>
+            {executiveRow.map((executive, jdx) => (
               <Col
+                key={jdx}
                 md={6}
                 onClick={() => {
                   props.setModalShow(true);
@@ -48,10 +49,8 @@ function Executive(props) {
                     alt={executive.name}
                   />
                 )}
-                <h3>
-                  <b>{executive.name}</b>
-                </h3>
-                <h3>{executive.position}</h3>
+                <h3>{executive.name}</h3>
+                <h4>{executive.position}</h4>
                 {/* <p>{executive.bio}</p> */}
               </Col>
             ))}
@@ -89,10 +88,8 @@ function BioModal(props) {
                 className="img-circle wow fadeInDown"
                 alt={exec.name}
               />
-              <h3>
-                <b>{exec.name}</b>
-              </h3>
-              <h3>{exec.position}</h3>
+              <h3>{exec.name}</h3>
+              <h4>{exec.position}</h4>
               <p className="mb-4 text-justify mx-2">{exec.bio}</p>
             </Col>
           </Row>
@@ -134,9 +131,7 @@ function Advisors(props) {
                     className="img-circle wow fadeInDown"
                     alt={advisor.name}
                   />
-                  <h3>
-                    <b>{advisor.name}</b>
-                  </h3>
+                  <h3>{advisor.name}</h3>
                   {/* <p>{advisor.bio}</p> */}
                 </Col>
               ))}
@@ -160,9 +155,7 @@ function Alumni(props) {
         <Row>
           {props.alumnis.map((alimuni) => (
             <Col md={4}>
-              <h3>
-                <b>{alimuni.name}</b>
-              </h3>
+              <h3>{alimuni.name}</h3>
               <p>{alimuni.position}</p>
             </Col>
           ))}

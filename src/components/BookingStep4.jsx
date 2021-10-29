@@ -11,6 +11,7 @@ import {
   Button,
 } from "react-bootstrap";
 
+const moment = require("moment");
 const Datetime = require("react-datetime");
 
 import "../styles/react-datetime.css";
@@ -28,11 +29,18 @@ export default class BookingStep1 extends React.Component {
     };
   }
 
-  continue = (e) => {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.state.loaded == true) {
+      this.scrollToMyRef();
+      this.setState({ loaded: false });
+    }
+  }
+
+  continue = () => {
     // e.preventDefault();
     this.props.nextStep();
   };
-  back = (e) => {
+  back = () => {
     // e.preventDefault();
     this.props.prevStep();
   };
@@ -40,13 +48,6 @@ export default class BookingStep1 extends React.Component {
   scrollToMyRef = () => {
     window.scrollTo(0, this.myRef.current.offsetTop - 300);
   };
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (this.state.loaded == true) {
-      this.scrollToMyRef();
-      this.setState({ loaded: false });
-    }
-  }
 
   exactDurationFieldDisplay() {
     if (this.props.values.presentation_duration == "Other:") return "initial";
@@ -58,7 +59,7 @@ export default class BookingStep1 extends React.Component {
     let dateTimeChoice = this.state.dateTimeChoice;
     let dateTimeValid = null;
     if (
-      !Datetime.moment(dateTimeChoice, "MM/DD/YYYY h:mm A", true).isValid() &&
+      !moment(dateTimeChoice, "MM/DD/YYYY h:mm A", true).isValid() &&
       dateTimeChoice.trim().length > 0
     ) {
       dateTimeValid = false;
