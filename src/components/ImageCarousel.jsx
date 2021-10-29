@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import Swiper from "react-id-swiper";
 
-export default function ImageCarousel(props) {
+const ImageCarousel = (props) => {
   ImageCarousel.propTypes = {
     path: PropTypes.string.isRequired,
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
+
+  SwiperCore.use([Navigation, Pagination, Autoplay]);
 
   const swiperProps = {
     slidesPerView: 1,
@@ -28,12 +31,16 @@ export default function ImageCarousel(props) {
     <div className="container" id="swiper">
       <div className="simple-slider">
         <Swiper {...swiperProps}>
-          {
-            props.images.map(image =>
-              <div key={image} style={{ backgroundImage: `url(${props.path}${image})` }} />)
-          }
+          {props.images.map((image) => (
+            <div
+              key={image}
+              style={{ backgroundImage: `url(${props.path}${image})` }}
+            />
+          ))}
         </Swiper>
       </div>
     </div>
   );
-}
+};
+
+export default ImageCarousel;

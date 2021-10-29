@@ -1,0 +1,29 @@
+
+> red-website@0.1.0 prestart
+> npm run start-message
+
+
+> red-website@0.1.0 start-message
+> babel-node tools/startMessage.js
+
+Starting app in dev mode...
+
+> red-website@0.1.0 start
+> concurrently -k -r -s first "npm run test:watch" "npm run open:src" "npm run lint:watch"
+
+
+> red-website@0.1.0 test:watch
+> jest --watch
+
+
+> red-website@0.1.0 open:src
+> babel-node tools/srcServer.js
+
+
+> red-website@0.1.0 lint:watch
+> npm run lint -- --watch
+
+
+> red-website@0.1.0 lint
+> esw webpack.config.* src tools --color "--watch"
+

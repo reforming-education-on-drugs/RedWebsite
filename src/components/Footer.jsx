@@ -23,7 +23,7 @@ export default function Footer() {
             <a href="/contact-us">Contact Us</a>
           </li>
         </ul>
-        <p className="copyright"> © 2020 Reforming Education on Drugs </p>
+        <p className="copyright"> © 2021 Reforming Education on Drugs </p>
       </footer>
     </div>
   );

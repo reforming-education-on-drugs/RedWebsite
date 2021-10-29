@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SwiperCore, { Autoplay } from "swiper";
 import Swiper from "react-id-swiper";
 import { Row, Col, Container } from "react-bootstrap";
 
@@ -19,6 +20,8 @@ export default function TextCarousel(props) {
       clickable: true,
     },
   };
+
+  SwiperCore.use([Autoplay]);
 
   return (
     <Container id="testimonial">

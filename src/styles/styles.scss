@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 html,
 body {
   height: 100%;
@@ -17,7 +19,6 @@ h1 {
 }
 
 h2 {
-  font-weight: bold;
   font-family: "Roboto";
   text-align: center;
 }
@@ -29,9 +30,10 @@ h3 {
 
 p,
 ul,
-ol {
+ol,
+span {
   // font-size: 1.75rem;
-  // font-family: "Roboto";
+  font-family: "Roboto";
 }
 
 p {
@@ -309,9 +311,21 @@ img.parents {
   font-family: "Roboto";
 }
 
-.executive h3:last-of-type {
+.executive h4 {
+  text-align: center;
   margin-bottom: 3em;
 }
+.executive_modal h3 {
+  margin-top: 1em;
+}
+.executive_modal h4 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+// .executive h3:last-of-type {
+//   margin-bottom: 3em;
+// }
 
 .executive_modal p {
   vertical-align: middle;
@@ -495,7 +509,7 @@ Login
       margin: 0;
 
       span {
-        font-weight: bold;
+        font-weight: 500;
       }
     }
   }
@@ -526,4 +540,8 @@ Login
     border: 1px solid #ef233c;
     border-radius: 6px;
   }
+}
+
+.swiper-pagination-bullets > .swiper-pagination-bullet {
+  margin: 0 5px;
 }

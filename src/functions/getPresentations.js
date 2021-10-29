@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const { promisify } = require("util");
+// const { promisify } = require("util");
 const {
   successResponse,
   errorResponse,
@@ -43,24 +43,35 @@ async function getPresentationForEmail(email) {
   const doc = await authenticate();
   const presentationSheet = await getSheetByName(doc, "Presentation"); //Master spread sheet denoting all presentations we have
 
-  const presentations = await promisify(presentationSheet.getRows)({
-    //Get presentation information
+  // const presentations = await promisify(presentationSheet.getRows)({
+  //   //Get presentation information
+  //   offset: 1,
+  //   limit: 100,
+  // });
+
+  const presentations = await presentationSheet.getRows({
     offset: 1,
     limit: 100,
   });
+
+  // console.info(
+  //   "fetched presentations----------------------------",
+  //   presentations
+  // );
 
   let promises = [];
   for (let presentationRow of presentations) {
     //Don't process empty presentations
     if (
-      presentationRow.sheetname === "" ||
-      presentationRow.sheetname === null ||
-      presentationRow.sheetname === "()"
+      presentationRow["Sheet Name:"] === "" ||
+      presentationRow["Sheet Name:"] === null ||
+      presentationRow["Sheet Name:"] === "()"
     ) {
       continue;
     }
     //Don't show information about past presentations
-    if (new Date(presentationRow.date) < Date.now()) {
+    // if (new Date(presentationRow.date) < Date.now()) {
+    if (new Date(presentationRow["Date:"]) < Date.now()) {
       continue;
     }
 
@@ -72,20 +83,22 @@ async function getPresentationForEmail(email) {
   //remove ones that had errors out and sort based on date
   response = response
     .filter((presentation) => presentation !== null)
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => new Date(a["Date:"]) - new Date(b["Date:"]));
 
   return response;
 }
 
 async function getPresentation(doc, email, presentationRow) {
   try {
-    const timeSheet = await getSheetByName(doc, presentationRow.sheetname); //Get sheet
+    const timeSheet = await getSheetByName(doc, presentationRow["Sheet Name:"]); //Get sheet
 
-    const times = await promisify(timeSheet.getRows)({
-      //Get rows
-      offset: 1,
-      limit: 100,
-    });
+    // const times = await promisify(timeSheet.getRows)({
+    //   //Get rows
+    //   offset: 1,
+    //   limit: 100,
+    // });
+
+    const times = await timeSheet.getRows({ offset: 0, limit: 100 });
 
     const presentation = convertPresentation(presentationRow); //Convert presentationRow to meet our API
 
