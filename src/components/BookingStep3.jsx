@@ -160,6 +160,87 @@ export default class BookingStep1 extends React.Component {
                     </Card.Text>
                   </Card.Body>
                 </Col>
+                <Col
+                  md={4}
+                  className={`hvr-grow presentation_option ${
+                    this.state.presentation == "vaccine"
+                      ? "selected_presentation"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    this.handlePresentationSelection("vaccine")
+                  }
+                >
+                  <Card.Img
+                    variant="top"
+                    src={require("../assets/images/vaccine.png")}
+                  />
+                  <Card.Body>
+                    <Card.Title className="font-weight-bold">
+                      Vaccine
+                    </Card.Title>
+                    <Card.Subtitle className="my-2 text-muted text-center">
+                      Recommended for grades 7-12{" "}
+                    </Card.Subtitle>
+                    <Card.Text>
+                      The vaccine presentation was developed in response to the COVID-19 pandemic to explain the whys and hows of COVID-19 and “the jab”. This presentation is intended to provide a basic understanding of immunology, our body’s defense mechanisms against foreign bodies, how vaccines work, and the history that has led to the development of the vaccines we have today. 
+                    </Card.Text>
+                  </Card.Body>
+                </Col>
+                <Col
+                  md={4}
+                  className={`hvr-grow presentation_option ${
+                    this.state.presentation == "addiction"
+                      ? "selected_presentation"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    this.handlePresentationSelection("addiction")
+                  }
+                >
+                  <Card.Img
+                    variant="top"
+                    src={require("../assets/images/addiction.png")}
+                  />
+                  <Card.Body>
+                    <Card.Title className="font-weight-bold">
+                      Addiction
+                    </Card.Title>
+                    <Card.Subtitle className="my-2 text-muted text-center">
+                      Recommended for grades 7-12{" "}
+                    </Card.Subtitle>
+                    <Card.Text>
+                      Addiction has always held a large stigma. As more research comes out and governments and science understand more about addiction, it is becoming more and more clear that we completely misunderstood addiction. This presentation seeks to educate those on what addiction actually is, how it works, and potential resolutions for aspects of it at both the individual and societal level.  
+                    </Card.Text>
+                  </Card.Body>
+                </Col>
+                <Col
+                  md={4}
+                  className={`hvr-grow presentation_option ${
+                    this.state.presentation == "mental_health"
+                      ? "selected_presentation"
+                      : ""
+                  }`}
+                  onClick={() =>
+                    this.handlePresentationSelection("mental_health")
+                  }
+                >
+                  <Card.Img
+                    variant="top"
+                    src={require("../assets/images/mental_health.png")}
+                  />
+                  <Card.Body>
+                    <Card.Title className="font-weight-bold">
+                      Mental Health
+                    </Card.Title>
+                    <Card.Subtitle className="my-2 text-muted text-center">
+                      Recommended for grades 5-9{" "}
+                    </Card.Subtitle>
+                    <Card.Text>
+                      Now more than ever, mental health is an increasingly relevant field, both in science and everyday life. This presentation, which is geared towards a general student audience, aims to provide a comprehensive explanation of the neurological bases behind common mental health disorders, specifically mood, anxiety, and addiction disorders.  
+                    </Card.Text>
+                  </Card.Body>
+                </Col>
               </CardDeck>
               <a href="/schools" target="_blank">
                 Click here to learn more about our presentations.
