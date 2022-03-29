@@ -284,9 +284,9 @@ img.parents {
 }
 
 .executive img,
-.executive_modal img {
+.executive_modal .img_container img {
   max-height: 500px;
-  width: 65%;
+  max-width: 100%;
   margin: auto;
   display: block;
   background: #dddddd;
@@ -294,10 +294,14 @@ img.parents {
   text-align: center;
   line-height: 23;
 }
+.executive img{
+  width:65%;
+}
+
 
 @media (max-width: 767px) {
-  .executive_modal img {
-    width: 100%;
+  .executive_modal .img_container img {
+    width: 65%;
   }
   .executive_modal p {
     text-align: left !important;
