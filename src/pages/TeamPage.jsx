@@ -220,6 +220,12 @@ export default function TeamPage() {
       imageName: "Roubert.jpg",
       bio: `Hey everyone! I’m a fourth year student studying Psychology in the Bachelor of Sciences. I joined RED because I enjoy learning about the neurological underpinnings of drugs and addressing community health issues through education. As the Co-Vice President External, I’m responsible for reaching out to schools, scheduling presentations, and establishing new intercollegiate RED chapters. Ultimately, my aim is to ensure that drug education and awareness reach more areas and people. When I’m not studying or booking presentations, I love spending time with friends and family and dancing. `,
     },
+    {
+      name: "TATSUYA HANSEN",
+      position: "VP EXTERNAL",
+      imageName: "Tatsuya.jpg",
+      bio: `Hello! My name is Tatsuya Hansen, and I am in my second year of the Neuroscience program at the University of Calgary. I joined RED in my first year of university, hoping to be able to make a difference in our community. Nowadays, there is a lot of misinformation, stereotypes and unhelpful threats about drugs being "bad/dangerous" as a way to prevent adolescents from doing drugs.  Through RED, we hope to be able to reboot the education system surrounding drugs with more science-based, non-biased discussions about how drugs actually affect the body and mind. I hope that our presentations at schools will help adolescents in our community make informed decisions about drug and alcohol consumption. As Co-VP External, I hope to expand the reach of our club beyond Calgary, and hopefully work towards opening new RED chapters in other universities.`,
+    },
     // {
     //   name: "ALLY NECULITA",
     //   position: "VP FINANCE",
