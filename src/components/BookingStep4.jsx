@@ -243,11 +243,14 @@ export default class BookingStep1 extends React.Component {
                   isInvalid={this.getMediumState() == false ? true : false}
                 >
                   <option></option>
-                  <option disabled>In-person (currently unavailable)</option>
+                  {/* <option disabled>In-person (currently unavailable)</option> */}
+                  <option>In-person</option>
                   <option>Online</option>
                 </Form.Control>
                 <Form.Text className="text-muted">
-                  How would you like the presentation to be delivered?
+                  How would you like the presentation to be delivered? <br />*
+                  In-person presentations may transition to online due to
+                  presentor availablilty or public health measures.
                 </Form.Text>
                 <Form.Control.Feedback />
               </Form.Group>
