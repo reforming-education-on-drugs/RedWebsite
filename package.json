@@ -21,7 +21,7 @@
     "prebuild": "npm run lint && npm run test && npm run clean-dist",
     "build": "babel-node tools/build.js && npm run move-files",
     "build:open": "npm run build && npm run open:dist",
-    "build:netlify": "netlify-lambda build src/functions",
+    "build:netlify": "netlify-lambda build src/functions --legacy-peer-deps",
     "test": "jest --passWithNoTests",
     "test:CI": "babel-node tools/testCi.js --passWithNoTests",
     "test:cover": "npm run test -- --coverage ",
