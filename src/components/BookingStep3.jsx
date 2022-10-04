@@ -160,7 +160,7 @@ export default class BookingStep1 extends React.Component {
                     </Card.Text>
                   </Card.Body>
                 </Col>
-                <Col
+                {/* <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
                     this.state.presentation == "vaccine"
@@ -240,7 +240,7 @@ export default class BookingStep1 extends React.Component {
                       Now more than ever, mental health is an increasingly relevant field, both in science and everyday life. This presentation, which is geared towards a general student audience, aims to provide a comprehensive explanation of the neurological bases behind common mental health disorders, specifically mood, anxiety, and addiction disorders.  
                     </Card.Text>
                   </Card.Body>
-                </Col>
+                </Col> */}
               </CardDeck>
               <a href="/schools" target="_blank">
                 Click here to learn more about our presentations.
