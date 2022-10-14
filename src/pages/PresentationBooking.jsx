@@ -79,14 +79,16 @@ export default class PresentationBooking extends Component {
   }
   fieldIsEmail(fieldName) {
     const field = this.state.form[fieldName];
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (field.length === -1) return null;
     else if (emailRegex.test(String(field).toLowerCase())) return true;
     else return false;
   }
   fieldIsPhone(fieldName) {
     const field = this.state.form[fieldName];
-    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    const phoneRegex =
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     if (field.length === -1) return null;
     else if (phoneRegex.test(field)) return true;
     else return false;
@@ -917,6 +919,14 @@ export default class PresentationBooking extends Component {
           <Col className="info" md={6}>
             <Row>
               <Col className="infoHeading" md={{ span: 7, offset: 2 }}>
+                unfortinatly we cannot take any more bookings at this time!
+                Please check back in January of 2023.
+              </Col>
+            </Row>
+          </Col>
+          {/* <Col className="info" md={6}>
+            <Row>
+              <Col className="infoHeading" md={{ span: 7, offset: 2 }}>
                 Book a presentation with us today
               </Col>
             </Row>
@@ -945,7 +955,7 @@ export default class PresentationBooking extends Component {
                 concerns.
               </Col>
             </Row>
-          </Col>
+          </Col> */}
           <Col
             id="presentation-booking-form"
             className="formContent"
