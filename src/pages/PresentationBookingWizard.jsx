@@ -265,6 +265,16 @@ export default class PresentationBookingWizard extends React.Component {
             <Row className="justify-content-center align-items-center text-center">
               <Col className="step_title_container" md={12}>
                 <span className="text-wrap px-2" id="form_title">
+                  Unfortunately we cannot take any more bookings at this time!
+                  Please check back in January of 2023.
+                </span>
+              </Col>
+            </Row>
+          </Container>
+          {/* <Container className="redcontainer booking-form-info">
+            <Row className="justify-content-center align-items-center text-center">
+              <Col className="step_title_container" md={12}>
+                <span className="text-wrap px-2" id="form_title">
                   Book a presentation with us today!
                 </span>
               </Col>
@@ -297,7 +307,6 @@ export default class PresentationBookingWizard extends React.Component {
             </Row>
             <Row className="mt-4">
               <Col className="px-md-4" id="" md={12}>
-                {/* <!-- Stepper --> */}
                 <div className="steps-form">
                   <div className="steps-row setup-panel">
                     <div className="steps-step">
@@ -382,8 +391,8 @@ export default class PresentationBookingWizard extends React.Component {
                 </div>
               </Col>
             </Row>
-          </Container>
-          {this.booking_step(step, values)}
+          </Container> */}
+          {/* {this.booking_step(step, values)} */}
         </Container>
       </Container>
     );
