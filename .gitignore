@@ -71,3 +71,6 @@ node_modules/
 
 #Netlify Functions
 /functions
+
+# Local Netlify folder
+.netlify
