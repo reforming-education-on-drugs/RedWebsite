@@ -90,7 +90,7 @@ function BioModal(props) {
                   alt={exec.name}
                 />
               </div>
-              
+
               <h3>{exec.name}</h3>
               <h4>{exec.position}</h4>
               <p className="mb-4 text-justify mx-2">{exec.bio}</p>
@@ -173,16 +173,16 @@ export default function TeamPage() {
 
   const executives = [
     {
-      name: "DAVID CHAU",
-      position: "CO-PRESIDENT",
-      imageName: "David.jpg",
-      bio: "Hey, my name is David and I am currently in my fourth year of Neuroscience at the University of Calgary. Ever since elementary school, one of the most important things in my life has been the idea of scientific literacy, and the view that it is not about your level of knowledge, but an overwhelming curiosity towards the world around you. As a result, I believe that it is essential that science is taught in a way that is engaging, interactive, and purposeful. I joined RED with the desire to educate students about the risks of drug use viewed through a scientific lens, and design presentations that would encourage them to apply what they have learned to their own lives. Whenever I have free time, you can usually find me listening to music or trying to learn new obscure hobbies.",
-    },
-    {
       name: "PUNIT BHATT",
       position: "CO-PRESIDENT",
       imageName: "Punit.jpg",
       bio: `Hey! My name is Punit Bhatt. I am second year student at U of C pursuing a undergraduate degree in Neuroscience. Drug education and awareness is something that I think is especially important for our generation due to the impact of social media. Drugs and alcohol are always "advertised" on our socials through big celebrities and that may lead to many misconceptions about consumption. Additionally, the popularity of vapes and the legalization of marijuana demands that we as a society look to promote drug education. That is why I think that RED can have a huge impact on our community: by expanding beyond just saying "drugs are bad" and actually explaining some of the science behind drugs, we are able to promote safe consumption and healthy choices. Additionally, as students we may be able to provide a connection that is more impactful. As this year's Co-President I hope to continue our steps towards expansion and continue to spread out message to as many schools as possible.`,
+    },
+    {
+      name: "VICTORIA MELTS",
+      position: "CO-PRESIDENT",
+      imageName: "Victoria.jpg",
+      bio: "I am pursuing an undergraduate degree in BioMedical Science at the University of Calgary, and am planning on doing a Masters in Neuroscience next. Understanding how psychoactive drugs work is one of my biggest life passions; I do research with substances such as cannabis and psilocybin at the Hotchkiss Brain Institute, and read about pharmacology in my spare time. I experienced an uninformative, scare-tactic approach to drug education in grade school and have been on a mission to correct that ever since. I hope to inspire students to use science to answer their life questions, guide their decisions, and spark a curiosity about how the world works.",
     },
     {
       name: "NOELLE THUNDATHIL",
@@ -243,6 +243,18 @@ export default function TeamPage() {
   ];
 
   const alumnis = [
+    {
+      name: "ALLY NECULITA",
+      position: "VP FINANCE",
+    },
+    {
+      name: "VELLA KIM",
+      position: "VP EDUCATION",
+    },
+    {
+      name: "DAVID CHAU",
+      position: "CO-PRESIDENT",
+    },
     {
       name: "ARAZ MINHAS",
       position: "VP INFORMATION & TECHNOLOGY",
