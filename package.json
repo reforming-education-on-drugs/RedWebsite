@@ -123,7 +123,7 @@
     "json-loader": "0.5.7",
     "lodash.mergewith": "4.6.2",
     "mockdate": "3.0.5",
-    "node-fetch": "3.0.0",
+    "node-fetch": "3.2.10",
     "opn-cli": "1.0.0",
     "postcss-loader": "6.2.0",
     "prompt": "1.2.0",
