@@ -188,7 +188,7 @@ export default function TeamPage() {
       name: "NOELLE THUNDATHIL",
       position: "VP INTERNAL",
       imageName: "Noelle.jpg",
-      bio: "Hey! My name is Noelle, and I am a second-year Bioinformatics major. I joined RED one year ago after hearing about the direct impact it made for young adolescents. Drug-use and substance abuse are topics that are not talked about enough, especially in an unbiased manner. As an avid advocate for mental health, RED provided the perfect opportunity for me to learn more about drug-education while encouraging youth activism in the community. Over the past year, I got the chance to teach in a classroom environment and educate students about the importance of understanding issues like addiction and the opioid epidemic. As VP Internal, I hope to engage more students in drug-education and provide them with the knowledge to make their own informed decisions.",
+      bio: "Hey! My name is Noelle, and I am a third-year Bioinformatics major. I joined RED one year ago after hearing about the direct impact it made for young adolescents. Drug-use and substance abuse are topics that are not talked about enough, especially in an unbiased manner. As an avid advocate for mental health, RED provided the perfect opportunity for me to learn more about drug-education while encouraging youth activism in the community. Over the past year, I got the chance to teach in a classroom environment and educate students about the importance of understanding issues like addiction and the opioid epidemic. As VP Internal, I hope to engage more students in drug-education and provide them with the knowledge to make their own informed decisions.",
     },
     {
       name: "RAMIN KAHIDI",
@@ -197,28 +197,16 @@ export default function TeamPage() {
       bio: "As a Bioinformatics Major, I am exposed to many different health-related issues in our world, many of which stem from a lack of sufficient education. The computer science aspects of my background enable me to identify where and how software can be utilized to address issues in the domain of health literacy. As the VP of IT, I get to support RED's awesome team in providing well-informed, science-based drug education by addressing technical hurdles and challenges.",
     },
     {
-      name: "VELLA KIM",
-      position: "VP EDUCATION",
-      imageName: "Vella.jpg",
-      bio: "With the ongoing prevalence of substance abuse in our community, it is critical to educate adolescents of drug use. As a current 3rd year neuroscience student at the University of Calgary, I was drawn to RED not only by its vision for such education, but also the use of scientific knowledge as a vehicle towards this goal. My aim as an Education Coordinator is to continue creating and distributing content that sparks the interest of youth towards the scientific and social implications of drugs in order to allow self-made mature and informed decisions. I am grateful to be part of such an impactful club, and am excited to further broaden our reach towards the younger generation. In my free time, I enjoy playing and listening to music.",
+      name: "Alexandra Calpas",
+      position: "VP Media & Marketing",
+      imageName: "Alexandra.jpg",
+      bio: "Hi there! My name is Alex and I am in my fourth year of Mind Sciences in Kinesiology at the University of Calgary. When I first heard about the RED team’s initiative to improve drug education for children and youth, I was eager to join! Non-biased, educational and safety-focused presentations on illicit substances are essential in ensuring individuals have the knowledge to make informed and healthy decisions for themselves. In my role of VP Media & Marketing I aspire to expand the outreach of the RED team’s mission and continue to foster the conversation surrounding safe substance use.",
     },
     {
-      name: "VICTORIA MELTS",
-      position: "EDUCATION DIRECTOR",
-      imageName: "Victoria.jpg",
-      bio: "I am pursuing an undergraduate degree in BioMedical Science at the University of Calgary, and am planning on doing a Masters in Neuroscience next. Understanding how psychoactive drugs work is one of my biggest life passions; I do research with substances such as cannabis and psilocybin at the Hotchkiss Brain Institute, and read about pharmacology in my spare time. I experienced an uninformative, scare-tactic approach to drug education in grade school and have been on a mission to correct that ever since. I hope to inspire students to use science to answer their life questions, guide their decisions, and spark a curiosity about how the world works.",
-    },
-    // {
-    //   name: "SABINE BANNOR",
-    //   position: "EDUCATION DIRECTOR",
-    //   imageName: "Sabine.jpg",
-    //   bio: "Hey everyone! My name is Riva and I am currently a fourth year student in Cellular, Molecular and Microbial Biology at the University of Calgary. Growing up, I was taught about drugs and substance use disorders in a way that scared me. This made me avoid these subject areas because I was afraid. Being at university, studying science, and presenting at RED, has made me realize how essential it is for everyone to have a scientific-based knowledge of drugs and substance use. Understanding and learning through a scientific lens can change one’s perspective in regards to the decisions they make and how they see others. By using science and making the learning process engaging and interactive, I have seen our presentations make kids more open to being educated and less scared of being informed. With RED I want to keep up their desire to learn about these subject areas that are important and prevalent in their society, so that they can make decisions while understanding their consequences. In my free time I powerlift, play spikeball, and take care of my dog Yoshi!",
-    // },
-    {
-      name: "ROUBERT AARON",
-      position: "VP EXTERNAL",
-      imageName: "Roubert.jpg",
-      bio: `Hey everyone! I’m a fourth year student studying Psychology in the Bachelor of Sciences. I joined RED because I enjoy learning about the neurological underpinnings of drugs and addressing community health issues through education. As the Co-Vice President External, I’m responsible for reaching out to schools, scheduling presentations, and establishing new intercollegiate RED chapters. Ultimately, my aim is to ensure that drug education and awareness reach more areas and people. When I’m not studying or booking presentations, I love spending time with friends and family and dancing. `,
+      name: "Hailey Moretto",
+      position: "VP FINANCE",
+      imageName: "Hailey.jpg",
+      bio: "Hi, my name is Hailey and I am in my second year of neuroscience at the University of Calgary. Growing up, I was always told to avoid drugs because they can be dangerous and bad for you, but I was never actually informed of the science behind it. Drug education should include more than just scare tactics, which is why I joined RED. This club teaches the information and science behind drug use that I wish I had learned when I was younger, allowing adolescents to understand how drugs actually work and use this to make informed decisions. When I am not at school, you can find me on a mountain in the Rockies climbing or hiking.",
     },
     {
       name: "TATSUYA HANSEN",
@@ -226,12 +214,30 @@ export default function TeamPage() {
       imageName: "Tatsuya.jpg",
       bio: `Hello! My name is Tatsuya Hansen, and I am in my second year of the Neuroscience program at the University of Calgary. I joined RED in my first year of university, hoping to be able to make a difference in our community. Nowadays, there is a lot of misinformation, stereotypes and unhelpful threats about drugs being "bad/dangerous" as a way to prevent adolescents from doing drugs.  Through RED, we hope to be able to reboot the education system surrounding drugs with more science-based, non-biased discussions about how drugs actually affect the body and mind. I hope that our presentations at schools will help adolescents in our community make informed decisions about drug and alcohol consumption. As Co-VP External, I hope to expand the reach of our club beyond Calgary, and hopefully work towards opening new RED chapters in other universities.`,
     },
-    // {
-    //   name: "ALLY NECULITA",
-    //   position: "VP FINANCE",
-    //   imageName: "Ally.jpg",
-    //   bio: "I’m Ally and I am a fifth-year accounting student at the University of Calgary. My goal with RED is to inspire youths, along with the rest of my community, to be able to make informed decisions regarding to substance use. Drug abuse is not a new issue in our community, and has been around for a while, and I am excited to collaborate with younger generations and deliver interesting facts on how these substances have an effect on the human body. I value the right of education for everyone, and besides my passion to learn, I also love musicals and dancing. As Vice President of Finance, I am excited to take on new fundraising projects and ensure that RED continues to grow.",
-    // },
+    {
+      name: "Queenie Ng",
+      position: "VP EXTERNAL",
+      imageName: "placeholder.png",
+      bio: `I am completing my fourth year as a Kinesiology major, and am planning on pursuing a Masters in Physiotherapy after. Mental and physical health is a major focus in my field of studies, and I believe that it is important to become better informed on the effects of drugs without bias. As someone who has seen the effects of drug abuse, both in media and in real life, I believe that the current scare tactics used to inform young people are insufficient.  As Jr. VP External, I hope to maintain strong relationships with our current collaborators and continue to widen our network in order to impact more young people.`,
+    },
+    {
+      name: "Thomson Midzi",
+      position: "VP EDUCATION",
+      imageName: "placeholder.png",
+      bio: "Thomson is 4th year Chemical Engineering student, currently on internship in the Energy Industry. He has a passion and zeal for learning about tools that can help youth involved in illicit drug use. He has also been involved in volunteering for programs at the UofC, in harm reduction and addictions counseling. These skills lend him well to the role of VP Education for this year, where he hopes to expand knowledge to youths of more ages, and incorporate some of the recent advancements towards new substances that have massive potential towards mental health, and rewriting the common stereotypes through providing increased awareness.",
+    },
+    {
+      name: "Kristen Eiriksson",
+      position: "VP EDUCATION",
+      imageName: "placeholder.png",
+      bio: "Hi! My name is Kristen and I’m a third year Biomedical Sciences student. Throughout my degree, I’ve had the opportunity to research many interesting topics that relate to human welfare and I understand the importance of unbiased and science-based education on drugs in schools. Being a VP of education at RED provides me with the amazing opportunity to combine my love for science and working with kids, while positively impacting Calgary’s youth. I look forward to creating a fun and engaging learning environment in order to share my passion for science with students!",
+    },
+    {
+      name: "Ronan Lopes",
+      position: "VP EDUCATION",
+      imageName: "placeholder.png",
+      bio: "Hi! My name is Ronan and I'm a third-year biomedical sciences student. Being in an intense science-based program, I have had the opportunity to learn much about the complexities of the human body, human health and various different chemicals. Growing up, I always thought drug education was lacking engagement for youth, and I never found myself paying attention or listening enough. As VP of education, I hope to change this narrative and give youth a better drug education than I received. Contributing positively in this way is not only fulfilling but also helps me to engage with youth at a time when I felt I didn't have the engagement I needed. I look forward to the chance to work with other creative and forward-thinking individuals in the RED community!",
+    },
   ];
 
   const advisors = [
@@ -243,6 +249,14 @@ export default function TeamPage() {
   ];
 
   const alumnis = [
+    {
+      name: "SABINE BANNOR",
+      position: "EDUCATION DIRECTOR",
+    },
+    {
+      name: "ROUBERT AARON",
+      position: "VP EXTERNAL",
+    },
     {
       name: "ALLY NECULITA",
       position: "VP FINANCE",
