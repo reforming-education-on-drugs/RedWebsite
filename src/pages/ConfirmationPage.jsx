@@ -45,9 +45,7 @@ export default function ConfirmationPage() {
   };
 
   useEffect(() => {
-    return () => {
-      handleRegister();
-    };
+    handleRegister();
   }, []);
 
   return (

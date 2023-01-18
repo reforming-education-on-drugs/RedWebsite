@@ -30,7 +30,7 @@ import Footer from "../components/Footer";
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 function App() {
-  if (!window.location.hash.includes("#confirmation_token=")) {
+  if (window.location.hash.includes("#confirmation_token=")) {
     window.location.href = "/confirmation";
   }
   return (
