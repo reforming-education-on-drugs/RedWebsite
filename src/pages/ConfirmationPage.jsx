@@ -62,7 +62,9 @@ export default function ConfirmationPage() {
               <p>loading...</p>
             </div>
           ) : state.formIsValid ? (
-            "Success!"
+            <div>
+              <p>Success!</p>
+            </div>
           ) : (
             <DisplayError msg={state.errorMsg} />
           )}
