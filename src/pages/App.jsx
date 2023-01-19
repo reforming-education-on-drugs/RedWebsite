@@ -31,7 +31,8 @@ import Footer from "../components/Footer";
 // component at the top-level.
 function App() {
   if (window.location.hash.includes("#confirmation_token=")) {
-    window.location.href = "/confirmation";
+    window.location.href =
+      "/confirmation/#confirmation_token=" + window.location.hash.substring(20);
   }
   return (
     <Router>

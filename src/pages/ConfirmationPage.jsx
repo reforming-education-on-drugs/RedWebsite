@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Input from "../components/Input";
+import React, { useState, useEffect } from "react";
+// import Input from "../components/Input";
 import auth from "../utils/auth";
 import DisplayError from "../components/Error";
 
@@ -11,31 +11,32 @@ export default function ConfirmationPage() {
     formIsValid: true,
     errorMsg: "",
   });
-  if (!window.location.hash.includes("#confirmation_token=")) {
-    window.location.href = "/confirmation";
-  }
+  // if (!window.location.hash.includes("#confirmation_token=")) {
+  //   window.location.href = "/confirmation";
+  // }
 
-  setFormState = ({ formIsValid, errorMsg }) => {
-    setState({
-      formIsValid,
-      errorMsg,
-    });
-  };
+  // const setFormState = ({ formIsValid, errorMsg }) => {
+  //   setState({
+  //     formIsValid,
+  //     errorMsg,
+  //   });
+  // };
 
-  handleRegister = () => {
-    this.setFormState({ loading: true });
+  const handleRegister = () => {
+    setState({ loading: true });
 
     if (window.location.hash.includes("#confirmation_token=")) {
-      const token = window.location.hash.substring(14);
-
+      const token = window.location.hash.substring(20);
+      console.log(window.location.hash);
+      console.log(token);
       auth
-        .verifyToken("confirmation", token)
+        .confirm(token, true)
         .then(() => {
-          this.setState({ formIsValid: true, loading: false });
+          setState({ formIsValid: true, loading: false });
           window.location.href = "/volunteer";
         })
         .catch(() =>
-          this.setFormState({
+          setState({
             formIsValid: false,
             loading: false,
             errorMsg: "Registration failed. You may have already registered.",
@@ -57,7 +58,9 @@ export default function ConfirmationPage() {
             alt="RED logo symbol"
           />
           {state.loading ? (
-            "loading..."
+            <div>
+              <p>loading...</p>
+            </div>
           ) : state.formIsValid ? (
             "Success!"
           ) : (
