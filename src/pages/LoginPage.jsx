@@ -37,12 +37,22 @@ export default class LoginPage extends React.Component {
         this.setState({ formIsValid: true });
         window.location.href = "/volunteer";
       })
-      .catch(() =>
-        this.setFormState({
-          formIsValid: false,
-          errorMsg: "Login failed. Please ensure your password is correct.",
-        })
-      );
+      .catch((response) => {
+        const resObj = JSON.parse(JSON.stringify(response));
+        const error = resObj.json.error_description;
+        if (error.search("Email not confirmed") >= 0) {
+          this.setFormState({
+            formIsValid: false,
+            errorMsg:
+              "Email not confirmed. Please check your University of Calgary email for a confirmation link.",
+          });
+        } else {
+          this.setFormState({
+            formIsValid: false,
+            errorMsg: "Login failed. Please ensure your password is correct.",
+          });
+        }
+      });
   };
 
   setFormState = ({ formIsValid, errorMsg }) => {
