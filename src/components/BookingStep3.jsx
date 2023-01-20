@@ -160,7 +160,7 @@ export default class BookingStep1 extends React.Component {
                     </Card.Text>
                   </Card.Body>
                 </Col>
-                {/* <Col
+                <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
                     this.state.presentation == "vaccine"
@@ -191,7 +191,7 @@ export default class BookingStep1 extends React.Component {
                     </Card.Text>
                   </Card.Body>
                 </Col>
-                <Col
+                {/* <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
                     this.state.presentation == "addiction"
