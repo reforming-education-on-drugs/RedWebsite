@@ -96,9 +96,6 @@ export default function GetInvolvedPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const email = event.target.value;
-    // setEmail(email);
-    console.log(userInfo);
     if (!emailRegex.test(userInfo.uofcEmail)) {
       setForm({
         isValid: false,
