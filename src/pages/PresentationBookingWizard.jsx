@@ -266,7 +266,7 @@ export default class PresentationBookingWizard extends React.Component {
               <Col className="step_title_container" md={12}>
                 <span className="text-wrap px-2" id="form_title">
                   Unfortunately we cannot take any more bookings at this time!
-                  Please check back in January of 2023.
+                  Please check back in the Fall of 2023.
                 </span>
               </Col>
             </Row>
