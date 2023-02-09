@@ -261,7 +261,7 @@ export default class PresentationBookingWizard extends React.Component {
         id="presentation_booking_wizard"
       >
         <Container id={`step${step}`} className="container-no-padding">
-          {/* <Container className="redcontainer booking-form-info">
+          <Container className="redcontainer booking-form-info">
             <Row className="justify-content-center align-items-center text-center">
               <Col className="step_title_container" md={12}>
                 <span className="text-wrap px-2" id="form_title">
@@ -270,8 +270,8 @@ export default class PresentationBookingWizard extends React.Component {
                 </span>
               </Col>
             </Row>
-          </Container> */}
-          <Container className="redcontainer booking-form-info">
+          </Container>
+          {/* <Container className="redcontainer booking-form-info">
             <Row className="justify-content-center align-items-center text-center">
               <Col className="step_title_container" md={12}>
                 <span className="text-wrap px-2" id="form_title">
@@ -391,8 +391,8 @@ export default class PresentationBookingWizard extends React.Component {
                 </div>
               </Col>
             </Row>
-          </Container>
-          {this.booking_step(step, values)}
+          </Container> */}
+          {/* {this.booking_step(step, values)} */}
         </Container>
       </Container>
     );
