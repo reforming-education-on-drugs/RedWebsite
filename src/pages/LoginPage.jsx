@@ -37,12 +37,22 @@ export default class LoginPage extends React.Component {
         this.setState({ formIsValid: true });
         window.location.href = "/volunteer";
       })
-      .catch(() =>
-        this.setFormState({
-          formIsValid: false,
-          errorMsg: "Login failed. Please ensure your password is correct.",
-        })
-      );
+      .catch((response) => {
+        const resObj = JSON.parse(JSON.stringify(response));
+        const error = resObj.json.error_description;
+        if (error.search("Email not confirmed") >= 0) {
+          this.setFormState({
+            formIsValid: false,
+            errorMsg:
+              "Email not confirmed. Please check your University of Calgary email for a confirmation link.",
+          });
+        } else {
+          this.setFormState({
+            formIsValid: false,
+            errorMsg: "Login failed. Please ensure your password is correct.",
+          });
+        }
+      });
   };
 
   setFormState = ({ formIsValid, errorMsg }) => {
@@ -88,13 +98,11 @@ export default class LoginPage extends React.Component {
           </div>
           <div className="disclaimer">
             <p>
-              <span>Don't have an account?</span>&nbsp;You need to become a
-              member before you can sign up to volunteer. In addition to
-              completing our{" "}
-              <Link to="/get-involved">club membership form</Link>, please
-              contact us at{" "}
+              <span>Don't have an account?</span>&nbsp;Check out our{" "}
+              <Link to="/get-involved">sign-up page</Link>, and please contact
+              us at{" "}
               <a href="mailto:reducalgary@gmail.com">reducalgary@gmail.com</a>{" "}
-              to submit your membership fee and finalize your membership.
+              to submit your <b>membership fee</b> and finalize your membership.
             </p>
           </div>
         </div>
