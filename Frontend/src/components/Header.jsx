@@ -57,10 +57,22 @@ export default function Header() {
             {/* <NavItem href="/blog">Blog</NavItem> */}
             <Nav.Link href="/get-involved">Get Involved</Nav.Link>
             {auth.currentUser() ? (
-              <>
-                <Nav.Link href="/volunteer">Volunteer</Nav.Link>
-                <Nav.Link onClick={logout}>Log out</Nav.Link>
-              </>
+              auth.currentUser().email == "rkthemainburner@gmail.com" ? (
+                <>
+                  <Nav.Link href="/volunteer">Volunteer</Nav.Link>
+                  <NavDropdown title="Executive" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="/manage-bookings">
+                      Manage Bookings
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  <Nav.Link onClick={logout}>Log out</Nav.Link>
+                </>
+              ) : (
+                <>
+                  <Nav.Link href="/volunteer">Volunteer</Nav.Link>
+                  <Nav.Link onClick={logout}>Log out</Nav.Link>
+                </>
+              )
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>
             )}

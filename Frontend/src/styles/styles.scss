@@ -158,8 +158,10 @@ a.dropdown-toggle.btn:hover {
 }
 
 ul.nav a:link,
-ul.nav a:visited {
-  color: black;
+ul.nav a:visited,
+.dropdown a:link,
+.dropdown a:visited {
+  color: black !important;
   text-decoration: none;
 }
 
@@ -294,10 +296,9 @@ img.parents {
   text-align: center;
   line-height: 23;
 }
-.executive img{
-  width:65%;
+.executive img {
+  width: 65%;
 }
-
 
 @media (max-width: 767px) {
   .executive_modal .img_container img {

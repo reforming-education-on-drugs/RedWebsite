@@ -19,6 +19,7 @@ import PasswordResetPage from "./PasswordResetPage";
 import PasswordRecoveryPage from "./PasswordRecoveryPage";
 import ContactUsPage from "./ContactUsPage";
 import VolunteerPage from "./VolunteerPage";
+import ManageBookingsPage from "./ManageBookingsPage";
 import PresentationBooking from "./PresentationBooking";
 import PresentationBookingWizard from "./PresentationBookingWizard";
 import Footer from "../components/Footer";
@@ -60,6 +61,7 @@ function App() {
           <Route exact path="/booking" component={PresentationBookingWizard} />
           <Route exact path="/contact-us" component={ContactUsPage} />
           <Route exact path="/volunteer" component={VolunteerPage} />
+          <Route exact path="/manage-bookings" component={ManageBookingsPage} />
           <Route exact path="/faq" component={NotFoundPage} />
           <Route path="/password-reset" component={PasswordResetPage} />
           <Route path="/recover" component={PasswordRecoveryPage} />
