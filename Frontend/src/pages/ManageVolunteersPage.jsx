@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Row, Col, Container } from "react-bootstrap";
 // import Form from "react-bootstrap/Form";
 // import {
@@ -64,13 +64,7 @@ const descriptionText = {
   lineHeight: "24px",
 };
 
-function ManageBookings() {
-  const [searchSettings, setSearchSettings] = useState({
-    team: "Calgary Team",
-    presentationType: "All Presentations",
-    dateType: "Upcoming",
-  });
-
+function ManageVolunteers() {
   return (
     // <div>
     //   {/* <Nav className="justify-content-center"> */}
@@ -90,61 +84,28 @@ function ManageBookings() {
     // </div>
     <Container className="container-no-padding mt-4">
       <Container style={monty} className="container-no-padding mt-4">
-        <Form.Control
-          as="select"
-          size="md"
-          value={searchSettings.team}
-          onChange={(event) =>
-            setSearchSettings({
-              team: event.target.value,
-              presentationType: searchSettings.presentationType,
-              dateType: searchSettings.dateType,
-            })
-          }
-        >
+        <Form.Control as="select" size="md">
           <option>Calgary Team</option>
         </Form.Control>
-        <Form.Control
-          as="select"
-          size="md"
-          value={searchSettings.presentationType}
-          onChange={(event) =>
-            setSearchSettings({
-              team: searchSettings.team,
-              presentationType: event.target.value,
-              dateType: searchSettings.dateType,
-            })
-          }
-        >
+        <Form.Control as="select" size="md">
           <option value="option1">All Presentations</option>
           <option value="option2">Only Confirmed</option>
           <option value="option3">Only Unconfirmed</option>
         </Form.Control>
-        <Form.Control
-          as="select"
-          size="md"
-          value={searchSettings.dateType}
-          onChange={(event) =>
-            setSearchSettings({
-              team: searchSettings.team,
-              presentationType: searchSettings.presentationType,
-              dateType: event.target.value,
-            })
-          }
-        >
+        <Form.Control as="select" size="md">
           <option value="option1">Upcoming</option>
           <option value="option2">Past</option>
         </Form.Control>
       </Container>
       <div className="container-fluid" id="panelContainer">
         {/* <Presentation /> */}
-        <Bookings searchSettings={searchSettings} />
+        <Bookings />
       </div>
     </Container>
   );
 }
 
-export default class ManageBookingsPage extends React.Component {
+export default class ManageVolunteersPage extends React.Component {
   constructor() {
     super();
 
@@ -159,7 +120,7 @@ export default class ManageBookingsPage extends React.Component {
     if (this.state.currentUser) {
       return (
         <main>
-          <ManageBookings />
+          <ManageVolunteers />
         </main>
       );
     } else {

@@ -18,7 +18,7 @@ export default function Header() {
     <Navbar
       collapseOnSelect
       className="navigation-clean navbar-default"
-      expand="lg"
+      expand="xl"
       // onToggle={setNavExpanded}
       // expanded={navExpanded}
     >

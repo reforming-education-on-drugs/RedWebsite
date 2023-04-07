@@ -64,7 +64,7 @@
   "license": "MIT",
   "dependencies": {
     "async": "3.2.2",
-    "browser-sync-client": "2.27.11",
+    "bootstrap": "5.2.3",
     "caniuse-lite": "1.0.30001382",
     "dotenv": "10.0.0",
     "google-spreadsheet": "3.1.15",
@@ -100,7 +100,8 @@
     "babel-jest": "27.3.1",
     "babel-loader": "8.2.3",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
-    "browser-sync": "2.27.7",
+    "browser-sync": "2.29.1",
+    "browser-sync-client": "2.29.1",
     "chalk": "4.1.2",
     "concurrently": "6.3.0",
     "connect-history-api-fallback": "1.6.0",
