@@ -22,21 +22,19 @@ const GetAllPresentations = async (request, response) => {
   // `;
   const presentations = [
     {
-      presentation: {
-        address: "123 main",
-        date: "2023-05-01",
-        name: "test",
-        sheetname: "sheetname",
-        times: [
-          {
-            startTime: "12:00",
-            endTime: "13:00",
-            enrolled: 1,
-            capacity: 2,
-            selected: "Confirmed",
-          },
-        ],
-      },
+      address: "123 main",
+      date: "2023-05-01",
+      name: "test",
+      sheetname: "sheetname",
+      times: [
+        {
+          startTime: "12:00",
+          endTime: "13:00",
+          enrolled: 1,
+          capacity: 2,
+          selected: "Confirmed",
+        },
+      ],
     },
   ];
   response.status(200).json(presentations);
