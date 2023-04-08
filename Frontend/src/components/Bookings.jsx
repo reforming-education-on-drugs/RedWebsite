@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import Presentation from "./Presentation";
+import PresentationBooking from "./PresentationBooking";
 import auth from "../utils/auth";
 import "../styles/loaderStyle.css";
 
@@ -58,8 +58,10 @@ function Bookings(props) {
       // };
       // let presentations = test;
       console.log(presentations);
+      // console.log(presentations[0].presentation);
 
-      presentations.map((presentation) =>
+      presentations.map((presentation) => {
+        console.log(presentation);
         presentation.times.forEach((time) => {
           if (time.selected) {
             time.selected = "Confirmed";
@@ -68,8 +70,8 @@ function Bookings(props) {
           } else {
             time.selected = "Unselected";
           }
-        })
-      );
+        });
+      });
 
       setPresentations(presentations);
       setIsLoading(false);
@@ -142,7 +144,7 @@ function Bookings(props) {
           ) : Array.isArray(presentations) && presentations.length > 0 ? (
             presentations.map((presentation) => {
               return (
-                <Presentation
+                <PresentationBooking
                   key={presentation.sheetname}
                   presentation={presentation}
                 />
@@ -155,7 +157,7 @@ function Bookings(props) {
           )}
         </Col>
       </Row>
-      <Row className="float-right">
+      {/* <Row className="float-right">
         <Col md={12}>
           {Array.isArray(presentations) && presentations.length > 0 && (
             <button
@@ -169,13 +171,13 @@ function Bookings(props) {
                 border: "0",
                 marginTop: "30px",
               }}
-              onClick={this.convertAndSavePresentation}
+              onClick={convertAndSavePresentation}
             >
               Sign up for presentations
             </button>
           )}
         </Col>
-      </Row>
+      </Row> */}
     </Container>
   );
 }

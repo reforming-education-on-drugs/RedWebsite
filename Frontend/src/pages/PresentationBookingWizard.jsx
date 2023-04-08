@@ -260,7 +260,7 @@ export default class PresentationBookingWizard extends React.Component {
         className="whitecontainer container-no-padding"
         id="presentation_booking_wizard"
       >
-        <Container id={`step${step}`} className="container-no-padding">
+        {/* <Container id={`step${step}`} className="container-no-padding">
           <Container className="redcontainer booking-form-info">
             <Row className="justify-content-center align-items-center text-center">
               <Col className="step_title_container" md={12}>
@@ -270,130 +270,118 @@ export default class PresentationBookingWizard extends React.Component {
                 </span>
               </Col>
             </Row>
-          </Container>
-          {/* <Container className="redcontainer booking-form-info">
-            <Row className="justify-content-center align-items-center text-center">
-              <Col className="step_title_container" md={12}>
-                <span className="text-wrap px-2" id="form_title">
-                  Book a presentation with us today!
-                </span>
-              </Col>
-            </Row>
-            <Row className="justify-content-center align-items-center pb-4">
-              <Col className="step_title_instruc px-4" md={8}>
-                <br />
-                <span>How it works:</span>
-                <ol>
-                  <li>Fill out the booking form below.</li>
-                  <li>
-                    We will attempt to fulfill all requests to the best of our
-                    ability with respect to our volunteers' availabilities.
-                  </li>
-                  <li>
-                    You will be contacted by us within 48 hours of your booking
-                    to discuss in further detail.
-                  </li>
-                  <li>
-                    We will provide you a confirmation on presentation details
-                    and will let you know if we have the volunteer capacity to
-                    fulfill your request.
-                  </li>
-                </ol>
-                <span className="text-wrap">
-                  Please contact us at reducalgary@gmail.com for any questions
-                  or concerns.
-                </span>
-              </Col>
-            </Row>
-            <Row className="mt-4">
-              <Col className="px-md-4" id="" md={12}>
-                <div className="steps-form">
-                  <div className="steps-row setup-panel">
-                    <div className="steps-step">
-                      <a
-                        href="#step1"
-                        type="button"
-                        className={`btn btn-light btn-circle ${this.isActive(
-                          1
-                        )}`}
-                        onClick={() => this.setState({ step: 1 })}
-                      >
-                        1
-                      </a>
-                      <p>Contact Info.</p>
-                    </div>
-                    <div className="steps-step">
-                      <a
-                        href="#step2"
-                        type="button"
-                        className={`btn btn-light btn-circle ${this.isActive(
-                          2
-                        )}`}
-                        onClick={() => this.setState({ step: 2 })}
-                      >
-                        2
-                      </a>
-                      <p>School Info.</p>
-                    </div>
-                    <div className="steps-step">
-                      <a
-                        href="#step3"
-                        type="button"
-                        className={`btn btn-light btn-circle ${this.isActive(
-                          3
-                        )}`}
-                        onClick={() => this.setState({ step: 3 })}
-                      >
-                        3
-                      </a>
-                      <p>Presentation</p>
-                    </div>
-                    <div className="steps-step">
-                      <a
-                        href="#step4"
-                        type="button"
-                        className={`btn btn-light btn-circle ${this.isActive(
-                          4
-                        )}`}
-                        onClick={() => this.setState({ step: 4 })}
-                      >
-                        4
-                      </a>
-                      <p>Date/Time</p>
-                    </div>
-                    <div className="steps-step">
-                      <a
-                        href="#step5"
-                        type="button"
-                        className={`btn btn-light btn-circle ${this.isActive(
-                          5
-                        )}`}
-                        onClick={() => this.setState({ step: 5 })}
-                      >
-                        5
-                      </a>
-                      <p>Additional Info.</p>
-                    </div>
-                    <div className="steps-step">
-                      <a
-                        href="#step6"
-                        type="button"
-                        className={`btn btn-light btn-circle ${this.isActive(
-                          6
-                        )}`}
-                        onClick={() => this.setState({ step: 6 })}
-                      >
-                        6
-                      </a>
-                      <p>Confirmation</p>
-                    </div>
+          </Container> */}
+        <Container className="redcontainer booking-form-info">
+          <Row className="justify-content-center align-items-center text-center">
+            <Col className="step_title_container" md={12}>
+              <span className="text-wrap px-2" id="form_title">
+                Book a presentation with us today!
+              </span>
+            </Col>
+          </Row>
+          <Row className="justify-content-center align-items-center pb-4">
+            <Col className="step_title_instruc px-4" md={8}>
+              <br />
+              <span>How it works:</span>
+              <ol>
+                <li>Fill out the booking form below.</li>
+                <li>
+                  We will attempt to fulfill all requests to the best of our
+                  ability with respect to our volunteers' availabilities.
+                </li>
+                <li>
+                  You will be contacted by us within 48 hours of your booking to
+                  discuss in further detail.
+                </li>
+                <li>
+                  We will provide you a confirmation on presentation details and
+                  will let you know if we have the volunteer capacity to fulfill
+                  your request.
+                </li>
+              </ol>
+              <span className="text-wrap">
+                Please contact us at reducalgary@gmail.com for any questions or
+                concerns.
+              </span>
+            </Col>
+          </Row>
+          <Row className="mt-4">
+            <Col className="px-md-4" id="" md={12}>
+              <div className="steps-form">
+                <div className="steps-row setup-panel">
+                  <div className="steps-step">
+                    <a
+                      href="#step1"
+                      type="button"
+                      className={`btn btn-light btn-circle ${this.isActive(1)}`}
+                      onClick={() => this.setState({ step: 1 })}
+                    >
+                      1
+                    </a>
+                    <p>Contact Info.</p>
+                  </div>
+                  <div className="steps-step">
+                    <a
+                      href="#step2"
+                      type="button"
+                      className={`btn btn-light btn-circle ${this.isActive(2)}`}
+                      onClick={() => this.setState({ step: 2 })}
+                    >
+                      2
+                    </a>
+                    <p>School Info.</p>
+                  </div>
+                  <div className="steps-step">
+                    <a
+                      href="#step3"
+                      type="button"
+                      className={`btn btn-light btn-circle ${this.isActive(3)}`}
+                      onClick={() => this.setState({ step: 3 })}
+                    >
+                      3
+                    </a>
+                    <p>Presentation</p>
+                  </div>
+                  <div className="steps-step">
+                    <a
+                      href="#step4"
+                      type="button"
+                      className={`btn btn-light btn-circle ${this.isActive(4)}`}
+                      onClick={() => this.setState({ step: 4 })}
+                    >
+                      4
+                    </a>
+                    <p>Date/Time</p>
+                  </div>
+                  <div className="steps-step">
+                    <a
+                      href="#step5"
+                      type="button"
+                      className={`btn btn-light btn-circle ${this.isActive(5)}`}
+                      onClick={() => this.setState({ step: 5 })}
+                    >
+                      5
+                    </a>
+                    <p>Additional Info.</p>
+                  </div>
+                  <div className="steps-step">
+                    <a
+                      href="#step6"
+                      type="button"
+                      className={`btn btn-light btn-circle ${this.isActive(6)}`}
+                      onClick={() => this.setState({ step: 6 })}
+                    >
+                      6
+                    </a>
+                    <p>Confirmation</p>
                   </div>
                 </div>
-              </Col>
-            </Row>
-          </Container> */}
-          {/* {this.booking_step(step, values)} */}
+              </div>
+            </Col>
+          </Row>
         </Container>
+        {this.booking_step(step, values)}
+        {/* </Container> */}
       </Container>
     );
   }
