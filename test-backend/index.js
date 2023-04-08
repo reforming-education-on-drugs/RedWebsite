@@ -17,13 +17,18 @@ app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });
 
-app.get("/presentations", db.GetAllPresentations);
-app.get("/presentations/confirmed", db.GetConfirmedPresentations);
-app.get("/presentations/unconfirmed", db.GetUnconfirmedPresentations);
+app.get("/presentation_booking", db.GetAllPresentations);
+app.get("/presentation_booking/confirmed", db.GetConfirmedPresentations);
+app.get("/presentation_booking/unconfirmed", db.GetUnconfirmedPresentations);
 app.get("/executives", db.GetExecutives);
-app.post("/client", db.createClient);
-app.post("/presentations", db.createPresentationBooking);
-app.delete("/presentations", db.deletePresentationBooking);
+app.post("/presentation_booking", db.createPresentationBooking);
+app.delete("/presentation_booking", db.deletePresentationBooking);
+app.get("/presentation", db.GetPresentation);
+app.post("/presents", db.createPresents);
+app.delete("/presents", db.deletePresents);
+app.post("/red_staff", db.createRedStaff);
+app.post("/trains", db.createTrains);
+app.post("/makes", db.createMakes);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
