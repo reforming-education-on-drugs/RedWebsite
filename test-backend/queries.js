@@ -1,3 +1,5 @@
+//psql postgres://farbod.moghadam1380:wFMDCRIf35uZ@ep-yellow-cherry-422966.us-east-2.aws.neon.tech/neondb
+
 const PGHOST = "ep-yellow-cherry-422966.us-east-2.aws.neon.tech";
 const PGDATABASE = "neondb";
 const PGUSER = "farbod.moghadam1380";
@@ -17,28 +19,28 @@ async function getPgVersion() {
 getPgVersion();
 
 const GetAllPresentations = async (request, response) => {
-  // const users = await sql`
-  //   SELECT * FROM presentation_booking
-  // `;
-  const presentations = [
-    {
-      presentation: {
-        address: "123 main",
-        date: "2023-05-01",
-        name: "test",
-        sheetname: "sheetname",
-        times: [
-          {
-            startTime: "12:00",
-            endTime: "13:00",
-            enrolled: 1,
-            capacity: 2,
-            selected: "Confirmed",
-          },
-        ],
-      },
-    },
-  ];
+  const users = await sql`
+    SELECT * FROM presentation_booking
+  `;
+  // const presentations = [
+  //   {
+  //     presentation: {
+  //       address: "123 main",
+  //       date: "2023-05-01",
+  //       name: "test",
+  //       sheetname: "sheetname",
+  //       times: [
+  //         {
+  //           startTime: "12:00",
+  //           endTime: "13:00",
+  //           enrolled: 1,
+  //           capacity: 2,
+  //           selected: "Confirmed",
+  //         },
+  //       ],
+  //     },
+  //   },
+  // ];
   response.status(200).json(presentations);
 };
 
@@ -99,6 +101,29 @@ const deletePresentationBooking = async (request, response) => {
   response.status(200).json(users);
 };
 
+const createClient = async (request, response) => {
+  const {
+    Email,
+    Role,
+    Sname,
+    SAddress,
+    SDname
+  } = request.body;
+
+  try{
+    const schools = await sql`
+      INSERT INTO School (Sname, Address, SDname) VALUES (${Sname}, ${SAddress}, ${SDname})
+      `;
+  } catch (err) {
+    //this means the school already exists, so just continue
+  }
+
+  const users = await sql`
+    INSERT INTO Client (Email, Client_Role, Sname) VALUES (${Email}, ${Role}, ${Sname})
+    `;
+  response.status(200).json(users);
+};
+
 module.exports = {
   GetAllPresentations,
   GetConfirmedPresentations,
@@ -106,4 +131,5 @@ module.exports = {
   GetExecutives,
   createPresentationBooking,
   deletePresentationBooking,
+  createClient
 };

@@ -21,6 +21,7 @@ app.get("/presentations", db.GetAllPresentations);
 app.get("/presentations/confirmed", db.GetConfirmedPresentations);
 app.get("/presentations/unconfirmed", db.GetUnconfirmedPresentations);
 app.get("/executives", db.GetExecutives);
+app.post("/client", db.createClient);
 app.post("/presentations", db.createPresentationBooking);
 app.delete("/presentations", db.deletePresentationBooking);
 
