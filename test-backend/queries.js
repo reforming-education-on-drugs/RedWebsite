@@ -1,3 +1,5 @@
+//psql postgres://farbod.moghadam1380:wFMDCRIf35uZ@ep-yellow-cherry-422966.us-east-2.aws.neon.tech/neondb
+
 const PGHOST = "ep-yellow-cherry-422966.us-east-2.aws.neon.tech";
 const PGDATABASE = "neondb";
 const PGUSER = "farbod.moghadam1380";
@@ -17,22 +19,39 @@ async function getPgVersion() {
 getPgVersion();
 
 const GetAllPresentations = async (request, response) => {
-  // const users = await sql`
+  // const presentations = await sql`
   //   SELECT * FROM presentation_booking
   // `;
   const presentations = [
     {
+      CEmail: "teacher@cbe.ca",
       address: "123 main",
-      date: "2023-05-01",
-      name: "test",
-      sheetname: "sheetname",
-      times: [
+      Presentation: "PType",
+      Presentation_Date: "2023-05-01",
+      Presentation_Time: "12:00",
+      Duration_In_Minutes: 60,
+      School: "Wisewood",
+      Executive_Confirmation: false,
+      signups: [
         {
-          startTime: "12:00",
-          endTime: "13:00",
-          enrolled: 1,
+          enrolled: ["email1", "email2"],
           capacity: 2,
-          selected: "Confirmed",
+        },
+      ],
+    },
+    {
+      CEmail: "techer@cbe.ca",
+      address: "123 main",
+      Presentation: "PType",
+      Presentation_Date: "2023-05-01",
+      Presentation_Time: "12:00",
+      Duration_In_Minutes: 60,
+      School: "Wisewood",
+      Executive_Confirmation: false,
+      signups: [
+        {
+          enrolled: ["email1", "email2"],
+          capacity: 2,
         },
       ],
     },
@@ -88,11 +107,29 @@ const createPresentationBooking = async (request, response) => {
 };
 
 const deletePresentationBooking = async (request, response) => {
-  const { CEmail, Presentation_Date, Presentation_Time } = request.body;
+  const { CEmail, Presentation_Date, Presentation_Time } =
+    request.body.presentation;
+  console.log(CEmail, Presentation_Date, Presentation_Time);
+  // const users = await sql`
+  //   DELETE FROM presentation_booking
+  //   WHERE (CEmail = ${CEmail} AND Presentation_Date = ${Presentation_Date} AND Presentation_Time = ${Presentation_Time})
+  //   `;
+  response.status(200).json("success");
+};
+
+const createClient = async (request, response) => {
+  const { Email, Role, Sname, SAddress, SDname } = request.body;
+
+  try {
+    const schools = await sql`
+      INSERT INTO School (Sname, Address, SDname) VALUES (${Sname}, ${SAddress}, ${SDname})
+      `;
+  } catch (err) {
+    //this means the school already exists, so just continue
+  }
 
   const users = await sql`
-    DELETE FROM presentation_booking 
-    WHERE (CEmail = ${CEmail} AND Presentation_Date = ${Presentation_Date} AND Presentation_Time = ${Presentation_Time})
+    INSERT INTO Client (Email, Client_Role, Sname) VALUES (${Email}, ${Role}, ${Sname})
     `;
   response.status(200).json(users);
 };
@@ -104,4 +141,5 @@ module.exports = {
   GetExecutives,
   createPresentationBooking,
   deletePresentationBooking,
+  createClient,
 };

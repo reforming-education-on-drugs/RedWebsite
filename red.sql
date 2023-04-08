@@ -116,3 +116,13 @@ CREATE TABLE Makes
 
 ALTER TABLE Makes ADD FOREIGN KEY (Email) REFERENCES RED_staff(Email);
 ALTER TABLE Makes ADD FOREIGN KEY (PName) REFERENCES Presentation(PName);
+
+-- test values to initialze the databse
+INSERT INTO city VALUES('Calgary');
+
+INSERT INTO University (Uname, CName) VALUES ('University of Calgary', 'Calgary');
+
+INSERT INTO School_District (SDName, Presentation_Permission_Status, CName) 
+VALUES ('Calgary Catholic School District', TRUE, 'Calgary'), ('Calgary Board of Education', TRUE, 'Calgary');
+
+INSERT INTO Presentation VALUES ('Drug Overview'), ('Fentanyl'), ('Cannabis'), ('Vaccine'), ('Mental Health');
