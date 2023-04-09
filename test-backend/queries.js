@@ -157,7 +157,8 @@ const createPresentationBooking = async (request, response) => {
     Client_Role,
     Sname,
     SAddress,
-    SDname
+    SDname,
+    capacity
   } = request.body;
 
   try{
@@ -179,9 +180,9 @@ const createPresentationBooking = async (request, response) => {
   const result = await sql`
     INSERT INTO presentation_booking (CEmail, Presentation_Date, Presentation_Time, Location_In_School, 
         Presentation, Number_Of_Student, Student_Grade, Duration_In_Minutes,
-        Can_Class_Use_Kahoot, Notes, Executive_Confirmation) VALUES (${CEmail}, ${Presentation_Date}, 
+        Can_Class_Use_Kahoot, Notes, Executive_Confirmation, capacity) VALUES (${CEmail}, ${Presentation_Date}, 
             ${Presentation_Time}, ${Location_In_School}, ${Presentation}, ${Number_Of_Student}, 
-            ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation})
+            ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation} , ${capacity})
     `;
   response.status(200).json(result);
 };
