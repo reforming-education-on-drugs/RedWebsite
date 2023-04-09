@@ -19,10 +19,12 @@ async function getPgVersion() {
 getPgVersion();
 
 const GetAllPresentations = async (request, response) => {
-  // const presentations = await sql`
-  //   SELECT * FROM presentation_booking
+  // const result = await sql`
+  //   SELECT *
+  //   FROM presentation_booking, Client, School
+  //   WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
   // `;
-  const presentations = [
+  const result = [
     {
       CEmail: "teacher@cbe.ca",
       address: "123 main",
@@ -56,28 +58,39 @@ const GetAllPresentations = async (request, response) => {
       ],
     },
   ];
-  response.status(200).json(presentations);
+  response.status(200).json(result);
 };
 
 const GetConfirmedPresentations = async (request, response) => {
-  const users = await sql`
-      SELECT * FROM presentation_booking WHERE Executive_Confirmation=TRUE
+  const result = await sql`
+      SELECT * 
+      FROM presentation_booking, Client, School 
+      WHERE Executive_Confirmation=TRUE AND presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
     `;
-  response.status(200).json(users);
+  response.status(200).json(result);
 };
 
 const GetUnconfirmedPresentations = async (request, response) => {
-  const users = await sql`
-      SELECT * FROM presentation_booking WHERE Executive_Confirmation=FALSE
+  const result = await sql`
+      SELECT * 
+      FROM presentation_booking, Client, School
+      WHERE Executive_Confirmation=FALSE AND presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
     `;
-  response.status(200).json(users);
+  response.status(200).json(result);
 };
 
 const GetExecutives = async (request, response) => {
-  const users = await sql`
+  const result = await sql`
       SELECT email FROM red_staff WHERE is_RED_Executive=TRUE
     `;
-  response.status(200).json(users);
+  response.status(200).json(result);
+};
+
+const GetPresentation = async (request, response) => {
+  const result = await sql`
+      SELECT * FROM presentation
+    `;
+  response.status(200).json(result);
 };
 
 const createPresentationBooking = async (request, response) => {
@@ -86,7 +99,6 @@ const createPresentationBooking = async (request, response) => {
     Presentation_Date,
     Presentation_Time,
     Location_In_School,
-    School,
     Presentation,
     Number_Of_Student,
     Student_Grade,
@@ -94,31 +106,11 @@ const createPresentationBooking = async (request, response) => {
     Can_Class_Use_Kahoot,
     Notes,
     Executive_Confirmation,
+    Client_Role,
+    Sname,
+    SAddress,
+    SDname,
   } = request.body;
-
-  const users = await sql`
-    INSERT INTO presentation_booking (CEmail, Presentation_Date, Presentation_Time, Location_In_School, 
-        School, Presentation, Number_Of_Student, Student_Grade, Duration_In_Minutes,
-        Can_Class_Use_Kahoot, Notes, Executive_Confirmation) VALUES (${CEmail}, ${Presentation_Date}, 
-            ${Presentation_Time}, ${Location_In_School}, ${School}, ${Presentation}, ${Number_Of_Student}, 
-            ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation})
-    `;
-  response.status(200).json(users);
-};
-
-const deletePresentationBooking = async (request, response) => {
-  const { CEmail, Presentation_Date, Presentation_Time } =
-    request.body.presentation;
-  console.log(CEmail, Presentation_Date, Presentation_Time);
-  // const users = await sql`
-  //   DELETE FROM presentation_booking
-  //   WHERE (CEmail = ${CEmail} AND Presentation_Date = ${Presentation_Date} AND Presentation_Time = ${Presentation_Time})
-  //   `;
-  response.status(200).json("success");
-};
-
-const createClient = async (request, response) => {
-  const { Email, Role, Sname, SAddress, SDname } = request.body;
 
   try {
     const schools = await sql`
@@ -128,10 +120,102 @@ const createClient = async (request, response) => {
     //this means the school already exists, so just continue
   }
 
-  const users = await sql`
-    INSERT INTO Client (Email, Client_Role, Sname) VALUES (${Email}, ${Role}, ${Sname})
+  try {
+    const client = await sql`
+    INSERT INTO Client (Email, Client_Role, Sname) VALUES (${CEmail}, ${Client_Role}, ${Sname})
     `;
-  response.status(200).json(users);
+  } catch (err) {
+    //this means the client already exists, so just continue
+  }
+
+  const result = await sql`
+    INSERT INTO presentation_booking (CEmail, Presentation_Date, Presentation_Time, Location_In_School, 
+        Presentation, Number_Of_Student, Student_Grade, Duration_In_Minutes,
+        Can_Class_Use_Kahoot, Notes, Executive_Confirmation) VALUES (${CEmail}, ${Presentation_Date}, 
+            ${Presentation_Time}, ${Location_In_School}, ${Presentation}, ${Number_Of_Student}, 
+            ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation})
+    `;
+  response.status(200).json(result);
+};
+
+const deletePresentationBooking = async (request, response) => {
+  const { CEmail, Presentation_Date, Presentation_Time, Location_In_School } =
+    request.body;
+
+  const deletePresents = await sql`
+    DELETE FROM presents
+    WHERE (CEmail = ${CEmail} AND Presentation_Date = ${Presentation_Date} AND Presentation_Time = ${Presentation_Time} AND Location_In_School = ${Location_In_School})
+    `;
+
+  const result = await sql`
+    DELETE FROM presentation_booking 
+    WHERE (CEmail = ${CEmail} AND Presentation_Date = ${Presentation_Date} AND Presentation_Time = ${Presentation_Time} AND Location_In_School = ${Location_In_School})
+    `;
+  response.status(200).json(result);
+};
+
+const createPresents = async (request, response) => {
+  const { CEmail, Date, Time, Location_In_School, Volunteer_email } =
+    request.body;
+
+  const result = await sql`
+    INSERT INTO Presents (CEmail, Presentation_Date, Presentation_Time, Location_In_School, Volunteer_email) 
+    VALUES (${CEmail}, ${Date}, ${Time}, ${Location_In_School}, ${Volunteer_email})
+    `;
+  response.status(200).json(result);
+};
+
+const deletePresents = async (request, response) => {
+  const { CEmail, Date, Time, Location_In_School, Volunteer_email } =
+    request.body;
+
+  const result = await sql`
+    DELETE FROM Presents WHERE (CEmail = ${CEmail} AND Presentation_Date = ${Date} AND Presentation_Time = ${Time} 
+      AND Location_In_School = ${Location_In_School} AND Volunteer_email = ${Volunteer_email})
+    `;
+  response.status(200).json(result);
+};
+
+const createRedStaff = async (request, response) => {
+  const {
+    Email,
+    Fname,
+    Lname,
+    Uni_ID,
+    Faculty,
+    Join_Date,
+    is_RED_volunteer,
+    Hours_volunteer,
+    is_RED_Executive,
+    position,
+    Uname,
+  } = request.body;
+
+  const result = await sql`
+    INSERT INTO red_staff (Email, Fname, Lname, Uni_ID, Faculty, Join_Date, is_RED_volunteer, Hours_volunteer, is_RED_Executive, position, Uname)
+    VALUES (${Email}, ${Fname}, ${Lname}, ${Uni_ID}, ${Faculty}, ${Join_Date}, ${is_RED_volunteer}, ${Hours_volunteer}, ${is_RED_Executive}, ${position}, ${Uname})
+    `;
+  response.status(200).json(result);
+};
+
+const createTrains = async (request, response) => {
+  const { Volunteer_email, Executive_email } = request.body;
+
+  const result = await sql`
+    INSERT INTO trains (Volunteer_email, Executive_email)
+    VALUES (${Volunteer_email}, ${Executive_email})
+    `;
+  response.status(200).json(result);
+};
+
+const createMakes = async (request, response) => {
+  const { Email, Pname } = request.body;
+
+  const result = await sql`
+    INSERT INTO makes (Email, Pname)
+    VALUES (${Email}, ${Pname})
+    `;
+  response.status(200).json(result);
 };
 
 module.exports = {
@@ -139,7 +223,12 @@ module.exports = {
   GetConfirmedPresentations,
   GetUnconfirmedPresentations,
   GetExecutives,
+  GetPresentation,
   createPresentationBooking,
   deletePresentationBooking,
-  createClient,
+  createPresents,
+  deletePresents,
+  createRedStaff,
+  createTrains,
+  createMakes,
 };
