@@ -62,6 +62,8 @@ CREATE TABLE Client
         Email varchar(255) PRIMARY KEY,
         Clinet_Role varchar(255),
         Sname varchar(255)
+        name varchar(255),
+        Phone_Number varchar(255),
     );
 
 ALTER TABLE Client ADD FOREIGN KEY (Sname) REFERENCES School(Sname);
