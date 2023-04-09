@@ -19,64 +19,146 @@ async function getPgVersion() {
 getPgVersion();
 
 const GetAllPresentations = async (request, response) => {
-  // const result = await sql`
-  //   SELECT *
-  //   FROM presentation_booking, Client, School
-  //   WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
-  // `;
-  const result = [
-    {
-      CEmail: "teacher@cbe.ca",
-      address: "123 main",
-      Presentation: "PType",
-      Presentation_Date: "2023-05-01",
-      Presentation_Time: "12:00",
-      Duration_In_Minutes: 60,
-      School: "Wisewood",
-      Executive_Confirmation: false,
-      signups: [
-        {
-          enrolled: ["email1", "email2"],
-          capacity: 2,
-        },
-      ],
-    },
-    {
-      CEmail: "techer@cbe.ca",
-      address: "123 main",
-      Presentation: "PType",
-      Presentation_Date: "2023-05-01",
-      Presentation_Time: "12:00",
-      Duration_In_Minutes: 60,
-      School: "Wisewood",
-      Executive_Confirmation: false,
-      signups: [
-        {
-          enrolled: ["email1", "email2"],
-          capacity: 2,
-        },
-      ],
-    },
-  ];
-  response.status(200).json(result);
+  const result = await sql`
+    SELECT * 
+    FROM presentation_booking, Client, School, Presents
+    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+    AND presentation_booking.CEmail = Presents.CEmail AND presentation_booking.Presentation_Date = Presents.Presentation_Date
+    AND presentation_booking.Presentation_Time = Presents.Presentation_Time AND presentation_booking.Location_In_School = Presents.Location_In_School
+  `;
+  // const result = [
+  //   {
+  //     CEmail: "teacher@cbe.ca",
+  //     address: "123 main",
+  //     Presentation: "PType",
+  //     Presentation_Date: "2023-05-01",
+  //     Presentation_Time: "12:00",
+  //     Duration_In_Minutes: 60,
+  //     School: "Wisewood",
+  //     Executive_Confirmation: false,
+  //     signups: [
+  //       {
+  //         enrolled: ["email1", "email2"],
+  //         capacity: 2,
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     CEmail: "techer@cbe.ca",
+  //     address: "123 main",
+  //     Presentation: "PType",
+  //     Presentation_Date: "2023-05-01",
+  //     Presentation_Time: "12:00",
+  //     Duration_In_Minutes: 60,
+  //     School: "Wisewood",
+  //     Executive_Confirmation: false,
+  //     signups: [
+  //       {
+  //         enrolled: ["email1", "email2"],
+  //         capacity: 2,
+  //       },
+  //     ],
+  //   },
+  // ];
+  try {
+    new_result = {
+      cemail: result[0].cemail,
+      presentation_date: result[0].presentation_date,
+      presentation_time: result[0].presentation_time,
+      location_in_school: result[0].location_in_school,
+      presentation: result[0].presentation,
+      number_of_student: result[0].number_of_student,
+      student_grade: result[0].student_grade,
+      duration_in_minutes: result[0].duration_in_minutes,
+      can_class_use_kahoot: result[0].can_class_use_kahoot,
+      notes: result[0].notes,
+      executive_confirmation: result[0].executive_confirmation,
+      email: result[0].email,
+      client_role: result[0].client_role,
+      sname: result[0].sname,
+      address: result[0].address,
+      sdname: result[0].sdname,
+      capacity: result[0].capacity,
+      signups: result.map((d) => d.volunteer_email),
+    };
+    response.status(200).json(new_result);
+  } catch (error) {
+    response.status(200).json("No presentations found");
+  }
 };
 
 const GetConfirmedPresentations = async (request, response) => {
   const result = await sql`
       SELECT * 
-      FROM presentation_booking, Client, School 
-      WHERE Executive_Confirmation=TRUE AND presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+      FROM presentation_booking, Client, School, Presents
+      WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+      AND presentation_booking.CEmail = Presents.CEmail AND presentation_booking.Presentation_Date = Presents.Presentation_Date
+      AND presentation_booking.Presentation_Time = Presents.Presentation_Time AND presentation_booking.Location_In_School = Presents.Location_In_School
+      AND executive_confirmation = TRUE
     `;
-  response.status(200).json(result);
+
+  try {
+    new_result = {
+      cemail: result[0].cemail,
+      presentation_date: result[0].presentation_date,
+      presentation_time: result[0].presentation_time,
+      location_in_school: result[0].location_in_school,
+      presentation: result[0].presentation,
+      number_of_student: result[0].number_of_student,
+      student_grade: result[0].student_grade,
+      duration_in_minutes: result[0].duration_in_minutes,
+      can_class_use_kahoot: result[0].can_class_use_kahoot,
+      notes: result[0].notes,
+      executive_confirmation: result[0].executive_confirmation,
+      email: result[0].email,
+      client_role: result[0].client_role,
+      sname: result[0].sname,
+      address: result[0].address,
+      sdname: result[0].sdname,
+      capacity: result[0].capacity,
+      signups: result.map((d) => d.volunteer_email),
+    };
+    response.status(200).json(new_result);
+  } catch (error) {
+    response.status(200).json("No presentations found");
+  }
 };
 
 const GetUnconfirmedPresentations = async (request, response) => {
   const result = await sql`
       SELECT * 
-      FROM presentation_booking, Client, School
-      WHERE Executive_Confirmation=FALSE AND presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+      FROM presentation_booking, Client, School, Presents
+      WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+      AND presentation_booking.CEmail = Presents.CEmail AND presentation_booking.Presentation_Date = Presents.Presentation_Date
+      AND presentation_booking.Presentation_Time = Presents.Presentation_Time AND presentation_booking.Location_In_School = Presents.Location_In_School
+      AND executive_confirmation = False
     `;
-  response.status(200).json(result);
+
+  try {
+    new_result = {
+      cemail: result[0].cemail,
+      presentation_date: result[0].presentation_date,
+      presentation_time: result[0].presentation_time,
+      location_in_school: result[0].location_in_school,
+      presentation: result[0].presentation,
+      number_of_student: result[0].number_of_student,
+      student_grade: result[0].student_grade,
+      duration_in_minutes: result[0].duration_in_minutes,
+      can_class_use_kahoot: result[0].can_class_use_kahoot,
+      notes: result[0].notes,
+      executive_confirmation: result[0].executive_confirmation,
+      email: result[0].email,
+      client_role: result[0].client_role,
+      sname: result[0].sname,
+      address: result[0].address,
+      sdname: result[0].sdname,
+      capacity: result[0].capacity,
+      signups: result.map((d) => d.volunteer_email),
+    };
+    response.status(200).json(new_result);
+  } catch (error) {
+    response.status(200).json("No presentations found");
+  }
 };
 
 const GetExecutives = async (request, response) => {
@@ -110,6 +192,7 @@ const createPresentationBooking = async (request, response) => {
     Sname,
     SAddress,
     SDname,
+    capacity,
   } = request.body;
 
   try {
@@ -131,9 +214,9 @@ const createPresentationBooking = async (request, response) => {
   const result = await sql`
     INSERT INTO presentation_booking (CEmail, Presentation_Date, Presentation_Time, Location_In_School, 
         Presentation, Number_Of_Student, Student_Grade, Duration_In_Minutes,
-        Can_Class_Use_Kahoot, Notes, Executive_Confirmation) VALUES (${CEmail}, ${Presentation_Date}, 
+        Can_Class_Use_Kahoot, Notes, Executive_Confirmation, capacity) VALUES (${CEmail}, ${Presentation_Date}, 
             ${Presentation_Time}, ${Location_In_School}, ${Presentation}, ${Number_Of_Student}, 
-            ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation})
+            ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation} , ${capacity})
     `;
   response.status(200).json(result);
 };
