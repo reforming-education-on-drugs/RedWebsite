@@ -27,27 +27,44 @@ const GetAllPresentations = async (request, response) => {
     AND presentation_booking.Presentation_Time = Presents.Presentation_Time AND presentation_booking.Location_In_School = Presents.Location_In_School
   `;
   try{
-    new_result = {
-      "cemail": result[0].cemail,
-      "presentation_date": result[0].presentation_date,
-      "presentation_time": result[0].presentation_time,
-      "location_in_school": result[0].location_in_school,
-      "presentation": result[0].presentation,
-      "number_of_student": result[0].number_of_student,
-      "student_grade": result[0].student_grade,
-      "duration_in_minutes": result[0].duration_in_minutes,
-      "can_class_use_kahoot": result[0].can_class_use_kahoot,
-      "notes": result[0].notes,
-      "executive_confirmation": result[0].executive_confirmation,
-      "email": result[0].email,
-      "client_role": result[0].client_role,
-      "sname": result[0].sname,
-      "address": result[0].address,
-      "sdname": result[0].sdname,
-      "capacity": result[0].capacity,
-      "signups": result.map(d => d.volunteer_email)
-    };
+    const groups = result.reduce((accumulator, currentValue) => {
+      const key = `${currentValue.cemail} ${currentValue.presentation_date} ${currentValue.presentation_time} ${currentValue.location_in_school} `;
+      if (accumulator[key]) {
+        if (accumulator[key].signups) {
+          accumulator[key].signups.push(currentValue.volunteer_email);
+        } else {
+          accumulator[key].signups = [currentValue.volunteer_email];
+        }
+      } else {
+        accumulator[key] = {
+          "cemail": currentValue.cemail,
+          "presentation_date": currentValue.presentation_date,
+          "presentation_time": currentValue.presentation_time,
+          "location_in_school": currentValue.location_in_school,
+          "presentation": currentValue.presentation,
+          "number_of_student": currentValue.number_of_student,
+          "student_grade": currentValue.student_grade,
+          "duration_in_minutes": currentValue.duration_in_minutes,
+          "can_class_use_kahoot": currentValue.can_class_use_kahoot,
+          "notes": currentValue.notes,
+          "executive_confirmation": currentValue.executive_confirmation,
+          "email": currentValue.email,
+          "client_role": currentValue.client_role,
+          "sname": currentValue.sname,
+          "address": currentValue.address,
+          "sdname": currentValue.sdname,
+          "capacity": currentValue.capacity,
+          "signups": [currentValue.volunteer_email]
+        };
+      }
+      return accumulator;
+    }, {});
+
+    // Convert the groups object to an array of objects
+    const new_result = Object.values(groups);
+
     response.status(200).json(new_result);
+      
   } catch (error) {
     response.status(200).json("No presentations found");
   }
@@ -64,26 +81,41 @@ const GetConfirmedPresentations = async (request, response) => {
     `;
 
     try{
-      new_result = {
-        "cemail": result[0].cemail,
-        "presentation_date": result[0].presentation_date,
-        "presentation_time": result[0].presentation_time,
-        "location_in_school": result[0].location_in_school,
-        "presentation": result[0].presentation,
-        "number_of_student": result[0].number_of_student,
-        "student_grade": result[0].student_grade,
-        "duration_in_minutes": result[0].duration_in_minutes,
-        "can_class_use_kahoot": result[0].can_class_use_kahoot,
-        "notes": result[0].notes,
-        "executive_confirmation": result[0].executive_confirmation,
-        "email": result[0].email,
-        "client_role": result[0].client_role,
-        "sname": result[0].sname,
-        "address": result[0].address,
-        "sdname": result[0].sdname,
-        "capacity": result[0].capacity,
-        "signups": result.map(d => d.volunteer_email)
-      };
+      const groups = result.reduce((accumulator, currentValue) => {
+        const key = `${currentValue.cemail} ${currentValue.presentation_date} ${currentValue.presentation_time} ${currentValue.location_in_school} `;
+        if (accumulator[key]) {
+          if (accumulator[key].signups) {
+            accumulator[key].signups.push(currentValue.volunteer_email);
+          } else {
+            accumulator[key].signups = [currentValue.volunteer_email];
+          }
+        } else {
+          accumulator[key] = {
+            "cemail": currentValue.cemail,
+            "presentation_date": currentValue.presentation_date,
+            "presentation_time": currentValue.presentation_time,
+            "location_in_school": currentValue.location_in_school,
+            "presentation": currentValue.presentation,
+            "number_of_student": currentValue.number_of_student,
+            "student_grade": currentValue.student_grade,
+            "duration_in_minutes": currentValue.duration_in_minutes,
+            "can_class_use_kahoot": currentValue.can_class_use_kahoot,
+            "notes": currentValue.notes,
+            "executive_confirmation": currentValue.executive_confirmation,
+            "email": currentValue.email,
+            "client_role": currentValue.client_role,
+            "sname": currentValue.sname,
+            "address": currentValue.address,
+            "sdname": currentValue.sdname,
+            "capacity": currentValue.capacity,
+            "signups": [currentValue.volunteer_email]
+          };
+        }
+        return accumulator;
+      }, {});
+  
+      // Convert the groups object to an array of objects
+      const new_result = Object.values(groups);
       response.status(200).json(new_result);
     } catch (error) {
       response.status(200).json("No presentations found");
@@ -101,26 +133,41 @@ const GetUnconfirmedPresentations = async (request, response) => {
     `;
 
     try{
-      new_result = {
-        "cemail": result[0].cemail,
-        "presentation_date": result[0].presentation_date,
-        "presentation_time": result[0].presentation_time,
-        "location_in_school": result[0].location_in_school,
-        "presentation": result[0].presentation,
-        "number_of_student": result[0].number_of_student,
-        "student_grade": result[0].student_grade,
-        "duration_in_minutes": result[0].duration_in_minutes,
-        "can_class_use_kahoot": result[0].can_class_use_kahoot,
-        "notes": result[0].notes,
-        "executive_confirmation": result[0].executive_confirmation,
-        "email": result[0].email,
-        "client_role": result[0].client_role,
-        "sname": result[0].sname,
-        "address": result[0].address,
-        "sdname": result[0].sdname,
-        "capacity": result[0].capacity,
-        "signups": result.map(d => d.volunteer_email)
-      };
+      const groups = result.reduce((accumulator, currentValue) => {
+        const key = `${currentValue.cemail} ${currentValue.presentation_date} ${currentValue.presentation_time} ${currentValue.location_in_school} `;
+        if (accumulator[key]) {
+          if (accumulator[key].signups) {
+            accumulator[key].signups.push(currentValue.volunteer_email);
+          } else {
+            accumulator[key].signups = [currentValue.volunteer_email];
+          }
+        } else {
+          accumulator[key] = {
+            "cemail": currentValue.cemail,
+            "presentation_date": currentValue.presentation_date,
+            "presentation_time": currentValue.presentation_time,
+            "location_in_school": currentValue.location_in_school,
+            "presentation": currentValue.presentation,
+            "number_of_student": currentValue.number_of_student,
+            "student_grade": currentValue.student_grade,
+            "duration_in_minutes": currentValue.duration_in_minutes,
+            "can_class_use_kahoot": currentValue.can_class_use_kahoot,
+            "notes": currentValue.notes,
+            "executive_confirmation": currentValue.executive_confirmation,
+            "email": currentValue.email,
+            "client_role": currentValue.client_role,
+            "sname": currentValue.sname,
+            "address": currentValue.address,
+            "sdname": currentValue.sdname,
+            "capacity": currentValue.capacity,
+            "signups": [currentValue.volunteer_email]
+          };
+        }
+        return accumulator;
+      }, {});
+  
+      // Convert the groups object to an array of objects
+      const new_result = Object.values(groups);
       response.status(200).json(new_result);
     } catch (error) {
       response.status(200).json("No presentations found");
@@ -155,6 +202,8 @@ const createPresentationBooking = async (request, response) => {
     Notes,
     Executive_Confirmation,
     Client_Role,
+    Cname,
+    Cphonenumber,
     Sname,
     SAddress,
     SDname,
@@ -171,7 +220,7 @@ const createPresentationBooking = async (request, response) => {
 
   try{
   const client = await sql`
-    INSERT INTO Client (Email, Client_Role, Sname) VALUES (${CEmail}, ${Client_Role}, ${Sname})
+    INSERT INTO Client (Email, Client_Role, Sname, name, phone_number) VALUES (${CEmail}, ${Client_Role}, ${Sname}, ${Cname}, ${Cphonenumber})
     `;
   } catch (err) {
     //this means the client already exists, so just continue

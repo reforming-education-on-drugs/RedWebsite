@@ -1,0 +1,28 @@
+{
+    "CEmail": "c3@gmail.com",
+    "Presentation_Date": "2020-01-01",
+    "Presentation_Time": "10:00:00",
+    "Location_In_School": "Room 1",
+    "Presentation": "Drug Overview",
+    "Number_Of_Student": 100,
+    "Student_Grade": "10",
+    "Duration_In_Minutes": 60,
+    "Can_Class_Use_Kahoot": true,
+    "Notes": "This is a test",
+    "Executive_Confirmation": true,
+    "Client_Role": "Teacher",
+    "Cname": "Client 1",
+    "Cphonenumber": "403-123-4567",
+    "Sname": "School 1",
+    "SAddress": "123 Street NW",
+    "SDname": "Calgary Catholic School District",
+    "capacity": 2
+}
+
+{
+    "CEmail": "c3@gmail.com", 
+    "Date": "2020-01-01", 
+    "Time": "10:00:00", 
+    "Location_In_School": "Room 1", 
+    "Volunteer_email": "test@gmail.com"
+}
