@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Nav, Navbar, NavItem, NavDropdown, Container } from "react-bootstrap";
 import auth from "../utils/auth";
+import { isExecutive } from "../Constants/auth";
 
 export default function Header() {
   const logout = () => {
@@ -57,7 +58,7 @@ export default function Header() {
             {/* <NavItem href="/blog">Blog</NavItem> */}
             <Nav.Link href="/get-involved">Get Involved</Nav.Link>
             {auth.currentUser() ? (
-              auth.currentUser().email == "rkthemainburner@gmail.com" ? (
+              isExecutive(auth.currentUser().email) ? (
                 <>
                   <Nav.Link href="/volunteer">Volunteer</Nav.Link>
                   <NavDropdown title="Executive" id="basic-nav-dropdown">

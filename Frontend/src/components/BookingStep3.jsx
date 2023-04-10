@@ -78,12 +78,12 @@ export default class BookingStep1 extends React.Component {
                 <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
-                    this.state.presentation == "drug overview"
+                    this.state.presentation == "Drug Overview"
                       ? "selected_presentation"
                       : ""
                   }`}
                   onClick={() =>
-                    this.handlePresentationSelection("drug overview")
+                    this.handlePresentationSelection("Drug Overview")
                   }
                 >
                   <Card.Img
@@ -107,11 +107,11 @@ export default class BookingStep1 extends React.Component {
                 <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
-                    this.state.presentation == "fentanyl"
+                    this.state.presentation == "Fentanyl"
                       ? "selected_presentation"
                       : ""
                   }`}
-                  onClick={() => this.handlePresentationSelection("fentanyl")}
+                  onClick={() => this.handlePresentationSelection("Fentanyl")}
                 >
                   <Card.Img
                     variant="top"
@@ -135,11 +135,11 @@ export default class BookingStep1 extends React.Component {
                 <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
-                    this.state.presentation == "cannabis"
+                    this.state.presentation == "Cannabis"
                       ? "selected_presentation"
                       : ""
                   }`}
-                  onClick={() => this.handlePresentationSelection("cannabis")}
+                  onClick={() => this.handlePresentationSelection("Cannabis")}
                 >
                   <Card.Img
                     variant="top"
@@ -163,11 +163,11 @@ export default class BookingStep1 extends React.Component {
                 <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
-                    this.state.presentation == "vaccine"
+                    this.state.presentation == "Vaccine"
                       ? "selected_presentation"
                       : ""
                   }`}
-                  onClick={() => this.handlePresentationSelection("vaccine")}
+                  onClick={() => this.handlePresentationSelection("Vaccine")}
                 >
                   <Card.Img
                     variant="top"
@@ -225,12 +225,12 @@ export default class BookingStep1 extends React.Component {
                 <Col
                   md={4}
                   className={`hvr-grow presentation_option ${
-                    this.state.presentation == "mental_health"
+                    this.state.presentation == "Mental Health"
                       ? "selected_presentation"
                       : ""
                   }`}
                   onClick={() =>
-                    this.handlePresentationSelection("mental_health")
+                    this.handlePresentationSelection("Mental Health")
                   }
                 >
                   <Card.Img

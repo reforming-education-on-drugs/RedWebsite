@@ -39,7 +39,7 @@ export default class PresentationBookingWizard extends React.Component {
       presentation_duration: "",
       presentation_duration_exact: "",
       presentation_medium: "",
-      kahoot: "",
+      kahoot: false,
       notes: "",
     };
   }
@@ -75,9 +75,15 @@ export default class PresentationBookingWizard extends React.Component {
   };
 
   inputChange = (input) => (e) => {
-    this.setState({
-      [input]: e.target.value,
-    });
+    if (e.target.value == "true" || e.target.value == "false") {
+      this.setState({
+        [input]: e.target.value == "true" ? true : false,
+      });
+    } else {
+      this.setState({
+        [input]: e.target.value,
+      });
+    }
   };
 
   // Validation
@@ -226,6 +232,7 @@ export default class PresentationBookingWizard extends React.Component {
       email,
       phone,
       school,
+      school_district,
       address,
       grades,
       num_students,
@@ -243,6 +250,7 @@ export default class PresentationBookingWizard extends React.Component {
       email,
       phone,
       school,
+      school_district,
       address,
       grades,
       num_students,
