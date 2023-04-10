@@ -68,7 +68,7 @@ const GetConfirmedPresentations = async (request, response) => {
   const all = await sql`
     SELECT * 
     FROM presentation_booking, Client, School
-    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname AND executive_confirmation = TRUE
   `;
   const result = await sql`
       SELECT * 
@@ -115,7 +115,7 @@ const GetUnconfirmedPresentations = async (request, response) => {
   const all = await sql`
     SELECT * 
     FROM presentation_booking, Client, School
-    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname AND executive_confirmation = False
   `;
   const result = await sql`
       SELECT * 
