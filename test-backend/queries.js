@@ -19,6 +19,11 @@ async function getPgVersion() {
 getPgVersion();
 
 const GetAllPresentations = async (request, response) => {
+  const all = await sql`
+    SELECT * 
+    FROM presentation_booking, Client, School
+    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+  `;
   const result = await sql`
     SELECT * 
     FROM presentation_booking, Client, School, Presents
@@ -27,49 +32,44 @@ const GetAllPresentations = async (request, response) => {
     AND presentation_booking.Presentation_Time = Presents.Presentation_Time AND presentation_booking.Location_In_School = Presents.Location_In_School
   `;
   try {
-    const groups = result.reduce((accumulator, currentValue) => {
-      const key = `${currentValue.cemail} ${currentValue.presentation_date} ${currentValue.presentation_time} ${currentValue.location_in_school} `;
-      if (accumulator[key]) {
-        if (accumulator[key].signups) {
-          accumulator[key].signups.push(currentValue.volunteer_email);
-        } else {
-          accumulator[key].signups = [currentValue.volunteer_email];
-        }
-      } else {
-        accumulator[key] = {
-          cemail: currentValue.cemail,
-          presentation_date: currentValue.presentation_date,
-          presentation_time: currentValue.presentation_time,
-          location_in_school: currentValue.location_in_school,
-          presentation: currentValue.presentation,
-          number_of_student: currentValue.number_of_student,
-          student_grade: currentValue.student_grade,
-          duration_in_minutes: currentValue.duration_in_minutes,
-          can_class_use_kahoot: currentValue.can_class_use_kahoot,
-          notes: currentValue.notes,
-          executive_confirmation: currentValue.executive_confirmation,
-          email: currentValue.email,
-          client_role: currentValue.client_role,
-          sname: currentValue.sname,
-          address: currentValue.address,
-          sdname: currentValue.sdname,
-          capacity: currentValue.capacity,
-          signups: [currentValue.volunteer_email],
-        };
-      }
-      return accumulator;
-    }, {});
+    const resultArray = all.map(item => {
+      const matchingItems = result.filter(obj => obj.cemail === item.cemail && obj.presentation_date === item.presentation_date && 
+        item.presentation_time === obj.presentation_time && item.location_in_school === obj.location_in_school);
+      return {
+        cemail: item.cemail, 
+        presentation_date: item.presentation_date,
+        presentation_time: item.presentation_time,
+        location_in_school: item.location_in_school,
+        presentation: item.presentation,
+        number_of_student: item.number_of_student,
+        student_grade: item.student_grade,
+        duration_in_minutes: item.duration_in_minutes,
+        can_class_use_kahoot: item.can_class_use_kahoot,
+        notes: item.notes,
+        executive_confirmation: item.executive_confirmation,
+        email: item.email,
+        cname: item.name,
+        phone_number: item.phone_number,
+        client_role: item.client_role,
+        sname: item.sname,
+        address: item.address,
+        sdname: item.sdname,
+        capacity: item.capacity,
+        signups: matchingItems.map(obj => obj.volunteer_email)};
+    });
 
-    // Convert the groups object to an array of objects
-    const new_result = Object.values(groups);
-
-    response.status(200).json(new_result);
+    response.status(200).json(resultArray);
   } catch (error) {
     response.status(200).json("No presentations found");
   }
 };
 
 const GetConfirmedPresentations = async (request, response) => {
+  const all = await sql`
+    SELECT * 
+    FROM presentation_booking, Client, School
+    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+  `;
   const result = await sql`
       SELECT * 
       FROM presentation_booking, Client, School, Presents
@@ -78,50 +78,45 @@ const GetConfirmedPresentations = async (request, response) => {
       AND presentation_booking.Presentation_Time = Presents.Presentation_Time AND presentation_booking.Location_In_School = Presents.Location_In_School
       AND executive_confirmation = TRUE
     `;
-
-  try {
-    const groups = result.reduce((accumulator, currentValue) => {
-      const key = `${currentValue.cemail} ${currentValue.presentation_date} ${currentValue.presentation_time} ${currentValue.location_in_school} `;
-      if (accumulator[key]) {
-        if (accumulator[key].signups) {
-          accumulator[key].signups.push(currentValue.volunteer_email);
-        } else {
-          accumulator[key].signups = [currentValue.volunteer_email];
-        }
-      } else {
-        accumulator[key] = {
-          cemail: currentValue.cemail,
-          presentation_date: currentValue.presentation_date,
-          presentation_time: currentValue.presentation_time,
-          location_in_school: currentValue.location_in_school,
-          presentation: currentValue.presentation,
-          number_of_student: currentValue.number_of_student,
-          student_grade: currentValue.student_grade,
-          duration_in_minutes: currentValue.duration_in_minutes,
-          can_class_use_kahoot: currentValue.can_class_use_kahoot,
-          notes: currentValue.notes,
-          executive_confirmation: currentValue.executive_confirmation,
-          email: currentValue.email,
-          client_role: currentValue.client_role,
-          sname: currentValue.sname,
-          address: currentValue.address,
-          sdname: currentValue.sdname,
-          capacity: currentValue.capacity,
-          signups: [currentValue.volunteer_email],
-        };
-      }
-      return accumulator;
-    }, {});
-
-    // Convert the groups object to an array of objects
-    const new_result = Object.values(groups);
-    response.status(200).json(new_result);
-  } catch (error) {
-    response.status(200).json("No presentations found");
-  }
+    try {
+      const resultArray = all.map(item => {
+        const matchingItems = result.filter(obj => obj.cemail === item.cemail && obj.presentation_date === item.presentation_date && 
+          item.presentation_time === obj.presentation_time && item.location_in_school === obj.location_in_school);
+        return {
+          cemail: item.cemail, 
+          presentation_date: item.presentation_date,
+          presentation_time: item.presentation_time,
+          location_in_school: item.location_in_school,
+          presentation: item.presentation,
+          number_of_student: item.number_of_student,
+          student_grade: item.student_grade,
+          duration_in_minutes: item.duration_in_minutes,
+          can_class_use_kahoot: item.can_class_use_kahoot,
+          notes: item.notes,
+          executive_confirmation: item.executive_confirmation,
+          email: item.email,
+          cname: item.name,
+          phone_number: item.phone_number,
+          client_role: item.client_role,
+          sname: item.sname,
+          address: item.address,
+          sdname: item.sdname,
+          capacity: item.capacity,
+          signups: matchingItems.map(obj => obj.volunteer_email)};
+      });
+  
+      response.status(200).json(resultArray);
+    } catch (error) {
+      response.status(200).json("No presentations found");
+    }
 };
 
 const GetUnconfirmedPresentations = async (request, response) => {
+  const all = await sql`
+    SELECT * 
+    FROM presentation_booking, Client, School
+    WHERE presentation_booking.CEmail = Client.Email AND Client.Sname = School.Sname
+  `;
   const result = await sql`
       SELECT * 
       FROM presentation_booking, Client, School, Presents
@@ -130,47 +125,37 @@ const GetUnconfirmedPresentations = async (request, response) => {
       AND presentation_booking.Presentation_Time = Presents.Presentation_Time AND presentation_booking.Location_In_School = Presents.Location_In_School
       AND executive_confirmation = False
     `;
-
-  try {
-    const groups = result.reduce((accumulator, currentValue) => {
-      const key = `${currentValue.cemail} ${currentValue.presentation_date} ${currentValue.presentation_time} ${currentValue.location_in_school} `;
-      if (accumulator[key]) {
-        if (accumulator[key].signups) {
-          accumulator[key].signups.push(currentValue.volunteer_email);
-        } else {
-          accumulator[key].signups = [currentValue.volunteer_email];
-        }
-      } else {
-        accumulator[key] = {
-          cemail: currentValue.cemail,
-          presentation_date: currentValue.presentation_date,
-          presentation_time: currentValue.presentation_time,
-          location_in_school: currentValue.location_in_school,
-          presentation: currentValue.presentation,
-          number_of_student: currentValue.number_of_student,
-          student_grade: currentValue.student_grade,
-          duration_in_minutes: currentValue.duration_in_minutes,
-          can_class_use_kahoot: currentValue.can_class_use_kahoot,
-          notes: currentValue.notes,
-          executive_confirmation: currentValue.executive_confirmation,
-          email: currentValue.email,
-          client_role: currentValue.client_role,
-          sname: currentValue.sname,
-          address: currentValue.address,
-          sdname: currentValue.sdname,
-          capacity: currentValue.capacity,
-          signups: [currentValue.volunteer_email],
-        };
-      }
-      return accumulator;
-    }, {});
-
-    // Convert the groups object to an array of objects
-    const new_result = Object.values(groups);
-    response.status(200).json(new_result);
-  } catch (error) {
-    response.status(200).json("No presentations found");
-  }
+    try {
+      const resultArray = all.map(item => {
+        const matchingItems = result.filter(obj => obj.cemail === item.cemail && obj.presentation_date === item.presentation_date && 
+          item.presentation_time === obj.presentation_time && item.location_in_school === obj.location_in_school);
+        return {
+          cemail: item.cemail, 
+          presentation_date: item.presentation_date,
+          presentation_time: item.presentation_time,
+          location_in_school: item.location_in_school,
+          presentation: item.presentation,
+          number_of_student: item.number_of_student,
+          student_grade: item.student_grade,
+          duration_in_minutes: item.duration_in_minutes,
+          can_class_use_kahoot: item.can_class_use_kahoot,
+          notes: item.notes,
+          executive_confirmation: item.executive_confirmation,
+          email: item.email,
+          cname: item.name,
+          phone_number: item.phone_number,
+          client_role: item.client_role,
+          sname: item.sname,
+          address: item.address,
+          sdname: item.sdname,
+          capacity: item.capacity,
+          signups: matchingItems.map(obj => obj.volunteer_email)};
+      });
+  
+      response.status(200).json(resultArray);
+    } catch (error) {
+      response.status(200).json("No presentations found");
+    }
 };
 
 const GetExecutives = async (request, response) => {
