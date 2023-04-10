@@ -62,7 +62,7 @@ const GetAllPresentations = async (request, response) => {
 
     // Convert the groups object to an array of objects
     const new_result = Object.values(groups);
-
+    console.log(new_result);
     response.status(200).json(new_result);
   } catch (error) {
     response.status(200).json("No presentations found");
@@ -216,22 +216,18 @@ const createPresentationBooking = async (request, response) => {
   } catch (err) {
     //this means the school already exists, so just continue
   }
-
+  let result;
   try {
-    const client = await sql`
-    INSERT INTO Client (Email, Client_Role, Sname, name, phone_number) VALUES (${CEmail}, ${Client_Role}, ${Sname}, ${Cname}, ${Cphonenumber})
-    `;
-  } catch (err) {
-    //this means the client already exists, so just continue
-  }
-
-  const result = await sql`
+    result = await sql`
     INSERT INTO presentation_booking (CEmail, Presentation_Date, Presentation_Time, Location_In_School, 
         Presentation, Number_Of_Student, Student_Grade, Duration_In_Minutes,
         Can_Class_Use_Kahoot, Notes, Executive_Confirmation, capacity) VALUES (${CEmail}, ${Presentation_Date}, 
             ${Presentation_Time}, ${Location_In_School}, ${Presentation}, ${Number_Of_Student}, 
             ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation} , ${capacity})
     `;
+  } catch (err) {
+    console.log(err);
+  }
   response.status(200).json(result);
 };
 
