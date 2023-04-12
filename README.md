@@ -2,7 +2,7 @@
 
 ## Setup
 
-To get started, first clone the repo and checkout booking brach: <br />
+To get started, first install [node.js](https://nodejs.org/en/download), and then clone the repo and checkout booking brach: <br />
 
 ```
 git clone https://github.com/reforming-education-on-drugs/RedWebsite
