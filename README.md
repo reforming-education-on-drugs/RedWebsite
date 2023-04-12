@@ -5,7 +5,7 @@ git clone https://github.com/reforming-education-on-drugs/RedWebsite
 ```
 You then need to go into the backend folder and run npm i as well as node index.js to initialize the backend server, like so: <br />
 ```
-cd .\backend
+cd RedWebsite\backend
 npm i
 node index.js
 ```
