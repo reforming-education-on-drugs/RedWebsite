@@ -107,7 +107,7 @@ class Presentation extends Component {
   render() {
     const { presentation } = this.state;
 
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <Container className="container-no-padding">
@@ -196,7 +196,7 @@ class Presentation extends Component {
                 </thead>
 
                 <tbody style={{ fontSize: "10px" }}>
-                  {console.log(presentation.times)}
+                  {/* {console.log(presentation.times)} */}
                   {presentation.times.map((time, idx) => {
                     return (
                       <tr

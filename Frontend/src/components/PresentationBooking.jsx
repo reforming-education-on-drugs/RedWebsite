@@ -12,6 +12,8 @@ import PropTypes from "prop-types";
 import Moment from "moment";
 import { routes } from "../Constants/routes";
 import { generateHeaders } from "../Constants/auth";
+import { getPresentationEndTime } from "../Constants/helpers";
+import "../Styles/PresentationBookings.css";
 
 function PresentationBooking({
   index,
@@ -226,20 +228,6 @@ function PresentationBooking({
     });
   };
 
-  const getPresentationEndTime = (presentation_time, duration_Minutes) => {
-    const startTime = new Date();
-    startTime.setHours(parseInt(presentation_time.split(":")[0]));
-    startTime.setMinutes(parseInt(presentation_time.split(":")[1]));
-
-    const endTime = new Date(startTime.getTime() + duration_Minutes * 60000); // 60000 ms in 1 minute
-
-    // Format the end time as a string
-    const endHours = endTime.getHours().toString().padStart(2, "0");
-    const endMinutes = endTime.getMinutes().toString().padStart(2, "0");
-    const Presentation_EndTime = `${endHours}:${endMinutes}`;
-    return Presentation_EndTime;
-  };
-
   return (
     <Container className="container-no-padding">
       <Modal show={show} onHide={handleClose}>
@@ -409,34 +397,37 @@ function PresentationBooking({
             justifyContent: "center",
           }}
         >
-          <table>
+          {/* <table>
             <tbody>
               <tr>
-                <td>
-                  <Button
-                    disabled={presentation.executive_confirmation}
-                    variant="success"
-                    onClick={() => onConfirm()}
-                  >
-                    Confirm
-                  </Button>
-                  <Button
-                    disabled={presentation.executive_confirmation}
-                    variant="warning"
-                    onClick={() => handleEditClick()}
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    variant="danger"
-                    onClick={() => onDelete(presentation)}
-                  >
-                    Delete
-                  </Button>
-                </td>
+                <td> */}
+          <Button
+            disabled={presentation.executive_confirmation}
+            variant="success"
+            onClick={() => onConfirm()}
+            className="booking-buttons"
+          >
+            Confirm
+          </Button>
+          <Button
+            disabled={presentation.executive_confirmation}
+            variant="warning"
+            onClick={() => handleEditClick()}
+            className="booking-buttons"
+          >
+            Edit
+          </Button>
+          <Button
+            variant="danger"
+            onClick={() => onDelete(presentation)}
+            className="booking-buttons"
+          >
+            Delete
+          </Button>
+          {/* </td>
               </tr>
             </tbody>
-          </table>
+          </table> */}
         </div>
         {/* End of table */}
         <EditModal />

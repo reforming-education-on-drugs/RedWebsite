@@ -11,21 +11,10 @@ function Bookings({ searchSettings }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // generateHeaders().then((headers) =>
-    //   fetch("/.netlify/functions/getPresentations", {
-    //     headers,
-    //     method: "POST",
-    //   }).then((response) => {
-    //     console.log(response);
-    //     updateUI(response);
-    //   })
-    // );
-    // updateUI({});
     APICall();
   }, [searchSettings]);
 
   const APICall = () => {
-    // if (searchSettings.presentationType == "All") {
     generateExecutiveHeaders().then((headers) =>
       fetch(routes.getAllPresentations, {
         headers,
@@ -35,47 +24,12 @@ function Bookings({ searchSettings }) {
         updateUI(response);
       })
     );
-    // } else if (searchSettings.presentationType == "Confirmed") {
-    //   generateExecutiveHeaders().then((headers) =>
-    //     fetch(routes.getConfirmedPresentations, {
-    //       headers,
-    //       method: "GET",
-    //     }).then((response) => {
-    //       console.log(response);
-    //       updateUI(response);
-    //     })
-    //   );
-    // } else if (searchSettings.presentationType == "Unconfirmed") {
-    //   generateExecutiveHeaders().then((headers) =>
-    //     fetch(routes.getUnconfirmedPresentations, {
-    //       headers,
-    //       method: "GET",
-    //     }).then((response) => {
-    //       console.log(response);
-    //       updateUI(response);
-    //     })
-    //   );
-    // }
   };
 
   const updateUI = (response) => {
     response.text().then((body) => {
       let presentations = JSON.parse(body);
       console.log(presentations);
-      // console.log(presentations[0].presentation);
-
-      // presentations.map((presentation) => {
-      //   console.log(presentation);
-      //   presentation.signups.forEach((time) => {
-      //     if (time.selected) {
-      //       time.selected = "Confirmed";
-      //     } else if (time.enrolled >= time.capacity) {
-      //       time.selected = "Full";
-      //     } else {
-      //       time.selected = "Unselected";
-      //     }
-      //   });
-      // });
 
       setPresentations(presentations);
       setIsLoading(false);

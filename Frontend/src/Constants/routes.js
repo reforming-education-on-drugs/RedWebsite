@@ -7,4 +7,6 @@ export const routes = {
   getExecutives: `${APIURL}/executives`,
   createPresentationBooking: `${APIURL}/presentation_booking`,
   deletePresentationBooking: `${APIURL}/presentation_booking`,
+  createPresents: `${APIURL}/presents`,
+  deletePresents: `${APIURL}/presents`,
 };
