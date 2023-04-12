@@ -1,11 +1,13 @@
 # RedWebsite 471 Final project
-To get started, first clone the repo: <br />
+To get started, first clone the repo and checkout booking brach: <br />
 ```
 git clone https://github.com/reforming-education-on-drugs/RedWebsite
+cd RedWebsite
+git checkout BookingBackend
 ```
 You then need to go into the backend folder and run npm i as well as node index.js to initialize the backend server, like so: <br />
 ```
-cd RedWebsite\backend
+cd backend
 npm i
 node index.js
 ```
