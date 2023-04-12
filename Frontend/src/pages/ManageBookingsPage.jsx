@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Row, Col, Container } from "react-bootstrap";
 // import Form from "react-bootstrap/Form";
 // import {
@@ -67,9 +67,13 @@ const descriptionText = {
 function ManageBookings() {
   const [searchSettings, setSearchSettings] = useState({
     team: "Calgary Team",
-    presentationType: "All Presentations",
+    presentationType: "All",
     dateType: "Upcoming",
   });
+
+  useEffect(() => {
+    console.log("UPDATEEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+  }, [searchSettings]);
 
   return (
     // <div>
@@ -116,9 +120,9 @@ function ManageBookings() {
             })
           }
         >
-          <option value="option1">All Presentations</option>
-          <option value="option2">Only Confirmed</option>
-          <option value="option3">Only Unconfirmed</option>
+          <option value="All">All Presentations</option>
+          <option value="Confirmed">Only Confirmed</option>
+          <option value="Unconfirmed">Only Unconfirmed</option>
         </Form.Control>
         <Form.Control
           as="select"
@@ -132,8 +136,8 @@ function ManageBookings() {
             })
           }
         >
-          <option value="option1">Upcoming</option>
-          <option value="option2">Past</option>
+          <option value="Upcoming">Upcoming</option>
+          <option value="All">All time</option>
         </Form.Control>
       </Container>
       <div className="container-fluid" id="panelContainer">

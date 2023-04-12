@@ -197,12 +197,19 @@ function PresentationBooking({
   };
 
   const deletePresentation = (presentation) => {
+    const deleteInfo = {
+      CEmail: presentation.cemail,
+      Presentation_Date: presentation.presentation_date,
+      Presentation_Time: presentation.presentation_time,
+      Location_In_School: presentation.location_in_school,
+    };
+    console.log(deleteInfo);
     generateHeaders().then((headers) => {
       fetch(routes.deletePresentationBooking, {
         method: "DELETE",
         headers: headers,
         body: JSON.stringify({
-          presentation,
+          deleteInfo,
         }),
       })
         .then((res) => res.json())

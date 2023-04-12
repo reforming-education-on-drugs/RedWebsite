@@ -6,7 +6,7 @@ import "../styles/loaderStyle.css";
 import { routes } from "../Constants/routes";
 import { generateExecutiveHeaders, generateHeaders } from "../Constants/auth";
 
-function Bookings(props) {
+function Bookings({ searchSettings }) {
   const [presentations, setPresentations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,9 +22,10 @@ function Bookings(props) {
     // );
     // updateUI({});
     APICall();
-  }, []);
+  }, [searchSettings]);
 
   const APICall = () => {
+    // if (searchSettings.presentationType == "All") {
     generateExecutiveHeaders().then((headers) =>
       fetch(routes.getAllPresentations, {
         headers,
@@ -34,6 +35,27 @@ function Bookings(props) {
         updateUI(response);
       })
     );
+    // } else if (searchSettings.presentationType == "Confirmed") {
+    //   generateExecutiveHeaders().then((headers) =>
+    //     fetch(routes.getConfirmedPresentations, {
+    //       headers,
+    //       method: "GET",
+    //     }).then((response) => {
+    //       console.log(response);
+    //       updateUI(response);
+    //     })
+    //   );
+    // } else if (searchSettings.presentationType == "Unconfirmed") {
+    //   generateExecutiveHeaders().then((headers) =>
+    //     fetch(routes.getUnconfirmedPresentations, {
+    //       headers,
+    //       method: "GET",
+    //     }).then((response) => {
+    //       console.log(response);
+    //       updateUI(response);
+    //     })
+    //   );
+    // }
   };
 
   const updateUI = (response) => {
@@ -125,6 +147,26 @@ function Bookings(props) {
             <div className="loader" />
           ) : Array.isArray(presentations) && presentations.length > 0 ? (
             presentations.map((presentation, i) => {
+              if (
+                !(
+                  presentation.executive_confirmation ===
+                    (searchSettings.presentationType == "Confirmed") ||
+                  searchSettings.presentationType == "All"
+                )
+              ) {
+                return null;
+              }
+              const presentationDate = new Date(
+                Date.parse(presentation.presentation_date)
+              );
+              const currentDate = new Date();
+              if (
+                presentationDate <= currentDate !=
+                  (searchSettings.dateType == "Upcoming") ||
+                searchSettings.dateType == "All"
+              ) {
+                return null;
+              }
               return (
                 <PresentationBooking
                   key={i}
