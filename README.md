@@ -2,8 +2,6 @@
 
 ## Setup
 
----
-
 To get started, first clone the repo and checkout booking brach: <br />
 
 ```
@@ -49,7 +47,5 @@ Once logged in, you should be able to see all the presentations in the database,
 The account credentials given above also have executive permissions, and you can use these permissions by clicking the "Executive" tab at the top of the website and clicking "Manage Bookings". Once in the manage booking tab, you can edit and delete presentations, and then press confirm so that the changes are pushed to the database.
 
 ## Backend Code
-
----
 
 All the code that communicates with the database can be seen in the `/backend/queries.js` file.
