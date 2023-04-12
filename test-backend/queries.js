@@ -286,6 +286,7 @@ const deletePresents = async (request, response) => {
     `;
     response.status(200).json(result);
   } catch (err) {
+    console.log(err);
     response.status(200).json(err);
   }
 };
