@@ -261,22 +261,33 @@ const createPresents = async (request, response) => {
   const { CEmail, Date, Time, Location_In_School, Volunteer_email } =
     request.body;
 
-  const result = await sql`
+  console.log({ CEmail, Date, Time, Location_In_School, Volunteer_email });
+
+  try {
+    const result = await sql`
     INSERT INTO Presents (CEmail, Presentation_Date, Presentation_Time, Location_In_School, Volunteer_email) 
     VALUES (${CEmail}, ${Date}, ${Time}, ${Location_In_School}, ${Volunteer_email})
     `;
-  response.status(200).json(result);
+    response.status(200).json(result);
+  } catch (err) {
+    response.status(200).json(err);
+  }
 };
 
 const deletePresents = async (request, response) => {
   const { CEmail, Date, Time, Location_In_School, Volunteer_email } =
     request.body;
+  console.log({ CEmail, Date, Time, Location_In_School, Volunteer_email });
 
-  const result = await sql`
+  try {
+    const result = await sql`
     DELETE FROM Presents WHERE (CEmail = ${CEmail} AND Presentation_Date = ${Date} AND Presentation_Time = ${Time} 
       AND Location_In_School = ${Location_In_School} AND Volunteer_email = ${Volunteer_email})
     `;
-  response.status(200).json(result);
+    response.status(200).json(result);
+  } catch (err) {
+    response.status(200).json(err);
+  }
 };
 
 const createRedStaff = async (request, response) => {
