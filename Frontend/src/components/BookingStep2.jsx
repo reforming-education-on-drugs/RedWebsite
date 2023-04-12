@@ -119,6 +119,21 @@ export default class BookingStep1 extends React.Component {
                   What is the name of the school you would like us to present
                   at?
                 </Form.Text>
+                <br></br>
+                <Form.Label className="font-weight-bold">
+                  School District <span className="requiredField">*</span>
+                </Form.Label>
+                <Form.Control
+                  id="presentation_duration_field"
+                  as="select"
+                  required
+                  onChange={inputChange("school_district")}
+                  value={values.school_district}
+                >
+                  <option></option>
+                  <option>Calgary Board of Education</option>
+                  <option>Calgary Catholic School Districy</option>
+                </Form.Control>
                 <Form.Label className="font-weight-bold mt-3">
                   School Address <span className="requiredField">*</span>
                 </Form.Label>
@@ -143,7 +158,7 @@ export default class BookingStep1 extends React.Component {
                 </Form.Label>
                 <Form.Control
                   id="num_students_field"
-                  type="text"
+                  type="number"
                   placeholder=""
                   required
                   onChange={inputChange("num_students")}

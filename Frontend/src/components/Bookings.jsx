@@ -3,30 +3,20 @@ import { Row, Col, Container } from "react-bootstrap";
 import PresentationBooking from "./PresentationBooking";
 import auth from "../utils/auth";
 import "../styles/loaderStyle.css";
+import { routes } from "../Constants/routes";
+import { generateExecutiveHeaders, generateHeaders } from "../Constants/auth";
 
-const APIURL = "http://localhost:9000";
-
-function Bookings(props) {
+function Bookings({ searchSettings }) {
   const [presentations, setPresentations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // generateHeaders().then((headers) =>
-    //   fetch("/.netlify/functions/getPresentations", {
-    //     headers,
-    //     method: "POST",
-    //   }).then((response) => {
-    //     console.log(response);
-    //     updateUI(response);
-    //   })
-    // );
-    // updateUI({});
     APICall();
-  }, []);
+  }, [searchSettings]);
 
   const APICall = () => {
-    generateHeaders().then((headers) =>
-      fetch(APIURL + "/presentations", {
+    generateExecutiveHeaders().then((headers) =>
+      fetch(routes.getAllPresentations, {
         headers,
         method: "GET",
       }).then((response) => {
@@ -39,65 +29,33 @@ function Bookings(props) {
   const updateUI = (response) => {
     response.text().then((body) => {
       let presentations = JSON.parse(body);
-      // const test = {
-      //   presentation: {
-      //     address: "123 main",
-      //     date: "2023-05-01",
-      //     name: "test",
-      //     sheetname: "sheetname",
-      //     times: [
-      //       {
-      //         startTime: "12:00",
-      //         endTime: "13:00",
-      //         enrolled: 1,
-      //         capacity: 2,
-      //         selected: "Confirmed",
-      //       },
-      //     ],
-      //   },
-      // };
-      // let presentations = test;
       console.log(presentations);
-      // console.log(presentations[0].presentation);
-
-      presentations.map((presentation) => {
-        console.log(presentation);
-        presentation.times.forEach((time) => {
-          if (time.selected) {
-            time.selected = "Confirmed";
-          } else if (time.enrolled >= time.capacity) {
-            time.selected = "Full";
-          } else {
-            time.selected = "Unselected";
-          }
-        });
-      });
 
       setPresentations(presentations);
       setIsLoading(false);
     });
   };
 
-  const generateHeaders = () => {
-    const headers = { "Content-Type": "application/json" };
-    if (
-      auth.currentUser() &&
-      auth.currentUser().email == "rkthemainburner@gmail.com"
-    ) {
-      return auth
-        .currentUser()
-        .jwt()
-        .then((token) => {
-          return { ...headers, Authorization: `Bearer ${token}` };
-        });
-    }
-    return Promise.resolve(headers);
-  };
+  // const generateHeaders = () => {
+  //   const headers = { "Content-Type": "application/json" };
+  //   if (
+  //     auth.currentUser() &&
+  //     auth.currentUser().email == "rkthemainburner@gmail.com"
+  //   ) {
+  //     return auth
+  //       .currentUser()
+  //       .jwt()
+  //       .then((token) => {
+  //         return { ...headers, Authorization: `Bearer ${token}` };
+  //       });
+  //   }
+  //   return Promise.resolve(headers);
+  // };
 
   const sendPresentations = (presentations) => {
     this.setState({ isLoading: true });
 
-    this.generateHeaders().then((headers) =>
+    generateHeaders().then((headers) =>
       fetch("/.netlify/functions/savePresentations", {
         body: JSON.stringify(presentations),
         method: "POST",
@@ -110,27 +68,27 @@ function Bookings(props) {
     );
   };
 
-  const convertAndSavePresentation = () => {
-    const { presentations } = this.state;
+  // const convertAndSavePresentation = () => {
+  //   const { presentations } = this.state;
 
-    presentations.forEach((presentation) =>
-      presentation.times.forEach((time) => {
-        switch (time.selected) {
-          case "Selected":
-          case "Confirmed":
-            time.selected = true;
-            break;
-          case "Full":
-          case "Unselected":
-            time.selected = false;
-            break;
-        }
-        return time;
-      })
-    );
+  //   presentations.forEach((presentation) =>
+  //     presentation.times.forEach((time) => {
+  //       switch (time.selected) {
+  //         case "Selected":
+  //         case "Confirmed":
+  //           time.selected = true;
+  //           break;
+  //         case "Full":
+  //         case "Unselected":
+  //           time.selected = false;
+  //           break;
+  //       }
+  //       return time;
+  //     })
+  //   );
 
-    this.sendPresentations(presentations);
-  };
+  //   this.sendPresentations(presentations);
+  // };
 
   return (
     <Container className="container-no-padding">
@@ -142,11 +100,34 @@ function Bookings(props) {
           {isLoading ? (
             <div className="loader" />
           ) : Array.isArray(presentations) && presentations.length > 0 ? (
-            presentations.map((presentation) => {
+            presentations.map((presentation, i) => {
+              if (
+                !(
+                  presentation.executive_confirmation ===
+                    (searchSettings.presentationType == "Confirmed") ||
+                  searchSettings.presentationType == "All"
+                )
+              ) {
+                return null;
+              }
+              const presentationDate = new Date(
+                Date.parse(presentation.presentation_date)
+              );
+              const currentDate = new Date();
+              if (
+                presentationDate <= currentDate !=
+                  (searchSettings.dateType == "Upcoming") ||
+                searchSettings.dateType == "All"
+              ) {
+                return null;
+              }
               return (
                 <PresentationBooking
-                  key={presentation.sheetname}
+                  key={i}
+                  index={i}
                   presentation={presentation}
+                  presentations={presentations}
+                  setPresentations={setPresentations}
                 />
               );
             })

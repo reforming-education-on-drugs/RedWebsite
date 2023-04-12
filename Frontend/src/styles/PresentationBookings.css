@@ -1,0 +1,12 @@
+.btn-success.disabled,
+.btn-warning:disabled,
+.btn-success:disabled {
+  opacity: 0.5;
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.booking-buttons {
+  margin: 0 2px;
+}

@@ -13,6 +13,7 @@ import {
   Alert,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { routes } from "../Constants/routes";
 
 const moment = require("moment");
 const Datetime = require("react-datetime");
@@ -148,10 +149,17 @@ export default class BookingStep1 extends React.Component {
   }
 
   componentDidMount() {
-    const ignore = ["presentation_duration_exact", "kahoot", "notes"];
+    const ignore = [
+      "presentation_duration_exact",
+      "kahoot",
+      "notes",
+      "school_district",
+    ];
     let valid = true;
+    console.log(this.props.values);
     for (const key in this.props.values) {
       if (!ignore.includes(key)) {
+        console.log(key);
         // console.log(`get${this.fixCasing(key)}State`);
         if (this[`get${this.fixCasing(key)}State`]() !== true) valid = false;
       }
@@ -170,53 +178,66 @@ export default class BookingStep1 extends React.Component {
   submitForm() {
     if (this.state.form_valid && !this.state.form_submitted) {
       // this.setState({ form_submitted: true, loaded: true });
-      let form_values = this.props.values;
+
+      const [Presentation_Date, Presentation_Time] =
+        this.props.values.presentation_datetime.split(" ");
+
       const presentation_duration_options = ["60 minutes", "90 minutes"];
+      let Duration_In_Minutes = null;
       if (
         !presentation_duration_options.includes(
-          form_values.presentation_duration
+          this.props.values.presentation_duration
         )
       ) {
-        if (form_values.presentation_duration_exact.trim().length > 0) {
-          form_values.presentation_duration =
-            form_values.presentation_duration_exact;
+        if (this.props.values.presentation_duration_exact.trim().length > 0) {
+          Duration_In_Minutes = parseInt(
+            this.props.values.presentation_duration_exact
+          );
         }
+      } else {
+        Duration_In_Minutes = parseInt(this.props.values.presentation_duration);
       }
+      console.log(Duration_In_Minutes);
+      const presentation_data = {
+        CEmail: this.props.values.email,
+        CName: this.props.values.contact_name,
+        Cphonenumber: this.props.values.phone,
+        Student_Grade: this.props.values.grades,
+        Number_Of_Student: this.props.values.num_students,
+        Presentation: this.props.values.presentation,
+        Presentation_Date: Presentation_Date,
+        Presentation_Time: Presentation_Time,
+        Duration_In_Minutes: Duration_In_Minutes,
+        Location_In_School: this.props.values.presentation_medium,
+        Can_Class_Use_Kahoot: this.props.values.kahoot,
+        Notes: this.props.values.notes,
+        Executive_Confirmation: false,
+        Client_Role: this.props.values.contact_role,
+        Sname: this.props.values.school,
+        SAddress: this.props.values.address,
+        SDname: this.props.values.school_district,
+        capacity: 2,
+      };
 
       // Remove redundant form values
-      delete form_values.presentation_duration_exact;
+      delete presentation_data.presentation_duration_exact;
 
-      // console.log(form_values);
+      console.log(this.props.values);
+      console.log(presentation_data);
 
-      fetch("/", {
+      fetch(routes.createPresentationBooking, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: this.encode({
           "form-name": "presentation-booking-form",
-          ...form_values,
+          ...presentation_data,
         }),
       })
         .then(() => this.setState({ form_submitted: true }))
         .catch((error) => {
           console.error(error);
-          this.setState({ form_submitted: true });
+          this.setState({ form_submitted: false });
         });
-
-      // this.setState({ form_submitted: true });
-
-      // fetch("/", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      //   body: this.encode({
-      //     "form-name": "presentation-booking-form",
-      //     ...form_values,
-      //   }),
-      // })
-      //   .then(() => this.setState({ ...this.state, formSubmitted: true }))
-      //   .catch((error) => {
-      //     console.log(error);
-      //     this.setState({ ...this.state, formSubmitted: true });
-      //   });
     }
   }
 

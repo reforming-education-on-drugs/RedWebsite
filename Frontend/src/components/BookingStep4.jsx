@@ -185,13 +185,14 @@ export default class BookingStep1 extends React.Component {
                   >
                     &nbsp;
                   </Form.Control.Feedback>
-                  <Form.Text
+                  {/* <Form.Text
                     className="text-muted"
                     id="presentation_datetime_field_note"
                   >
                     When would you like us to present?
-                  </Form.Text>
+                  </Form.Text> */}
                 </Form.Group>
+                <br></br>
                 <Form.Label className="font-weight-bold mt-3">
                   Presentation Duration <span className="requiredField">*</span>
                 </Form.Label>
@@ -211,14 +212,15 @@ export default class BookingStep1 extends React.Component {
                 </Form.Control>
                 <Form.Control
                   className="mt-2 ml-4 w-50"
-                  type="text"
+                  type="number"
                   placeholder=""
                   onChange={this.handlePresentationDurationExact.bind(this)}
                   value={values.presentation_duration_exact}
                   style={{ display: this.exactDurationFieldDisplay() }}
                 />
                 <Form.Text className="text-muted">
-                  How much time will be allotted for this presentation?
+                  How much time will be allotted for this presentation? (In
+                  minutes)
                   <br />
                   <br />
                   <span className="font-weight-bold text-wrap">
@@ -243,9 +245,10 @@ export default class BookingStep1 extends React.Component {
                   isInvalid={this.getMediumState() == false ? true : false}
                 >
                   <option></option>
-                  {/* <option disabled>In-person (currently unavailable)</option> */}
-                  <option>In-person</option>
                   <option>Online</option>
+                  <option>In-person Classroom</option>
+                  <option>In-person Gymnasium</option>
+                  <option>In-person Other</option>
                 </Form.Control>
                 <Form.Text className="text-muted">
                   How would you like the presentation to be delivered? <br />*

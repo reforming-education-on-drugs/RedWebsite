@@ -66,9 +66,9 @@ export default class BookingStep1 extends React.Component {
                       Does your class use <a href="https://kahoot.it">Kahoot</a>
                       ?
                     </Form.Label>
-                    <Form.Text className="ml-2 text-muted">
+                    {/* <Form.Text className="ml-2 text-muted">
                       (Optional)
-                    </Form.Text>
+                    </Form.Text> */}
                   </Row>
                   <FormCheck
                     id="kahoot_field"
@@ -76,21 +76,22 @@ export default class BookingStep1 extends React.Component {
                     className="kahoot-options"
                   >
                     <FormCheck.Input
-                      value="Yes"
+                      value={true}
                       name="kahootFormCheckGroup"
                       type="radio"
-                      onChange={inputChange("kahoot")}
-                      checked={values.kahoot == "Yes" ? true : false}
+                      checked={values.kahoot}
                       // isValid={this.getKahootState()}
+                      onChange={inputChange("kahoot")}
                       // isInvalid={this.getKahootState() == false ? true : false}
                     />
                     <FormCheck.Label>Yes</FormCheck.Label>
                     <FormCheck.Input
-                      value="No"
+                      value={false}
                       name="kahootFormCheckGroup"
                       type="radio"
+                      // onChange={inputChange("kahoot")}
                       onChange={inputChange("kahoot")}
-                      checked={values.kahoot == "No" ? true : false}
+                      checked={!Boolean(values.kahoot)}
                       // isValid={this.getKahootState()}
                       // isInvalid={this.getKahootState() == false ? true : false}
                     />
