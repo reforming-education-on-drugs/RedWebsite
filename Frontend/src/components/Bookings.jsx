@@ -36,22 +36,6 @@ function Bookings({ searchSettings }) {
     });
   };
 
-  // const generateHeaders = () => {
-  //   const headers = { "Content-Type": "application/json" };
-  //   if (
-  //     auth.currentUser() &&
-  //     auth.currentUser().email == "rkthemainburner@gmail.com"
-  //   ) {
-  //     return auth
-  //       .currentUser()
-  //       .jwt()
-  //       .then((token) => {
-  //         return { ...headers, Authorization: `Bearer ${token}` };
-  //       });
-  //   }
-  //   return Promise.resolve(headers);
-  // };
-
   const sendPresentations = (presentations) => {
     this.setState({ isLoading: true });
 
@@ -114,10 +98,16 @@ function Bookings({ searchSettings }) {
                 Date.parse(presentation.presentation_date)
               );
               const currentDate = new Date();
+              console.log("dates");
+              console.log(presentationDate);
+              console.log(currentDate);
+              console.log(presentationDate.getTime() >= currentDate.getTime());
               if (
-                presentationDate <= currentDate !=
-                  (searchSettings.dateType == "Upcoming") ||
-                searchSettings.dateType == "All"
+                !(
+                  presentationDate <= currentDate ==
+                    (searchSettings.dateType == "Upcoming") ||
+                  searchSettings.dateType == "All"
+                )
               ) {
                 return null;
               }
@@ -138,27 +128,6 @@ function Bookings({ searchSettings }) {
           )}
         </Col>
       </Row>
-      {/* <Row className="float-right">
-        <Col md={12}>
-          {Array.isArray(presentations) && presentations.length > 0 && (
-            <button
-              className="pull-right"
-              style={{
-                color: "#FFFFFF",
-                backgroundColor: "#EF233C",
-                padding: "15px 30px",
-                borderRadius: "30px",
-                fontSize: "16px",
-                border: "0",
-                marginTop: "30px",
-              }}
-              onClick={convertAndSavePresentation}
-            >
-              Sign up for presentations
-            </button>
-          )}
-        </Col>
-      </Row> */}
     </Container>
   );
 }

@@ -45,6 +45,11 @@ function PresentationBooking({
     console.log(presentations);
   };
 
+  const updatedPresentation = (editPresentation) => {
+    console.log("updatedPresentation");
+    console.log(editPresentation);
+  };
+
   const onDelete = () => {
     deletePresentation(presentation);
     // const updatedPresentations = presentations.map((item, i) => {
@@ -188,6 +193,7 @@ function PresentationBooking({
             variant="primary"
             onClick={() => {
               // Handle the form submission to update the information
+              updatedPresentation(editPresentation);
               setShowModal(false);
             }}
           >

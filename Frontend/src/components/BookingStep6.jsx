@@ -14,6 +14,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { routes } from "../Constants/routes";
+import { createPresentationBooking } from "../Constants/helpers";
 
 const moment = require("moment");
 const Datetime = require("react-datetime");
