@@ -25,9 +25,9 @@ This should run both the backend and the frontend, and it will spit out a URL on
 
 ---
 
-To book a presentation, you can click the "For Schools" tab at the top of the website, and this will take you to a form that when filled out will enter a presentation to the database.
+To book a presentation, you can click the "Book a presentation" tab at the top of the website, and this will take you to a form that when filled out will enter a presentation to the database.
 
-### View and Sign up for Presentation
+### View and Sign up for Presentation for Volunteers
 
 ---
 
@@ -40,11 +40,11 @@ Password: 1234
 
 Once logged in, you should be able to see all the presentations in the database, and you can sign up by clicking the box under status, and then clicking "Sign up for presentation" button. To cancel a presentation, you can simply uncheck the box and click on the "Sign up for presentation" button
 
-### Edit and Delete Presentations as an Executive
+### Edit, Delete, and Confirm Presentations as an Executive
 
 ---
 
-The account credentials given above also have executive permissions, and you can use these permissions by clicking the "Executive" tab at the top of the website and clicking "Manage Bookings". Once in the manage booking tab, you can edit and delete presentations, and then press confirm so that the changes are pushed to the database.
+The account credentials given above also have executive permissions, and you can use these permissions by clicking the "Executive" tab at the top of the website and clicking "Manage Bookings". Once in the manage booking tab, you can edit, delete, and confirm presentations. Once presentations are confirmed, they become available for volunteers to sign up for, and they can no longer be edited or deleted.
 
 ## Backend Code
 
