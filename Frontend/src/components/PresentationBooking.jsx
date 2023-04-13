@@ -117,19 +117,6 @@ function PresentationBooking({
         <Modal.Body>
           <form>
             <label>
-              Teacher Name:
-              <input
-                type="text"
-                value={editPresentation.cname}
-                onChange={(e) => {
-                  const newPresentation = { ...editPresentation };
-                  newPresentation.cname = e.target.value;
-                  setEditPresentation(newPresentation);
-                }}
-              />
-            </label>
-            <br />
-            <label>
               Email:
               <input
                 type="text"
@@ -143,52 +130,40 @@ function PresentationBooking({
             </label>
             <br />
             <label>
-              Phone:
-              <input
-                type="text"
-                value={editPresentation.phone_number}
-                onChange={(e) => {
-                  const newPresentation = { ...editPresentation };
-                  newPresentation.phone_number = e.target.value;
-                  setEditPresentation(newPresentation);
-                }}
-              />
-            </label>
-            <br />
-            <label>
-              School:
-              <input
-                type="text"
-                value={editPresentation.sname}
-                onChange={(e) => {
-                  const newPresentation = { ...editPresentation };
-                  newPresentation.sname = e.target.value;
-                  setEditPresentation(newPresentation);
-                }}
-              />
-            </label>
-            <br />
-            <label>
-              Address:
-              <input
-                type="text"
-                value={editPresentation.address}
-                onChange={(e) => {
-                  const newPresentation = { ...editPresentation };
-                  newPresentation.address = e.target.value;
-                  setEditPresentation(newPresentation);
-                }}
-              />
-            </label>
-            <br />
-            <label>
               Presentation:
-              <input
+              {/* <input
                 type="text"
                 value={editPresentation.presentation}
                 onChange={(e) => {
                   const newPresentation = { ...editPresentation };
                   newPresentation.presentation = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              /> */}
+              <select
+                value={editPresentation.presentation}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.presentation = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              >
+                <option value="Drug Overview">Drug Overview</option>
+                <option value="Fentanyl">Fentanyl</option>
+                <option value="Cannabis">Cannabis</option>
+                <option value="Vaccine">Vaccine</option>
+                <option value="Mental Health">Mental Health</option>
+              </select>
+            </label>
+            <br />
+            <label>
+              Number of Students:
+              <input
+                type="text"
+                value={editPresentation.number_of_student}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.number_of_student = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
               />
@@ -376,7 +351,10 @@ function PresentationBooking({
               }}
             >
               {" "}
-              {presentation.sname}{" "}
+              {presentation.sname}
+              {" - Students: "}
+              {presentation.number_of_student}
+              {}
             </h5>
             <p
               style={{
@@ -390,7 +368,9 @@ function PresentationBooking({
               {presentation.address} {" - "}
               {presentation.location_in_school} <br />
               {"Notes: "}
-              {presentation.notes}
+              {presentation.notes} <br />
+              {"Grades: "}
+              {presentation.student_grade}
             </p>
           </Col>
           <Col xs={6}>
@@ -455,6 +435,10 @@ function PresentationBooking({
                     {presentation.cemail}
                     <br /> {"Name: "}
                     {presentation.cname}
+                    <br /> {"Phone: "}
+                    {presentation.phone_number}
+                    <br /> {"Role: "}
+                    {presentation.client_role}
                   </td>
                   <td style={{ textAlign: "center" }}>
                     {Moment(presentation.presentation_time, "hh:mm:ss").format(

@@ -258,6 +258,7 @@ const createPresentationBooking = async (request, response) => {
         ${Presentation_Time}, ${Location_In_School}, ${Presentation}, ${Number_Of_Student}, 
         ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation} , ${capacity})
         `;
+    console.log(result);
     response.status(200).json(result);
   } catch (err) {
     console.log(err);

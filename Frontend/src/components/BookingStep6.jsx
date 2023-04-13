@@ -15,6 +15,7 @@ import {
 import { Link } from "react-router-dom";
 import { routes } from "../Constants/routes";
 import { createPresentationBooking } from "../Constants/helpers";
+import { generateHeaders } from "../Constants/auth";
 
 const moment = require("moment");
 const Datetime = require("react-datetime");
@@ -226,25 +227,18 @@ export default class BookingStep1 extends React.Component {
       console.log(this.props.values);
       console.log(presentation_data);
 
-      // generateHeaders().then((headers) =>
-      // fetch(routes.createPresentationBooking, {
-      //   body: JSON.stringify(createPresentation),
-      //   method: "POST",
-      //   headers,
-
-      fetch(routes.createPresentationBooking, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: this.encode({
-          "form-name": "presentation-booking-form",
-          ...presentation_data,
-        }),
-      })
-        .then(() => this.setState({ form_submitted: true }))
-        .catch((error) => {
-          console.error(error);
-          this.setState({ form_submitted: false });
-        });
+      generateHeaders().then((headers) =>
+        fetch(routes.createPresentationBooking, {
+          body: JSON.stringify(presentation_data),
+          method: "POST",
+          headers,
+        })
+          .then(() => this.setState({ form_submitted: true }))
+          .catch((error) => {
+            console.error(error);
+            this.setState({ form_submitted: false });
+          })
+      );
     }
   }
 

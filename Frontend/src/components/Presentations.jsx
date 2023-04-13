@@ -165,15 +165,15 @@ function Presentations() {
             if (!presentation.signups.includes(auth.currentUser().email)) {
               console.log("adding");
               createPresents(presentation, auth.currentUser().email);
-              break;
             }
+            break;
           case "Unselected":
             if (presentation.signups.includes(auth.currentUser().email)) {
               console.log("removing");
               console.log(presentation);
               deletePresents(presentation, auth.currentUser().email);
-              break;
             }
+            break;
         }
         return time;
       })

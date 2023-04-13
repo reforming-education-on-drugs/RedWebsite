@@ -8,6 +8,10 @@ export default function Header() {
   const [executive, setExecutive] = useState(false);
 
   useEffect(() => {
+    if (!auth.currentUser()) {
+      console.log("no user");
+      return;
+    }
     isExecutive(auth.currentUser().email).then((res) => {
       setExecutive(res);
     });
