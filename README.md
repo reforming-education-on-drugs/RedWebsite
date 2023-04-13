@@ -44,7 +44,7 @@ Once logged in, you should be able to see all the presentations in the database,
 
 ---
 
-The account credentials given above also have executive permissions, and you can use these permissions by clicking the "Executive" tab at the top of the website and clicking "Manage Bookings". Once in the manage booking tab, you can edit, delete, and confirm presentations. Once presentations are confirmed, they become available for volunteers to sign up for, and they can no longer be edited or deleted.
+The account credentials given above also have executive permissions, and you can use these permissions by clicking the "Executive" tab at the top of the website and clicking "Manage Bookings". Once in the manage booking tab, you can edit, delete, and confirm presentations. Once presentations are confirmed, they become available for volunteers to sign up for, and they can no longer be edited.
 
 ## Backend Code
 
