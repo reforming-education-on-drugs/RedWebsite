@@ -98,13 +98,9 @@ function Bookings({ searchSettings }) {
                 Date.parse(presentation.presentation_date)
               );
               const currentDate = new Date();
-              console.log("dates");
-              console.log(presentationDate);
-              console.log(currentDate);
-              console.log(presentationDate.getTime() >= currentDate.getTime());
               if (
                 !(
-                  presentationDate <= currentDate ==
+                  presentationDate.getTime() >= currentDate.getTime() ==
                     (searchSettings.dateType == "Upcoming") ||
                   searchSettings.dateType == "All"
                 )
@@ -118,6 +114,8 @@ function Bookings({ searchSettings }) {
                   presentation={presentation}
                   presentations={presentations}
                   setPresentations={setPresentations}
+                  APICall={APICall}
+                  setIsLoading={setIsLoading}
                 />
               );
             })

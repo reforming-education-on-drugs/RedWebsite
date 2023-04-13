@@ -132,7 +132,7 @@ export default class BookingStep1 extends React.Component {
                 >
                   <option></option>
                   <option>Calgary Board of Education</option>
-                  <option>Calgary Catholic School Districy</option>
+                  <option>Calgary Catholic School District</option>
                 </Form.Control>
                 <Form.Label className="font-weight-bold mt-3">
                   School Address <span className="requiredField">*</span>

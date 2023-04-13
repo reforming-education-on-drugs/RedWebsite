@@ -12,7 +12,11 @@ import PropTypes from "prop-types";
 import Moment from "moment";
 import { routes } from "../Constants/routes";
 import { generateHeaders } from "../Constants/auth";
-import { getPresentationEndTime } from "../Constants/helpers";
+import {
+  createPresentationBooking,
+  encodePresentation,
+  getPresentationEndTime,
+} from "../Constants/helpers";
 import "../Styles/PresentationBookings.css";
 
 function PresentationBooking({
@@ -20,6 +24,8 @@ function PresentationBooking({
   presentation,
   presentations,
   setPresentations,
+  APICall,
+  setIsLoading,
 }) {
   const [show, setShow] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -35,31 +41,65 @@ function PresentationBooking({
   };
 
   const onConfirm = () => {
-    const updatedPresentations = presentations.map((item, i) => {
-      if (i == index) {
-        return { ...item, executive_confirmation: true };
-      }
-      return item;
-    });
-    setPresentations(updatedPresentations);
-    console.log(presentations);
+    const newPresentation = { ...presentation };
+    console.log("on confirm");
+    console.log(newPresentation);
+    newPresentation.executive_confirmation = true;
+    console.log(newPresentation);
+    updatePresentation(newPresentation);
   };
 
-  const updatedPresentation = (editPresentation) => {
+  const updatePresentation = (editPresentation) => {
+    setIsLoading(true);
     console.log("updatedPresentation");
     console.log(editPresentation);
+    deletePresentation(presentation);
+    const createPresentation = {
+      CEmail: editPresentation.cemail,
+      Presentation_Date: editPresentation.presentation_date,
+      Presentation_Time: editPresentation.presentation_time,
+      Location_In_School: editPresentation.location_in_school,
+      Presentation: editPresentation.presentation,
+      Number_Of_Student: editPresentation.number_of_student,
+      Student_Grade: editPresentation.student_grade,
+      Duration_In_Minutes: editPresentation.duration_in_minutes,
+      Can_Class_Use_Kahoot: editPresentation.can_class_use_kahoot,
+      Notes: editPresentation.notes,
+      Executive_Confirmation: editPresentation.executive_confirmation,
+      Client_Role: editPresentation.client_role,
+      Cname: editPresentation.cname,
+      Cphonenumber: editPresentation.phone_number,
+      Sname: editPresentation.sname,
+      SAddress: editPresentation.address,
+      SDname: editPresentation.sdname,
+      capacity: editPresentation.capacity,
+    };
+
+    generateHeaders().then((headers) =>
+      fetch(routes.createPresentationBooking, {
+        body: JSON.stringify(createPresentation),
+        method: "POST",
+        headers,
+      }).then((response) => {
+        console.log("response");
+        console.log(response);
+        if (response.status === 200) {
+          console.log("Successfully created presentation");
+          setShowModal(false);
+          APICall();
+        } else {
+          console.log("Error creating presentation");
+          console.log(response);
+        }
+      })
+    );
+    setIsLoading(false);
+    APICall();
   };
 
   const onDelete = () => {
     deletePresentation(presentation);
-    // const updatedPresentations = presentations.map((item, i) => {
-    //   if (i == index) {
-    //     return;
-    //   }
-    //   return item;
-    // });
-    // setPresentations(updatedPresentations);
-    // console.log(presentations);
+    APICall();
   };
 
   const handleEditClick = () => {
@@ -69,24 +109,47 @@ function PresentationBooking({
   const EditModal = () => {
     const [editPresentation, setEditPresentation] = useState(presentation);
 
-    const handleSubmit = (e) => {};
-    console.log(editPresentation.signups);
-
     return (
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Presentation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
+          <form>
+            <label>
+              Teacher Name:
+              <input
+                type="text"
+                value={editPresentation.cname}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.cname = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              />
+            </label>
+            <br />
             <label>
               Email:
               <input
                 type="text"
                 value={editPresentation.cemail}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.cemail = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              />
+            </label>
+            <br />
+            <label>
+              Phone:
+              <input
+                type="text"
+                value={editPresentation.phone_number}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.phone_number = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
               />
@@ -98,7 +161,7 @@ function PresentationBooking({
                 type="text"
                 value={editPresentation.sname}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.sname = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
@@ -111,7 +174,7 @@ function PresentationBooking({
                 type="text"
                 value={editPresentation.address}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.address = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
@@ -124,8 +187,21 @@ function PresentationBooking({
                 type="text"
                 value={editPresentation.presentation}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.presentation = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              />
+            </label>
+            <br />
+            <label>
+              Location:
+              <input
+                type="text"
+                value={editPresentation.location_in_school}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.location_in_school = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
               />
@@ -137,7 +213,7 @@ function PresentationBooking({
                 type="number"
                 value={editPresentation.capacity}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.capacity = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
@@ -145,12 +221,25 @@ function PresentationBooking({
             </label>
             <br />
             <label>
-              Presentation Date:
+              Grades:
               <input
-                type="date"
+                type="text"
+                value={editPresentation.student_grade}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.student_grade = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              />
+            </label>
+            <br />
+            <label>
+              Presentation Date (MM/DD/YYYY):
+              <input
+                type="text"
                 value={editPresentation.presentation_date}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.presentation_date = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
@@ -163,7 +252,7 @@ function PresentationBooking({
                 type="time"
                 value={editPresentation.presentation_time}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.presentation_time = e.target.value;
                   setEditPresentation(newPresentation);
                 }}
@@ -176,8 +265,34 @@ function PresentationBooking({
                 type="number"
                 value={editPresentation.duration_in_minutes}
                 onChange={(e) => {
-                  const newPresentation = { ...presentation };
+                  const newPresentation = { ...editPresentation };
                   newPresentation.duration_in_minutes = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              />
+            </label>
+            <br />
+            <label>
+              Notes:
+              <input
+                type="text"
+                value={editPresentation.notes}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.notes = e.target.value;
+                  setEditPresentation(newPresentation);
+                }}
+              />
+            </label>
+            <br />
+            <label>
+              Kahoot:
+              <input
+                type="checkbox"
+                value={editPresentation.can_class_use_kahoot}
+                onChange={(e) => {
+                  const newPresentation = { ...editPresentation };
+                  newPresentation.can_class_use_kahoot = e.target.checked;
                   setEditPresentation(newPresentation);
                 }}
               />
@@ -193,8 +308,7 @@ function PresentationBooking({
             variant="primary"
             onClick={() => {
               // Handle the form submission to update the information
-              updatedPresentation(editPresentation);
-              setShowModal(false);
+              updatePresentation(editPresentation);
             }}
           >
             Save Changes
@@ -226,6 +340,7 @@ function PresentationBooking({
             handleShow(res.error);
           } else {
             console.log(res);
+            return;
           }
         })
         .catch((err) => {
@@ -272,7 +387,10 @@ function PresentationBooking({
               }}
             >
               {" "}
-              {presentation.address}{" "}
+              {presentation.address} {" - "}
+              {presentation.location_in_school} <br />
+              {"Notes: "}
+              {presentation.notes}
             </p>
           </Col>
           <Col xs={6}>
@@ -296,7 +414,12 @@ function PresentationBooking({
               }}
             >
               {" "}
-              {presentation.presentation}{" "}
+              {presentation.presentation} <br /> {"Kahoot:"}
+              {presentation.can_class_use_kahoot ? (
+                <i className="fas fa-check" />
+              ) : (
+                "No"
+              )}{" "}
             </p>
           </Col>
         </Row>
@@ -323,23 +446,17 @@ function PresentationBooking({
               </thead>
 
               <tbody style={{ fontSize: "10px" }}>
-                {console.log(presentation)}
                 <tr
                   style={{
-                    // color: getStatusColor(time.selected),
                     cursor: "pointer",
                   }}
                 >
-                  {/* <td
-                        className={getStatusIcon(time.selected)}
-                        style={{ top: "0px", display: "table-cell" }}
-                        onClick={() => handleClick(time)}
-                      /> */}
-                  <td style={{ textAlign: "center" }}>{presentation.cemail}</td>
-                  <td
-                    style={{ textAlign: "center" }}
-                    // onClick={() => handleClick(time)}
-                  >
+                  <td style={{ textAlign: "center" }}>
+                    {presentation.cemail}
+                    <br /> {"Name: "}
+                    {presentation.cname}
+                  </td>
+                  <td style={{ textAlign: "center" }}>
                     {Moment(presentation.presentation_time, "hh:mm:ss").format(
                       "h:mm a"
                     )}{" "}
@@ -364,15 +481,6 @@ function PresentationBooking({
                       </p>
                     )}
                   </td>
-                  {/* <td
-                    className={getErrorIcon(time.error)}
-                    style={{
-                      top: "0px",
-                      display: "table-cell",
-                      zIndex: "1000",
-                      color: getErrorIconColor(time.error),
-                    }}
-                  /> */}
                 </tr>
               </tbody>
             </Table>

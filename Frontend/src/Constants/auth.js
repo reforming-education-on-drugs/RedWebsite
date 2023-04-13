@@ -39,5 +39,7 @@ export const GetExecutives = async () => {
 export const isExecutive = async (email) => {
   const executives = await GetExecutives();
   console.log(executives);
+  console.log(email);
+  console.log(executives.includes(email));
   return executives.includes(email);
 };

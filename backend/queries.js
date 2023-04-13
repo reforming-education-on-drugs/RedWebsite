@@ -217,25 +217,56 @@ const createPresentationBooking = async (request, response) => {
       INSERT INTO School (Sname, Address, SDname) VALUES (${Sname}, ${SAddress}, ${SDname})
       `;
   } catch (err) {
+    console.log(err);
     //this means the school already exists, so just continue
   }
 
   try {
     const client = await sql`
-      INSERT INTO Client (Email, Clinet_Role, Sname, name, Phone_Number) VALUES (${CEmail}, ${Client_Role}, ${Sname}, ${Cname}, ${Cphonenumber})
+      INSERT INTO Client (Email, Client_Role, Sname, name, Phone_Number) VALUES (${CEmail}, ${Client_Role}, ${Sname}, ${Cname}, ${Cphonenumber})
       `;
   } catch (err) {
+    console.log(err);
     //this means the school already exists, so just continue
   }
+  console.log({
+    CEmail,
+    Presentation_Date,
+    Presentation_Time,
+    Location_In_School,
+    Presentation,
+    Number_Of_Student,
+    Student_Grade,
+    Duration_In_Minutes,
+    Can_Class_Use_Kahoot,
+    Notes,
+    Executive_Confirmation,
+    Client_Role,
+    Cname,
+    Cphonenumber,
+    Sname,
+    SAddress,
+    SDname,
+    capacity,
+  });
 
-   const result = await sql`
+  try {
+    const result = await sql`
     INSERT INTO presentation_booking (CEmail, Presentation_Date, Presentation_Time, Location_In_School, 
-        Presentation, Number_Of_Student, Student_Grade, Duration_In_Minutes,
-        Can_Class_Use_Kahoot, Notes, Executive_Confirmation, capacity) VALUES (${CEmail}, ${Presentation_Date}, 
-            ${Presentation_Time}, ${Location_In_School}, ${Presentation}, ${Number_Of_Student}, 
-            ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation} , ${capacity})
-    `;
-  response.status(200).json(result);
+      Presentation, Number_Of_Student, Student_Grade, Duration_In_Minutes,
+      Can_Class_Use_Kahoot, Notes, Executive_Confirmation, capacity) VALUES (${CEmail}, ${Presentation_Date}, 
+        ${Presentation_Time}, ${Location_In_School}, ${Presentation}, ${Number_Of_Student}, 
+        ${Student_Grade}, ${Duration_In_Minutes}, ${Can_Class_Use_Kahoot}, ${Notes}, ${Executive_Confirmation} , ${capacity})
+        `;
+    response.status(200).json(result);
+  } catch (err) {
+    console.log(err);
+    response
+      .status(500)
+      .json(
+        "An error occured. Make sure you are not trying to book a presentation that already exists."
+      );
+  }
 };
 
 const deletePresentationBooking = async (request, response) => {

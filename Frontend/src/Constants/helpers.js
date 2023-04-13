@@ -14,24 +14,8 @@ export const getPresentationEndTime = (presentation_time, duration_Minutes) => {
   return Presentation_EndTime;
 };
 
-const encode = (data) => {
+export const encodePresentation = (data) => {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
-};
-
-export const createPresentationBooking = async (presentation_data) => {
-  fetch(routes.createPresentationBooking, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encode({
-      "form-name": "presentation-booking-form",
-      ...presentation_data,
-    }),
-  })
-    .then(() => this.setState({ form_submitted: true }))
-    .catch((error) => {
-      console.error(error);
-      this.setState({ form_submitted: false });
-    });
 };

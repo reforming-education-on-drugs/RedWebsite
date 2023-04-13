@@ -201,7 +201,7 @@ export default class BookingStep1 extends React.Component {
       console.log(Duration_In_Minutes);
       const presentation_data = {
         CEmail: this.props.values.email,
-        CName: this.props.values.contact_name,
+        Cname: this.props.values.contact_name,
         Cphonenumber: this.props.values.phone,
         Student_Grade: this.props.values.grades,
         Number_Of_Student: this.props.values.num_students,
@@ -225,6 +225,12 @@ export default class BookingStep1 extends React.Component {
 
       console.log(this.props.values);
       console.log(presentation_data);
+
+      // generateHeaders().then((headers) =>
+      // fetch(routes.createPresentationBooking, {
+      //   body: JSON.stringify(createPresentation),
+      //   method: "POST",
+      //   headers,
 
       fetch(routes.createPresentationBooking, {
         method: "POST",

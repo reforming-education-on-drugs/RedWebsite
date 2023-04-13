@@ -28,6 +28,7 @@ function Presentations() {
   const APICall = () => {
     // if (searchSettings.presentationType == "All") {
     setIsLoading(true);
+    console.log("APICall");
     generateHeaders().then((headers) =>
       fetch(routes.getConfirmedPresentations, {
         headers,
@@ -77,7 +78,13 @@ function Presentations() {
           },
         ],
       };
-      volunteerPresentationArray.push(vPresentaion);
+      const presentationDate = new Date(
+        Date.parse(presentation.presentation_date)
+      );
+      const currentDate = new Date();
+      if (presentationDate.getTime() >= currentDate.getTime()) {
+        volunteerPresentationArray.push(vPresentaion);
+      }
     });
     return volunteerPresentationArray;
   };
