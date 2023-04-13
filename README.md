@@ -25,7 +25,7 @@ npm i
 npm start
 ```
 
-This should run both the backend and the frontend, and it will spit out a URL once it is done. This URL should be [localhost:3000](localhost:3000), and you can go to this URL to view the website
+This should run both the backend and the frontend, and it will spit out a URL once it is done. This URL should be [localhost:3000](localhost:3000), and you can go to this URL to view the website.
 
 ## Navigating the Website
 
@@ -46,13 +46,13 @@ Email: rkthemainburner@gmail.com
 Password: 1234
 ```
 
-Once logged in, you should be able to see all the presentations in the database, and you can sign up by clicking the box under status, and then clicking the "Sign up for presentation" button. To cancel a presentation, you can simply uncheck the box and click on the "Sign up for presentation" button
+Once logged in, you should be able to see all the presentations in the database, and you can sign up by clicking the box under status, and then clicking the "Sign up for presentation" button. To cancel a presentation, you can simply uncheck the box and click on the "Sign up for presentation" button.
 
 ### Edit, Delete, and Confirm Presentations as an Executive
 
 ---
 
-The account credentials given above also have executive permissions, and you can use these permissions by clicking the "Executive" tab at the top of the website and clicking "Manage Bookings". Once in the manage booking tab, you can edit, delete, and confirm presentations. Once presentations are confirmed, they become available for volunteers to sign up for, and they can no longer be edited or deleted.
+The account credentials given above also have executive permissions, and you can use these permissions by clicking the "Executive" tab at the top of the website and clicking "Manage Bookings". Once in the manage booking tab, you can edit, delete, and confirm presentations. Once presentations are confirmed, they become available for volunteers to sign up for, and they can no longer be edited.
 
 ## Backend Code
 
