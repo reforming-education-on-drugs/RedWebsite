@@ -17,7 +17,7 @@ npm i
 npm start
 ```
 
-This should run both the backend and the frontend, and it will spit out a URL once it is done. This URL should be [localhost:3000](localhost:3000), and you can go to this URL to view the website
+This should run both the backend and the frontend, and it will spit out a URL once it is done. This URL should be [localhost:3000](localhost:3000), and you can go to this URL to view the website.
 
 ## Navigating the Website
 
@@ -38,7 +38,7 @@ Email: rkthemainburner@gmail.com
 Password: 1234
 ```
 
-Once logged in, you should be able to see all the presentations in the database, and you can sign up by clicking the box under status, and then clicking "Sign up for presentation" button. To cancel a presentation, you can simply uncheck the box and click on the "Sign up for presentation" button
+Once logged in, you should be able to see all the presentations in the database, and you can sign up by clicking the box under status, and then clicking "Sign up for presentation" button. To cancel a presentation, you can simply uncheck the box and click on the "Sign up for presentation" button.
 
 ### Edit, Delete, and Confirm Presentations as an Executive
 
