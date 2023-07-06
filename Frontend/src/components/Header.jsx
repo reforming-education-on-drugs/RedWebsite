@@ -77,6 +77,9 @@ export default function Header() {
                     <NavDropdown.Item href="/manage-bookings">
                       Manage Bookings
                     </NavDropdown.Item>
+                    <NavDropdown.Item href="/manage-users">
+                      Manage Users
+                    </NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Link onClick={logout}>Log out</Nav.Link>
                 </>
