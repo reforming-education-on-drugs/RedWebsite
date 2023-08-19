@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Form, Row, Col, Container } from "react-bootstrap";
+import "../styles/users_page.css"
+
 // import Form from "react-bootstrap/Form";
 // import {
 //   Nav,
@@ -8,8 +9,19 @@ import { Form, Row, Col, Container } from "react-bootstrap";
 //   NavDropdown,
 //   Container as NavContainer,
 // } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Col,
+  Modal,
+  Card,
+  Row,
+  Table,
+  Container,
+} from "react-bootstrap";
 import Bookings from "../components/Bookings";
 import auth from "../utils/auth";
+import Moment from "moment";
 import "../styles/Fonts.css";
 
 const monty = {
@@ -39,7 +51,7 @@ const headLiner = {
   textAlign: "left",
 };
 
-/* sign up for available presentations text */
+/* sign up for available users text */
 const smallLiner = {
   position: "relative",
   marginTop: "20%",
@@ -70,9 +82,12 @@ function ManageUsers() {
     userType: "All",
   });
 
+
+
   useEffect(() => {
     console.log("UPDATEEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
   }, [searchSettings]);
+
 
   return (
     // <div>
@@ -120,9 +135,9 @@ function ManageUsers() {
             })
           }
         >
-          <option value="All">All Presentations</option>
-          <option value="Confirmed">Only Confirmed</option>
-          <option value="Unconfirmed">Only Unconfirmed</option>
+          <option value="All">All Roles</option>
+          <option value="Confirmed">Only Execs</option>
+          <option value="Unconfirmed">Only ??</option>
         </Form.Control>
         <Form.Control
           as="select"
@@ -136,17 +151,18 @@ function ManageUsers() {
             })
           }
         >
-          <option value="Upcoming">Upcoming</option>
+          <option value="Upcoming">Active</option>
           <option value="All">All time</option>
         </Form.Control>
       </Container>
       <div className="container-fluid" id="panelContainer">
         {/* <Presentation /> */}
-        <Bookings searchSettings={searchSettings} />
+        {/* <UserCard user={{name:"ramin", email:"ramin@gmail.com", team:"Calgary", role:"exec"}} /> */}
       </div>
     </Container>
   );
 }
+
 
 export default class ManageUsersPage extends React.Component {
   constructor() {
@@ -158,6 +174,7 @@ export default class ManageUsersPage extends React.Component {
       window.location.href = "/login";
     }
   }
+
 
   render() {
     if (this.state.currentUser) {
@@ -171,3 +188,4 @@ export default class ManageUsersPage extends React.Component {
     }
   }
 }
+
