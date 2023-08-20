@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/users_page.css"
+import "../styles/users_page.css";
 
 // import Form from "react-bootstrap/Form";
 // import {
@@ -9,20 +9,12 @@ import "../styles/users_page.css"
 //   NavDropdown,
 //   Container as NavContainer,
 // } from "react-bootstrap";
-import {
-  Form,
-  Button,
-  Col,
-  Modal,
-  Card,
-  Row,
-  Table,
-  Container,
-} from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 import Bookings from "../components/Bookings";
 import auth from "../utils/auth";
 import Moment from "moment";
 import "../styles/Fonts.css";
+import UserCard from "../components/UserCard";
 
 const monty = {
   fontFamily: "Montserrat",
@@ -82,12 +74,9 @@ function ManageUsers() {
     userType: "All",
   });
 
-
-
   useEffect(() => {
     console.log("UPDATEEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
   }, [searchSettings]);
-
 
   return (
     // <div>
@@ -157,12 +146,19 @@ function ManageUsers() {
       </Container>
       <div className="container-fluid" id="panelContainer">
         {/* <Presentation /> */}
-        {/* <UserCard user={{name:"ramin", email:"ramin@gmail.com", team:"Calgary", role:"exec"}} /> */}
+
+        <UserCard
+          user={{
+            name: "ramin",
+            email: "ramin@gmail.com",
+            team: "Calgary",
+            role: "exec",
+          }}
+        />
       </div>
     </Container>
   );
 }
-
 
 export default class ManageUsersPage extends React.Component {
   constructor() {
@@ -174,7 +170,6 @@ export default class ManageUsersPage extends React.Component {
       window.location.href = "/login";
     }
   }
-
 
   render() {
     if (this.state.currentUser) {
@@ -188,4 +183,3 @@ export default class ManageUsersPage extends React.Component {
     }
   }
 }
-
