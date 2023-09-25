@@ -18,21 +18,27 @@ function showExecPositions(hiring) {
           community while creating remarkable experiences, then please join our
           team!
         </p>
-        <ul>
+        {/* <ul>
           <li>1 JR Finance</li>
-          {/* <li>3 JR Education</li> */}
-          {/* <li>1 JR Internal</li> */}
+          <li>3 JR Education</li>
+          <li>1 JR Internal</li>
           <li>1 JR External</li>
           <li>2 JR Information &amp; Technology</li>
-        </ul>
-        <div className="membership-email">
-          <p>
-            If you have any questions about our roles, please contact us
-            at&nbsp;
-          </p>
+        </ul> */}
+        <br></br>
+        <p>
+          If you have any questions about our roles, please contact us at&nbsp;
           <a href="mailto:reducalgary@gmail.com?Subject=Executive Membership">
             reducalgary@gmail.com
           </a>
+        </p>
+        <div className="membership-email">
+          <p>
+            If you are interested in joining our team, please fill our{" "}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe15Wv21D5vfx7PhfLqWAflEm_v2a1rHOBuEySk9ZjH6CYe-A/viewform">
+              application form!
+            </a>
+          </p>
         </div>
         <p id="warning" className="smaller-width-paragraph">
           If you wish to join our executive team, please include your resume and
@@ -164,13 +170,20 @@ export default function GetInvolvedPage() {
                   Registration as an educator is open to all University of
                   Calgary Students.
                 </p>
-                <div className="membership-email">
-                  <p>
-                    For any questions or inquiries, please contact us at&nbsp;
-                  </p>
+                <p>
+                  For any questions or inquiries, please contact us at&nbsp;
                   <a href="mailto:reducalgary@gmail.com?Subject=Membership questions">
                     reducalgary@gmail.com
                   </a>
+                </p>
+
+                <div className="membership-email">
+                  <p>
+                    If you are interested in volunteering, please fill our{" "}
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXASVim6TrHkD3zSHiTBS4Zs2g-TtuY3IfTUGHPkugIVoBkA/viewform">
+                      application form!
+                    </a>
+                  </p>
                 </div>
                 {!form.passed ? (
                   <div className="identity">
