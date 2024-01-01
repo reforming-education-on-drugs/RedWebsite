@@ -1,8 +1,9 @@
 import React from "react";
-import Input from "../components/Input";
-import DisplayError from "../components/Error";
-import auth from "../utils/auth";
+import Input from "../../components/Input";
+import DisplayError from "../../components/Error";
+import auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/Logo.png";
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -67,10 +68,8 @@ export default class LoginPage extends React.Component {
       <main>
         <div className="identity">
           <div className="identity-card">
-            <img
-              src={require("../assets/images/Logo.png")}
-              alt="RED logo symbol"
-            />
+            {/* <img src={require(imageDir + "Logo.png")} alt="RED logo symbol" /> */}
+            <img src={logo} alt="RED logo symbol" />
             <form name="login" onSubmit={this.handleSubmit}>
               <Input
                 name="email"

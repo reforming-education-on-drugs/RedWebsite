@@ -1,7 +1,9 @@
 import React from "react";
-import Input from "../components/Input";
-import auth from "../utils/auth";
-import DisplayError from "../components/Error";
+import Input from "../../components/Input";
+import auth from "../../utils/auth";
+import DisplayError from "../../components/Error";
+// const imageDir = "../../assets/images/";
+import logo from "../../assets/images/Logo.png";
 
 export default class InvitePage extends React.Component {
   constructor(props) {
@@ -95,10 +97,8 @@ export default class InvitePage extends React.Component {
       <main>
         <div className="identity">
           <div className="identity-card">
-            <img
-              src={require("../assets/images/Logo.png")}
-              alt="RED logo symbol"
-            />
+            {/* <img src={require(imageDir + "Logo.png")} alt="RED logo symbol" /> */}
+            <img src={logo} alt="RED logo symbol" />
             {this.state.passwordResetted ? (
               <div>
                 <p>Your password has successfully been changed.</p>

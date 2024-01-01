@@ -11,9 +11,12 @@ export default function DonatePage() {
       <div className="container redcontainer">
         <h2>Like what we do? Please consider donating.</h2>
         <br />
-        <p>Please click the link below to donate to RED through PayPal. PayPal is a secure method for transferring funds online.
+        <p>
+          Please click the link below to donate to RED through PayPal. PayPal is
+          a secure method for transferring funds online.
           <br />
-          We are thankful for your support. Every contribution will go towards improving our presentations and operational efficiencies.
+          We are thankful for your support. Every contribution will go towards
+          improving our presentations and operational efficiencies.
         </p>
       </div>
       <div className="text-center">

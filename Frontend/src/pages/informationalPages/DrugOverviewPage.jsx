@@ -9,7 +9,13 @@ import {
   OverlayTrigger,
 } from "react-bootstrap";
 
-import "../styles/drugoverview-presentation.css";
+import "../../styles/drugoverview-presentation.css";
+// const imageDir = "../../assets/images/";
+// import { imageDir } from "./assets/images/";
+import brain from "../../assets/images/brain.svg";
+import neuron from "../../assets/images/neuron.svg";
+import presenter from "../../assets/images/presenter.svg";
+import patient_investigation from "../../assets/images/patient_investigation.svg";
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = React.useState(true);
@@ -42,35 +48,17 @@ export default function DrugOverviewPage() {
         </Row>
       </FadeInSection>
       <FadeInSection>
-        <Row className="justify-content-center align-items-center">
-          <Col md={8} className="presentation-box-0">
-            <Row className="justify-content-center align-items-center">
-              <Col md={10} className="presentation-box1 presentation-box-desc">
-                <Col md={9}>
-                  The Drug Overview provides an understanding of the
-                  commonly-used drugs amphetamine (adderall), alcohol, and
-                  cannabis.
-                </Col>
-              </Col>
-              <Col md={2} className="presentation-box-img">
-                <img
-                  id="brain-img"
-                  src={require("../assets/images/brain.svg")}
-                />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+        <Col md={2} className="presentation-box-img">
+          <img id="brain-img" src={brain} />{" "}
+          {/* Use the imageDir variable to construct the image path */}
+        </Col>
       </FadeInSection>
       <FadeInSection>
         <Row className="justify-content-center align-items-center">
           <Col md={10} className="presentation-box2 ">
             <Row className="justify-content-center align-items-center">
               <Col md={4} sm={6} xs={8} className="presentation-box-img2">
-                <img
-                  id="neuron-img"
-                  src={require("../assets/images/neuron.svg")}
-                />
+                <img id="neuron-img" src={neuron} />
               </Col>
               <Col md={8} className="presentation-box-desc ">
                 <Col md={11}>
@@ -96,10 +84,7 @@ export default function DrugOverviewPage() {
                 </Col>
               </Col>
               <Col md={4} sm={6} xs={8} className="presentation-box-img3">
-                <img
-                  id="presenter-img"
-                  src={require("../assets/images/presenter.svg")}
-                />
+                <img id="presenter-img" src={presenter} />
               </Col>
             </Row>
           </Col>
@@ -109,10 +94,7 @@ export default function DrugOverviewPage() {
         <Row className="justify-content-center align-items-center">
           <Col md={10} className="presentation-box4 ">
             <Row className="justify-content-center align-items-center">
-              <img
-                id="patient-investigation"
-                src={require("../assets/images/patient_investigation.svg")}
-              />
+              <img id="patient-investigation" src={patient_investigation} />
             </Row>
           </Col>
         </Row>

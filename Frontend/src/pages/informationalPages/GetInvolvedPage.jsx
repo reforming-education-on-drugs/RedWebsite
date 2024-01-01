@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Tabs, Tab, Container } from "react-bootstrap";
-import Input from "../components/Input";
-import DisplayError from "../components/Error";
-import auth from "../utils/auth";
+import Input from "../../components/Input";
+import DisplayError from "../../components/Error";
+import auth from "../../utils/auth";
 
 const emailRegex =
   /^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(ucalgary)\.(com|ca)$/g;

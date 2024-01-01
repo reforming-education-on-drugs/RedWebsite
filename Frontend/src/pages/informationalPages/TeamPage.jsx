@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Container, Row, Col, Modal } from "react-bootstrap";
 import chunk from "lodash/chunk";
 
+// const imageDir = "../../assets/images";
+
 // This will import all the images because ES6 standard doesn't allow
 // dynamic importing of images
 //
@@ -17,7 +19,7 @@ function importAll(r) {
 }
 
 const importedImages = importAll(
-  require.context("../assets/images", false, /\.(png|jpe?g|JPE?G|svg)$/)
+  require.context("../../assets/images", false, /\.(png|jpe?g|JPE?G|svg)$/)
 );
 
 function Executive(props) {

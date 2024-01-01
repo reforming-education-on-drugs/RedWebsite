@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import Input from "../components/Input";
-import auth from "../utils/auth";
-import DisplayError from "../components/Error";
+import auth from "../../utils/auth";
+import DisplayError from "../../components/Error";
+const imageDir = "../../assets/images/";
 
 export default function ConfirmationPage() {
   document.title = "RED | Register";
@@ -53,10 +54,7 @@ export default function ConfirmationPage() {
     <main>
       <div className="identity">
         <div className="identity-card">
-          <img
-            src={require("../assets/images/Logo.png")}
-            alt="RED logo symbol"
-          />
+          <img src={require(imageDir + "Logo.png")} alt="RED logo symbol" />
           {state.loading ? (
             <div>
               <p>loading...</p>

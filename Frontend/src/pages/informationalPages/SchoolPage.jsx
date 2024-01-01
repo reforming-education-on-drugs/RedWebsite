@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Container, Tabs, Tab } from "react-bootstrap";
-import "../styles/schools.css";
+import "../../styles/schools.css";
 
 export default function SchoolPage() {
   document.title = "RED | For Schools";
@@ -121,17 +121,49 @@ export default function SchoolPage() {
               </Tab>
               <Tab eventKey={4} title="Vaccine">
                 <p className="presentation_desc">
-                  The vaccine presentation was developed in response to the COVID-19 pandemic to explain the whys and hows of COVID-19 and “the jab”. This presentation is intended to provide a basic understanding of immunology, our body’s defense mechanisms against foreign bodies, how vaccines work, and the history that has led to the development of the vaccines we have today. The aim is to familiarize students with these concepts so they have the knowledge to recognize misinformation, as well as feel more confident in their medical decisions. Since this is probably only the first of many far-reaching global pandemics, such education is necessary for fast national and global action in the future. People fear what they do not know, and we hope this presentation changes that.
+                  The vaccine presentation was developed in response to the
+                  COVID-19 pandemic to explain the whys and hows of COVID-19 and
+                  “the jab”. This presentation is intended to provide a basic
+                  understanding of immunology, our body’s defense mechanisms
+                  against foreign bodies, how vaccines work, and the history
+                  that has led to the development of the vaccines we have today.
+                  The aim is to familiarize students with these concepts so they
+                  have the knowledge to recognize misinformation, as well as
+                  feel more confident in their medical decisions. Since this is
+                  probably only the first of many far-reaching global pandemics,
+                  such education is necessary for fast national and global
+                  action in the future. People fear what they do not know, and
+                  we hope this presentation changes that.
                 </p>
               </Tab>
               <Tab eventKey={5} title="Addiction">
                 <p className="presentation_desc">
-                  Addiction has always held a large stigma. As more research comes out and governments and science understand more about addiction, it is becoming more and more clear that we completely misunderstood addiction. This presentation seeks to educate those on what addiction actually is, how it works, and potential resolutions for aspects of it at both the individual and societal level. Education on addiction is necessary to ensure that coming generations are more empathetic to others struggles and mitigate the mystery that often shrouds addiction. 
+                  Addiction has always held a large stigma. As more research
+                  comes out and governments and science understand more about
+                  addiction, it is becoming more and more clear that we
+                  completely misunderstood addiction. This presentation seeks to
+                  educate those on what addiction actually is, how it works, and
+                  potential resolutions for aspects of it at both the individual
+                  and societal level. Education on addiction is necessary to
+                  ensure that coming generations are more empathetic to others
+                  struggles and mitigate the mystery that often shrouds
+                  addiction.
                 </p>
               </Tab>
               <Tab eventKey={6} title="Mental Health">
                 <p className="presentation_desc">
-                  Now more than ever, mental health is an increasingly relevant field, both in science and everyday life. This presentation, which is geared towards a general student audience, aims to provide a comprehensive explanation of the neurological bases behind common mental health disorders, specifically mood, anxiety, and addiction disorders. Additionally, this presentation explores the science behind medications for mental disorders. By providing a more scientific lens through which to view mental health disorders and their treatments, we hope to reduce cases of stigma and/or myths in students, and motivate important but sometimes intimidating discussions about mental health. 
+                  Now more than ever, mental health is an increasingly relevant
+                  field, both in science and everyday life. This presentation,
+                  which is geared towards a general student audience, aims to
+                  provide a comprehensive explanation of the neurological bases
+                  behind common mental health disorders, specifically mood,
+                  anxiety, and addiction disorders. Additionally, this
+                  presentation explores the science behind medications for
+                  mental disorders. By providing a more scientific lens through
+                  which to view mental health disorders and their treatments, we
+                  hope to reduce cases of stigma and/or myths in students, and
+                  motivate important but sometimes intimidating discussions
+                  about mental health.
                 </p>
               </Tab>
             </Tabs>
