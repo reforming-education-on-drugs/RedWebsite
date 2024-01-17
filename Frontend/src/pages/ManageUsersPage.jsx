@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Row, Col, Container } from "react-bootstrap";
 // import Form from "react-bootstrap/Form";
 // import {
@@ -64,7 +64,16 @@ const descriptionText = {
   lineHeight: "24px",
 };
 
-function ManageVolunteers() {
+function ManageUsers() {
+  const [searchSettings, setSearchSettings] = useState({
+    team: "Calgary Team",
+    userType: "All",
+  });
+
+  useEffect(() => {
+    console.log("UPDATEEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+  }, [searchSettings]);
+
   return (
     // <div>
     //   {/* <Nav className="justify-content-center"> */}
@@ -84,28 +93,62 @@ function ManageVolunteers() {
     // </div>
     <Container className="container-no-padding mt-4">
       <Container style={monty} className="container-no-padding mt-4">
-        <Form.Control as="select" size="md">
+        <Form.Control
+          as="select"
+          size="md"
+          value={searchSettings.team}
+          onChange={(event) =>
+            setSearchSettings({
+              team: event.target.value,
+              presentationType: searchSettings.presentationType,
+              dateType: searchSettings.dateType,
+            })
+          }
+        >
+          <option>Calgary Team</option>
           <option>Calgary Team</option>
         </Form.Control>
-        <Form.Control as="select" size="md">
-          <option value="option1">All Presentations</option>
-          <option value="option2">Only Confirmed</option>
-          <option value="option3">Only Unconfirmed</option>
+        <Form.Control
+          as="select"
+          size="md"
+          value={searchSettings.presentationType}
+          onChange={(event) =>
+            setSearchSettings({
+              team: searchSettings.team,
+              presentationType: event.target.value,
+              dateType: searchSettings.dateType,
+            })
+          }
+        >
+          <option value="All">All Presentations</option>
+          <option value="Confirmed">Only Confirmed</option>
+          <option value="Unconfirmed">Only Unconfirmed</option>
         </Form.Control>
-        <Form.Control as="select" size="md">
-          <option value="option1">Upcoming</option>
-          <option value="option2">Past</option>
+        <Form.Control
+          as="select"
+          size="md"
+          value={searchSettings.dateType}
+          onChange={(event) =>
+            setSearchSettings({
+              team: searchSettings.team,
+              presentationType: searchSettings.presentationType,
+              dateType: event.target.value,
+            })
+          }
+        >
+          <option value="Upcoming">Upcoming</option>
+          <option value="All">All time</option>
         </Form.Control>
       </Container>
       <div className="container-fluid" id="panelContainer">
         {/* <Presentation /> */}
-        <Bookings />
+        <Bookings searchSettings={searchSettings} />
       </div>
     </Container>
   );
 }
 
-export default class ManageVolunteersPage extends React.Component {
+export default class ManageUsersPage extends React.Component {
   constructor() {
     super();
 
@@ -120,7 +163,7 @@ export default class ManageVolunteersPage extends React.Component {
     if (this.state.currentUser) {
       return (
         <main>
-          <ManageVolunteers />
+          <ManageUsers />
         </main>
       );
     } else {
