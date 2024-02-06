@@ -23,12 +23,9 @@ app.get("/presentation_booking/unconfirmed", db.GetUnconfirmedPresentations);
 app.get("/executives", db.GetExecutives);
 app.post("/presentation_booking", db.createPresentationBooking);
 app.delete("/presentation_booking", db.deletePresentationBooking);
-app.get("/presentation", db.GetPresentation);
 app.post("/presents", db.createPresents);
 app.delete("/presents", db.deletePresents);
 app.post("/red_staff", db.createRedStaff);
-app.post("/trains", db.createTrains);
-app.post("/makes", db.createMakes);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);

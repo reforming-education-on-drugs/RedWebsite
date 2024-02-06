@@ -1,0 +1,47 @@
+[
+    // test Presentation_Booking
+    {
+        "CEmail": "c3@gmail.com",
+        "Presentation_Date": "2020-01-01",
+        "Presentation_Time": "10:00:00",
+        "Location_In_School": "Room 1",
+        "Presentation": "Drug Overview",
+        "Number_Of_Student": 100,
+        "Student_Grade": "10",
+        "Duration_In_Minutes": 60,
+        "Can_Class_Use_Kahoot": true,
+        "Notes": "This is a test",
+        "Executive_Confirmation": true,
+        "Cname": "Client 1",
+        "Sname": "School 1",
+        "SAddress": "123 Street NW",
+        "SDname": "Calgary Catholic School District",
+        "City_name": "Calgary",
+        "capacity": 2
+    },
+
+    // test Presents
+    {
+        "School_Name": "School 1", 
+        "Date": "2022-03-01", 
+        "Time": "09:00", 
+        "Location_In_School": "Auditorium", 
+        "Volunteer_email": "jane@example.com"
+    },
+
+    // test RED_staff
+    {
+        "Email": "c1@gmail.com",
+        "Fname": "Client",
+        "Lname": "1",
+        "Uni_ID": "123456789",
+        "Faculty": "Science",
+        "Join_Date": "2020-01-01",
+        "is_RED_volunteer": "true",
+        "is_RED_Executive": "false",
+        "is_Trained": "true",
+        "position": "Volunteer",
+        "Cname": "Client 1",
+        "Uname": "University of Calgary"
+    }
+]
