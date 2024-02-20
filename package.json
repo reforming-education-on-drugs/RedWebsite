@@ -17,7 +17,7 @@
     "lint:watch": "npm run lint -- --watch",
     "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "rimraf ./dist",
-    "move-files": "cp _redirects dist && cp -r ./src/email-templates ./dist",
+    "move-files": "copy _redirects dist && xcopy /E /I \"./src/email-templates\" \"./dist/email-templates\"",
     "prebuild": "npm run lint && npm run test && npm run clean-dist",
     "build": "babel-node tools/build.js && npm run move-files",
     "build:open": "npm run build && npm run open:dist",

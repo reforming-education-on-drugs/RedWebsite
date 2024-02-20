@@ -1,3 +1,20 @@
 {
-	"siteId": "b1c032fe-59d2-48b8-bff5-7beccd89ea56"
+	"siteId": "b1c032fe-59d2-48b8-bff5-7beccd89ea56",
+	"geolocation": {
+		"data": {
+			"city": "Calgary",
+			"country": {
+				"code": "CA",
+				"name": "Canada"
+			},
+			"subdivision": {
+				"code": "AB",
+				"name": "Alberta"
+			},
+			"timezone": "America/Edmonton",
+			"latitude": 50.8833,
+			"longitude": -114.0334
+		},
+		"timestamp": 1708413460023
+	}
 }
