@@ -59,6 +59,10 @@ ALTER TABLE Presents ADD FOREIGN KEY (Volunteer_Email) REFERENCES RED_staff(Emai
 
 
 -- test values to initialize the database
+INSERT INTO School (SName, Address, SDname, City_Name)
+VALUES ('School1', '123 Main St', 'School District 1', 'City1'),
+       ('School2', '456 Elm St', 'School District 2', 'City2');
+
 INSERT INTO RED_staff (Email, Fname, Lname, Uni_ID, Faculty, Join_Date, is_RED_volunteer, is_Trained, is_RED_Executive, position, Cname, Uname)
 VALUES ('john@example.com', 'John', 'Doe', 123456, 'Computer Science', '2022-01-01', true, true, true, 'Executive', 'City1', 'University of Toronto'),
        ('jane@example.com', 'Jane', 'Smith', 654321, 'Business Administration', '2022-02-01', true, false, false, 'Volunteer', 'City2', 'University of Calgary');
