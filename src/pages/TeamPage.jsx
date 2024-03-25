@@ -173,22 +173,16 @@ export default function TeamPage() {
 
   const executives = [
     {
-      name: "PUNIT BHATT",
-      position: "CO-PRESIDENT",
-      imageName: "Punit.jpg",
-      bio: `Hey! My name is Punit Bhatt. I am second year student at U of C pursuing a undergraduate degree in Neuroscience. Drug education and awareness is something that I think is especially important for our generation due to the impact of social media. Drugs and alcohol are always "advertised" on our socials through big celebrities and that may lead to many misconceptions about consumption. Additionally, the popularity of vapes and the legalization of marijuana demands that we as a society look to promote drug education. That is why I think that RED can have a huge impact on our community: by expanding beyond just saying "drugs are bad" and actually explaining some of the science behind drugs, we are able to promote safe consumption and healthy choices. Additionally, as students we may be able to provide a connection that is more impactful. As this year's Co-President I hope to continue our steps towards expansion and continue to spread out message to as many schools as possible.`,
-    },
-    {
-      name: "VICTORIA MELTS",
-      position: "CO-PRESIDENT",
-      imageName: "Victoria.jpg",
-      bio: "I am pursuing an undergraduate degree in BioMedical Science at the University of Calgary, and am planning on doing a Masters in Neuroscience next. Understanding how psychoactive drugs work is one of my biggest life passions; I do research with substances such as cannabis and psilocybin at the Hotchkiss Brain Institute, and read about pharmacology in my spare time. I experienced an uninformative, scare-tactic approach to drug education in grade school and have been on a mission to correct that ever since. I hope to inspire students to use science to answer their life questions, guide their decisions, and spark a curiosity about how the world works.",
-    },
-    {
       name: "NOELLE THUNDATHIL",
-      position: "VP INTERNAL",
+      position: "CO-PRESIDENT",
       imageName: "Noelle.jpg",
       bio: "Hey! My name is Noelle, and I am a third-year Bioinformatics major. I joined RED one year ago after hearing about the direct impact it made for young adolescents. Drug-use and substance abuse are topics that are not talked about enough, especially in an unbiased manner. As an avid advocate for mental health, RED provided the perfect opportunity for me to learn more about drug-education while encouraging youth activism in the community. Over the past year, I got the chance to teach in a classroom environment and educate students about the importance of understanding issues like addiction and the opioid epidemic. As VP Internal, I hope to engage more students in drug-education and provide them with the knowledge to make their own informed decisions.",
+    },
+    {
+      name: "Hailey Moretto",
+      position: "CO-PRESIDENT",
+      imageName: "Hailey.jpg",
+      bio: "Hi, my name is Hailey and I am in my second year of neuroscience at the University of Calgary. Growing up, I was always told to avoid drugs because they can be dangerous and bad for you, but I was never actually informed of the science behind it. Drug education should include more than just scare tactics, which is why I joined RED. This club teaches the information and science behind drug use that I wish I had learned when I was younger, allowing adolescents to understand how drugs actually work and use this to make informed decisions. When I am not at school, you can find me on a mountain in the Rockies climbing or hiking.",
     },
     {
       name: "RAMIN KAHIDI",
@@ -201,12 +195,6 @@ export default function TeamPage() {
       position: "VP Media & Marketing",
       imageName: "Alexandra.jpg",
       bio: "Hi there! My name is Alex and I am in my fourth year of Mind Sciences in Kinesiology at the University of Calgary. When I first heard about the RED team’s initiative to improve drug education for children and youth, I was eager to join! Non-biased, educational and safety-focused presentations on illicit substances are essential in ensuring individuals have the knowledge to make informed and healthy decisions for themselves. In my role of VP Media & Marketing I aspire to expand the outreach of the RED team’s mission and continue to foster the conversation surrounding safe substance use.",
-    },
-    {
-      name: "Hailey Moretto",
-      position: "VP FINANCE",
-      imageName: "Hailey.jpg",
-      bio: "Hi, my name is Hailey and I am in my second year of neuroscience at the University of Calgary. Growing up, I was always told to avoid drugs because they can be dangerous and bad for you, but I was never actually informed of the science behind it. Drug education should include more than just scare tactics, which is why I joined RED. This club teaches the information and science behind drug use that I wish I had learned when I was younger, allowing adolescents to understand how drugs actually work and use this to make informed decisions. When I am not at school, you can find me on a mountain in the Rockies climbing or hiking.",
     },
     {
       name: "TATSUYA HANSEN",
@@ -248,7 +236,12 @@ export default function TeamPage() {
     },
   ];
 
-  const alumnis = [
+  const alumnis = [{
+      name: "PUNIT BHATT",
+      position: "CO-PRESIDENT"},
+    {
+      name: "VICTORIA MELTS",
+      position: "CO-PRESIDENT"},
     {
       name: "SABINE BANNOR",
       position: "EDUCATION DIRECTOR",
